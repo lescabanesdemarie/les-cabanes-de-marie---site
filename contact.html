@@ -7,22 +7,31 @@
 <meta name="description" content="Contactez Les Cabanes de Marie à Ogens (VD) : téléphone, email ou formulaire. Marie & Renaud vous répondent avec plaisir.">
 <link rel="canonical" href="https://www.lescabanesdemarie.com/contact.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#222C18">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Les Cabanes de Marie">
 <meta property="og:locale" content="fr_CH">
+<meta property="og:locale:alternate" content="de_CH">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:title" content="Contact — Les Cabanes de Marie">
 <meta property="og:description" content="Téléphone, email ou formulaire — Marie & Renaud vous répondent.">
 <meta property="og:url" content="https://www.lescabanesdemarie.com/contact.html">
-<meta property="og:image" content="https://static.wixstatic.com/media/33f473_a87d0a5b57f040f8be6022cdac3802eb~mv2.jpeg">
+<meta property="og:image" content="https://www.lescabanesdemarie.com/assets/img/og-default.jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1155">
+<meta property="og:image:alt" content="Contact — Les Cabanes de Marie">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — Les Cabanes de Marie">
 <meta name="twitter:description" content="Téléphone, email ou formulaire — Marie & Renaud vous répondent.">
-<meta name="twitter:image" content="https://static.wixstatic.com/media/33f473_a87d0a5b57f040f8be6022cdac3802eb~mv2.jpeg">
+<meta name="twitter:image" content="https://www.lescabanesdemarie.com/assets/img/og-default.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bone:#F2ECDF;--bone-2:#E7DDC9;--paper:#EFE7D6;--ink:#221F18;--forest:#222C18;--moss:#6E7C52;--clay:#B5663B;--sand:#CBA968;--cream:#FBF7EE;--line:rgba(34,31,24,.16)}
 *{margin:0;padding:0;box-sizing:border-box}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--clay);outline-offset:2px}
 body{font-family:'Hanken Grotesk',sans-serif;background:var(--bone);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;line-height:1.05;letter-spacing:-.01em}
@@ -116,41 +125,56 @@ textarea{min-height:120px;resize:vertical}
         </fieldset>
         <div id="done" class="done">
           <h3 data-i="ct.doneh">Merci !</h3>
-          <p data-i="ct.donep">Votre message est prêt à partir. Nous revenons vers vous très vite.</p>
+          <p data-i="ct.donep">Nous revenons vers vous très vite.</p>
         </div>
       </form>
     </div>
 
-    <p data-i="ct.resa" style="text-align:center;color:var(--moss);font-size:.92rem;margin-bottom:8px">Envie de réserver tout de suite ? <a href="https://www.planyo.com/booking/lescabanesdemarie.com" target="_blank" rel="noopener" style="color:var(--clay);font-weight:600">Voir les disponibilités →</a></p>
+    <p data-i="ct.resa" style="text-align:center;color:var(--moss);font-size:.92rem;margin-bottom:8px">Envie de réserver tout de suite ? <a href="index.html#reserver" style="color:var(--clay);font-weight:600">Voir les disponibilités →</a></p>
   </div>
 
   <div class="foot" data-i="ct.foot">Les Cabanes de Marie — Ch. du Petit Bâle 12, 1045 Ogens (VD), Suisse · <a href="confidentialite.html" style="color:var(--moss)">Confidentialité</a></div>
 
+<script src="assets/forms.js"></script>
 <script>
   const DEST_EMAIL = "info@lescabanesdemarie.com";
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(e){
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
     if(form.elements['website'] && form.elements['website'].value){ form.querySelector('fieldset').style.display='none'; document.getElementById('done').style.display='block'; return; }
     if(!form.checkValidity()){ form.reportValidity(); return; }
     const fd = new FormData(form);
-    const body = [
-      'Message depuis le site',
-      '',
-      'Nom : ' + fd.get('nom'),
-      'Email : ' + fd.get('email'),
-      'Téléphone : ' + (fd.get('tel')||'—'),
-      '',
-      fd.get('message')
-    ].join('\n');
-    window.location.href = 'mailto:' + DEST_EMAIL + '?subject=' + encodeURIComponent('Message site — ' + fd.get('nom')) + '&body=' + encodeURIComponent(body);
+    const btn = form.querySelector('button[type=submit]');
+    if(btn){ btn.disabled = true; btn.dataset.txt = btn.textContent; btn.textContent = '…'; }
+
+    // 1) envoi direct — n'ouvre pas le logiciel mail du visiteur
+    const sent = await window.cdmSendForm({
+      nom: fd.get('nom'),
+      email: fd.get('email'),
+      telephone: fd.get('tel') || '—',
+      message: fd.get('message'),
+      replyto: fd.get('email')
+    }, 'Message site — ' + fd.get('nom'));
+
+    // 2) repli : e-mail classique tant que la clé Web3Forms n'est pas renseignée
+    if(!sent){
+      const body = [
+        'Message depuis le site','',
+        'Nom : ' + fd.get('nom'),
+        'Email : ' + fd.get('email'),
+        'Téléphone : ' + (fd.get('tel')||'—'),
+        '', fd.get('message')
+      ].join('\n');
+      window.location.href = 'mailto:' + DEST_EMAIL + '?subject=' + encodeURIComponent('Message site — ' + fd.get('nom')) + '&body=' + encodeURIComponent(body);
+    }
+    if(btn){ btn.disabled = false; if(btn.dataset.txt) btn.textContent = btn.dataset.txt; }
     form.querySelector('fieldset').style.display = 'none';
     document.getElementById('done').style.display = 'block';
   });
 </script>
 <script>
 (function(){
-  const I18N={"de": {"back": "← Zurück zur Website", "ct.eb": "Kontakt", "ct.h1": "Eine Frage, <span class=\"it\">ein Wort?</span>", "ct.intro": "Marie &amp; Renaud antworten Ihnen mit Freude. Per Telefon, per E-Mail oder über das untenstehende Formular.", "ct.kaddr": "Adresse", "ct.addrval": "Ch. du Petit Bâle 12<br>1045 Ogens — Schweiz", "ct.ktel": "Telefon", "ct.kmail": "E-Mail", "ct.kacc": "Anfahrt", "ct.accval": "Ca. 30 Min. von Lausanne, nahe Yverdon · <a href=\"https://www.google.com/maps/search/?api=1&query=46.711086,6.726036\" target=\"_blank\" rel=\"noopener\">Route</a>", "ct.legend": "Schreiben Sie uns", "ct.lnom": "Name <span class=\"req\">*</span>", "ct.lmail": "E-Mail <span class=\"req\">*</span>", "ct.ltel": "Telefon", "ct.lmsg": "Ihre Nachricht <span class=\"req\">*</span>", "ct.send": "Senden", "ct.doneh": "Danke!", "ct.donep": "Ihre Nachricht ist bereit zum Versand. Wir melden uns sehr bald bei Ihnen.", "ct.resa": "Möchten Sie gleich reservieren? <a href=\"https://www.planyo.com/booking/lescabanesdemarie.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--clay);font-weight:600\">Verfügbarkeiten ansehen →</a>", "ct.foot": "Les Cabanes de Marie — Ch. du Petit Bâle 12, 1045 Ogens (VD), Schweiz · <a href=\"confidentialite.html\" style=\"color:var(--moss)\">Datenschutz</a>", "ph.msg": "Hallo Marie & Renaud …"}, "en": {"back": "← Back to site", "ct.eb": "Contact", "ct.h1": "A question, <span class=\"it\">a word?</span>", "ct.intro": "Marie &amp; Renaud are happy to answer — by phone, by email, or via the form below.", "ct.kaddr": "Address", "ct.addrval": "Ch. du Petit Bâle 12<br>1045 Ogens — Switzerland", "ct.ktel": "Phone", "ct.kmail": "Email", "ct.kacc": "Getting here", "ct.accval": "About 30 min from Lausanne, close to Yverdon · <a href=\"https://www.google.com/maps/search/?api=1&query=46.711086,6.726036\" target=\"_blank\" rel=\"noopener\">Directions</a>", "ct.legend": "Write to us", "ct.lnom": "Name <span class=\"req\">*</span>", "ct.lmail": "Email <span class=\"req\">*</span>", "ct.ltel": "Phone", "ct.lmsg": "Your message <span class=\"req\">*</span>", "ct.send": "Send", "ct.doneh": "Thank you!", "ct.donep": "Your message is ready to go. We'll get back to you very soon.", "ct.resa": "Want to book right away? <a href=\"https://www.planyo.com/booking/lescabanesdemarie.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--clay);font-weight:600\">See availability →</a>", "ct.foot": "Les Cabanes de Marie — Ch. du Petit Bâle 12, 1045 Ogens (VD), Switzerland · <a href=\"confidentialite.html\" style=\"color:var(--moss)\">Privacy</a>", "ph.msg": "Hello Marie & Renaud …"}};
+  const I18N={"de": {"back": "← Zurück zur Website", "ct.eb": "Kontakt", "ct.h1": "Eine Frage, <span class=\"it\">ein Wort?</span>", "ct.intro": "Marie &amp; Renaud antworten Ihnen mit Freude. Per Telefon, per E-Mail oder über das untenstehende Formular.", "ct.kaddr": "Adresse", "ct.addrval": "Ch. du Petit Bâle 12<br>1045 Ogens — Schweiz", "ct.ktel": "Telefon", "ct.kmail": "E-Mail", "ct.kacc": "Anfahrt", "ct.accval": "Ca. 30 Min. von Lausanne, nahe Yverdon · <a href=\"https://www.google.com/maps/search/?api=1&query=46.711086,6.726036\" target=\"_blank\" rel=\"noopener\">Route</a>", "ct.legend": "Schreiben Sie uns", "ct.lnom": "Name <span class=\"req\">*</span>", "ct.lmail": "E-Mail <span class=\"req\">*</span>", "ct.ltel": "Telefon", "ct.lmsg": "Ihre Nachricht <span class=\"req\">*</span>", "ct.send": "Senden", "ct.doneh": "Danke!", "ct.donep": "Wir melden uns sehr bald bei Ihnen.", "ct.resa": "Möchten Sie gleich reservieren? <a href=\"index.html#reserver\" style=\"color:var(--clay);font-weight:600\">Verfügbarkeiten ansehen →</a>", "ct.foot": "Les Cabanes de Marie — Ch. du Petit Bâle 12, 1045 Ogens (VD), Schweiz · <a href=\"confidentialite.html\" style=\"color:var(--moss)\">Datenschutz</a>", "ph.msg": "Hallo Marie & Renaud …"}, "en": {"back": "← Back to site", "ct.eb": "Contact", "ct.h1": "A question, <span class=\"it\">a word?</span>", "ct.intro": "Marie &amp; Renaud are happy to answer — by phone, by email, or via the form below.", "ct.kaddr": "Address", "ct.addrval": "Ch. du Petit Bâle 12<br>1045 Ogens — Switzerland", "ct.ktel": "Phone", "ct.kmail": "Email", "ct.kacc": "Getting here", "ct.accval": "About 30 min from Lausanne, close to Yverdon · <a href=\"https://www.google.com/maps/search/?api=1&query=46.711086,6.726036\" target=\"_blank\" rel=\"noopener\">Directions</a>", "ct.legend": "Write to us", "ct.lnom": "Name <span class=\"req\">*</span>", "ct.lmail": "Email <span class=\"req\">*</span>", "ct.ltel": "Phone", "ct.lmsg": "Your message <span class=\"req\">*</span>", "ct.send": "Send", "ct.doneh": "Thank you!", "ct.donep": "We'll get back to you very soon.", "ct.resa": "Want to book right away? <a href=\"index.html#reserver\" style=\"color:var(--clay);font-weight:600\">See availability →</a>", "ct.foot": "Les Cabanes de Marie — Ch. du Petit Bâle 12, 1045 Ogens (VD), Switzerland · <a href=\"confidentialite.html\" style=\"color:var(--moss)\">Privacy</a>", "ph.msg": "Hello Marie & Renaud …"}};
   const cache={}, phCache={};
   document.querySelectorAll('[data-i]').forEach(el=>{cache[el.dataset.i]=el.innerHTML;});
   document.querySelectorAll('[data-i-ph]').forEach(el=>{phCache[el.dataset.iPh]=el.getAttribute('placeholder')||'';});
@@ -172,7 +196,20 @@ textarea{min-height:120px;resize:vertical}
   document.querySelectorAll('.lang-b').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
   var s; try{ s=localStorage.getItem('cdm_lang'); }catch(e){}
   if(s && s!=='fr') setLang(s);
+  // Arrivée depuis « Réserver un e-VTT » (pas de ressource Planyo pour le e-VTT) :
+  // on pré-remplit le message dans la langue active pour éviter un formulaire vide.
+  if(new URLSearchParams(location.search).get('sujet')==='evtt'){
+    var lang=(s && I18N[s])?s:'fr';
+    var msg={
+      fr:"Bonjour Marie & Renaud,\n\nJe souhaiterais réserver une location de e-VTT.\nDates envisagées : \nNombre de vélos : \nKit grillade : oui / non",
+      de:"Hallo Marie & Renaud,\n\nich möchte gerne einen E-Bike-Verleih reservieren.\nGewünschte Daten: \nAnzahl Bikes: \nGrill-Set: ja / nein",
+      en:"Hello Marie & Renaud,\n\nI would like to book an e-MTB rental.\nPreferred dates: \nNumber of bikes: \nBarbecue kit: yes / no"
+    };
+    var t=document.getElementById('message');
+    if(t && !t.value){ t.value=msg[lang]||msg.fr; }
+  }
 })();
 </script>
+<script src="assets/site-nav.js" defer></script>
 </body>
 </html>

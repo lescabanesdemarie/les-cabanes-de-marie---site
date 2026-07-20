@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — Les Cabanes de Marie</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#222C18">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#F2ECDF;--ink:#221F18;--forest:#222C18;--moss:#6E7C52;--clay:#B5663B;--sand:#CBA968;--line:rgba(34,31,24,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sand);outline-offset:2px}
+body{font-family:'Hanken Grotesk',sans-serif;background:var(--forest);color:var(--bone);line-height:1.6;min-height:100svh;display:flex;flex-direction:column}
+a{color:inherit}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;max-width:1080px;margin:0 auto;width:100%}
+.brand{font-family:'Fraunces';font-size:1.05rem;text-decoration:none;color:var(--bone);display:flex;align-items:center;gap:8px}
+.wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px 70px;max-width:640px;margin:0 auto}
+.num{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(5rem,18vw,9rem);line-height:1;color:var(--sand);opacity:.9}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.6rem,5vw,2.4rem);margin:.1em 0 .4em}
+.hand{font-family:'Caveat',cursive;font-size:clamp(1.3rem,4vw,1.7rem);color:var(--sand);margin-bottom:1.2em}
+p{color:rgba(242,236,223,.75);max-width:44ch;margin:0 auto 30px}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:14px 28px;font-weight:600;text-decoration:none;transition:.25s}
+.fill{background:var(--clay);color:#fff}
+.fill:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.ghost{border:1px solid rgba(242,236,223,.45);color:var(--bone)}
+.ghost:hover{background:rgba(242,236,223,.12)}
+.foot{text-align:center;padding:20px;font-size:.8rem;color:rgba(242,236,223,.45)}
+.foot a{color:rgba(242,236,223,.7)}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <a href="index.html" class="brand">🌿 Les Cabanes de Marie</a>
+  </div>
+
+  <main class="wrap">
+    <div class="num">404</div>
+    <h1>Cette page s'est perdue <span style="font-style:italic">dans les bois</span></h1>
+    <div class="hand">« Même Edith ne la retrouve pas… »</div>
+    <p>La page que vous cherchez n'existe pas ou a été déplacée. Mais les cabanes, elles, sont toujours bien là.</p>
+    <div class="row">
+      <a class="btn fill" href="index.html#reserver">Réserver une nuit</a>
+      <a class="btn ghost" href="index.html">Retour à l'accueil</a>
+      <a class="btn ghost" href="contact.html">Nous contacter</a>
+    </div>
+  </main>
+
+  <div class="foot">
+    Les Cabanes de Marie — Ogens (VD), Suisse ·
+    <a href="tel:+41795347115">+41 79 534 71 15</a>
+  </div>
+
+<script src="assets/site-nav.js" defer></script>
+</body>
+</html>

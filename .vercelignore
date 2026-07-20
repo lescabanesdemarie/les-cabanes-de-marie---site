@@ -1,0 +1,10 @@
+# Fichiers présents dans le dépôt mais qui NE DOIVENT PAS être servis publiquement.
+# (Sur Vercel, tout fichier déployé est accessible via son URL.)
+
+# Documentation interne
+_reference/
+CLAUDE.md
+DEMARRER-CLAUDE-CODE.md
+
+# Outils de dev locaux
+.claude/

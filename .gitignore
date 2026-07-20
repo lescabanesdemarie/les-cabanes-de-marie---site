@@ -1,0 +1,7 @@
+# Outils de dev locaux (serveur de prévisualisation) — pas du site
+.claude/
+
+# Système
+Thumbs.db
+.DS_Store
+desktop.ini
