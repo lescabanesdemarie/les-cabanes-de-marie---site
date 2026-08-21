@@ -281,7 +281,7 @@ section{position:relative}
 .al-dates .al-field{flex:1;min-width:160px}
 .al-field{display:flex;flex-direction:column;gap:6px}
 .al-field>label{font-size:.82rem;font-weight:600;color:var(--forest)}
-.al-form input[type=email],.al-form input[type=date],.al-form input[type=number]{font-family:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.al-form input[type=email],.al-form input[type=date],.al-form input[type=number],.al-form input[type=tel]{font-family:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
 .al-form input:focus{outline:none;border-color:var(--clay)}
 .al-cabs{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:4px}
 .al-cabs label{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;color:#4b4738;cursor:pointer}
@@ -820,6 +820,10 @@ nav.scrolled .nav-contact{border-color:var(--forest)}
           <label for="alEmail" data-i="al.email">Votre e-mail</label>
           <input type="email" id="alEmail" name="email" required data-i-ph="al.email" placeholder="vous@exemple.ch">
         </div>
+        <div class="al-field">
+          <label for="alTel" data-i="al.tel">Votre téléphone</label>
+          <input type="tel" id="alTel" name="tel" data-i-ph="al.tel" placeholder="079 000 00 00">
+        </div>
         <div class="al-row al-dates">
           <div class="al-field"><label for="alStart" data-i="al.start">Arrivée souhaitée</label><input type="date" id="alStart" name="start" required></div>
           <div class="al-field"><label for="alEnd" data-i="al.end">Départ souhaité</label><input type="date" id="alEnd" name="end" required></div>
@@ -1183,20 +1187,20 @@ document.querySelectorAll('a,button,.cabin,.act-card,.avis-card').forEach(el=>{
   f.addEventListener('submit',async function(e){
     e.preventDefault();
     if(f.elements['website'] && f.elements['website'].value){ f.style.display='none'; done.style.display='block'; return; }
-    var email=f.email.value.trim(), start=f.start.value, end=f.end.value, guests=(f.guests&&f.guests.value)?f.guests.value:'';
+    var email=f.email.value.trim(), tel=(f.tel&&f.tel.value)?f.tel.value.trim():'', start=f.start.value, end=f.end.value, guests=(f.guests&&f.guests.value)?f.guests.value:'';
     var cabs=[].slice.call(f.querySelectorAll('input[name=cabin]:checked')).map(function(c){return c.value;});
     if(!email || !/.+@.+\..+/.test(email) || !start || !end){ alert(m('bad')); return; }
     if(end<=start){ alert(m('order')); return; }
     if(!cabs.length) cabs=["N'importe laquelle"];
     // envoi direct (n'ouvre pas le logiciel mail) ; repli mailto si la clé n'est pas renseignée
     var ok = await window.cdmSendForm({
-      email:email, arrivee:start, depart:end,
+      email:email, telephone:(tel||'—'), arrivee:start, depart:end,
       personnes:(guests||'—'), cabanes:cabs.join(', '),
       langue:(window.__lang||'fr'), replyto:email
     }, 'Alerte disponibilité — '+cabs.join(', '));
     if(!ok){
       var subj=encodeURIComponent('Alerte disponibilité — '+cabs.join(', '));
-      var body=encodeURIComponent('Bonjour,\n\nMerci de me prévenir si une cabane se libère :\n\nCabane(s) : '+cabs.join(', ')+'\nArrivée : '+start+'\nDépart : '+end+'\nNombre de personnes : '+guests+'\nE-mail : '+email+'\n\nMerci !');
+      var body=encodeURIComponent('Bonjour,\n\nMerci de me prévenir si une cabane se libère :\n\nCabane(s) : '+cabs.join(', ')+'\nArrivée : '+start+'\nDépart : '+end+'\nNombre de personnes : '+guests+'\nE-mail : '+email+'\nTéléphone : '+tel+'\n\nMerci !');
       window.location.href='mailto:info@lescabanesdemarie.com?subject='+subj+'&body='+body;
     }
     f.style.display='none'; done.style.display='block';
@@ -1366,6 +1370,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "al.h":"Hütte an Ihren Daten ausgebucht?",
       "al.intro":"Hinterlassen Sie uns Ihre E-Mail und Ihre Daten — wir benachrichtigen Sie, sobald eine Hütte frei wird.",
       "al.email":"Ihre E-Mail",
+      "al.tel":"Ihre Telefonnummer",
       "al.start":"Gewünschte Anreise",
       "al.end":"Gewünschte Abreise",
       "al.guests":"Anzahl Personen",
@@ -1380,6 +1385,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "al.doneh":"Notiert! 🌿",
       "al.donep":"Wir schreiben Ihnen, sobald eine Hütte für Ihre Daten frei wird.",
       "ph.al.email":"sie@beispiel.ch",
+      "ph.al.tel":"079 000 00 00",
       "inf.eb":"Vor der Anreise","inf.h2":'<span class="it">Praktische</span> Infos',
       "inf.list":'<li><span class="k">Check-in</span><span class="v">Ab 16:00 Uhr</span></li><li><span class="k">Check-out</span><span class="v">Vor 11:00 Uhr</span></li><li><span class="k">Schliessung</span><span class="v">Sonntagabend sowie von Anfang November bis Ende März</span></li><li><span class="k">Reservierungen</span><span class="v">Öffnung am 1. Januar (Frühling), am 1. April (Sommer / Herbst)</span></li><li><span class="k">Am 1. des Monats</span><span class="v">Einige Hütten werden für die Freitage und Samstage des Folgemonats freigegeben</span></li><li><span class="k">Adresse</span><span class="v">Ogens, Kanton Waadt · ca. 30 Min. von Lausanne, nahe Yverdon</span></li>',
       "resa.h3":"Buchen Sie Ihre Nacht","resa.p":"Die Reservierungen 2026 sind offen. Wählen Sie Hütte und Daten direkt online — Sie behalten alles in der Hand.",
@@ -1472,6 +1478,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "al.h":"Cabin full on your dates?",
       "al.intro":"Leave us your email and your dates — we'll let you know as soon as a cabin frees up.",
       "al.email":"Your email",
+      "al.tel":"Your phone",
       "al.start":"Preferred arrival",
       "al.end":"Preferred departure",
       "al.guests":"Number of guests",
@@ -1486,6 +1493,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "al.doneh":"Noted! 🌿",
       "al.donep":"We'll email you as soon as a cabin matching your dates frees up.",
       "ph.al.email":"you@example.com",
+      "ph.al.tel":"079 000 00 00",
       "inf.eb":"Before you come","inf.h2":'<span class="it">Practical</span> info',
       "inf.list":'<li><span class="k">Check-in</span><span class="v">From 4:00 pm</span></li><li><span class="k">Check-out</span><span class="v">Before 11:00 am</span></li><li><span class="k">Closed</span><span class="v">Sunday evenings, and from early November to end of March</span></li><li><span class="k">Reservations</span><span class="v">Open on 1 January (spring), 1 April (summer / autumn)</span></li><li><span class="k">On the 1st</span><span class="v">A few cabins are released for the Fridays and Saturdays of the following month</span></li><li><span class="k">Address</span><span class="v">Ogens, canton of Vaud · ~30min from Lausanne, near Yverdon</span></li>',
       "resa.h3":"Book your night","resa.p":"2026 reservations are open. Choose your cabin and dates directly online — you stay in control from start to finish.",
