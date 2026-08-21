@@ -822,7 +822,7 @@ nav.scrolled .nav-contact{border-color:var(--forest)}
         </div>
         <div class="al-field">
           <label for="alTel" data-i="al.tel">Votre téléphone</label>
-          <input type="tel" id="alTel" name="tel" data-i-ph="al.tel" placeholder="079 000 00 00">
+          <input type="tel" id="alTel" name="tel" required data-i-ph="al.tel" placeholder="079 000 00 00">
         </div>
         <div class="al-row al-dates">
           <div class="al-field"><label for="alStart" data-i="al.start">Arrivée souhaitée</label><input type="date" id="alStart" name="start" required></div>
@@ -1180,16 +1180,16 @@ document.querySelectorAll('a,button,.cabin,.act-card,.avis-card').forEach(el=>{
 (function(){
   var f=document.getElementById('alForm'); if(!f) return;
   var done=document.getElementById('alDone');
-  var L={fr:{bad:"Merci de vérifier votre e-mail et vos dates.",order:"Le départ doit être après l'arrivée."},
-         de:{bad:"Bitte überprüfen Sie Ihre E-Mail und Ihre Daten.",order:"Die Abreise muss nach der Anreise liegen."},
-         en:{bad:"Please check your email and dates.",order:"Departure must be after arrival."}};
+  var L={fr:{bad:"Merci de vérifier votre e-mail, votre téléphone et vos dates.",order:"Le départ doit être après l'arrivée."},
+         de:{bad:"Bitte überprüfen Sie E-Mail, Telefon und Daten.",order:"Die Abreise muss nach der Anreise liegen."},
+         en:{bad:"Please check your email, phone and dates.",order:"Departure must be after arrival."}};
   function m(k){var l=window.__lang||'fr';return (L[l]||L.fr)[k];}
   f.addEventListener('submit',async function(e){
     e.preventDefault();
     if(f.elements['website'] && f.elements['website'].value){ f.style.display='none'; done.style.display='block'; return; }
     var email=f.email.value.trim(), tel=(f.tel&&f.tel.value)?f.tel.value.trim():'', start=f.start.value, end=f.end.value, guests=(f.guests&&f.guests.value)?f.guests.value:'';
     var cabs=[].slice.call(f.querySelectorAll('input[name=cabin]:checked')).map(function(c){return c.value;});
-    if(!email || !/.+@.+\..+/.test(email) || !start || !end){ alert(m('bad')); return; }
+    if(!email || !/.+@.+\..+/.test(email) || !tel || !start || !end){ alert(m('bad')); return; }
     if(end<=start){ alert(m('order')); return; }
     if(!cabs.length) cabs=["N'importe laquelle"];
     // envoi direct (n'ouvre pas le logiciel mail) ; repli mailto si la clé n'est pas renseignée
