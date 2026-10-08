@@ -201,18 +201,18 @@
       if (e.shiftKey && D.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && D.activeElement === last) { e.preventDefault(); first.focus(); }
     });
-    window.addEventListener('resize', function () { if (window.innerWidth > 1640 && drawer.classList.contains('open')) closeMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1999 && drawer.classList.contains('open')) closeMenu(false); });
   }
 
   /* ---- apparition au défilement (sans JS ou avec « mouvement réduit » : tout est visible) ---- */
-  var reveals = all('.reveal');
+  var reveals = all('.reveal, .unveil');
   var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!('IntersectionObserver' in window) || calm) {
-    reveals.forEach(function (el) { el.classList.add('in'); });
+    reveals.forEach(function (el) { el.classList.add('seen'); });
   } else {
     var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.1, rootMargin: '0px 0px -4% 0px' });
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     reveals.forEach(function (el) { io.observe(el); });
   }
 })();

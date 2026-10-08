@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<!-- Mis à jour le 2026-10-08 : ajout de Vercel, Web3Forms, 123FormBuilder, Anthropic (Edith). À FAIRE VALIDER PAR MARIE avant mise en ligne. La ligne Web3Forms suppose que la clé est renseignée dans assets/forms.js. -->
+<!-- Mis à jour le 2026-10-08 : ajout de Vercel, Web3Forms, 123FormBuilder, Anthropic (Edith), Fontshare (police Cabinet Grotesk). À FAIRE VALIDER PAR MARIE avant mise en ligne. La ligne Web3Forms suppose que la clé est renseignée dans assets/forms.js. -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Confidentialité & mentions légales — Les Cabanes de Marie</title>
 <meta name="description" content="Politique de confidentialité et mentions légales des Cabanes de Marie à Ogens (VD) : données collectées, cookies, services tiers et droits nLPD.">
 <link rel="canonical" href="https://www.lescabanesdemarie.com/confidentialite.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#EFE8D8">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <meta property="og:type" content="website">
@@ -28,8 +28,14 @@
 <meta name="twitter:description" content="Données collectées, cookies, services tiers et droits nLPD.">
 <meta name="twitter:image" content="https://www.lescabanesdemarie.com/assets/img/share.jpg">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="assets/fonts.css?v=4f19210e">
-<link rel="stylesheet" href="assets/site.css?v=1228b02b">
+<!--chrome:head-->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap"></noscript>
+<!--/chrome:head-->
+<link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
+<link rel="stylesheet" href="assets/site.css?v=235e12a7">
 </head>
 <body>
 <!--chrome:header-->
@@ -107,7 +113,7 @@
       <section>
         <h2 data-i="cf.s4h">Cookies et services tiers</h2>
         <p data-i="cf.s4p">Notre site fait appel à des services externes qui peuvent déposer des cookies ou collecter des données selon leurs propres politiques :</p>
-        <ul data-i="cf.s4list"><li><b>Vercel</b> — hébergement du site et du service de discussion d'Edith.</li><li><b>Web3Forms</b> — transmission par e-mail, à nous seuls, des formulaires de contact et d'alerte de disponibilité.</li><li><b>123FormBuilder</b> — formulaire de commande des bons cadeaux.</li><li><b>Anthropic</b> — intelligence artificielle qui génère les réponses d'Edith.</li><li><b>Google Maps</b> — affichage de la carte sur la page Contact.</li><li><b>Planyo</b> — calendriers de disponibilité et système de réservation.</li><li><b>Meta (Facebook &amp; Instagram)</b> — liens vers nos pages sociales.</li></ul>
+        <ul data-i="cf.s4list"><li><b>Vercel</b> — hébergement du site et du service de discussion d'Edith.</li><li><b>Fontshare</b> — police de caractères du site (Cabinet Grotesk) : votre navigateur la télécharge depuis leurs serveurs, qui reçoivent donc votre adresse IP.</li><li><b>Web3Forms</b> — transmission par e-mail, à nous seuls, des formulaires de contact et d'alerte de disponibilité.</li><li><b>123FormBuilder</b> — formulaire de commande des bons cadeaux.</li><li><b>Anthropic</b> — intelligence artificielle qui génère les réponses d'Edith.</li><li><b>Google Maps</b> — affichage de la carte sur la page Contact.</li><li><b>Planyo</b> — calendriers de disponibilité et système de réservation.</li><li><b>Meta (Facebook &amp; Instagram)</b> — liens vers nos pages sociales.</li></ul>
         <p data-i="cf.s4p2">Vous pouvez à tout moment bloquer ou supprimer les cookies via les paramètres de votre navigateur.</p>
         <p data-i="cf.s4p3">Le site lui-même ne dépose aucun cookie de suivi ni de publicité : il mémorise seulement votre choix de langue dans le stockage local de votre navigateur.</p>
       </section>
@@ -146,9 +152,9 @@
       </div>
     </div>
     <div class="ft-col"><h3 data-i="ft.c1">Les cabanes</h3><ul>
-      <li><a href="index.html#camille">La Jia de Camille</a></li>
       <li><a href="index.html#mathis">La Cabane de Mathis</a></li>
       <li><a href="index.html#alanis">L'Arche d'Alanis</a></li>
+      <li><a href="index.html#camille">La Jia de Camille</a></li>
       <li><a href="index.html#mila">Le Royaume de Mila</a></li>
     </ul></div>
     <div class="ft-col"><h3 data-i="ft.c2">Le séjour</h3><ul>
@@ -188,7 +194,7 @@ window.CDM_I18N = {
     "cf.s3list": "<li>Ihre Anfragen beantworten und Sie zurückkontaktieren.</li><li>Reservierungen, Verfügbarkeits-Alarme und Geschenkgutscheine verwalten.</li><li>Den einwandfreien Betrieb und die Sicherheit der Website gewährleisten.</li>",
     "cf.s4h": "Cookies und Drittdienste",
     "cf.s4p": "Unsere Website nutzt externe Dienste, die gemäss ihren eigenen Richtlinien Cookies setzen oder Daten erheben können:",
-    "cf.s4list": "<li><b>Vercel</b> — Hosting der Website und des Chat-Dienstes von Edith.</li><li><b>Web3Forms</b> — E-Mail-Übermittlung der Kontakt- und Alarm-Formulare ausschliesslich an uns.</li><li><b>123FormBuilder</b> — Bestellformular für Geschenkgutscheine.</li><li><b>Anthropic</b> — künstliche Intelligenz, die die Antworten von Edith erzeugt.</li><li><b>Google Maps</b> — Anzeige der Karte auf der Kontaktseite.</li><li><b>Planyo</b> — Verfügbarkeitskalender und Buchungssystem.</li><li><b>Meta (Facebook &amp; Instagram)</b> — Links zu unseren Social-Media-Seiten.</li>",
+    "cf.s4list": "<li><b>Vercel</b> — Hosting der Website und des Chat-Dienstes von Edith.</li><li><b>Fontshare</b> — Schriftart der Website (Cabinet Grotesk): Ihr Browser lädt sie von deren Servern, die dadurch Ihre IP-Adresse erhalten.</li><li><b>Web3Forms</b> — E-Mail-Übermittlung der Kontakt- und Alarm-Formulare ausschliesslich an uns.</li><li><b>123FormBuilder</b> — Bestellformular für Geschenkgutscheine.</li><li><b>Anthropic</b> — künstliche Intelligenz, die die Antworten von Edith erzeugt.</li><li><b>Google Maps</b> — Anzeige der Karte auf der Kontaktseite.</li><li><b>Planyo</b> — Verfügbarkeitskalender und Buchungssystem.</li><li><b>Meta (Facebook &amp; Instagram)</b> — Links zu unseren Social-Media-Seiten.</li>",
     "cf.s4p2": "Sie können Cookies jederzeit über die Einstellungen Ihres Browsers blockieren oder löschen.",
     "cf.s4p3": "Die Website selbst setzt keine Tracking- oder Werbe-Cookies: Sie speichert lediglich Ihre Sprachwahl im lokalen Speicher Ihres Browsers.",
     "cf.s5h": "Weitergabe und Aufbewahrung der Daten",
@@ -216,7 +222,7 @@ window.CDM_I18N = {
     "cf.s3list": "<li>Answer your enquiries and get back to you.</li><li>Manage bookings, availability alerts and gift vouchers.</li><li>Ensure the proper operation and security of the website.</li>",
     "cf.s4h": "Cookies and third-party services",
     "cf.s4p": "Our site uses external services that may set cookies or collect data according to their own policies:",
-    "cf.s4list": "<li><b>Vercel</b> — hosting of the website and of Edith's chat service.</li><li><b>Web3Forms</b> — emails the contact and alert forms to us, and only to us.</li><li><b>123FormBuilder</b> — gift-voucher order form.</li><li><b>Anthropic</b> — the artificial intelligence that generates Edith's answers.</li><li><b>Google Maps</b> — display of the map on the Contact page.</li><li><b>Planyo</b> — availability calendars and booking system.</li><li><b>Meta (Facebook &amp; Instagram)</b> — links to our social pages.</li>",
+    "cf.s4list": "<li><b>Vercel</b> — hosting of the website and of Edith's chat service.</li><li><b>Fontshare</b> — the website's typeface (Cabinet Grotesk): your browser downloads it from their servers, which therefore receive your IP address.</li><li><b>Web3Forms</b> — emails the contact and alert forms to us, and only to us.</li><li><b>123FormBuilder</b> — gift-voucher order form.</li><li><b>Anthropic</b> — the artificial intelligence that generates Edith's answers.</li><li><b>Google Maps</b> — display of the map on the Contact page.</li><li><b>Planyo</b> — availability calendars and booking system.</li><li><b>Meta (Facebook &amp; Instagram)</b> — links to our social pages.</li>",
     "cf.s4p2": "You can block or delete cookies at any time via your browser settings.",
     "cf.s4p3": "The site itself sets no tracking or advertising cookies: it only remembers your language choice in your browser's local storage.",
     "cf.s5h": "Sharing and retention of data",
@@ -233,7 +239,7 @@ window.CDM_I18N = {
   }
 };
 </script>
-<script src="assets/site.js?v=6534a8e1" defer></script>
+<script src="assets/site.js?v=46a2bb9c" defer></script>
 <script src="assets/edith.js?v=97b28790" defer></script>
 </body>
 </html>

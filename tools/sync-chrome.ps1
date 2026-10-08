@@ -1,7 +1,9 @@
 <#
-  sync-chrome.ps1 - recopie l'en-tete et le pied de page communs (tools/chrome/*.html)
-  dans toutes les pages, entre les reperes <!--chrome:header--> ... <!--/chrome:header-->
-  et <!--chrome:footer--> ... <!--/chrome:footer-->.
+  sync-chrome.ps1 - recopie les morceaux communs (tools/chrome/*.html) dans toutes les pages,
+  entre les reperes :
+      <!--chrome:head-->   ... <!--/chrome:head-->     (police Cabinet Grotesk chargee depuis Fontshare, dans <head>)
+      <!--chrome:header--> ... <!--/chrome:header-->   (en-tete et menu)
+      <!--chrome:footer--> ... <!--/chrome:footer-->   (pied de page et barre "Reserver")
   Pour changer un lien du menu ou du pied de page : modifier tools/chrome/header.html ou
   footer.html, puis lancer :
       powershell -ExecutionPolicy Bypass -File tools/sync-chrome.ps1
@@ -12,12 +14,12 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 $parts = @{}
-foreach ($n in 'header', 'footer') { $parts[$n] = ([IO.File]::ReadAllText((Join-Path $PSScriptRoot "chrome\$n.html"), $utf8)).TrimEnd() }
+foreach ($n in 'head', 'header', 'footer') { $parts[$n] = ([IO.File]::ReadAllText((Join-Path $PSScriptRoot "chrome\$n.html"), $utf8)).TrimEnd() }
 $bad = 0
 foreach ($f in Get-ChildItem -Path $root -Filter *.html -File) {
   $t = [IO.File]::ReadAllText($f.FullName, $utf8)
   $new = $t
-  foreach ($n in 'header', 'footer') {
+  foreach ($n in 'head', 'header', 'footer') {
     $rx = New-Object System.Text.RegularExpressions.Regex(('<!--chrome:' + $n + '-->.*?<!--/chrome:' + $n + '-->'), [System.Text.RegularExpressions.RegexOptions]::Singleline)
     if (-not $rx.IsMatch($new)) { if ($t -match 'chrome:') { Write-Host ("  repere {0} manquant dans {1}" -f $n, $f.Name) -ForegroundColor Red; $bad++ }; continue }
     $part = $parts[$n]

@@ -1,279 +1,352 @@
 /* =====================================================================
-   Les Cabanes de Marie — sections de la page d'accueil (design noir & blanc)
-   Complète assets/site.css (variables, en-tête, boutons, pied de page…).
-   Alternance des fonds : blanc / gris très clair / gris / noir (quelques accents).
+   Les Cabanes de Marie — page d'accueil v2, « la porte vers la forêt »
+   Le parcours : entrée → 1 l'histoire → 2 les cabanes (sommaire en citations + 4 cabanes)
+                 → 3 le domaine → 4 le bain → les avis (discrets) → LA rupture (une seule)
+                 → la réservation → tout le reste (activités, bons cadeaux, tarifs, infos) en bas.
+   Complète assets/site.css (couleurs, police, en-tête, boutons, formulaires, pied de page).
+   Règle d'or : le contenu est calé à droite (zone .rc), le vide reste à gauche. Aucune boîte.
    ===================================================================== */
 
-/* ---------------------------------------------------------------- repères */
-.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--k);z-index:75}
-.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:12px;mix-blend-mode:difference}
-.rail a{display:flex;align-items:center;gap:10px;font:500 .74rem var(--t);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);min-height:20px}
-.rail .num{width:10px;height:10px;border:1px solid #fff;flex:0 0 10px;transition:background .25s}
-.rail a.on{color:#fff}
-.rail a.on .num{background:#fff}
-.rail .lbl{opacity:0;transform:translateX(-6px);transition:.25s}
-.rail a:hover .lbl,.rail a:focus-visible .lbl{opacity:1;transform:none;background:var(--k);color:var(--w);padding:3px 8px;mix-blend-mode:normal}
-@media(max-width:1200px){.rail{display:none}}
-
-/* ---------------------------------------------------------------- haut de page */
-.hero{position:relative;min-height:max(640px,calc(100svh - var(--hh)));display:flex;align-items:flex-end;padding:0 var(--pad) clamp(36px,7vh,80px);overflow:hidden;background:var(--g2);border-bottom:1px solid var(--k)}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
-.hero-in{position:relative;z-index:2;background:var(--w);width:min(980px,100%);padding:clamp(26px,3.4vw,52px);border:1px solid var(--k)}
-.hero .loc{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-.hero .loc::before{content:"";width:9px;height:9px;background:var(--k);flex:0 0 9px}
-.hero h1{font-size:clamp(3rem,7vw,6.8rem);margin-bottom:26px}
+/* ---------------------------------------------------------------- entrée */
+.hero{position:relative;padding-top:clamp(40px,7vh,88px)}
+.hero-txt{margin-left:var(--left);padding:0 var(--gut) clamp(36px,6vh,72px) var(--padl)}
+.hero h1{font-size:clamp(3.2rem,6.8vw,7.6rem);line-height:.92;letter-spacing:-.04em;margin:clamp(18px,3vh,32px) 0 0}
 .hero h1 span{display:block}
-.hero .sub{font-size:clamp(1rem,1.5vw,1.2rem);max-width:46ch;margin-bottom:30px}
-.hero .cta .btn{padding-left:24px;padding-right:24px}
-.scrollcue{position:absolute;z-index:2;right:var(--pad);bottom:clamp(110px,16vh,150px);background:var(--w);border:1px solid var(--k);padding:18px 11px;writing-mode:vertical-rl;font:500 .72rem var(--t);letter-spacing:.26em;text-transform:uppercase;display:flex;align-items:center;gap:14px}
-.scrollcue::after{content:"";width:1px;height:38px;background:var(--k)}
-@media(max-width:980px){.scrollcue{display:none}.hero{min-height:calc(100svh - var(--hh))}}
+.hero .sub{margin-top:clamp(20px,3.4vh,36px);max-width:42ch;font-size:clamp(1.08rem,1.4vw,1.25rem);color:var(--ink-soft)}
+.hero .cta{margin-top:clamp(24px,4vh,40px);gap:16px 36px}
+.hero-fig{position:relative;margin:0 0 0 var(--left);overflow:hidden;background:var(--paper-2)}
+.hero-fig picture{display:block}
+.hero-fig img{width:100%;height:clamp(340px,76svh,820px);object-fit:cover;object-position:62% 46%}
+.hero-cap{margin-left:var(--left);padding:22px var(--gut) 0 var(--padl);display:flex;flex-wrap:wrap;gap:8px 30px;font-weight:700;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.hero-cap span{display:inline-flex;align-items:center;gap:.85em}
+.hero-cap span::before{content:"";width:6px;height:6px;background:var(--sage);flex:0 0 6px}
+/* le vide de gauche reste « actif » : une invitation discrète à descendre */
+.scrollcue{position:absolute;left:var(--gut);top:calc(100svh - var(--hh) - 450px);display:flex;align-items:center;gap:16px;writing-mode:vertical-rl;font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.scrollcue::after{content:"";width:2px;height:64px;background:var(--sage);transform-origin:top;animation:cue 3.6s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:960px){.scrollcue{display:none}.hero-txt{padding-left:var(--gut)}}
 
-/* ---------------------------------------------------------------- bandeau défilant */
-.band{background:var(--k);color:var(--w);overflow:hidden;white-space:nowrap;padding:22px 0}
-.band .track{display:inline-block;animation:scrollx 42s linear infinite}
-.band span{font:300 clamp(1.2rem,2.4vw,1.9rem) var(--t);letter-spacing:.14em;text-transform:uppercase;padding:0 .7em;font-style:normal}
-.band .star{opacity:.5}
-@keyframes scrollx{to{transform:translateX(-50%)}}
+/* ---------------------------------------------------------------- 1. l'histoire */
+.story{position:relative;overflow:hidden;padding-block:clamp(110px,19vh,250px) clamp(90px,15vh,200px)}
+.story .deco{left:-8%;top:8%;width:min(30vw,480px);opacity:.1}
+.story-grid{position:relative;z-index:1;margin-left:var(--left);display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(36px,5.4vw,96px);align-items:center}
+.story h2{font-size:clamp(2.4rem,4.5vw,4.7rem);margin:24px 0 clamp(26px,4vh,46px)}
+.story p{max-width:40ch}
+.story p+p{margin-top:1.1em}
+.sign{margin-top:clamp(28px,5vh,48px);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;line-height:1.1}
+.sign small{display:block;margin-top:6px;font-weight:700;font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-soft)}
+.meta{display:flex;flex-wrap:wrap;margin-top:clamp(30px,5vh,52px);border-top:1px solid var(--ink)}
+.meta div{padding:20px 36px 0 0}
+.meta div+div{padding-left:32px;border-left:1px solid var(--line)}
+.meta b{display:block;font-weight:800;font-size:clamp(2.2rem,3.4vw,3.2rem);line-height:1;letter-spacing:-.04em}
+.meta small{font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.story .btn{margin-top:clamp(28px,5vh,46px)}
+.story-fig{overflow:hidden;background:var(--paper-2);margin:0}
+.story-fig img{width:100%;height:auto}
 
-/* ---------------------------------------------------------------- histoire */
-.story{position:relative;overflow:hidden;background:var(--w)}
-.story .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
-.story h2{font-size:clamp(2.3rem,5vw,4.2rem);margin:20px 0 0}
-.story p{font-size:1.08rem;max-width:46ch;margin-top:1.2em}
-.sign{margin-top:28px;font:400 1.5rem/1.1 var(--t)}
-.sign small{display:block;margin-top:6px;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--g4)}
-.meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;margin-top:34px;border-top:1px solid var(--k)}
-.meta div{padding:16px 34px 0 0}
-.meta div+div{padding-left:26px;border-left:1px solid var(--g3)}
-.meta b{display:block;font:300 2.8rem/1 var(--t)}
-.meta small{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--g4)}
-.story .btn{margin-top:26px}
-.story-visual{aspect-ratio:5/8;overflow:hidden;background:var(--g2)}
-.story-visual img{width:100%;height:100%;object-fit:cover}
-
-/* ---------------------------------------------------------------- présentation des cabanes */
-.cab-intro{background:var(--g1);text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--k)}
-.cab-intro .in{position:relative;z-index:1}
-.cab-intro .logo{height:70px;width:auto;margin:0 auto 24px}
-.cab-intro h2{font-size:clamp(2.6rem,7vw,6rem);margin:.22em 0 .3em}
-.cab-intro p{max-width:48ch;margin:0 auto;font-size:1.05rem}
+/* ---------------------------------------------------------------- 2. les cabanes : le sommaire (un écran, quatre citations) */
+.som{position:relative;overflow:hidden;background:var(--earth-deep);color:var(--paper);min-height:100svh;display:flex;align-items:center;padding-block:clamp(88px,13vh,150px)}
+.som .deco{left:-4%;top:50%;transform:translateY(-50%);width:min(36vw,560px);opacity:.1;filter:invert(1)}
+.som-in{position:relative;z-index:1;margin-left:var(--left);padding:0 var(--gut) 0 var(--padl);width:100%}
+.som h2{font-size:clamp(1.5rem,2.3vw,2.2rem);margin:16px 0 10px;line-height:1.05;letter-spacing:-.02em}
+.som h2 br{display:none}
+.som .intro{max-width:58ch;font-size:clamp(1rem,1.15vw,1.08rem);color:rgba(239,232,216,.86)}
+.som-list{margin-top:clamp(26px,5vh,52px);border-top:1px solid var(--line-lt)}
+.som-item{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px 24px;padding:clamp(16px,2.6vh,30px) 0;border-bottom:1px solid var(--line-lt);opacity:.88;transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.som-q{display:block;font-weight:800;font-size:clamp(1.6rem,3.2vw,3.3rem);line-height:1.03;letter-spacing:-.035em;text-wrap:balance}
+.som-n{display:block;margin-top:10px;font-weight:700;font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(239,232,216,.8)}
+.som-item .ar{width:clamp(1.5rem,2.2vw,2.1rem);height:clamp(1.5rem,2.2vw,2.1rem);color:var(--sage-lt);margin-bottom:.2em;transition:transform .8s var(--ease)}
+.som-list:hover .som-item,.som-list:focus-within .som-item{opacity:.72}
+.som-list .som-item:hover,.som-list .som-item:focus-visible{opacity:1;transform:translateX(16px)}
+.som-item:hover .ar,.som-item:focus-visible .ar{transform:translateX(10px)}
+@media(max-width:960px){.som-list .som-item:hover,.som-list .som-item:focus-visible{transform:none}}
 
 /* ---------------------------------------------------------------- une cabane */
-.cabin{position:relative;border-top:1px solid var(--k);background:var(--w);overflow-x:clip}
-.cabin.alt{background:var(--g1)}
-.cabin .stage{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,72px);padding:0 var(--pad);align-items:start;position:relative;z-index:1}
-.cabin.flip .stage{grid-template-columns:1fr 1.05fr}
-.cabin.flip .visual-col{order:2}
-.visual-col{display:flex;flex-direction:column;gap:clamp(16px,3vh,30px);padding:11vh 0}
-.cv{position:relative;height:80vh;max-height:860px;overflow:hidden;background:var(--g2)}
-.cv.wide{height:auto;aspect-ratio:1.03}
-.cv img{width:100%;height:100%;object-fit:cover}
-.cv .tag{position:absolute;top:0;left:0;z-index:2;background:var(--w);color:var(--k);padding:10px 16px;border-right:1px solid var(--k);border-bottom:1px solid var(--k);font:500 .76rem var(--t);letter-spacing:.2em;text-transform:uppercase}
-.cabin .info{position:sticky;top:var(--hh);min-height:calc(100vh - var(--hh));display:flex;flex-direction:column;justify-content:center;padding:5vh 0}
-.idx{font:200 clamp(4rem,8vw,7rem)/.8 var(--t);color:var(--g3)}
-.cabin h3{font-size:clamp(2.3rem,4.6vw,3.9rem);margin:.12em 0 .3em}
-.why{font:300 clamp(1.15rem,2vw,1.5rem)/1.3 var(--t);max-width:32ch;border-left:3px solid var(--k);padding-left:18px}
-.desc{margin:1.6em 0;max-width:44ch}
-.cabin .tags{margin:0 0 1.8em}
-.cabin-foot{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;border-top:1px solid var(--k);padding-top:22px}
-.price{font:300 3.6rem/.9 var(--t)}
-.price small{display:block;font:400 .82rem/1.4 var(--b);max-width:26ch;margin-top:8px}
-@media(max-width:980px){
-  .cabin .stage,.cabin.flip .stage{grid-template-columns:1fr}
-  .cabin .visual-col,.cabin.flip .visual-col{order:1;padding:0 0 8px}
-  .cabin .info{position:static;min-height:0;order:0;padding:48px 0 32px}
-  .cv{height:62vh}
-}
+.cab{position:relative;display:flex;flex-direction:column;background:var(--paper)}
+.cab.alt{background:var(--paper-2)}
+.cab-top{margin-left:var(--left);padding:clamp(22px,4vh,40px) var(--gut) 0 var(--padl);display:flex;justify-content:flex-end}
+.others{display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:.98rem;color:var(--ink-soft);padding:8px 0;transition:color .5s var(--ease),gap .6s var(--ease)}
+.others .ar{width:1.05em;height:1.05em;color:var(--sage);transform:rotate(-90deg)}
+.others:hover{color:var(--ink);gap:1.1em}
+.cab-dream{margin-left:var(--left);display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);gap:clamp(32px,4.4vw,80px);min-height:min(calc(100svh - var(--hh) - 150px),900px)}
+.cab.flip .cab-dream{grid-template-columns:minmax(0,1fr) minmax(0,.92fr)}
+.cab.flip .cab-photo{order:-1}
+.cab-text{align-self:center;padding:clamp(34px,6vh,72px) 0}
+.cab.flip .cab-text{padding-right:var(--gut)}
+.cab-photo{position:relative;margin:0;overflow:hidden;background:var(--paper-2);min-height:380px}
+.cab-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cab h2{font-size:clamp(2.6rem,4.7vw,5rem);line-height:.94;margin:clamp(18px,3vh,28px) 0 clamp(16px,2.6vh,26px)}
+.cab-q{font-weight:800;font-size:clamp(1.3rem,1.95vw,1.9rem);line-height:1.2;letter-spacing:-.02em;color:var(--earth);max-width:22ch}
+.cab-desc{margin-top:clamp(18px,3vh,30px);max-width:44ch;font-size:clamp(1rem,1.15vw,1.1rem)}
+.cab-why{margin-top:18px;max-width:40ch;color:var(--ink-soft);font-size:.96rem;border-left:3px solid var(--sage);padding-left:16px}
+.cab .tags{margin-top:clamp(18px,3vh,28px)}
+.cab .tags span{font-weight:700;font-size:.92rem}
 
-/* ---------------------------------------------------------------- disponibilités (calendriers Planyo) */
-.avail{padding:0 var(--pad) clamp(56px,10vh,120px);position:relative;z-index:1}
-.avail-card{max-width:var(--maxw);margin:0 auto;border:1px solid var(--k);background:var(--w);padding:clamp(22px,3vw,38px)}
-.ac-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px}
-.ac-top h2,.ac-top h3,.ac-top h4{font:300 clamp(1.5rem,3vw,1.95rem)/1.1 var(--t);letter-spacing:-.02em;margin-top:6px}
-.planyo-slot{border:1px solid var(--g3);background:var(--w);min-height:120px;overflow:hidden}
+/* la bande pratique : la même, au même endroit, sur les quatre cabanes */
+.strip{order:3;position:relative;z-index:5;background:inherit;border-top:1px solid var(--line)}
+.strip-in{margin-left:var(--left);padding:16px var(--gut) 16px var(--padl);display:flex;align-items:center;justify-content:space-between;gap:12px 36px;flex-wrap:wrap}
+.strip-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 18px;min-width:0;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.04em}
+.strip-price small{font-weight:500;font-size:.92rem;letter-spacing:0;color:var(--ink-soft);max-width:62ch}
+.strip .go{white-space:nowrap}
+@media(min-width:961px){.strip{position:sticky;bottom:0}}
+
+/* la suite de la cabane : les autres photos, une à une, avec beaucoup d'air */
+.gal{order:2;margin-left:var(--left);padding:clamp(72px,12vh,150px) 0 clamp(96px,16vh,200px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,44px);align-items:start}
+.gal figure{margin:0;overflow:hidden;background:var(--paper-2)}
+.cab.alt .gal figure{background:var(--paper)}
+.gal img{width:100%;height:auto}
+.gal .full{grid-column:1/-1}
+.gal .r{grid-column:2}
+.gal .low{margin-top:clamp(40px,9vw,140px)}
+.cab-dream{order:1}
+.cab-top{order:0}
+
+/* l'assistante Edith se pose au-dessus de la bande pratique, pas dessus */
+@media(min-width:961px){body.home .cc-fab{bottom:92px}}
+
+/* ---------------------------------------------------------------- calendrier d'une cabane : un volet qui monte du bas (jamais quatre calendriers dépliés) */
+.cal-scrim{position:fixed;inset:0;z-index:140;background:rgba(28,21,17,.5);opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility 0s .6s}
+.cal-scrim.open{opacity:1;visibility:visible;transition:opacity .6s var(--ease)}
+.cal-panel{position:fixed;left:0;right:0;bottom:0;z-index:150;max-height:min(90svh,860px);display:flex;flex-direction:column;background:var(--paper);border-top:2px solid var(--ink);transform:translateY(102%);visibility:hidden;transition:transform .8s var(--ease),visibility 0s .8s}
+.cal-panel.open{transform:none;visibility:visible;transition:transform .8s var(--ease)}
+.cal-head{flex:0 0 auto;margin-left:var(--left);padding:22px var(--gut) 8px var(--padl);display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.cal-head h2{font-size:clamp(1.7rem,3vw,2.6rem);margin-top:12px;line-height:1}
+.cal-x{flex:0 0 auto;width:48px;height:48px;margin:-6px -10px 0 0;font-size:2rem;line-height:1;display:grid;place-items:center}
+.cal-x:hover{color:var(--earth)}
+.cal-body{margin-left:var(--left);padding:0 var(--gut) 28px var(--padl);overflow-y:auto;overscroll-behavior:contain}
+.cal-body iframe{display:block;width:100%;border:0;height:380px;background:var(--paper)}
+.cal-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:14px}
+.cal-wait{padding:36px 0;color:var(--ink-soft);font-weight:700}
+body.cal-open{overflow:hidden}
+
+/* ---------------------------------------------------------------- 3. le domaine : un souffle léger */
+.dom{position:relative;overflow:hidden;padding-block:clamp(120px,22vh,280px)}
+.dom .deco{right:-10%;top:-6%;width:min(70vw,1000px);opacity:.05}
+.dom-head{position:relative;z-index:1;margin-left:var(--left);padding:0 var(--gut) 0 var(--padl)}
+.dom h2{font-size:clamp(2.4rem,4.7vw,4.9rem);margin-top:24px}
+.dom-sub{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4.4vw,80px);align-items:start;margin-top:clamp(28px,5vh,52px)}
+.dom .lead{font-size:clamp(1.12rem,1.5vw,1.3rem);max-width:34ch;font-weight:700;letter-spacing:-.01em;line-height:1.4}
+.dom .dp{max-width:38ch;color:var(--ink-soft)}
+.dom .tags{margin-top:22px}
+.dom-wide{position:relative;z-index:1;margin:clamp(52px,10vh,110px) 0 0 var(--left);overflow:hidden;background:var(--paper-2)}
+.dom-wide img{width:100%;height:auto}
+.dom-pair{position:relative;z-index:1;margin:clamp(40px,8vh,100px) 0 0 var(--left);padding:0 var(--gut) 0 var(--padl);display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+.dom-pair figure{margin:0;background:var(--paper-2)}
+.dom-pair figure+figure{margin-top:clamp(48px,11vw,170px)}
+.dom-pair img{width:100%;height:auto}
+
+/* ---------------------------------------------------------------- 4. le bain : un lieu offert à tous (ni prix, ni dates) */
+.spa{position:relative;background:var(--earth);color:var(--paper);padding-block:clamp(110px,19vh,240px)}
+.spa-grid{margin-left:var(--left);padding:0 var(--gut) 0 var(--padl);display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(36px,5.2vw,96px);align-items:center}
+.spa-fig{margin:0;overflow:hidden;background:var(--earth-deep)}
+.spa-fig img{width:100%;height:auto}
+.spa h2{font-size:clamp(2.4rem,4.6vw,4.8rem);margin:24px 0 clamp(20px,3.4vh,32px)}
+.spa .lead{font-weight:700;font-size:clamp(1.15rem,1.55vw,1.4rem);line-height:1.38;letter-spacing:-.01em;max-width:30ch}
+.flist{margin-top:clamp(34px,6vh,64px);padding-left:clamp(16px,2.2vw,28px);border-left:1px solid var(--line-lt);max-width:44ch}
+.flist li{padding:9px 0;font-size:.95rem;line-height:1.55;color:rgba(239,232,216,.92)}
+.flist li b{color:var(--paper)}
+
+/* ---------------------------------------------------------------- les avis : un simple rappel */
+.avis{padding-block:clamp(60px,10vh,120px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.avis-top{margin-left:var(--left);padding:0 var(--gut) 0 var(--padl);display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap}
+.score{display:flex;align-items:center;gap:clamp(18px,2.6vw,36px)}
+.avis .big{font-weight:800;font-size:clamp(3.4rem,6vw,5.6rem);line-height:.9;letter-spacing:-.05em}
+.avis .gl{font-weight:800;font-size:1.2rem;letter-spacing:-.01em}
+.avis .v small{display:block;margin-top:6px;font-size:.92rem;color:var(--ink-soft)}
+.avis .v small b{color:var(--ink)}
+.avis-grid{margin:clamp(28px,5vh,48px) 0 0 var(--left);padding:0 var(--gut) 0 var(--padl);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px clamp(20px,3vw,44px)}
+.avis-q p{font-size:.97rem;line-height:1.55}
+.avis-q .who{margin-top:10px;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.avis .note-tag{margin:22px 0 0 var(--left);padding:0 var(--gut) 0 var(--padl);font-size:.84rem;color:var(--ink-soft)}
+
+/* ---------------------------------------------------------------- LA rupture : un seul écran sombre dans tout le site */
+.rupt{background:var(--dark);color:var(--paper)}
+.rupt-stick{min-height:calc(100svh - var(--hh));display:flex;align-items:center;margin-left:var(--left);padding:60px var(--gut) 60px var(--padl)}
+.rupt-big{font-weight:800;font-size:clamp(2.2rem,5.4vw,5.8rem);line-height:1.02;letter-spacing:-.04em;max-width:15ch;text-wrap:balance}
+.js .rupt-run{height:230svh}
+.js .rupt-stick{position:sticky;top:var(--hh);height:calc(100svh - var(--hh));min-height:0}
+.js .rupt-big{opacity:var(--o,0);transform:translateY(var(--y,28px));will-change:opacity,transform}
+/* le même fond sombre continue : la phrase revient, plus petite, puis la flèche qui mène aux dates */
+.rupt-after{margin-left:var(--left);padding:clamp(100px,22vh,260px) var(--gut) clamp(110px,24vh,280px) var(--padl)}
+.rupt-small{font-weight:500;font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.5;color:rgba(239,232,216,.66);max-width:34ch}
+.rupt-go{display:inline-block;margin-top:clamp(34px,6vh,64px);color:var(--paper)}
+.rupt-go span{display:block;max-width:19ch;font-weight:800;font-size:clamp(1.8rem,3.7vw,3.5rem);line-height:1.04;letter-spacing:-.035em;transition:color .5s var(--ease)}
+.rupt-go .down{display:block;width:clamp(56px,5.6vw,84px);height:clamp(56px,5.6vw,84px);margin-top:clamp(22px,4vh,40px);fill:none;stroke:var(--sage-lt);stroke-width:2.6;stroke-linecap:square;transition:transform .7s var(--ease),stroke .5s var(--ease);animation:bob 3.4s ease-in-out infinite}
+.rupt-go:hover .down,.rupt-go:focus-visible .down{transform:translateY(16px);stroke:var(--paper)}
+.rupt-go:hover span{color:var(--sage-lt)}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 10px}}
+
+/* ---------------------------------------------------------------- la réservation (la flèche mène ici) */
+.book{background:var(--paper-2);padding-top:clamp(88px,15vh,190px)}
+.book-in{margin-left:var(--left);padding:0 var(--gut) 0 var(--padl)}
+.book h2{font-size:clamp(2.2rem,4.2vw,4.2rem);margin:20px 0 clamp(28px,5vh,52px);max-width:16ch}
+.planyo-slot{background:var(--paper);min-height:120px;overflow:hidden}
 .planyo-slot iframe{display:block;width:100%;border:0}
-/* hauteur de départ proche de celle que Planyo applique ensuite (évite que la page « saute » quand le calendrier se charge) */
-.planyo-slot iframe.calprev_iframe{height:320px}
-#calp_all{height:240px;min-width:680px}
+#calp_all{height:240px}
+@media(min-width:761px){#calp_all{min-width:680px}}
 @media(max-width:760px){#calp_all{height:376px}}
-.avail-global{background:var(--g2);border-top:1px solid var(--k)}
-.avail-global .avail-card{margin:0 auto}
 .avail-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* ---------------------------------------------------------------- alerte « cabane complète ? » */
-.alerte{background:var(--w);border-top:1px solid var(--k)}
-.alerte-card{max-width:780px;margin:0 auto;background:var(--w);border:1px solid var(--k);padding:clamp(24px,3.6vw,46px)}
-.alerte-card h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:12px 0 10px}
-.al-intro{margin-bottom:26px;max-width:56ch}
-.al-row{display:flex;gap:16px;flex-wrap:wrap}
-.al-dates .field{flex:1;min-width:160px}
-.al-cabs{display:flex;flex-wrap:wrap;margin:2px 0 0}
-.al-cabs label{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:10px 14px;border:1px solid var(--k);margin:0 -1px -1px 0;font:400 .95rem var(--b);letter-spacing:0;text-transform:none;cursor:pointer;background:var(--w)}
-.al-cabs label:hover{background:var(--g1)}
-.al-form .btn{margin-top:8px}
-.al-fine{font-size:.88rem;color:var(--g4);margin-top:16px}
-.al-fine a{border-bottom:1px solid currentColor;color:var(--ink)}
-.al-done{display:none;text-align:center;padding:24px 0}
+.resa{margin-top:clamp(64px,11vh,130px);max-width:820px}
+.resa h3{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1}
+.resa p{max-width:52ch;margin:14px 0 28px;color:var(--ink-soft)}
+.resa-list{border-top:2px solid var(--ink)}
+.resa-list a{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);font-weight:800;font-size:clamp(1.25rem,2.2vw,1.8rem);letter-spacing:-.025em;line-height:1.1;transition:padding .6s var(--ease),color .4s}
+.resa-list small{display:block;margin-top:5px;font-weight:500;font-size:.88rem;letter-spacing:0;color:var(--ink-soft)}
+.resa-list .ar{width:1.3rem;height:1.3rem;flex:0 0 auto;color:var(--sage);transition:transform .6s var(--ease)}
+.resa-list a:hover{padding-left:14px;color:var(--earth)}
+.resa-list a:hover .ar{transform:translateX(8px)}
+.resa .note{margin:22px 0 0;font-size:.92rem;color:var(--ink-soft);max-width:60ch}
+.alerte{margin-top:clamp(72px,12vh,150px);padding-bottom:clamp(88px,15vh,190px);max-width:760px}
+.alerte h2{font-size:clamp(1.8rem,3.2vw,2.8rem);margin:16px 0 10px;max-width:none}
+.al-intro{max-width:56ch;margin-bottom:28px;color:var(--ink-soft)}
+.al-row{display:flex;gap:6px 24px;flex-wrap:wrap}
+.al-dates .field{flex:1;min-width:150px}
+.al-cabs{display:flex;flex-wrap:wrap;gap:2px 24px;margin-top:6px}
+.al-cabs label{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin:0;font-weight:500;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);cursor:pointer}
+.al-form .btn{margin-top:10px}
+.al-fine{font-size:.88rem;color:var(--ink-soft);margin-top:16px}
+.al-fine a{text-decoration:underline 1.5px var(--earth);text-underline-offset:.25em}
+.al-done{display:none;padding:24px 0}
 .al-done h2{font-size:2rem}
 @media(max-width:620px){.al-form .btn{width:100%}}
 
-/* ---------------------------------------------------------------- spa, domaine (texte + photos) */
-.feat{position:relative;overflow:hidden}
-.feat .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,84px);align-items:center}
-.feat.flip .txt{order:2}
-.feat h2{font-size:clamp(2.1rem,4.6vw,3.7rem);margin:16px 0 0}
-.feat .lead{font-size:1.1rem;margin:1.1em 0;max-width:44ch}
-.flist{margin-top:1.5em;border-top:1px solid currentColor}
-.flist li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid currentColor}
-.flist li::before{content:"";width:9px;height:9px;background:currentColor;margin-top:.62em;flex:0 0 9px}
-.feat-visual{position:relative;aspect-ratio:5/6;overflow:hidden;background:var(--g2)}
-.feat-visual img{width:100%;height:100%;object-fit:cover}
-.feat-stack{display:flex;flex-direction:column;gap:clamp(16px,3vh,28px)}
-.feat-visual-2{aspect-ratio:4/3}
-.spa{background:var(--g1);border-top:1px solid var(--k)}
-.domaine{background:var(--k);color:var(--w);border-top:1px solid var(--k)}
-.domaine .dp{max-width:44ch;color:var(--g3)}
-.domaine .lead{color:var(--g3)}
-.animals{display:flex;flex-wrap:wrap;margin-top:26px}
-.animals span{padding:10px 16px;border:1px solid var(--w);margin:0 -1px -1px 0;font-size:.95rem}
+/* ---------------------------------------------------------------- le reste, en bas : reprend le contenu d'avant, sans boîtes */
+.low-sec{padding-block:clamp(88px,14vh,180px)}
+.nb{white-space:nowrap}
+.low-in{margin-left:var(--left);padding:0 var(--gut) 0 var(--padl)}
+.low-sec .head{max-width:60ch}
+.low-sec h2{font-size:clamp(2.2rem,4.2vw,4rem);margin:18px 0 0}
+.low-sec .head p{margin-top:1em}
+.bg2{background:var(--paper-2)}
 
-/* ---------------------------------------------------------------- paniers + boissons */
-.paniers{background:var(--w);border-top:1px solid var(--k)}
-.paniers .head{max-width:62ch;margin:0 auto;text-align:center}
-.paniers h2{font-size:clamp(2.1rem,5vw,3.7rem);margin:16px 0 0}
-.paniers .head p{margin-top:1em;font-size:1.05rem}
-.panier-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,6vh,70px);border:1px solid var(--k);max-width:var(--maxw);margin-left:auto;margin-right:auto}
-.panier-card{padding:30px;display:flex;flex-direction:column;gap:12px;background:var(--w)}
-.panier-card+.panier-card{border-left:1px solid var(--k)}
-.pc-tag{align-self:flex-start;background:var(--k);color:var(--w);padding:7px 13px;font:500 .78rem var(--t);letter-spacing:.14em;text-transform:uppercase}
-.panier-card h3{font:400 1.7rem/1.1 var(--t)}
-.boissons{background:var(--g2);border-top:1px solid var(--k)}
-.boissons .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
-.boissons h2{font-size:clamp(2.1rem,4.6vw,3.5rem);margin:16px 0 0}
-.boissons .lead{font-size:1.1rem;margin:1.1em 0;max-width:46ch}
-.boissons .pl-note{font-size:.92rem;color:var(--g4);margin-top:14px;max-width:46ch}
-.price-list{background:var(--w);border:1px solid var(--k)}
-.pl-row{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 24px;border-top:1px solid var(--k)}
-.pl-row:first-child{border-top:0}
-.pl-row b{font:400 1.3rem var(--t);white-space:nowrap}
+/* paniers : une ligne par panier */
+.panier-grid{margin-top:clamp(36px,6vh,64px);border-top:2px solid var(--ink)}
+.panier-card{display:grid;grid-template-columns:minmax(120px,.3fr) minmax(0,.7fr);gap:6px 28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.pc-tag{grid-row:1/span 2;font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);padding-top:.5em}
+.panier-card h3{font-size:clamp(1.4rem,2.2vw,1.9rem);line-height:1.1}
+.panier-card p{max-width:56ch}
 
-/* ---------------------------------------------------------------- activités */
-.acts{background:var(--g1);border-top:1px solid var(--k)}
-.acts .head{text-align:center;max-width:60ch;margin:0 auto 56px}
-.acts h2{font-size:clamp(2.1rem,5vw,3.8rem);margin:16px 0 0}
-.acts .head p{margin-top:1em;font-size:1.05rem}
-.bird{display:block;width:clamp(64px,8vw,92px);margin:0 auto 18px;color:var(--k)}
-.act-feature{display:grid;grid-template-columns:1fr 1.05fr;border:1px solid var(--k);background:var(--w)}
-.act-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--g2);border-right:1px solid var(--k)}
-.act-photo img{width:100%;height:100%;object-fit:cover}
-.act-feature-body{padding:clamp(26px,4vw,52px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.tagnew{background:var(--k);color:var(--w);padding:7px 13px;font:500 .78rem var(--t);letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
-.act-feature h3{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:.5em}
-.act-feature p{max-width:48ch;margin-bottom:22px}
-.act-list{border:1px solid var(--k);border-top:0;background:var(--w)}
-.act-card{display:grid;grid-template-columns:minmax(150px,.4fr) 1fr;border-top:1px solid var(--k);background:var(--w)}
-.act-card .dist{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;padding:26px;border-right:1px solid var(--k);background:var(--g1);font:300 clamp(1.4rem,2.6vw,2.1rem)/1.1 var(--t)}
-.act-card h4{grid-column:2;grid-row:1;padding:26px 26px 6px;font:400 1.55rem/1.1 var(--t)}
-.act-card ul{grid-column:2;grid-row:2;padding:0 26px 26px;columns:2;column-gap:34px}
+/* boissons : texte puis liste de prix */
+.boi-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(36px,5vw,84px);align-items:start}
+.boi-grid .lead{max-width:44ch;margin-top:1.1em}
+.pl-note{margin-top:1.2em;font-size:.92rem;color:var(--ink-soft);max-width:46ch}
+.price-list{border-top:2px solid var(--ink)}
+.pl-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.pl-row b{font-weight:800;font-size:1.2rem;letter-spacing:-.02em;white-space:nowrap}
+
+/* activités */
+.bird{display:block;width:clamp(56px,6vw,80px);margin-bottom:18px;color:var(--earth)}
+.act-feature{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:clamp(40px,7vh,72px)}
+.act-photo{overflow:hidden;background:var(--paper-2)}
+.act-photo img{width:100%;height:auto}
+.tagnew{display:inline-block;font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);margin-bottom:14px}
+.act-feature h3{font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:.5em;line-height:1.02}
+.act-feature p{max-width:46ch;margin-bottom:24px}
+.act-list{margin-top:clamp(40px,7vh,72px);border-top:2px solid var(--ink)}
+.act-card{display:grid;grid-template-columns:minmax(120px,.3fr) minmax(0,.7fr);gap:6px 28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.act-card .dist{grid-row:1/span 2;font-weight:800;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:-.03em;line-height:1.1;color:var(--earth)}
+.act-card h4{font-weight:800;font-size:1.3rem;letter-spacing:-.02em;line-height:1.15}
+.act-card ul{columns:2;column-gap:32px}
 .act-card li{padding:3px 0;break-inside:avoid;font-size:.97rem}
-.act-card li a{border-bottom:1px solid var(--g3)}
-.act-card li a:hover{border-color:var(--k)}
-@media(max-width:860px){
-  .act-feature{grid-template-columns:1fr}
-  .act-photo{border-right:0;border-bottom:1px solid var(--k)}
-  .act-card{grid-template-columns:1fr}
-  .act-card .dist{grid-column:1;grid-row:auto;border-right:0;border-bottom:1px solid var(--k);padding:18px 26px}
-  .act-card h4,.act-card ul{grid-column:1;grid-row:auto}
+.act-card li a{text-decoration:underline 1.5px var(--line);text-underline-offset:.28em;transition:text-decoration-color .4s}
+.act-card li a:hover{text-decoration-color:var(--sage)}
+
+/* bons cadeaux */
+.gift-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:clamp(36px,6vh,60px) 0 28px;border-top:2px solid var(--ink)}
+.gift-card{padding:26px 28px 0 0}
+.gift-card+.gift-card{padding-left:28px;border-left:1px solid var(--line)}
+.gift-card h3{font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.1;margin-bottom:10px}
+.gift-card p{font-size:.97rem;max-width:34ch}
+.gift .how{max-width:62ch;margin-bottom:26px}
+
+/* tarifs */
+.tar-cabins{margin-top:clamp(36px,6vh,60px);border-top:2px solid var(--ink);padding-top:26px}
+.tc-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 22px}
+.tc-price b{font-weight:800;font-size:clamp(3.4rem,7vw,6rem);line-height:.9;letter-spacing:-.05em}
+.tc-price span{font-weight:700;font-size:1.05rem}
+.tc-list{display:flex;flex-wrap:wrap;gap:6px 26px;margin:20px 0 4px}
+.tc-list span{display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:1rem}
+.tc-list span::before{content:"";width:6px;height:6px;background:var(--sage);flex:0 0 6px}
+.tc-note{margin-top:14px;font-size:.95rem;color:var(--ink-soft);max-width:60ch}
+.tar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:clamp(36px,6vh,60px);border-top:1px solid var(--line)}
+.tar-card{padding:28px 28px 0 0}
+.tar-card+.tar-card{padding-left:28px;border-left:1px solid var(--line)}
+.tar-tag{font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth)}
+.tar-amt{display:flex;align-items:baseline;gap:10px;margin:10px 0;font-weight:800;font-size:clamp(2.6rem,4.4vw,3.8rem);line-height:1;letter-spacing:-.045em}
+.tar-amt small{font-weight:500;font-size:.92rem;letter-spacing:0;color:var(--ink-soft)}
+.tar-card p{font-size:.97rem;max-width:44ch}
+
+/* infos pratiques */
+.ilist{margin-top:clamp(30px,5vh,52px);border-top:2px solid var(--ink)}
+.ilist li{display:flex;gap:18px 28px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;flex-wrap:wrap}
+.ilist .k{flex:0 0 clamp(120px,16vw,200px);font-weight:700;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+.ilist .v{flex:1 1 280px;min-width:0}
+
+/* ---------------------------------------------------------------- téléphone et tablette */
+@media(max-width:960px){
+  .story-grid,.dom-sub,.spa-grid,.boi-grid,.act-feature{grid-template-columns:1fr}
+  .som h2 br{display:inline}
+  .story-grid,.dom-wide,.dom-pair,.cab-dream,.gal,.cab-top,.strip-in,.avis-top,.avis-grid,.avis .note-tag,.book-in,.low-in,.rupt-stick,.rupt-after,.som-in{margin-left:0}
+  .story-grid{padding-inline:0}
+  .story-txt{padding-inline:var(--gut)}
+  .story-fig{margin-top:8px}
+  .som{min-height:0;padding-block:36px 52px}
+  .som .intro{font-size:.96rem}
+  .som-list{margin-top:22px}
+  .som-item{grid-template-columns:minmax(0,1fr) auto;padding:14px 0}
+  .som-q{font-size:clamp(1.35rem,6.4vw,2rem)}
+  .som-n{margin-top:8px}
+  .story,.dom,.spa{padding-block:clamp(72px,11vh,130px)}
+  .low-sec,.avis{padding-block:clamp(64px,10vh,110px)}
+  .book{padding-top:clamp(64px,10vh,110px)}
+  .cab-dream,.cab.flip .cab-dream{grid-template-columns:1fr;min-height:0;gap:0}
+  .cab-photo,.cab.flip .cab-photo{order:-1;min-height:0;height:min(68svh,560px)}
+  .cab-text,.cab.flip .cab-text{padding:36px var(--gut) 44px}
+  .cab-top{padding-inline:var(--gut)}
+  .strip{order:2}
+  .gal{order:3;padding:56px 0 72px;grid-template-columns:1fr;gap:12px}
+  .gal .r,.gal .low{grid-column:auto;margin-top:0}
+  .dom-wide{margin-left:0}
+  .dom-pair{grid-template-columns:1fr;padding-inline:0}
+  .dom-pair figure{margin-inline:var(--gut)}
+  .dom-pair figure+figure{margin-top:20px}
+  .spa-fig{margin-bottom:8px}
+  .avis-grid{grid-template-columns:1fr}
+  .panier-card,.act-card{grid-template-columns:1fr}
+  .pc-tag,.act-card .dist{grid-row:auto}
   .act-card ul{columns:1}
+  .gift-grid,.tar-grid{grid-template-columns:1fr}
+  .gift-card,.gift-card+.gift-card,.tar-card,.tar-card+.tar-card{padding:22px 0 4px;border-left:0;border-top:1px solid var(--line)}
+  .gift-card:first-child,.tar-card:first-child{border-top:0}
+  .cal-panel{max-height:92svh}
+  .cal-head,.cal-body{margin-left:0;padding-left:var(--gut)}
+}
+@media(max-width:520px){.meta div{padding-right:16px}.meta div+div{padding-left:16px}}
+
+/* écrans peu hauts (portables, petits téléphones) : le sommaire doit TOUJOURS tenir en un écran, les quatre citations visibles */
+@media(min-width:961px) and (max-height:899px){
+  .som{padding-block:24px 36px}
+  .som-list{margin-top:22px}
+  .som-item{padding:12px 0}
+  .som-q{font-size:clamp(1.5rem,2.6vw,2.4rem)}
+  .som-n{margin-top:6px}
+  .som .intro{font-size:.95rem}
+}
+@media(max-width:960px) and (max-height:760px){
+  .som{padding-block:20px 32px}
+  .som h2{font-size:1.25rem;margin:12px 0 8px}
+  .som .intro{font-size:.9rem;line-height:1.4}
+  .som-list{margin-top:14px}
+  .som-item{padding:10px 0}
+  .som-q{font-size:clamp(1.25rem,5.4vw,1.6rem)}
+  .som-n{margin-top:6px}
 }
 
-/* ---------------------------------------------------------------- avis (fond noir) */
-.avis{background:var(--k);color:var(--w);text-align:center}
-.avis .score{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:50px}
-.avis .big{font:200 clamp(4.4rem,10vw,7.5rem)/1 var(--t)}
-.avis .v{text-align:left}
-.avis .gl{font:300 1.8rem/1.1 var(--t)}
-.avis .v small{display:block;color:var(--g3);font-size:.9rem;letter-spacing:.06em;margin-top:8px}
-.avis .v small b{color:var(--w);font-weight:600}
-.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--w);text-align:left;max-width:var(--maxw);margin:0 auto}
-.avis-card{padding:30px;border-left:1px solid var(--w)}
-.avis-card:first-child{border-left:0}
-.avis-card p{font:300 1.2rem/1.45 var(--t)}
-.avis-card .who{margin-top:18px;font:500 .8rem var(--t);letter-spacing:.14em;text-transform:uppercase;color:var(--g3)}
-.avis-cta{margin-top:38px}
-.note-tag{font-size:.85rem;color:var(--g3);margin-top:26px}
-
-/* ---------------------------------------------------------------- bons cadeaux */
-.gift{background:var(--g2);border-top:1px solid var(--k)}
-.gift-head{text-align:center;max-width:780px;margin:0 auto 40px}
-.gift-head h2{font-size:clamp(2.2rem,5.4vw,4rem);margin:16px 0 .34em}
-.gift-head .lead{max-width:60ch;margin:0 auto;font-size:1.08rem}
-.gift-box{background:var(--w);border:1px solid var(--k);padding:clamp(24px,4vw,48px);max-width:1120px;margin:0 auto}
-.gift-content{text-align:center}
-.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:0 auto 26px;border:1px solid var(--k);text-align:left}
-.gift-card{padding:22px 24px;border-left:1px solid var(--k)}
-.gift-card:first-child{border-left:0}
-.gift-card h3{font:400 1.4rem/1.1 var(--t);margin-bottom:8px}
-.gift-card p{font-size:.95rem}
-.gift .how{max-width:60ch;margin:0 auto 24px}
-@media(max-width:760px){
-  .gift-grid{grid-template-columns:1fr}
-  .gift-card{border-left:0;border-top:1px solid var(--k)}
-  .gift-card:first-child{border-top:0}
+/* ---------------------------------------------------------------- mouvement réduit / sans JavaScript : la rupture reste un écran fixe et lisible */
+@media(prefers-reduced-motion:reduce){
+  .js .rupt-run{height:auto}
+  .js .rupt-stick{position:static;height:auto;min-height:calc(100svh - var(--hh))}
+  .js .rupt-big{opacity:1;transform:none}
+  .rupt-go .down{animation:none}
+  .scrollcue::after{animation:none}
 }
-
-/* ---------------------------------------------------------------- tarifs */
-.tarifs{position:relative;overflow:hidden;background:var(--w);border-top:1px solid var(--k)}
-.tarifs .wrap{position:relative;z-index:1}
-.tarifs .head{text-align:center;max-width:60ch;margin:0 auto}
-.tarifs h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:18px 0 12px}
-.tar-cabins{background:var(--w);border:1px solid var(--k);padding:clamp(26px,4vw,44px);margin-top:clamp(36px,5vh,56px);text-align:center}
-.tc-price{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap}
-.tc-price b{font:300 clamp(3rem,7vw,4.6rem)/1 var(--t)}
-.tc-list{display:flex;flex-wrap:wrap;justify-content:center;margin:22px 0 6px}
-.tc-list span{padding:9px 18px;border:1px solid var(--k);margin:0 -1px -1px 0;font:400 1rem var(--t)}
-.tc-note{font-size:.92rem;margin-top:18px}
-.tar-grid{display:grid;grid-template-columns:1fr 1fr}
-.tar-card{background:var(--w);border:1px solid var(--k);border-top:0;padding:30px;display:flex;flex-direction:column;gap:10px}
-.tar-card+.tar-card{border-left:0}
-.tar-tag{align-self:flex-start;background:var(--k);color:var(--w);padding:7px 13px;font:500 .78rem var(--t);letter-spacing:.16em;text-transform:uppercase}
-.tar-amt{display:flex;align-items:baseline;gap:8px;font:300 3rem/1 var(--t)}
-.tar-amt small{font:400 .88rem var(--b)}
-.tar-card p{font-size:.95rem}
-@media(max-width:760px){.tar-grid{grid-template-columns:1fr}.tar-card+.tar-card{border-left:1px solid var(--k);border-top:0}}
-
-/* ---------------------------------------------------------------- infos pratiques + réservation */
-.infos{background:var(--g1);border-top:1px solid var(--k)}
-.infos .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:start}
-.infos h2{font-size:clamp(2.1rem,4.6vw,3.5rem);margin:16px 0 .7em}
-.ilist{border-top:1px solid var(--k)}
-.ilist li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--k);align-items:flex-start}
-.ilist .k{flex:0 0 140px;font:500 .82rem var(--t);letter-spacing:.14em;text-transform:uppercase;padding-top:3px}
-.resa{background:var(--k);color:var(--w);padding:clamp(28px,4vw,52px);position:sticky;top:calc(var(--hh) + 24px)}
-.resa h3{font-size:clamp(2rem,3.4vw,2.8rem);margin-bottom:.5em}
-.resa p{color:var(--g3)}
-.resa-cabins{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
-.resa-cabins .btn{flex-direction:column;gap:0;padding:16px 14px}
-.resa-cabins .btn small{margin-top:6px}
-.resa .note{font-size:.92rem;color:var(--g3);margin-top:1.4em;border-top:1px solid #444;padding-top:1.2em}
-
-/* ---------------------------------------------------------------- appel final */
-.final{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;padding:clamp(60px,10vh,120px) var(--pad);overflow:hidden;border-top:1px solid var(--k);background:var(--g2)}
-.final .bg{position:absolute;inset:0}
-.final .bg img{width:100%;height:100%;object-fit:cover}
-.final .panel{position:relative;z-index:1;background:var(--w);border:1px solid var(--k);padding:clamp(30px,5vw,64px);max-width:720px;text-align:center}
-.final h2{font-size:clamp(2.6rem,7vw,5.6rem);margin:16px 0 .3em}
-.final p{max-width:40ch;margin:0 auto 30px}
-
-@media(max-width:980px){
-  .story .wrap,.feat .wrap,.boissons .wrap,.infos .wrap{grid-template-columns:1fr}
-  .feat.flip .txt{order:0}
-  .resa{position:relative;top:0}
-  .panier-grid,.avis-grid{grid-template-columns:1fr}
-  .panier-card+.panier-card{border-left:0;border-top:1px solid var(--k)}
-  .avis-card{border-left:0;border-top:1px solid var(--w)}
-  .avis-card:first-child{border-top:0}
-}
-@media(max-width:520px){.resa-cabins{grid-template-columns:1fr}.meta{grid-template-columns:repeat(3,auto)}.meta div{padding-right:16px}.meta div+div{padding-left:14px}}

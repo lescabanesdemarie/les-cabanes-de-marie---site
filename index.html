@@ -7,7 +7,7 @@
 <meta name="description" content="Cabanes dans les arbres à Ogens (VD), au cœur du plateau suisse. Le luxe de la simplicité : spa au feu de bois, petit-déjeuner local, une nuit perchée hors du temps.">
 <link rel="canonical" href="https://www.lescabanesdemarie.com/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#EFE8D8">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high" media="(min-width: 761px)">
@@ -60,13 +60,18 @@
 }
 </script>
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="assets/fonts.css?v=4f19210e">
-<link rel="stylesheet" href="assets/site.css?v=1228b02b">
-<link rel="stylesheet" href="assets/home.css?v=eaa9740c">
+<!--chrome:head-->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap"></noscript>
+<!--/chrome:head-->
+<link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
+<link rel="stylesheet" href="assets/site.css?v=235e12a7">
+<link rel="stylesheet" href="assets/home.css?v=c1e34521">
 <script src="assets/forms.js?v=33f082c1" defer></script>
 </head>
 <body class="home">
-<div class="progress" id="prog" aria-hidden="true"></div>
 
 <!--chrome:header-->
 <a class="skip" href="#main" data-i="skip">Aller au contenu</a>
@@ -116,285 +121,199 @@
 </aside>
 <!--/chrome:header-->
 
-<nav class="rail" id="rail" aria-label="Parcours de la page">
-  <a href="#story" data-t="story"><span class="num"></span><span class="lbl" data-i="rail.1">01 · Le rêve</span></a>
-  <a href="#cabanes" data-t="cabanes"><span class="num"></span><span class="lbl" data-i="rail.2">02 · Les cabanes</span></a>
-  <a href="#spa" data-t="spa"><span class="num"></span><span class="lbl" data-i="rail.3">03 · Le spa</span></a>
-  <a href="#paniers" data-t="saveurs"><span class="num"></span><span class="lbl" data-i="rail.4">04 · Les saveurs</span></a>
-  <a href="#domaine" data-t="domaine"><span class="num"></span><span class="lbl" data-i="rail.5">05 · Le domaine</span></a>
-  <a href="#activites" data-t="activites"><span class="num"></span><span class="lbl" data-i="rail.6">06 · Les activités</span></a>
-  <a href="#reserver" data-t="reserver"><span class="num"></span><span class="lbl" data-i="rail.7">07 · Réserver</span></a>
-</nav>
-
 <main id="main">
 
-<!-- HAUT DE PAGE -->
+<!-- ENTRÉE : un titre, une photo, du vide -->
 <section class="hero" id="top" aria-labelledby="hero-h">
-  <picture class="hero-bg">
-    <source media="(max-width: 760px)" srcset="assets/img/hero-bg-m.webp" type="image/webp">
-    <img class="ph-hero" src="assets/img/hero-bg.jpg" width="2048" height="1362" fetchpriority="high" decoding="async" alt="La Jia de Camille, cabane perchée dans les arbres">
-  </picture>
-  <div class="hero-in">
-    <div class="loc lbl" data-i="hero.loc">Ogens · Canton de Vaud · à 30min de Lausanne</div>
+  <div class="hero-txt">
+    <div class="lbl" data-i="hero.loc">Ogens · Canton de Vaud · à 30min de Lausanne</div>
     <h1 id="hero-h" data-i="hero.h1"><span>Dormir dans</span> <span><b>les arbres</b></span></h1>
     <p class="sub" data-i="hero.sub">Quatre refuges perchés au cœur du plateau suisse. Le luxe de la simplicité, une parenthèse hors du temps — au moins une nuit.</p>
     <div class="cta">
       <a href="#reserver" class="btn" data-i="hero.cta1">Réserver une nuit</a>
-      <a href="bons-cadeaux.html" class="btn o" data-i="btn.gift">Offrir un bon cadeau</a>
-      <a href="#cabanes" class="btn o" data-i="hero.cta2">Découvrir le parcours ↓</a>
+      <a href="bons-cadeaux.html" class="go" data-i="btn.gift">Offrir un bon cadeau</a>
+      <a href="#story" class="go" data-i="hero.cta2">Découvrir le parcours ↓</a>
     </div>
   </div>
+  <figure class="hero-fig unveil">
+    <picture>
+      <source media="(max-width: 760px)" srcset="assets/img/hero-bg-m.webp" type="image/webp">
+      <img class="ph-hero" src="assets/img/hero-bg.jpg" width="2048" height="1362" fetchpriority="high" decoding="async" alt="Une cabane perchée dans les arbres, au toit de chaume">
+    </picture>
+  </figure>
+  <p class="hero-cap" data-i="hero.mq"><span>Le luxe de la simplicité</span><span>Au chant des oiseaux</span><span>Les pieds dans la rivière</span><span>La tête dans les étoiles</span></p>
   <div class="scrollcue" data-i="hero.scroll" aria-hidden="true">Descendez et laissez-vous porter</div>
 </section>
 
-<div class="band" aria-hidden="true"><div class="track" data-i="mq.1"><span>Le luxe de la simplicité</span><span class="star">✦</span><span class="it">Au chant des oiseaux</span><span class="star">✦</span><span>Les pieds dans la rivière</span><span class="star">✦</span><span class="it">La tête dans les étoiles</span><span class="star">✦</span><span>Le luxe de la simplicité</span><span class="star">✦</span><span class="it">Au chant des oiseaux</span><span class="star">✦</span><span>Les pieds dans la rivière</span><span class="star">✦</span><span class="it">La tête dans les étoiles</span><span class="star">✦</span></div></div>
-
-<!-- HISTOIRE -->
-<section class="story pad" id="story">
-  <img class="deco" src="assets/bg/contour.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:-14%;bottom:-30%;width:70%;opacity:.07">
-  <div class="wrap">
-    <div class="reveal">
+<!-- 1 · L'HISTOIRE -->
+<section class="story" id="story" aria-labelledby="story-h">
+  <img class="deco" src="assets/bg/leaves.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="420" height="640">
+  <div class="story-grid">
+    <div class="story-txt reveal">
       <div class="lbl" data-i="story.eb">01 — Le rêve</div>
-      <h2 data-i="story.h2">Ils ont changé de vie pour vivre leur <b>rêve</b>.</h2>
+      <h2 id="story-h" data-i="story.h2">Ils ont changé de vie pour vivre leur <b>rêve</b>.</h2>
       <p data-i="story.p1">Marie et Renaud de Goumoëns ont quitté leur ancienne vie pour construire des cabanes dans les arbres de leur domaine d'Ogens, traversé par une rivière, et passer plus de temps en famille.</p>
       <p data-i="story.p2">Chaque hébergement porte le prénom d'un de leurs enfants — Camille, Mathis, Alanis et Mila — et possède son propre univers. Soyez les bienvenus, et soyez prêts à rêver.</p>
       <div class="sign" data-i="story.sign">Marie &amp; Renaud<small>Vos hôtes</small></div>
       <div class="meta" data-i="story.meta"><div><b>4</b><small>Refuges uniques</small></div><div><b>4,9</b><small>Avis Google</small></div><div><b>1</b><small>Éco-spa</small></div></div>
-      <a href="bons-cadeaux.html" class="btn" data-i="story.gift">Offrir un bon cadeau</a>
+      <a href="bons-cadeaux.html" class="btn o" data-i="story.gift">Offrir un bon cadeau</a>
     </div>
-    <div class="reveal d2">
-      <div class="story-visual"><img class="ph-story" src="assets/img/story-famille.webp" width="893" height="1400" loading="lazy" decoding="async" alt="Marie, Renaud et leurs quatre enfants dans les cabanes"></div>
-    </div>
+    <figure class="story-fig unveil"><img class="ph-story" src="assets/img/story-famille.webp" width="893" height="1400" loading="lazy" decoding="async" alt="Marie, Renaud et leurs quatre enfants dans l'escalier d'une cabane"></figure>
   </div>
 </section>
 
-<!-- LES CABANES : PRÉSENTATION -->
-<section class="cab-intro pad" id="cabanes">
-  <img class="deco" src="assets/bg/treehouse.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:-6%;top:50%;transform:translateY(-50%);width:min(780px,62%);opacity:.085">
-  <div class="in reveal">
-    <img class="logo" src="assets/img/logo-dark.png" alt="" width="76" height="70">
-    <div class="lbl" data-i="ci.eb">02 — Les cabanes</div>
-    <h2 data-i="ci.h2">Quatre univers,<br><b>un même rêve</b></h2>
-    <p data-i="ci.p">Artisanales, aucune ne ressemble à l'autre : chacune s'adapte à l'arbre qui la porte. Descendez, et laissez chaque cabane se présenter à vous.</p>
+<!-- 2 · LES CABANES : le sommaire (un écran, quatre citations) -->
+<section class="som deep" id="cabanes" aria-labelledby="som-h">
+  <img class="deco" src="assets/bg/treehouse.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="680" height="620">
+  <div class="som-in">
+    <div class="lbl reveal" data-i="ci.eb">02 — Les cabanes</div>
+    <h2 id="som-h" class="reveal" data-i="ci.h2">Quatre univers, <br><b>un même rêve</b></h2>
+    <p class="intro reveal" data-i="ci.p">Artisanales, aucune ne ressemble à l'autre : chacune s'adapte à l'arbre qui la porte. Descendez, et laissez chaque cabane se présenter à vous.</p>
+    <ul class="som-list">
+      <li class="reveal"><a class="som-item" href="#mathis"><span><span class="som-q" data-i="q.mathis">«&nbsp;Un nid au creux des branches.&nbsp;»</span><span class="som-n">La Cabane de Mathis</span></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li class="reveal d1"><a class="som-item" href="#alanis"><span><span class="som-q" data-i="q.alanis">«&nbsp;Dormir au-dessus des animaux.&nbsp;»</span><span class="som-n">L'Arche d'Alanis</span></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li class="reveal d2"><a class="som-item" href="#camille"><span><span class="som-q" data-i="q.camille">«&nbsp;Un peu d'Asie, perchée.&nbsp;»</span><span class="som-n">La Jia de Camille</span></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li class="reveal d3"><a class="som-item" href="#mila"><span><span class="som-q" data-i="q.mila">«&nbsp;Un lit sous les étoiles.&nbsp;»</span><span class="som-n">Le Royaume de Mila</span></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+    </ul>
   </div>
 </section>
 
-<!-- CABANE 1 — CAMILLE -->
-<section class="cabin" id="camille" aria-labelledby="c1-h">
-  <img class="deco" src="assets/bg/leaves.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:-40px;top:6%;height:560px;opacity:.1">
-  <div class="stage">
-    <div class="visual-col">
-      <div class="cv"><img class="ph-camille-1" src="assets/cabanes/camille-1.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — la tour perchée"></div>
-      <div class="cv"><img class="ph-camille-2" src="assets/cabanes/camille-2.webp" width="720" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — intérieur asiatique"><span class="tag" data-i="c1.tag">Ambiance asiatique</span></div>
-      <div class="cv"><img class="ph-camille-3" src="assets/cabanes/camille-3.jpeg" width="906" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — terrasse"></div>
-    </div>
-    <div class="info reveal">
-      <div class="idx" aria-hidden="true">01</div>
-      <h3 id="c1-h">La Jia de Camille</h3>
-      <p class="why" data-i="c1.why">« Parce qu'il est comme l'Asie, plein de couleurs et de souvenirs de voyages. »</p>
-      <p class="desc" data-i="c1.desc">Une cabane perchée dans l'arbre, avec une petite chambre, à l'ambiance asiatique rapportée de la vie de la famille à Hong Kong et ses environs. Couleurs et souvenirs de voyages pour rêver sans bouger. Une petite cabane pour deux, baptisée Mushu, complète le nid.</p>
-      <div class="tags" data-i="c1.tags"><span>Grand lit (2 adultes)</span><span>Mezzanine 2 enfants</span><span>Petite chambre</span><span>Chauffage</span><span>WC écologique</span><span>Draps &amp; linges fournis</span></div>
-      <div class="cabin-foot">
-        <div class="price" data-i="c1.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant · max 5 pers. + bébé</small></div>
-        <div class="cta">
-          <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" class="btn" data-i="btn.book">Réserver</a>
-          <a href="bons-cadeaux.html" class="btn o" data-i="btn.gift">Offrir un bon cadeau</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="avail reveal">
-    <div class="avail-card">
-      <div class="ac-top">
-        <div><div class="lbl" data-i="av2.eb">Disponibilités</div><h4>La Jia de Camille</h4></div>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" class="btn" data-i="av2.btn">Vérifier les disponibilités</a>
-      </div>
-      <div class="planyo-slot" data-cabin="camille">
-        <!-- PLANYO-CALENDAR:camille (resource_id=155328, calendar=51020) -->
-        <iframe id="calp_camille" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" style="width:100%;border:0;display:block" src="https://www.planyo.com/embed-calendar.php?resource_id=155328&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_camille&amp;lightbox=1&amp;"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CABANE 2 — MATHIS -->
-<section class="cabin alt flip" id="mathis" aria-labelledby="c2-h">
-  <div class="stage">
-    <div class="visual-col">
-      <div class="cv"><img class="ph-mathis-1" src="assets/cabanes/mathis-1.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="La Cabane de Mathis — terrasse dans l'arbre"><span class="tag" data-i="c2.tag">Esprit Robinson</span></div>
-      <div class="cv"><img class="ph-mathis-2" src="assets/cabanes/mathis-2.jpeg" width="540" height="960" loading="lazy" decoding="async" alt="La Cabane de Mathis — intérieur"></div>
-      <div class="cv"><img class="ph-mathis-3" src="assets/cabanes/mathis-3.jpeg" width="1400" height="932" loading="lazy" decoding="async" alt="La Cabane de Mathis — vue aérienne"></div>
-    </div>
-    <div class="info reveal">
-      <div class="idx" aria-hidden="true">02</div>
-      <h3 id="c2-h">La Cabane de Mathis</h3>
-      <p class="why" data-i="c2.why">« Parce qu'il aime écouter les oiseaux et parler aux arbres. »</p>
-      <p class="desc" data-i="c2.desc">La véritable cabane de Robinson dont chaque enfant a rêvé, avec ses petits nids douillets et son point de vue sur l'étang du domaine. Intime, perchée, parfaite pour deux.</p>
+<!-- CABANE · MATHIS -->
+<section class="cab" id="mathis" aria-labelledby="c2-h">
+  <div class="cab-top"><a class="others" href="#cabanes"><span data-i="cab.others">Et les trois autres.</span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+  <div class="cab-dream">
+    <div class="cab-text reveal">
+      <div class="lbl" data-i="c2.tag">Esprit Robinson</div>
+      <h2 id="c2-h">La Cabane de Mathis</h2>
+      <p class="cab-q" data-i="q.mathis">«&nbsp;Un nid au creux des branches.&nbsp;»</p>
+      <p class="cab-desc" data-i="c2.desc">La véritable cabane de Robinson dont chaque enfant a rêvé, avec ses petits nids douillets et son point de vue sur l'étang du domaine. Intime, perchée, parfaite pour deux.</p>
+      <p class="cab-why" data-i="c2.why">« Parce qu'il aime écouter les oiseaux et parler aux arbres. »</p>
       <div class="tags" data-i="c2.tags"><span>Lit double (2 adultes)</span><span>Place pour lit bébé</span><span>Chauffage (entre-saison)</span><span>WC écologique</span><span>Draps &amp; linges fournis</span></div>
-      <div class="cabin-foot">
-        <div class="price" data-i="c2.price">280.–<small>pour 2, petit-déj inclus · max 2 pers.</small></div>
-        <div class="cta">
-          <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" class="btn" data-i="btn.book">Réserver</a>
-          <a href="bons-cadeaux.html" class="btn o" data-i="btn.gift">Offrir un bon cadeau</a>
-        </div>
-      </div>
     </div>
+    <figure class="cab-photo unveil"><img class="ph-mathis-1" src="assets/cabanes/mathis-1.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="La Cabane de Mathis — la terrasse au pied d'un grand arbre couvert de mousse" style="object-position:38% 50%"></figure>
   </div>
-  <div class="avail reveal">
-    <div class="avail-card">
-      <div class="ac-top">
-        <div><div class="lbl" data-i="av2.eb">Disponibilités</div><h4>La Cabane de Mathis</h4></div>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" class="btn" data-i="av2.btn">Vérifier les disponibilités</a>
-      </div>
-      <div class="planyo-slot" data-cabin="mathis">
-        <!-- PLANYO-CALENDAR:mathis (resource_id=157564, calendar=51020) -->
-        <iframe id="calp_mathis" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" style="width:100%;border:0;display:block" src="https://www.planyo.com/embed-calendar.php?resource_id=157564&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_mathis&amp;lightbox=1&amp;"></iframe>
-      </div>
+  <div class="gal">
+    <figure class="full unveil"><img class="ph-mathis-3" src="assets/cabanes/mathis-3.jpeg" width="1400" height="932" loading="lazy" decoding="async" alt="La Cabane de Mathis — vue aérienne, perchée dans les feuillages"></figure>
+    <figure class="r unveil"><img class="ph-mathis-2" src="assets/cabanes/mathis-2.jpeg" width="540" height="960" loading="lazy" decoding="async" alt="La Cabane de Mathis — l'intérieur : alcôve, table en bois et banquettes"></figure>
+  </div>
+  <div class="strip" data-cab="mathis">
+    <div class="strip-in">
+      <div class="strip-price" data-i="c2.price">280.–<small>pour 2, petit-déj inclus · max 2 pers.</small></div>
+      <a class="go cal-open" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" data-res="157564" data-name="La Cabane de Mathis"><span data-i="strip.dates">Voir les dates</span><svg class="ar sage" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- CABANE 3 — ALANIS -->
-<section class="cabin" id="alanis" aria-labelledby="c3-h">
-  <div class="stage">
-    <div class="visual-col">
-      <div class="cv"><img class="ph-alanis-1" src="assets/img/alanis-1.webp" width="1198" height="1800" loading="lazy" decoding="async" alt="L'Arche d'Alanis"><span class="tag" data-i="c3.tag">Au-dessus des animaux</span></div>
-      <div class="cv"><img class="ph-alanis-2" src="assets/cabanes/alanis-2.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="L'Arche d'Alanis — terrasse"></div>
-      <div class="cv"><img class="ph-alanis-3" src="assets/cabanes/alanis-3.webp" width="1050" height="1400" loading="lazy" decoding="async" alt="L'Arche d'Alanis — intérieur"></div>
-    </div>
-    <div class="info reveal">
-      <div class="idx" aria-hidden="true">03</div>
-      <h3 id="c3-h">L'Arche d'Alanis</h3>
-      <p class="why" data-i="c3.why">« Parce que son petit cœur est une Arche de Noé. »</p>
-      <p class="desc" data-i="c3.desc">Perchée à environ 3 mètres du sol — pour laisser les animaux passer dessous —, au-dessus des chevaux, avec leur passage à toute heure. Sa propre télécabine suspendue dans l'arbre, et un lit hamac pour dormir à la belle étoile.</p>
+<!-- CABANE · ALANIS -->
+<section class="cab alt flip" id="alanis" aria-labelledby="c3-h">
+  <div class="cab-top"><a class="others" href="#cabanes"><span data-i="cab.others">Et les trois autres.</span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+  <div class="cab-dream">
+    <div class="cab-text reveal">
+      <div class="lbl" data-i="c3.tag">Au-dessus des animaux</div>
+      <h2 id="c3-h">L'Arche d'Alanis</h2>
+      <p class="cab-q" data-i="q.alanis">«&nbsp;Dormir au-dessus des animaux.&nbsp;»</p>
+      <p class="cab-desc" data-i="c3.desc">Perchée à environ 3 mètres du sol — pour laisser les animaux passer dessous —, au-dessus des chevaux, avec leur passage à toute heure. Sa propre télécabine suspendue dans l'arbre, et un lit hamac pour dormir à la belle étoile.</p>
+      <p class="cab-why" data-i="c3.why">« Parce que son petit cœur est une Arche de Noé. »</p>
       <div class="tags" data-i="c3.tags"><span>Grand lit (2 adultes)</span><span>Mezzanine 2 enfants</span><span>Télécabine suspendue</span><span>Lit hamac extérieur</span><span>Chauffage</span><span>WC écologique</span><span>Draps &amp; linges fournis</span></div>
-      <div class="cabin-foot">
-        <div class="price" data-i="c3.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant · max 4 pers. + bébé</small></div>
-        <div class="cta">
-          <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157565&amp;custom-language=FR" class="btn" data-i="btn.book">Réserver</a>
-          <a href="bons-cadeaux.html" class="btn o" data-i="btn.gift">Offrir un bon cadeau</a>
-        </div>
-      </div>
     </div>
+    <figure class="cab-photo unveil"><img class="ph-alanis-1" src="assets/img/alanis-1.webp" width="1198" height="1800" loading="lazy" decoding="async" alt="L'Arche d'Alanis — la télécabine suspendue dans l'arbre, au bout de sa passerelle" style="object-position:46% 50%"></figure>
   </div>
-  <div class="avail reveal">
-    <div class="avail-card">
-      <div class="ac-top">
-        <div><div class="lbl" data-i="av2.eb">Disponibilités</div><h4>L'Arche d'Alanis</h4></div>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157565&amp;custom-language=FR" class="btn" data-i="av2.btn">Vérifier les disponibilités</a>
-      </div>
-      <div class="planyo-slot" data-cabin="alanis">
-        <!-- PLANYO-CALENDAR:alanis (resource_id=157565, calendar=51020) -->
-        <iframe id="calp_alanis" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" style="width:100%;border:0;display:block" src="https://www.planyo.com/embed-calendar.php?resource_id=157565&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_alanis&amp;lightbox=1&amp;"></iframe>
-      </div>
+  <div class="gal">
+    <figure class="unveil"><img class="ph-alanis-2" src="assets/cabanes/alanis-2.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="L'Arche d'Alanis — la terrasse, sa table et sa porte vitrée"></figure>
+    <figure class="low unveil"><img class="ph-alanis-3" src="assets/cabanes/alanis-3.webp" width="1050" height="1400" loading="lazy" decoding="async" alt="L'Arche d'Alanis — l'intérieur : échelle, mezzanine et lit sous la toile"></figure>
+  </div>
+  <div class="strip" data-cab="alanis">
+    <div class="strip-in">
+      <div class="strip-price" data-i="c3.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant · max 4 pers. + bébé</small></div>
+      <a class="go cal-open" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157565&amp;custom-language=FR" data-res="157565" data-name="L'Arche d'Alanis"><span data-i="strip.dates">Voir les dates</span><svg class="ar sage" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- CABANE 4 — MILA -->
-<section class="cabin alt flip" id="mila" aria-labelledby="c4-h">
-  <div class="stage">
-    <div class="visual-col">
-      <div class="cv"><img class="ph-mila-1" src="assets/cabanes/mila-1.jpeg" width="1080" height="1620" loading="lazy" decoding="async" alt="Le Royaume de Mila — terrasse sur la rivière"><span class="tag" data-i="c4.tag">Le lit qui sort à la belle étoile</span></div>
-      <div class="cv"><img class="ph-mila-2" src="assets/cabanes/mila-2.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="Le Royaume de Mila — cabane perchée"></div>
-      <div class="cv"><img class="ph-mila-3" src="assets/cabanes/mila-3.webp" width="746" height="960" loading="lazy" decoding="async" alt="Le Royaume de Mila — nuit à la belle étoile"></div>
-      <div class="cv wide"><img class="ph-mila-4" src="assets/cabanes/mila-4.webp" width="960" height="934" loading="lazy" decoding="async" alt="Le Royaume de Mila — la roulotte bibliothèque"></div>
-      <div class="cv"><img class="ph-mila-5" src="assets/cabanes/mila-5.webp" width="1080" height="1620" loading="lazy" decoding="async" alt="Le Royaume de Mila — coucher de soleil"></div>
+<!-- CABANE · CAMILLE -->
+<section class="cab" id="camille" aria-labelledby="c1-h">
+  <div class="cab-top"><a class="others" href="#cabanes"><span data-i="cab.others">Et les trois autres.</span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+  <div class="cab-dream">
+    <div class="cab-text reveal">
+      <div class="lbl" data-i="c1.tag">Ambiance asiatique</div>
+      <h2 id="c1-h">La Jia de Camille</h2>
+      <p class="cab-q" data-i="q.camille">«&nbsp;Un peu d'Asie, perchée.&nbsp;»</p>
+      <p class="cab-desc" data-i="c1.desc">Une cabane perchée dans l'arbre, avec une petite chambre, à l'ambiance asiatique rapportée de la vie de la famille à Hong Kong et ses environs. Couleurs et souvenirs de voyages pour rêver sans bouger. Une petite cabane pour deux, baptisée Mushu, complète le nid.</p>
+      <p class="cab-why" data-i="c1.why">« Parce qu'il est comme l'Asie, plein de couleurs et de souvenirs de voyages. »</p>
+      <div class="tags" data-i="c1.tags"><span>Grand lit (2 adultes)</span><span>Mezzanine 2 enfants</span><span>Petite chambre</span><span>Chauffage</span><span>WC écologique</span><span>Draps &amp; linges fournis</span></div>
     </div>
-    <div class="info reveal">
-      <div class="idx" aria-hidden="true">04</div>
-      <h3 id="c4-h">Le Royaume de Mila</h3>
-      <p class="why" data-i="c4.why">« Parce que c'est une vraie princesse, avec des étoiles plein les yeux. »</p>
-      <p class="desc" data-i="c4.desc">L'expérience unique : un lit double qui sort à l'extérieur sur simple commande de la télécommande, pour dormir à la belle étoile au-dessus de la rivière — ou à l'intérieur, selon vos envies. Une serre romantique en salle à manger, une terrasse-pont sur la rivière, et un second lit double dans la cabane perchée qui complète le royaume. Déco signée du designer Jorge Cañete.</p>
+    <figure class="cab-photo unveil"><img class="ph-camille-1" src="assets/cabanes/camille-1.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — la tour perchée et son escalier en colimaçon, un petit bouddha au pied de l'arbre" style="object-position:50% 50%"></figure>
+  </div>
+  <div class="gal">
+    <figure class="unveil"><img class="ph-camille-2" src="assets/cabanes/camille-2.webp" width="720" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — la chambre aux touches asiatiques : lit rouge, nœud chinois, rideau de bambou"></figure>
+    <figure class="low unveil"><img class="ph-camille-3" src="assets/cabanes/camille-3.jpeg" width="906" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — la terrasse nichée dans l'arbre"></figure>
+  </div>
+  <div class="strip" data-cab="camille">
+    <div class="strip-in">
+      <div class="strip-price" data-i="c1.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant · max 5 pers. + bébé</small></div>
+      <a class="go cal-open" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" data-res="155328" data-name="La Jia de Camille"><span data-i="strip.dates">Voir les dates</span><svg class="ar sage" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CABANE · MILA -->
+<section class="cab alt flip" id="mila" aria-labelledby="c4-h">
+  <div class="cab-top"><a class="others" href="#cabanes"><span data-i="cab.others">Et les trois autres.</span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+  <div class="cab-dream">
+    <div class="cab-text reveal">
+      <div class="lbl" data-i="c4.tag">Le lit qui sort à la belle étoile</div>
+      <h2 id="c4-h">Le Royaume de Mila</h2>
+      <p class="cab-q" data-i="q.mila">«&nbsp;Un lit sous les étoiles.&nbsp;»</p>
+      <p class="cab-desc" data-i="c4.desc">L'expérience unique : un lit double qui sort à l'extérieur sur simple commande de la télécommande, pour dormir à la belle étoile au-dessus de la rivière — ou à l'intérieur, selon vos envies. Une serre romantique en salle à manger, une terrasse-pont sur la rivière, et un second lit double dans la cabane perchée qui complète le royaume. Déco signée du designer Jorge Cañete.</p>
+      <p class="cab-why" data-i="c4.why">« Parce que c'est une vraie princesse, avec des étoiles plein les yeux. »</p>
       <div class="tags" data-i="c4.tags"><span>Lit motorisé belle étoile</span><span>Lit double perché</span><span>Serre romantique</span><span>Terrasse sur la rivière</span><span>Chauffage</span><span>WC écologique</span><span>Draps &amp; linges fournis</span></div>
-      <div class="cabin-foot">
-        <div class="price" data-i="c4.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant (été)</small></div>
-        <div class="cta">
-          <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157566&amp;custom-language=FR" class="btn" data-i="btn.book">Réserver</a>
-          <a href="bons-cadeaux.html" class="btn o" data-i="btn.gift">Offrir un bon cadeau</a>
-        </div>
-      </div>
     </div>
+    <figure class="cab-photo unveil"><img class="ph-mila-1" src="assets/cabanes/mila-1.jpeg" width="1080" height="1620" loading="lazy" decoding="async" alt="Le Royaume de Mila — la terrasse-pont au-dessus de la rivière, guirlandes lumineuses et voiles blancs" style="object-position:50% 38%"></figure>
   </div>
-  <div class="avail reveal">
-    <div class="avail-card">
-      <div class="ac-top">
-        <div><div class="lbl" data-i="av2.eb">Disponibilités</div><h4>Le Royaume de Mila</h4></div>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157566&amp;custom-language=FR" class="btn" data-i="av2.btn">Vérifier les disponibilités</a>
-      </div>
-      <div class="planyo-slot" data-cabin="mila">
-        <!-- PLANYO-CALENDAR:mila (resource_id=157566, calendar=51020) -->
-        <iframe id="calp_mila" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" style="width:100%;border:0;display:block" src="https://www.planyo.com/embed-calendar.php?resource_id=157566&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_mila&amp;lightbox=1&amp;"></iframe>
-      </div>
+  <div class="gal">
+    <figure class="unveil"><img class="ph-mila-2" src="assets/cabanes/mila-2.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="Le Royaume de Mila — la cabane perchée"></figure>
+    <figure class="low unveil"><img class="ph-mila-3" src="assets/cabanes/mila-3.webp" width="746" height="960" loading="lazy" decoding="async" alt="Le Royaume de Mila — la chambre perchée, en bois clair, éclairée d'une lampe douce"></figure>
+    <figure class="full unveil"><img class="ph-mila-4" src="assets/cabanes/mila-4.webp" width="960" height="934" loading="lazy" decoding="async" alt="Le Royaume de Mila — la roulotte bibliothèque"></figure>
+    <figure class="r unveil"><img class="ph-mila-5" src="assets/cabanes/mila-5.webp" width="1080" height="1620" loading="lazy" decoding="async" alt="Le Royaume de Mila — la roulotte au coucher du soleil"></figure>
+  </div>
+  <div class="strip" data-cab="mila">
+    <div class="strip-in">
+      <div class="strip-price" data-i="c4.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant (été)</small></div>
+      <a class="go cal-open" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157566&amp;custom-language=FR" data-res="157566" data-name="Le Royaume de Mila"><span data-i="strip.dates">Voir les dates</span><svg class="ar sage" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- DISPONIBILITÉS GLOBALES -->
-<section class="avail-global pad" id="disponibilites">
-  <div class="wrap">
-    <div class="avail-card reveal">
-      <div class="ac-top">
-        <div><div class="lbl" data-i="ag.eb">Calendrier général</div><h2 data-i="ag.h">Disponibilités — toutes nos cabanes</h2></div>
-        <a href="#reserver" class="btn" data-i="ag.btn">Réserver une cabane</a>
-      </div>
-      <div class="planyo-slot" data-cabin="all">
-        <!-- PLANYO-CALENDAR:all (calendar=51020, toutes les ressources) -->
-        <div class="avail-scroll" tabindex="0" role="region" aria-label="Calendrier de disponibilités" data-i-aria="cal.title">
-          <iframe id="calp_all" class="calprev_iframe caltype_1" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" style="width:100%;min-width:680px;border:0;display:block" src="https://www.planyo.com/embed-calendar.php?calendar=51020&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_all&amp;lightbox=1&amp;"></iframe>
-        </div>
-      </div>
+<!-- 3 · LE DOMAINE : un souffle -->
+<section class="dom" id="domaine" aria-labelledby="dom-h">
+  <img class="deco" src="assets/bg/contour.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1000" height="800">
+  <div class="dom-head">
+    <div class="reveal">
+      <div class="lbl" data-i="dom.eb">03 — Le domaine</div>
+      <h2 id="dom-h" data-i="dom.h2">Une rivière, un étang,<br><b>des animaux en liberté</b></h2>
     </div>
-  </div>
-</section>
-
-<!-- ALERTE DISPONIBILITÉ -->
-<section class="alerte pad" id="alerte-dispo">
-  <div class="wrap">
-    <div class="alerte-card reveal">
-      <div class="lbl" data-i="al.eb">Liste d'attente</div>
-      <h2 data-i="al.h">Cabane complète sur vos dates ?</h2>
-      <p class="al-intro" data-i="al.intro">Laissez-nous votre e-mail et vos dates : nous vous prévenons dès qu'une cabane se libère.</p>
-      <form id="alForm" class="al-form" novalidate>
-        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <div class="field"><label for="alEmail" data-i="al.email">Votre e-mail</label><input type="email" id="alEmail" name="email" required autocomplete="email" data-i-ph="al.email" placeholder="vous@exemple.ch"></div>
-        <div class="field"><label for="alTel" data-i="al.tel">Votre téléphone</label><input type="tel" id="alTel" name="tel" required autocomplete="tel" data-i-ph="al.tel" placeholder="079 000 00 00"></div>
-        <div class="al-row al-dates">
-          <div class="field"><label for="alStart" data-i="al.start">Arrivée souhaitée</label><input type="date" id="alStart" name="start" required></div>
-          <div class="field"><label for="alEnd" data-i="al.end">Départ souhaité</label><input type="date" id="alEnd" name="end" required></div>
-          <div class="field"><label for="alGuests" data-i="al.guests">Nombre de personnes</label><input type="number" id="alGuests" name="guests" min="1" max="10" value="2" inputmode="numeric"></div>
-        </div>
-        <fieldset class="field">
-          <legend class="fl" data-i="al.cab">Quelle(s) cabane(s) ?</legend>
-          <div class="al-cabs">
-            <label><input type="checkbox" name="cabin" value="La Jia de Camille"> <span data-i="al.c1">La Jia de Camille</span></label>
-            <label><input type="checkbox" name="cabin" value="La Cabane de Mathis"> <span data-i="al.c2">La Cabane de Mathis</span></label>
-            <label><input type="checkbox" name="cabin" value="L'Arche d'Alanis"> <span data-i="al.c3">L'Arche d'Alanis</span></label>
-            <label><input type="checkbox" name="cabin" value="Le Royaume de Mila"> <span data-i="al.c4">Le Royaume de Mila</span></label>
-            <label><input type="checkbox" name="cabin" value="N'importe laquelle" checked> <span data-i="al.cany">N'importe laquelle</span></label>
-          </div>
-        </fieldset>
-        <p class="msg-err" id="alErr" role="alert"></p>
-        <button type="submit" class="btn" data-i="al.btn">M'alerter par e-mail</button>
-        <p class="al-fine" data-i="al.fine">Sans engagement, désinscription à tout moment. Voir notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
-      </form>
-      <div id="alDone" class="al-done" role="status">
-        <h2 data-i="al.doneh">C'est noté !</h2>
-        <p data-i="al.donep">Nous vous écrirons dès qu'une cabane correspondant à vos dates se libère.</p>
+    <div class="dom-sub reveal d2">
+      <p class="lead" data-i="dom.lead">Le domaine se découvre à pied : on suit la rivière, on s'arrête à l'étang, on dit bonjour aux animaux qui se promènent un peu partout.</p>
+      <div>
+        <p class="dp" data-i="dom.p">Réveil au chant des oiseaux, balade en forêt, et cette sensation rare de vivre dans un monde à part le temps d'un séjour.</p>
+        <div class="tags" data-i="dom.animals"><span>Chevaux &amp; poneys</span><span>Lapins</span><span>Les abeilles</span></div>
       </div>
     </div>
   </div>
+  <figure class="dom-wide unveil"><img class="ph-final" src="assets/img/final-bg.jpeg" width="1800" height="1234" loading="lazy" decoding="async" alt="Le domaine : le ruisseau, une passerelle et une cabane perchée dans les arbres"></figure>
+  <div class="dom-pair">
+    <figure class="live unveil"><img class="ph-domaine-1" src="assets/img/domaine-1.webp" width="1050" height="1400" loading="lazy" decoding="async" alt="Lapins en liberté au domaine"></figure>
+    <figure class="live unveil"><img class="ph-domaine-2" src="assets/img/domaine-2.jpeg" width="1280" height="1115" loading="lazy" decoding="async" alt="Le cheval du domaine, vu de la terrasse"></figure>
+  </div>
 </section>
 
-<!-- SPA -->
-<section class="feat spa pad" id="spa">
-  <div class="wrap">
-    <div class="feat-visual reveal">
-      <img class="ph-spa" src="assets/img/spa.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="Le Bain Marie chauffé au feu de bois">
-    </div>
-    <div class="txt reveal d2">
-      <div class="lbl" data-i="spa.eb">03 — L'éco spa</div>
-      <h2 data-i="spa.h2">Un spa <b>eco-friendly</b></h2>
+<!-- 4 · LE BAIN : un lieu offert à toutes les cabanes -->
+<section class="spa warm" id="spa" aria-labelledby="spa-h">
+  <div class="spa-grid">
+    <figure class="spa-fig live unveil"><img class="ph-spa" src="assets/img/spa.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="Le Bain Marie, bain chauffé au feu de bois"></figure>
+    <div class="reveal d2">
+      <div class="lbl" data-i="spa.eb">04 — L'éco spa</div>
+      <h2 id="spa-h" data-i="spa.h2">Un spa <b>eco-friendly</b></h2>
       <p class="lead" data-i="spa.lead">Rien de tel qu'un bain chauffé au feu de bois, un plongeon froid dans la rivière, puis un passage au sauna pour relâcher tout ce qui pèse.</p>
       <ul class="flist" data-i="spa.list">
         <li><span><b>Le « Bain Marie »</b> — bain chauffé au feu de bois, à disposition de toutes les cabanes jusqu'à 20h.</span></li>
@@ -405,9 +324,114 @@
   </div>
 </section>
 
-<!-- PANIERS -->
-<section class="paniers pad" id="paniers">
-  <div class="wrap">
+<!-- LES AVIS : un simple rappel -->
+<section class="avis" id="avis">
+  <div class="avis-top">
+    <div class="score reveal">
+      <div class="big">4,9</div>
+      <div class="v">
+        <div class="gl" data-i="av.gl">Avis Google</div>
+        <small data-i="av.sub">★★★★★ · <b>137 avis</b> · classé n°1 à Ogens · 4,7/5 sur Tripadvisor</small>
+      </div>
+    </div>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJ-3pYoGbRjUcRGGRrhDSywBQ" target="_blank" rel="noopener" class="go reveal" data-i="av.cta">Lire les 137 avis sur Google →</a>
+  </div>
+  <div class="avis-grid">
+    <div class="avis-q reveal">
+      <p data-i="av.t1">Un super week-end en famille dans les arbres : cadre magnifique, concept original et apaisant, et de beaux produits locaux mis en avant. On recommande vivement.</p>
+      <div class="who">— Jean-Michel F. · Google</div>
+    </div>
+    <div class="avis-q reveal d1">
+      <p data-i="av.t2">Un vrai trésor caché : une nuit au Royaume de Mila, cabane perchée, ciel étoilé et pont privatisé. Une expérience unique, un petit coin de paradis.</p>
+      <div class="who">— Clément R. · Google</div>
+    </div>
+    <div class="avis-q reveal d2">
+      <p data-i="av.t3">L'un des séjours les plus exceptionnels qu'on ait vécus en Suisse : des cabanes confortables, joliment décorées, en pleine nature.</p>
+      <div class="who">— Yvette · Google</div>
+    </div>
+  </div>
+  <!-- WIDGET AVIS GOOGLE EN DIRECT (optionnel) : collez ici le code d'intégration d'un service tiers
+       (ex. Elfsight / Trustindex) connecté à votre fiche Google. Il s'affiche dans la langue réglée chez le fournisseur.
+  <div class="google-widget-slot"></div>
+  -->
+  <p class="note-tag" data-i="av.note">★ Extraits de vrais avis Google (4,9/5 · 137 avis).</p>
+</section>
+
+<!-- LA RUPTURE : un seul écran sombre. Puis le même fond continue, jusqu'à la flèche qui mène aux dates. -->
+<section class="rupt dark" id="rupture">
+  <div class="rupt-run">
+    <div class="rupt-stick">
+      <p class="rupt-big" id="ruptBig" data-i="rupt.big">Le temps d'une nuit, le monde peut attendre en bas de l'arbre.</p>
+    </div>
+  </div>
+  <div class="rupt-after">
+    <p class="rupt-small reveal" aria-hidden="true" data-i="rupt.big">Le temps d'une nuit, le monde peut attendre en bas de l'arbre.</p>
+    <a class="rupt-go reveal late" href="#reserver"><span data-i="rupt.cta">Trouver une date pour monter dans les arbres</span><svg class="down" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v34M10 27l14 14 14-14"/></svg></a>
+  </div>
+</section>
+
+<!-- LA RÉSERVATION : calendrier général, réservation par cabane, liste d'attente -->
+<section class="book" id="reserver" aria-labelledby="book-h">
+  <div class="book-in">
+    <div class="lbl" data-i="ag.eb">Calendrier général</div>
+    <h2 id="book-h" data-i="ag.h">Disponibilités — toutes nos cabanes</h2>
+    <div class="planyo-slot reveal" id="disponibilites" data-cabin="all">
+      <!-- PLANYO-CALENDAR:all (calendar=51020, toutes les ressources) -->
+      <div class="avail-scroll" tabindex="0" role="region" aria-label="Calendrier de disponibilités" data-i-aria="cal.title">
+        <iframe id="calp_all" class="calprev_iframe caltype_1" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" style="width:100%;border:0;display:block" src="https://www.planyo.com/embed-calendar.php?calendar=51020&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_all&amp;lightbox=1&amp;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-in resa reveal">
+    <h3 data-i="resa.h3">Réservez votre nuit</h3>
+    <p data-i="resa.p">Choisissez votre cabane et vos dates directement en ligne — vous gardez la main de bout en bout.</p>
+    <ul class="resa-list">
+      <li><a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR"><span>La Cabane de Mathis<small data-i="resa.from">dès 280.– la nuit</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157565&amp;custom-language=FR"><span>L'Arche d'Alanis<small data-i="resa.from">dès 280.– la nuit</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR"><span>La Jia de Camille<small data-i="resa.from">dès 280.– la nuit</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157566&amp;custom-language=FR"><span>Le Royaume de Mila<small data-i="resa.from">dès 280.– la nuit</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+    </ul>
+    <p class="note" data-i="resa.note">Bonus last minute : un prix avantageux pour toute réservation faite moins de 24h avant le check-in (hors paiement par bon cadeau).</p>
+  </div>
+
+  <div class="book-in alerte reveal" id="alerte-dispo">
+    <div class="lbl" data-i="al.eb">Liste d'attente</div>
+    <h2 data-i="al.h">Cabane complète sur vos dates ?</h2>
+    <p class="al-intro" data-i="al.intro">Laissez-nous votre e-mail et vos dates : nous vous prévenons dès qu'une cabane se libère.</p>
+    <form id="alForm" class="al-form" novalidate>
+      <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="field"><label for="alEmail" data-i="al.email">Votre e-mail</label><input type="email" id="alEmail" name="email" required autocomplete="email" data-i-ph="al.email" placeholder="vous@exemple.ch"></div>
+      <div class="field"><label for="alTel" data-i="al.tel">Votre téléphone</label><input type="tel" id="alTel" name="tel" required autocomplete="tel" data-i-ph="al.tel" placeholder="079 000 00 00"></div>
+      <div class="al-row al-dates">
+        <div class="field"><label for="alStart" data-i="al.start">Arrivée souhaitée</label><input type="date" id="alStart" name="start" required></div>
+        <div class="field"><label for="alEnd" data-i="al.end">Départ souhaité</label><input type="date" id="alEnd" name="end" required></div>
+        <div class="field"><label for="alGuests" data-i="al.guests">Nombre de personnes</label><input type="number" id="alGuests" name="guests" min="1" max="10" value="2" inputmode="numeric"></div>
+      </div>
+      <fieldset class="field">
+        <legend class="fl" data-i="al.cab">Quelle(s) cabane(s) ?</legend>
+        <div class="al-cabs">
+          <label><input type="checkbox" name="cabin" value="La Cabane de Mathis"> <span data-i="al.c2">La Cabane de Mathis</span></label>
+          <label><input type="checkbox" name="cabin" value="L'Arche d'Alanis"> <span data-i="al.c3">L'Arche d'Alanis</span></label>
+          <label><input type="checkbox" name="cabin" value="La Jia de Camille"> <span data-i="al.c1">La Jia de Camille</span></label>
+          <label><input type="checkbox" name="cabin" value="Le Royaume de Mila"> <span data-i="al.c4">Le Royaume de Mila</span></label>
+          <label><input type="checkbox" name="cabin" value="N'importe laquelle" checked> <span data-i="al.cany">N'importe laquelle</span></label>
+        </div>
+      </fieldset>
+      <p class="msg-err" id="alErr" role="alert"></p>
+      <button type="submit" class="btn" data-i="al.btn">M'alerter par e-mail</button>
+      <p class="al-fine" data-i="al.fine">Sans engagement, désinscription à tout moment. Voir notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
+    </form>
+    <div id="alDone" class="al-done" role="status">
+      <h2 data-i="al.doneh">C'est noté !</h2>
+      <p data-i="al.donep">Nous vous écrirons dès qu'une cabane correspondant à vos dates se libère.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOUT LE RESTE, EN BAS : les paniers, la cave, les activités, les bons cadeaux, les tarifs, les infos pratiques -->
+<section class="low-sec" id="paniers">
+  <div class="low-in">
     <div class="head reveal">
       <div class="lbl" data-i="pan.eb">Les paniers</div>
       <h2 data-i="pan.h2">À table, <b>au panier</b></h2>
@@ -419,12 +443,12 @@
         <h3 data-i="pan.t3h">Le panier fondue</h3>
         <p data-i="pan.t3p">Un kit fondue pour une soirée typiquement suisse : fromage de la fromagerie de St-Cierges, pain, accompagnements et dessert. À déguster sur la terrasse (pas dans la cabane).</p>
       </div>
-      <div class="panier-card reveal d1">
+      <div class="panier-card reveal">
         <span class="pc-tag" data-i="pan.t1tag">Inclus</span>
         <h3 data-i="pan.t1h">Le petit-déjeuner</h3>
         <p data-i="pan.t1p">Pain chaud, confiture, le miel de Baba, fruits de saison, jus de fruits, yaourts de fromagerie, muesli et un morceau de gruyère. De quoi bien commencer la journée au chant des oiseaux.</p>
       </div>
-      <div class="panier-card reveal d2">
+      <div class="panier-card reveal">
         <span class="pc-tag" data-i="pan.t2tag">55.– / 2 pers · +10.– enfant</span>
         <h3 data-i="pan.t2h">Le panier du terroir</h3>
         <p data-i="pan.t2p">Produits de saison de la région : fromages et viandes froides, œufs frais, légumes croquants (une soupe en saison fraîche), bon pain et un dessert — à savourer dans la cabane ou sur la terrasse.</p>
@@ -433,65 +457,44 @@
   </div>
 </section>
 
-<!-- BOISSONS -->
-<section class="boissons pad" id="boissons">
-  <div class="wrap">
-    <div class="txt reveal">
+<section class="low-sec bg2" id="boissons">
+  <div class="low-in boi-grid">
+    <div class="reveal">
       <div class="lbl" data-i="boi.eb">Boissons &amp; en-cas</div>
       <h2 data-i="boi.h2">La cave de <b>Renaud</b></h2>
       <p class="lead" data-i="boi.lead">Renaud a sélectionné des vins blancs, rosés et rouges qu'il aime, et des bières artisanales qu'il se fera un plaisir de vous faire découvrir. Jus de fruits, limonades, et petits snacks ou glaces en libre-service pour les gourmands.</p>
       <p class="pl-note" data-i="boi.note">Pique-niques autorisés, mais pas de cuisine sur place. Pour des raisons de sécurité, les grillades sont interdites sur le site.</p>
     </div>
-    <div class="reveal d2">
-      <div class="price-list" data-i="boi.list">
-        <div class="pl-row"><span>Thé &amp; café</span><b>1.–</b></div>
-        <div class="pl-row"><span>Sirops</span><b>Gratuits</b></div>
-        <div class="pl-row"><span>Jus &amp; limonades</span><b>4.– à 5.–</b></div>
-        <div class="pl-row"><span>Bières artisanales</span><b>6.–</b></div>
-        <div class="pl-row"><span>Vins</span><b>16.– à 35.–</b></div>
-        <div class="pl-row"><span>Champagne</span><b>23.–</b></div>
-        <div class="pl-row"><span>Snacks &amp; glaces</span><b>2.– à 6.–</b></div>
-      </div>
+    <div class="price-list reveal d2" data-i="boi.list">
+      <div class="pl-row"><span>Thé &amp; café</span><b>1.–</b></div>
+      <div class="pl-row"><span>Sirops</span><b>Gratuits</b></div>
+      <div class="pl-row"><span>Jus &amp; limonades</span><b>4.– à 5.–</b></div>
+      <div class="pl-row"><span>Bières artisanales</span><b>6.–</b></div>
+      <div class="pl-row"><span>Vins</span><b>16.– à 35.–</b></div>
+      <div class="pl-row"><span>Champagne</span><b>23.–</b></div>
+      <div class="pl-row"><span>Snacks &amp; glaces</span><b>2.– à 6.–</b></div>
     </div>
   </div>
 </section>
 
-<!-- DOMAINE -->
-<section class="feat domaine pad dark" id="domaine">
-  <div class="wrap">
-    <div class="reveal feat-stack">
-      <div class="feat-visual"><img class="ph-domaine-1" src="assets/img/domaine-1.webp" width="1050" height="1400" loading="lazy" decoding="async" alt="Lapins en liberté au domaine"></div>
-      <div class="feat-visual feat-visual-2"><img class="ph-domaine-2" src="assets/img/domaine-2.jpeg" width="1280" height="1115" loading="lazy" decoding="async" alt="Le cheval du domaine, vu de la terrasse"></div>
-    </div>
-    <div class="txt reveal d2">
-      <div class="lbl" data-i="dom.eb">05 — Le domaine</div>
-      <h2 data-i="dom.h2">Une rivière, un étang,<br><b>des animaux en liberté</b></h2>
-      <p class="lead" data-i="dom.lead">Le domaine se découvre à pied : on suit la rivière, on s'arrête à l'étang, on dit bonjour aux animaux qui se promènent un peu partout.</p>
-      <p class="dp" data-i="dom.p">Réveil au chant des oiseaux, balade en forêt, et cette sensation rare de vivre dans un monde à part le temps d'un séjour.</p>
-      <div class="animals" data-i="dom.animals"><span>Chevaux &amp; poneys</span><span>Lapins</span><span>Les abeilles</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ACTIVITÉS -->
-<section class="acts pad" id="activites">
-  <div class="wrap">
+<section class="low-sec" id="activites">
+  <div class="low-in">
     <div class="head reveal">
       <svg class="bird" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M6 46 C28 18 44 18 60 40 C76 18 92 18 114 46" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
         <path d="M60 40 C58 50 56 56 52 62 M60 40 C62 50 64 56 68 62" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
         <circle cx="60" cy="38" r="2.6" fill="currentColor"/>
       </svg>
-      <div class="lbl" data-i="act.eb">06 — Les activités</div>
+      <div class="lbl" data-i="act.eb">Les activités</div>
       <h2 data-i="act.h2">De quoi remplir <b>le séjour</b></h2>
       <p data-i="act.p">Sur le domaine et tout autour, il y a toujours quelque chose à découvrir — pour les couples comme pour les familles.</p>
     </div>
 
     <div class="act-feature reveal">
-      <div class="act-photo"><img class="ph-activites" src="assets/img/activites.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="Balade à e-VTT vers la Tour St-Martin" style="object-position:50% 35%"></div>
+      <div class="act-photo"><img class="ph-activites" src="assets/img/activites.jpeg" width="720" height="960" loading="lazy" decoding="async" alt="Balade à e-VTT vers la Tour St-Martin"></div>
       <div class="act-feature-body">
         <span class="tagnew" data-i="act.new">Nouveau</span>
-        <h3 data-i="act.fh">Location de e-VTT &amp; grillade</h3>
+        <h3 data-i="act.fh">Location de <span class="nb">e-VTT</span> &amp; grillade</h3>
         <p data-i="act.fp">Partez explorer la région sur un parcours balisé, et prolongez avec un kit grillade en pleine nature. 110.– pour deux vélos · 50.– le kit grillade.</p>
         <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=232473&amp;custom-language=FR" class="btn" data-i="act.fbtn">Réserver un e-VTT</a>
       </div>
@@ -499,73 +502,32 @@
 
     <div class="act-list">
       <div class="act-card reveal" data-i="act.c1"><div class="dist">Sur le domaine</div><h4>À faire sur place</h4><ul><li>· Parcours didactique OFEV</li><li>· Visite des abeilles (sur rdv)</li><li>· Remonter le ruisseau à pied (été)</li><li>· <a href="https://www.minutiae.art" target="_blank" rel="noopener">Tatouage nature (Marie)</a></li></ul></div>
-      <div class="act-card reveal d1" data-i="act.c2"><div class="dist">&lt; 5 min</div><h4>Tout près</h4><ul><li>· <a href="https://www.brigands.ch" target="_blank" rel="noopener">Bois des Brigands</a></li><li>· <a href="https://www.balad-ane.ch" target="_blank" rel="noopener">Balades à ânes</a></li><li>· <a href="http://www.boas.ch/pages/eta_conv_clos_bercher.asp" target="_blank" rel="noopener">Clos Bercher</a></li><li>· <a href="https://www.golfvuissens.ch" target="_blank" rel="noopener">Golf de Vuissens</a></li></ul></div>
-      <div class="act-card reveal d2" data-i="act.c3"><div class="dist">&lt; 15 min</div><h4>À deux pas</h4><ul><li>· <a href="https://www.bainsyverdon.ch" target="_blank" rel="noopener">Bains thermaux d'Yverdon</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Plage d'Yvonand</li><li>· Balades à cheval</li></ul></div>
-      <div class="act-card reveal d3" data-i="act.c4"><div class="dist">&lt; 30 min – 1 h</div><h4>Pour la journée</h4><ul><li>· <a href="https://www.zoo-servion.ch" target="_blank" rel="noopener">Zoo de Servion</a></li><li>· <a href="https://www.papiliorama.ch" target="_blank" rel="noopener">Papiliorama</a></li><li>· <a href="https://www.village-lacustre.ch" target="_blank" rel="noopener">Village lacustre de Gletterens</a></li><li>· <a href="https://www.ailleurs.ch" target="_blank" rel="noopener">Maison d'Ailleurs, Estavayer</a></li></ul></div>
+      <div class="act-card reveal" data-i="act.c2"><div class="dist">&lt; 5 min</div><h4>Tout près</h4><ul><li>· <a href="https://www.brigands.ch" target="_blank" rel="noopener">Bois des Brigands</a></li><li>· <a href="https://www.balad-ane.ch" target="_blank" rel="noopener">Balades à ânes</a></li><li>· <a href="http://www.boas.ch/pages/eta_conv_clos_bercher.asp" target="_blank" rel="noopener">Clos Bercher</a></li><li>· <a href="https://www.golfvuissens.ch" target="_blank" rel="noopener">Golf de Vuissens</a></li></ul></div>
+      <div class="act-card reveal" data-i="act.c3"><div class="dist">&lt; 15 min</div><h4>À deux pas</h4><ul><li>· <a href="https://www.bainsyverdon.ch" target="_blank" rel="noopener">Bains thermaux d'Yverdon</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Plage d'Yvonand</li><li>· Balades à cheval</li></ul></div>
+      <div class="act-card reveal" data-i="act.c4"><div class="dist">&lt; 30 min – 1 h</div><h4>Pour la journée</h4><ul><li>· <a href="https://www.zoo-servion.ch" target="_blank" rel="noopener">Zoo de Servion</a></li><li>· <a href="https://www.papiliorama.ch" target="_blank" rel="noopener">Papiliorama</a></li><li>· <a href="https://www.village-lacustre.ch" target="_blank" rel="noopener">Village lacustre de Gletterens</a></li><li>· <a href="https://www.ailleurs.ch" target="_blank" rel="noopener">Maison d'Ailleurs, Estavayer</a></li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- AVIS -->
-<section class="avis dark pad" id="avis">
-  <div class="wrap">
-    <div class="score reveal">
-      <div class="big">4,9</div>
-      <div class="v">
-        <div class="gl" data-i="av.gl">Avis Google</div>
-        <small data-i="av.sub">★★★★★ · <b>137 avis</b> · classé n°1 à Ogens · 4,7/5 sur Tripadvisor</small>
-      </div>
-    </div>
-    <div class="avis-grid">
-      <div class="avis-card reveal">
-        <p data-i="av.t1">Un super week-end en famille dans les arbres : cadre magnifique, concept original et apaisant, et de beaux produits locaux mis en avant. On recommande vivement.</p>
-        <div class="who">— Jean-Michel F. · Google</div>
-      </div>
-      <div class="avis-card reveal d1">
-        <p data-i="av.t2">Un vrai trésor caché : une nuit au Royaume de Mila, cabane perchée, ciel étoilé et pont privatisé. Une expérience unique, un petit coin de paradis.</p>
-        <div class="who">— Clément R. · Google</div>
-      </div>
-      <div class="avis-card reveal d2">
-        <p data-i="av.t3">L'un des séjours les plus exceptionnels qu'on ait vécus en Suisse : des cabanes confortables, joliment décorées, en pleine nature.</p>
-        <div class="who">— Yvette · Google</div>
-      </div>
-    </div>
-    <a href="https://www.google.com/maps/place/?q=place_id:ChIJ-3pYoGbRjUcRGGRrhDSywBQ" target="_blank" rel="noopener" class="btn inv avis-cta reveal" data-i="av.cta">Lire les 137 avis sur Google →</a>
-    <!-- WIDGET AVIS GOOGLE EN DIRECT (optionnel) : collez ici le code d'intégration d'un service tiers
-         (ex. Elfsight / Trustindex) connecté à votre fiche Google. Il s'affiche dans la langue réglée chez le fournisseur.
-    <div class="google-widget-slot"></div>
-    -->
-    <p class="note-tag" data-i="av.note">★ Extraits de vrais avis Google (4,9/5 · 137 avis).</p>
-  </div>
-</section>
-
-<!-- BONS CADEAUX -->
-<section class="gift pad" id="bons-cadeaux">
-  <div class="wrap reveal">
-    <div class="gift-head">
+<section class="low-sec bg2 gift" id="bons-cadeaux">
+  <div class="low-in">
+    <div class="head reveal">
       <div class="lbl" data-i="gift.eb">Idée cadeau</div>
       <h2 data-i="gift.h2">Offrez une nuit <b>dans les arbres</b></h2>
       <p class="lead" data-i="gift.lead">Un anniversaire, un grand merci, une demande en mariage… offrez une parenthèse perchée. Le bon cadeau est valable un an, prolongeable d'un an sur simple demande.</p>
     </div>
-    <div class="gift-box">
-      <div class="gift-content">
-        <div class="gift-grid">
-          <div class="gift-card" data-i="gift.c1"><h3>Une nuit perchée</h3><p>Une nuit pour deux en cabane, petit-déjeuner inclus (dès 280.–). Le grand classique pour faire rêver.</p></div>
-          <div class="gift-card" data-i="gift.c2"><h3>Escapade romantique</h3><p>Le Royaume de Mila et son lit qui glisse sous les étoiles : le cadeau parfait pour les amoureux.</p></div>
-          <div class="gift-card" data-i="gift.c3"><h3>Avec des petits plus</h3><p>Ajoutez un apéro, un panier terroir ou un repas du soir. Pack anniversaire ou romantique sur demande.</p></div>
-        </div>
-        <p class="how" data-i="gift.how">Le bénéficiaire choisit ensuite sa cabane et ses dates en ligne, indique le numéro du bon et sélectionne « Sur place avec un bon cadeau ». Une envie sur mesure ? Écrivez-nous, on s'adapte.</p>
-        <a href="bons-cadeaux.html" class="btn" data-i="gift.btn">Offrir un bon cadeau</a>
-      </div>
+    <div class="gift-grid reveal">
+      <div class="gift-card" data-i="gift.c1"><h3>Une nuit perchée</h3><p>Une nuit pour deux en cabane, petit-déjeuner inclus (dès 280.–). Le grand classique pour faire rêver.</p></div>
+      <div class="gift-card" data-i="gift.c2"><h3>Escapade romantique</h3><p>Le Royaume de Mila et son lit qui glisse sous les étoiles : le cadeau parfait pour les amoureux.</p></div>
+      <div class="gift-card" data-i="gift.c3"><h3>Avec des petits plus</h3><p>Ajoutez un apéro, un panier terroir ou un repas du soir. Pack anniversaire ou romantique sur demande.</p></div>
     </div>
+    <p class="how reveal" data-i="gift.how">Le bénéficiaire choisit ensuite sa cabane et ses dates en ligne, indique le numéro du bon et sélectionne « Sur place avec un bon cadeau ». Une envie sur mesure ? Écrivez-nous, on s'adapte.</p>
+    <a href="bons-cadeaux.html" class="btn reveal" data-i="gift.btn">Offrir un bon cadeau</a>
   </div>
 </section>
 
-<!-- TARIFS -->
-<section class="tarifs pad" id="tarifs">
-  <img class="deco" src="assets/bg/leaves.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:-30px;bottom:-60px;height:560px;opacity:.1;transform:scaleX(-1)">
-  <img class="deco" src="assets/bg/contour.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:-18%;top:-24%;width:64%;opacity:.07">
-  <div class="wrap">
+<section class="low-sec" id="tarifs">
+  <div class="low-in">
     <div class="head reveal">
       <div class="lbl" data-i="tar.eb">Tarifs</div>
       <h2 data-i="tar.h2">Le juste <b>prix</b></h2>
@@ -574,7 +536,7 @@
 
     <div class="tar-cabins reveal">
       <div class="tc-price"><b>280.–</b><span data-i="tar.cabnight">la nuit pour 2 · petit-déjeuner inclus</span></div>
-      <div class="tc-list"><span>La Jia de Camille</span><span>La Cabane de Mathis</span><span>L'Arche d'Alanis</span><span>Le Royaume de Mila</span></div>
+      <div class="tc-list"><span>La Cabane de Mathis</span><span>L'Arche d'Alanis</span><span>La Jia de Camille</span><span>Le Royaume de Mila</span></div>
       <p class="tc-note" data-i="tar.cabnote">Enfant dès 2 ans : +20.– · Dès la 2e nuit, les suppléments enfants sont offerts.</p>
     </div>
 
@@ -593,47 +555,41 @@
   </div>
 </section>
 
-<!-- INFOS + RÉSERVATION -->
-<section class="infos pad" id="infos">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="lbl" data-i="inf.eb">Avant de venir</div>
-      <h2 data-i="inf.h2">Infos <b>pratiques</b></h2>
-      <ul class="ilist" data-i="inf.list">
-        <li><span class="k">Check-in</span><span class="v">À partir de 16h00</span></li>
-        <li><span class="k">Check-out</span><span class="v">Avant 11h00</span></li>
-        <li><span class="k">Fermeture</span><span class="v">Le dimanche soir, et de début novembre à fin mars</span></li>
-        <li><span class="k">Réservations</span><span class="v">Ouverture le 1er janvier (printemps), le 1er avril (été / automne)</span></li>
-        <li><span class="k">Le 1er du mois</span><span class="v">Quelques cabanes sont libérées pour les vendredis et samedis du mois suivant</span></li>
-        <li><span class="k">Adresse</span><span class="v">Ogens, canton de Vaud · à ~30min de Lausanne, proche d'Yverdon</span></li>
-      </ul>
-    </div>
-    <div class="resa dark reveal d2" id="reserver">
-      <h3 data-i="resa.h3">Réservez votre nuit</h3>
-      <p data-i="resa.p">Choisissez votre cabane et vos dates directement en ligne — vous gardez la main de bout en bout.</p>
-      <div class="resa-cabins">
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" class="btn inv">La Jia de Camille<small data-i="resa.from">dès 280.– la nuit</small></a>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" class="btn inv">La Cabane de Mathis<small data-i="resa.from">dès 280.– la nuit</small></a>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157565&amp;custom-language=FR" class="btn inv">L'Arche d'Alanis<small data-i="resa.from">dès 280.– la nuit</small></a>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157566&amp;custom-language=FR" class="btn inv">Le Royaume de Mila<small data-i="resa.from">dès 280.– la nuit</small></a>
-      </div>
-      <p class="note" data-i="resa.note">Bonus last minute : un prix avantageux pour toute réservation faite moins de 24h avant le check-in (hors paiement par bon cadeau).</p>
-    </div>
-  </div>
-</section>
-
-<!-- APPEL FINAL -->
-<section class="final">
-  <div class="bg"><img class="ph-final" src="assets/img/final-bg.jpeg" width="1800" height="1234" loading="lazy" decoding="async" alt=""></div>
-  <div class="panel reveal">
-    <div class="lbl" data-i="fin.eb">07 — Le départ… ou plutôt le début</div>
-    <h2 data-i="fin.h2">Prêts à <b>rêver</b> ?</h2>
-    <p data-i="fin.p">Il n'est jamais trop tard pour être celui que vous êtes vraiment. On vous attend, là-haut dans les arbres.</p>
-    <a href="#reserver" class="btn" data-i="fin.btn">Réserver maintenant</a>
+<section class="low-sec bg2" id="infos">
+  <div class="low-in reveal">
+    <div class="lbl" data-i="inf.eb">Avant de venir</div>
+    <h2 data-i="inf.h2">Infos <b>pratiques</b></h2>
+    <ul class="ilist" data-i="inf.list">
+      <li><span class="k">Check-in</span><span class="v">À partir de 16h00</span></li>
+      <li><span class="k">Check-out</span><span class="v">Avant 11h00</span></li>
+      <li><span class="k">Fermeture</span><span class="v">Le dimanche soir, et de début novembre à fin mars</span></li>
+      <li><span class="k">Réservations</span><span class="v">Ouverture le 1er janvier (printemps), le 1er avril (été / automne)</span></li>
+      <li><span class="k">Le 1er du mois</span><span class="v">Quelques cabanes sont libérées pour les vendredis et samedis du mois suivant</span></li>
+      <li><span class="k">Adresse</span><span class="v">Ogens, canton de Vaud · à ~30min de Lausanne, proche d'Yverdon</span></li>
+    </ul>
   </div>
 </section>
 
 </main>
+
+<!-- le calendrier d'une cabane : un volet qui monte du bas, ouvert par « Voir les dates » -->
+<div class="cal-scrim" id="calScrim"></div>
+<div class="cal-panel" id="calPanel" role="dialog" aria-modal="true" aria-labelledby="calTitle">
+  <div class="cal-head">
+    <div>
+      <div class="lbl" data-i="av2.eb">Disponibilités</div>
+      <h2 id="calTitle"></h2>
+    </div>
+    <button type="button" class="cal-x" id="calX" aria-label="Fermer" data-i-aria="nav.close">&times;</button>
+  </div>
+  <div class="cal-body">
+    <p class="cal-wait" id="calWait" data-i="cal.wait">Chargement du calendrier…</p>
+    <iframe id="calp_panel" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" title="Calendrier de disponibilités" data-i-title="cal.title" hidden></iframe>
+    <div class="cal-foot">
+      <a class="btn" id="calBook" href="https://www.planyo.com/booking.php?mode=reserve&amp;custom-language=FR" data-i="btn.book">Réserver</a>
+    </div>
+  </div>
+</div>
 
 <!--chrome:footer-->
 <footer class="site-footer">
@@ -648,9 +604,9 @@
       </div>
     </div>
     <div class="ft-col"><h3 data-i="ft.c1">Les cabanes</h3><ul>
-      <li><a href="index.html#camille">La Jia de Camille</a></li>
       <li><a href="index.html#mathis">La Cabane de Mathis</a></li>
       <li><a href="index.html#alanis">L'Arche d'Alanis</a></li>
+      <li><a href="index.html#camille">La Jia de Camille</a></li>
       <li><a href="index.html#mila">Le Royaume de Mila</a></li>
     </ul></div>
     <div class="ft-col"><h3 data-i="ft.c2">Le séjour</h3><ul>
@@ -679,20 +635,13 @@
 window.CDM_I18N = {
   de: {
     "story.gift": "Einen Geschenkgutschein verschenken",
-    "rail.1": "01 · Der Traum",
-    "rail.2": "02 · Die Hütten",
-    "rail.3": "03 · Das Spa",
-    "rail.4": "04 · Der Genuss",
-    "rail.5": "05 · Das Anwesen",
-    "rail.6": "06 · Aktivitäten",
-    "rail.7": "07 · Reservieren",
     "hero.loc": "Ogens · Kanton Waadt · 30 Min. von Lausanne",
     "hero.h1": "<span>Schlafen in</span> <span><b>den Bäumen</b></span>",
     "hero.sub": "Vier Refugien hoch im Schweizer Mittelland. Der Luxus der Einfachheit, eine Auszeit ausserhalb der Zeit — mindestens für eine Nacht.",
     "hero.cta1": "Eine Nacht buchen",
     "hero.cta2": "Die Reise entdecken ↓",
     "hero.scroll": "Scrollen und treiben lassen",
-    "mq.1": "<span>Der Luxus der Einfachheit</span><span class=\"star\">✦</span><span class=\"it\">Beim Gesang der Vögel</span><span class=\"star\">✦</span><span>Die Füsse im Fluss</span><span class=\"star\">✦</span><span class=\"it\">Den Kopf in den Sternen</span><span class=\"star\">✦</span><span>Der Luxus der Einfachheit</span><span class=\"star\">✦</span><span class=\"it\">Beim Gesang der Vögel</span><span class=\"star\">✦</span><span>Die Füsse im Fluss</span><span class=\"star\">✦</span><span class=\"it\">Den Kopf in den Sternen</span><span class=\"star\">✦</span>",
+    "hero.mq": "<span>Der Luxus der Einfachheit</span><span>Beim Gesang der Vögel</span><span>Die Füsse im Fluss</span><span>Den Kopf in den Sternen</span>",
     "story.eb": "01 — Der Traum",
     "story.h2": "Sie haben ihr Leben geändert, um ihren <b>Traum</b> zu leben.",
     "story.p1": "Marie und Renaud de Goumoëns haben ihr früheres Leben hinter sich gelassen, um in den Bäumen ihres Anwesens in Ogens — durchzogen von einem Fluss — Baumhütten zu bauen und mehr Zeit mit der Familie zu verbringen.",
@@ -700,8 +649,15 @@ window.CDM_I18N = {
     "story.sign": "Marie &amp; Renaud<small>Ihre Gastgeber</small>",
     "story.meta": "<div><b>4</b><small>Einzigartige Refugien</small></div><div><b>4,9</b><small>Google-Bewertung</small></div><div><b>1</b><small>Öko-Spa</small></div>",
     "ci.eb": "02 — Die Hütten",
-    "ci.h2": "Vier Welten,<br><b>ein Traum</b>",
+    "ci.h2": "Vier Welten, <br><b>ein Traum</b>",
     "ci.p": "Handgefertigt, keine gleicht der anderen: jede schmiegt sich an ihren Baum. Scrollen Sie und lassen Sie sich jede Hütte vorstellen.",
+    "q.mathis": "„Ein Nest in der Astgabel.“",
+    "q.alanis": "„Schlafen über den Tieren.“",
+    "q.camille": "„Ein Hauch Asien, hoch oben.“",
+    "q.mila": "„Ein Bett unter den Sternen.“",
+    "cab.others": "Und die drei anderen.",
+    "strip.dates": "Daten ansehen",
+    "cal.wait": "Kalender wird geladen …",
     "c1.tag": "Asiatisches Flair",
     "c1.why": "« Weil er wie Asien ist – voller Farben und Reiseerinnerungen. »",
     "c1.desc": "Eine Baumhütte mit einer kleinen Kammer und asiatischem Flair, inspiriert vom Familienleben rund um Hongkong. Farben und Reise-Erinnerungen zum Träumen, ohne sich zu bewegen. Eine kleine Hütte für zwei, genannt Mushu, ergänzt das Nest.",
@@ -724,53 +680,15 @@ window.CDM_I18N = {
     "c4.price": "280.–<small>für 2, mit Frühstück · +20.– / Kind (Sommer)</small>",
     "btn.book": "Reservieren",
     "btn.gift": "Gutschein verschenken",
-    "spa.eb": "03 — Das Öko-Spa",
-    "spa.h2": "Ein <b>öko</b>-Spa",
-    "spa.lead": "Nichts geht über ein am Holzfeuer geheiztes Bad, einen kalten Sprung in den Fluss und danach die Sauna, um alles loszulassen.",
-    "spa.list": "<li><span><b>Das „Bain Marie“</b> — am Holzfeuer geheiztes Bad, für alle Hütten bis 20 Uhr verfügbar.</span></li><li><span><b>Kaltes Bad im Fluss</b> — der belebende Kontrast, mitten in der Natur.</span></li><li><span><b>Sauna am Holzfeuer</b> — trockene Wärme zum sanften Abschluss.</span></li>",
-    "pan.eb": "Die Körbe",
-    "pan.h2": "Zu Tisch, <b>im Korb</b>",
-    "pan.p": "Die Mahlzeiten nehmen Sie in Ihrer Hütte oder auf deren Terrasse ein — es gibt keinen Gemeinschaftsraum. Allergien, Unverträglichkeiten oder vegetarische Wünsche passen wir gerne an.",
-    "pan.t1tag": "Inklusive",
-    "pan.t1h": "Das Frühstück",
-    "pan.t1p": "Warmes Brot, Konfitüre, Babas Honig, Saisonfrüchte, Fruchtsaft, Joghurt aus der Käserei, Müesli und ein Stück Greyerzer. Der perfekte Start in den Tag beim Gesang der Vögel.",
-    "pan.t2tag": "55.– / 2 Pers. · +10.– Kind",
-    "pan.t2h": "Der Terroir-Korb",
-    "pan.t2p": "Saisonale Produkte aus der Region: Käse und Aufschnitt, frische Eier, knackiges Gemüse (in der kühlen Saison eine Suppe), gutes Brot und ein Dessert — in der Hütte oder auf der Terrasse zu geniessen.",
-    "pan.t3tag": "55.– / 2 Pers. · +10.– Kind",
-    "pan.t3h": "Der Fondue-Korb",
-    "pan.t3p": "Ein Fondue-Set für einen typisch schweizerischen Abend: Käse aus der Käserei St-Cierges, Brot, Beilagen und Dessert. Auf der Terrasse zu geniessen (nicht in der Hütte).",
-    "boi.eb": "Getränke &amp; Snacks",
-    "boi.h2": "Renauds <b>Weinkeller</b>",
-    "boi.lead": "Renaud hat Weiss-, Rosé- und Rotweine ausgewählt, die er mag, sowie Craft-Biere, die er Ihnen gerne vorstellt. Fruchtsäfte, Limonaden und kleine Snacks oder Glaces zur Selbstbedienung für Naschkatzen.",
-    "boi.note": "Picknicks erlaubt, aber kein Kochen vor Ort. Aus Sicherheitsgründen ist Grillieren auf dem Gelände untersagt.",
-    "boi.list": "<div class=\"pl-row\"><span>Tee &amp; Kaffee</span><b>1.–</b></div><div class=\"pl-row\"><span>Sirupe</span><b>Gratis</b></div><div class=\"pl-row\"><span>Säfte &amp; Limonaden</span><b>4.– bis 5.–</b></div><div class=\"pl-row\"><span>Craft-Biere</span><b>6.–</b></div><div class=\"pl-row\"><span>Weine</span><b>16.– bis 35.–</b></div><div class=\"pl-row\"><span>Champagner</span><b>23.–</b></div><div class=\"pl-row\"><span>Snacks &amp; Glaces</span><b>2.– bis 6.–</b></div>",
-    "tar.eb": "Preise",
-    "tar.h2": "Der faire <b>Preis</b>",
-    "tar.p": "Eine Nacht für zwei, Frühstück inklusive. Einfach und transparent.",
-    "tar.cabnight": "die Nacht für 2 · Frühstück inklusive",
-    "tar.cabnote": "Kind ab 2 Jahren: +20.– · Ab der zweiten Nacht sind die Kinderzuschläge geschenkt.",
-    "tar.o1tag": "Last Minute",
-    "tar.o1p": "Eine Buchung weniger als 24 Std. vor der Ankunft? Wir belohnen Ihre Spontaneität: Sie zahlen den Studierendentarif, also 190.– die Nacht für zwei. (Gilt nicht bei Zahlung mit Geschenkgutschein.)",
-    "tar.o2tag": "Studierende & AHV",
-    "tar.o2p": "Gegen Vorlage Ihres Studierenden- oder AHV-Ausweises, von Montag bis Mittwoch ausserhalb der Schulferien und Feiertage: 190.– die Nacht für zwei, Frühstück inklusive. Buchung per E-Mail.",
-    "tar.per": "/ 2 Pers.",
-    "dom.eb": "05 — Das Anwesen",
+    "dom.eb": "03 — Das Anwesen",
     "dom.h2": "Ein Fluss, ein Teich,<br><b>frei lebende Tiere</b>",
     "dom.lead": "Das Anwesen entdeckt man zu Fuss: dem Fluss folgen, am Teich verweilen, den überall herumlaufenden Tieren Hallo sagen.",
     "dom.p": "Erwachen beim Gesang der Vögel, Spaziergang im Wald und dieses seltene Gefühl, für die Dauer des Aufenthalts in einer eigenen Welt zu leben.",
     "dom.animals": "<span>Pferde & Ponys</span><span>Kaninchen</span><span>Die Bienen</span>",
-    "act.eb": "06 — Aktivitäten",
-    "act.h2": "Genug, um den <b>Aufenthalt</b> zu füllen",
-    "act.p": "Auf dem Anwesen und ringsum gibt es immer etwas zu entdecken — für Paare wie für Familien.",
-    "act.new": "Neu",
-    "act.fh": "E-Bike-Verleih & Grillen",
-    "act.fp": "Erkunden Sie die Region auf einer markierten Route und runden Sie mit einem Grill-Set in der Natur ab. 110.– für zwei Bikes · 50.– das Grill-Set.",
-    "act.fbtn": "E-Bike reservieren",
-    "act.c1": "<div class=\"dist\">Auf dem Anwesen</div><h4>Vor Ort</h4><ul><li>· Lehrpfad (BAFU)</li><li>· Bienenbesuch (nach Vereinb.)</li><li>· Den Bach zu Fuss hinauf (Sommer)</li><li>· <a href=\"https://www.minutiae.art\" target=\"_blank\" rel=\"noopener\">Natur-Tattoo (Marie)</a></li></ul>",
-    "act.c2": "<div class=\"dist\">&lt; 5 Min</div><h4>Ganz nah</h4><ul><li>· <a href=\"https://www.brigands.ch\" target=\"_blank\" rel=\"noopener\">Bois des Brigands</a></li><li>· <a href=\"https://www.balad-ane.ch\" target=\"_blank\" rel=\"noopener\">Eselwanderungen</a></li><li>· <a href=\"http://www.boas.ch/pages/eta_conv_clos_bercher.asp\" target=\"_blank\" rel=\"noopener\">Clos Bercher</a></li><li>· <a href=\"https://www.golfvuissens.ch\" target=\"_blank\" rel=\"noopener\">Golf de Vuissens</a></li></ul>",
-    "act.c3": "<div class=\"dist\">&lt; 15 Min</div><h4>Ein Katzensprung</h4><ul><li>· <a href=\"https://www.bainsyverdon.ch\" target=\"_blank\" rel=\"noopener\">Thermalbäder Yverdon</a></li><li>· <a href=\"https://www.pronatura-champ-pittet.ch\" target=\"_blank\" rel=\"noopener\">Pro Natura Champ-Pittet</a></li><li>· Strand von Yvonand</li><li>· Ausritte zu Pferd</li></ul>",
-    "act.c4": "<div class=\"dist\">&lt; 30 Min – 1 Std</div><h4>Für den Tag</h4><ul><li>· <a href=\"https://www.zoo-servion.ch\" target=\"_blank\" rel=\"noopener\">Zoo de Servion</a></li><li>· <a href=\"https://www.papiliorama.ch\" target=\"_blank\" rel=\"noopener\">Papiliorama</a></li><li>· <a href=\"https://www.village-lacustre.ch\" target=\"_blank\" rel=\"noopener\">Pfahlbaudorf Gletterens</a></li><li>· <a href=\"https://www.ailleurs.ch\" target=\"_blank\" rel=\"noopener\">Maison d'Ailleurs, Estavayer</a></li></ul>",
+    "spa.eb": "04 — Das Öko-Spa",
+    "spa.h2": "Ein <b>öko</b>-Spa",
+    "spa.lead": "Nichts geht über ein am Holzfeuer geheiztes Bad, einen kalten Sprung in den Fluss und danach die Sauna, um alles loszulassen.",
+    "spa.list": "<li><span><b>Das „Bain Marie“</b> — am Holzfeuer geheiztes Bad, für alle Hütten bis 20 Uhr verfügbar.</span></li><li><span><b>Kaltes Bad im Fluss</b> — der belebende Kontrast, mitten in der Natur.</span></li><li><span><b>Sauna am Holzfeuer</b> — trockene Wärme zum sanften Abschluss.</span></li>",
     "av.gl": "Google-Bewertungen",
     "av.sub": "★★★★★ · <b>137 Bewertungen</b> · Nr. 1 in Ogens · 4,7/5 auf Tripadvisor",
     "av.t1": "Ein tolles Familienwochenende in den Bäumen: herrliche Kulisse, ein originelles und beruhigendes Konzept und schön präsentierte regionale Produkte.",
@@ -778,6 +696,15 @@ window.CDM_I18N = {
     "av.t3": "Einer der aussergewöhnlichsten Aufenthalte, die wir in der Schweiz erlebt haben: komfortable, hübsch eingerichtete Hütten mitten in der Natur.",
     "av.note": "★ Auszüge aus echten Google-Bewertungen (4,9/5 · 137 Bewertungen).",
     "av.cta": "Alle 137 Google-Bewertungen lesen →",
+    "rupt.big": "Für eine Nacht kann die Welt unten am Baum warten.",
+    "rupt.cta": "Ein Datum finden und in die Bäume steigen",
+    "ag.eb": "Gesamtkalender",
+    "ag.h": "Verfügbarkeiten — alle unsere Hütten",
+    "av2.eb": "Verfügbarkeiten",
+    "resa.h3": "Buchen Sie Ihre Nacht",
+    "resa.p": "Wählen Sie Hütte und Daten direkt online — Sie behalten alles in der Hand.",
+    "resa.from": "ab 280.– pro Nacht",
+    "resa.note": "Last-Minute-Bonus: ein Vorzugspreis für Buchungen weniger als 24 Std. vor dem Check-in (ausser bei Zahlung mit Geschenkgutschein).",
     "al.eb": "Warteliste",
     "al.h": "Hütte an Ihren Daten ausgebucht?",
     "al.intro": "Hinterlassen Sie uns Ihre E-Mail und Ihre Daten — wir benachrichtigen Sie, sobald eine Hütte frei wird.",
@@ -798,17 +725,34 @@ window.CDM_I18N = {
     "al.donep": "Wir schreiben Ihnen, sobald eine Hütte für Ihre Daten frei wird.",
     "ph.al.email": "sie@beispiel.ch",
     "ph.al.tel": "079 000 00 00",
-    "inf.eb": "Vor der Anreise",
-    "inf.h2": "<b>Praktische</b> Infos",
-    "inf.list": "<li><span class=\"k\">Check-in</span><span class=\"v\">Ab 16:00 Uhr</span></li><li><span class=\"k\">Check-out</span><span class=\"v\">Vor 11:00 Uhr</span></li><li><span class=\"k\">Schliessung</span><span class=\"v\">Sonntagabend sowie von Anfang November bis Ende März</span></li><li><span class=\"k\">Reservierungen</span><span class=\"v\">Öffnung am 1. Januar (Frühling), am 1. April (Sommer / Herbst)</span></li><li><span class=\"k\">Am 1. des Monats</span><span class=\"v\">Einige Hütten werden für die Freitage und Samstage des Folgemonats freigegeben</span></li><li><span class=\"k\">Adresse</span><span class=\"v\">Ogens, Kanton Waadt · ca. 30 Min. von Lausanne, nahe Yverdon</span></li>",
-    "resa.h3": "Buchen Sie Ihre Nacht",
-    "resa.p": "Wählen Sie Hütte und Daten direkt online — Sie behalten alles in der Hand.",
-    "resa.from": "ab 280.– pro Nacht",
-    "resa.note": "Last-Minute-Bonus: ein Vorzugspreis für Buchungen weniger als 24 Std. vor dem Check-in (ausser bei Zahlung mit Geschenkgutschein).",
-    "fin.eb": "07 — Der Abschied… oder eher der Anfang",
-    "fin.h2": "Bereit zu <b>träumen</b>?",
-    "fin.p": "Es ist nie zu spät, der zu sein, der man wirklich ist. Wir erwarten Sie, dort oben in den Bäumen.",
-    "fin.btn": "Jetzt reservieren",
+    "pan.eb": "Die Körbe",
+    "pan.h2": "Zu Tisch, <b>im Korb</b>",
+    "pan.p": "Die Mahlzeiten nehmen Sie in Ihrer Hütte oder auf deren Terrasse ein — es gibt keinen Gemeinschaftsraum. Allergien, Unverträglichkeiten oder vegetarische Wünsche passen wir gerne an.",
+    "pan.t1tag": "Inklusive",
+    "pan.t1h": "Das Frühstück",
+    "pan.t1p": "Warmes Brot, Konfitüre, Babas Honig, Saisonfrüchte, Fruchtsaft, Joghurt aus der Käserei, Müesli und ein Stück Greyerzer. Der perfekte Start in den Tag beim Gesang der Vögel.",
+    "pan.t2tag": "55.– / 2 Pers. · +10.– Kind",
+    "pan.t2h": "Der Terroir-Korb",
+    "pan.t2p": "Saisonale Produkte aus der Region: Käse und Aufschnitt, frische Eier, knackiges Gemüse (in der kühlen Saison eine Suppe), gutes Brot und ein Dessert — in der Hütte oder auf der Terrasse zu geniessen.",
+    "pan.t3tag": "55.– / 2 Pers. · +10.– Kind",
+    "pan.t3h": "Der Fondue-Korb",
+    "pan.t3p": "Ein Fondue-Set für einen typisch schweizerischen Abend: Käse aus der Käserei St-Cierges, Brot, Beilagen und Dessert. Auf der Terrasse zu geniessen (nicht in der Hütte).",
+    "boi.eb": "Getränke &amp; Snacks",
+    "boi.h2": "Renauds <b>Weinkeller</b>",
+    "boi.lead": "Renaud hat Weiss-, Rosé- und Rotweine ausgewählt, die er mag, sowie Craft-Biere, die er Ihnen gerne vorstellt. Fruchtsäfte, Limonaden und kleine Snacks oder Glaces zur Selbstbedienung für Naschkatzen.",
+    "boi.note": "Picknicks erlaubt, aber kein Kochen vor Ort. Aus Sicherheitsgründen ist Grillieren auf dem Gelände untersagt.",
+    "boi.list": "<div class=\"pl-row\"><span>Tee &amp; Kaffee</span><b>1.–</b></div><div class=\"pl-row\"><span>Sirupe</span><b>Gratis</b></div><div class=\"pl-row\"><span>Säfte &amp; Limonaden</span><b>4.– bis 5.–</b></div><div class=\"pl-row\"><span>Craft-Biere</span><b>6.–</b></div><div class=\"pl-row\"><span>Weine</span><b>16.– bis 35.–</b></div><div class=\"pl-row\"><span>Champagner</span><b>23.–</b></div><div class=\"pl-row\"><span>Snacks &amp; Glaces</span><b>2.– bis 6.–</b></div>",
+    "act.eb": "Aktivitäten",
+    "act.h2": "Genug, um den <b>Aufenthalt</b> zu füllen",
+    "act.p": "Auf dem Anwesen und ringsum gibt es immer etwas zu entdecken — für Paare wie für Familien.",
+    "act.new": "Neu",
+    "act.fh": "<span class=\"nb\">E-Bike-Verleih</span> & Grillen",
+    "act.fp": "Erkunden Sie die Region auf einer markierten Route und runden Sie mit einem Grill-Set in der Natur ab. 110.– für zwei Bikes · 50.– das Grill-Set.",
+    "act.fbtn": "E-Bike reservieren",
+    "act.c1": "<div class=\"dist\">Auf dem Anwesen</div><h4>Vor Ort</h4><ul><li>· Lehrpfad (BAFU)</li><li>· Bienenbesuch (nach Vereinb.)</li><li>· Den Bach zu Fuss hinauf (Sommer)</li><li>· <a href=\"https://www.minutiae.art\" target=\"_blank\" rel=\"noopener\">Natur-Tattoo (Marie)</a></li></ul>",
+    "act.c2": "<div class=\"dist\">&lt; 5 Min</div><h4>Ganz nah</h4><ul><li>· <a href=\"https://www.brigands.ch\" target=\"_blank\" rel=\"noopener\">Bois des Brigands</a></li><li>· <a href=\"https://www.balad-ane.ch\" target=\"_blank\" rel=\"noopener\">Eselwanderungen</a></li><li>· <a href=\"http://www.boas.ch/pages/eta_conv_clos_bercher.asp\" target=\"_blank\" rel=\"noopener\">Clos Bercher</a></li><li>· <a href=\"https://www.golfvuissens.ch\" target=\"_blank\" rel=\"noopener\">Golf de Vuissens</a></li></ul>",
+    "act.c3": "<div class=\"dist\">&lt; 15 Min</div><h4>Ein Katzensprung</h4><ul><li>· <a href=\"https://www.bainsyverdon.ch\" target=\"_blank\" rel=\"noopener\">Thermalbäder Yverdon</a></li><li>· <a href=\"https://www.pronatura-champ-pittet.ch\" target=\"_blank\" rel=\"noopener\">Pro Natura Champ-Pittet</a></li><li>· Strand von Yvonand</li><li>· Ausritte zu Pferd</li></ul>",
+    "act.c4": "<div class=\"dist\">&lt; 30 Min – 1 Std</div><h4>Für den Tag</h4><ul><li>· <a href=\"https://www.zoo-servion.ch\" target=\"_blank\" rel=\"noopener\">Zoo de Servion</a></li><li>· <a href=\"https://www.papiliorama.ch\" target=\"_blank\" rel=\"noopener\">Papiliorama</a></li><li>· <a href=\"https://www.village-lacustre.ch\" target=\"_blank\" rel=\"noopener\">Pfahlbaudorf Gletterens</a></li><li>· <a href=\"https://www.ailleurs.ch\" target=\"_blank\" rel=\"noopener\">Maison d'Ailleurs, Estavayer</a></li></ul>",
     "gift.eb": "Geschenkidee",
     "gift.h2": "Schenken Sie eine Nacht <b>in den Bäumen</b>",
     "gift.lead": "Ein Geburtstag, ein grosses Dankeschön, ein Heiratsantrag … schenken Sie eine Auszeit in den Bäumen. Der Gutschein ist ein Jahr gültig und auf Anfrage um ein weiteres Jahr verlängerbar.",
@@ -817,30 +761,31 @@ window.CDM_I18N = {
     "gift.c3": "<h3>Mit kleinen Extras</h3><p>Ergänzen Sie einen Apéro, einen Terroir-Korb oder ein Abendessen. Geburtstags- oder Romantik-Paket auf Anfrage.</p>",
     "gift.how": "Die beschenkte Person wählt danach Hütte und Daten online, gibt die Gutschein-Nummer an und wählt « Vor Ort mit einem Geschenkgutschein ». Ein Wunsch nach Mass? Schreiben Sie uns.",
     "gift.btn": "Einen Gutschein verschenken",
-    "ag.btn": "Eine Hütte reservieren",
-    "ag.eb": "Gesamtkalender",
-    "av2.eb": "Verfügbarkeiten",
-    "ag.h": "Verfügbarkeiten — alle unsere Hütten",
+    "tar.eb": "Preise",
+    "tar.h2": "Der faire <b>Preis</b>",
+    "tar.p": "Eine Nacht für zwei, Frühstück inklusive. Einfach und transparent.",
+    "tar.cabnight": "die Nacht für 2 · Frühstück inklusive",
+    "tar.cabnote": "Kind ab 2 Jahren: +20.– · Ab der zweiten Nacht sind die Kinderzuschläge geschenkt.",
+    "tar.o1tag": "Last Minute",
+    "tar.o1p": "Eine Buchung weniger als 24 Std. vor der Ankunft? Wir belohnen Ihre Spontaneität: Sie zahlen den Studierendentarif, also 190.– die Nacht für zwei. (Gilt nicht bei Zahlung mit Geschenkgutschein.)",
+    "tar.o2tag": "Studierende & AHV",
+    "tar.o2p": "Gegen Vorlage Ihres Studierenden- oder AHV-Ausweises, von Montag bis Mittwoch ausserhalb der Schulferien und Feiertage: 190.– die Nacht für zwei, Frühstück inklusive. Buchung per E-Mail.",
+    "tar.per": "/ 2 Pers.",
+    "inf.eb": "Vor der Anreise",
+    "inf.h2": "<b>Praktische</b> Infos",
+    "inf.list": "<li><span class=\"k\">Check-in</span><span class=\"v\">Ab 16:00 Uhr</span></li><li><span class=\"k\">Check-out</span><span class=\"v\">Vor 11:00 Uhr</span></li><li><span class=\"k\">Schliessung</span><span class=\"v\">Sonntagabend sowie von Anfang November bis Ende März</span></li><li><span class=\"k\">Reservierungen</span><span class=\"v\">Öffnung am 1. Januar (Frühling), am 1. April (Sommer / Herbst)</span></li><li><span class=\"k\">Am 1. des Monats</span><span class=\"v\">Einige Hütten werden für die Freitage und Samstage des Folgemonats freigegeben</span></li><li><span class=\"k\">Adresse</span><span class=\"v\">Ogens, Kanton Waadt · ca. 30 Min. von Lausanne, nahe Yverdon</span></li>",
     "meta.title": "Les Cabanes de Marie — Schlafen in den Bäumen · Ogens (VD)",
-    "cal.title": "Verfügbarkeitskalender",
-    "av2.btn": "Verfügbarkeiten prüfen"
+    "cal.title": "Verfügbarkeitskalender"
   },
   en: {
     "story.gift": "Give a gift voucher",
-    "rail.1": "01 · The dream",
-    "rail.2": "02 · The cabins",
-    "rail.3": "03 · The spa",
-    "rail.4": "04 · The flavours",
-    "rail.5": "05 · The estate",
-    "rail.6": "06 · Activities",
-    "rail.7": "07 · Book",
     "hero.loc": "Ogens · Canton of Vaud · 30min from Lausanne",
     "hero.h1": "<span>Sleep among</span> <span><b>the trees</b></span>",
     "hero.sub": "Four refuges perched high in the Swiss countryside. The luxury of simplicity, a timeless escape — for at least one night.",
     "hero.cta1": "Book a night",
     "hero.cta2": "Discover the journey ↓",
     "hero.scroll": "Scroll and let yourself drift",
-    "mq.1": "<span>The luxury of simplicity</span><span class=\"star\">✦</span><span class=\"it\">To the song of birds</span><span class=\"star\">✦</span><span>Feet in the river</span><span class=\"star\">✦</span><span class=\"it\">Head in the stars</span><span class=\"star\">✦</span><span>The luxury of simplicity</span><span class=\"star\">✦</span><span class=\"it\">To the song of birds</span><span class=\"star\">✦</span><span>Feet in the river</span><span class=\"star\">✦</span><span class=\"it\">Head in the stars</span><span class=\"star\">✦</span>",
+    "hero.mq": "<span>The luxury of simplicity</span><span>To the song of birds</span><span>Feet in the river</span><span>Head in the stars</span>",
     "story.eb": "01 — The dream",
     "story.h2": "They changed their lives to live their <b>dream</b>.",
     "story.p1": "Marie and Renaud de Goumoëns left their former life to build treehouses in the trees of their estate in Ogens, crossed by a river, and to spend more time as a family.",
@@ -848,8 +793,15 @@ window.CDM_I18N = {
     "story.sign": "Marie &amp; Renaud<small>Your hosts</small>",
     "story.meta": "<div><b>4</b><small>Unique refuges</small></div><div><b>4.9</b><small>Google rating</small></div><div><b>1</b><small>Eco-spa</small></div>",
     "ci.eb": "02 — The cabins",
-    "ci.h2": "Four worlds,<br><b>one dream</b>",
+    "ci.h2": "Four worlds, <br><b>one dream</b>",
     "ci.p": "Hand-built, no two alike: each one hugs the tree that holds it. Scroll down and let every cabin introduce itself.",
+    "q.mathis": "“A nest in the crook of the branches.”",
+    "q.alanis": "“Sleeping above the animals.”",
+    "q.camille": "“A touch of Asia, perched high.”",
+    "q.mila": "“A bed under the stars.”",
+    "cab.others": "And the other three.",
+    "strip.dates": "See dates",
+    "cal.wait": "Loading the calendar…",
     "c1.tag": "Asian ambiance",
     "c1.why": "« Because he is like Asia, full of colour and travel memories. »",
     "c1.desc": "A perched cabin with a small bedroom and an Asian feel, brought back from the family's life around Hong Kong. Colour and travel memories to dream without moving. A small cabin for two, named Mushu, completes the nest.",
@@ -872,53 +824,15 @@ window.CDM_I18N = {
     "c4.price": "280.–<small>for 2, breakfast included · +20.– / child (summer)</small>",
     "btn.book": "Book",
     "btn.gift": "Gift a voucher",
-    "spa.eb": "03 — The eco-spa",
-    "spa.h2": "An <b>eco-friendly</b> spa",
-    "spa.lead": "Nothing beats a wood-fired bath, a cold plunge into the river, then a turn in the sauna to let go of everything that weighs on you.",
-    "spa.list": "<li><span><b>The \"Bain Marie\"</b> — wood-fired heated bath, available to all cabins until 8pm.</span></li><li><span><b>Cold plunge in the river</b> — the invigorating contrast, out in nature.</span></li><li><span><b>Wood-fired sauna</b> — dry heat to finish gently.</span></li>",
-    "pan.eb": "The baskets",
-    "pan.h2": "To the table, <b>by basket</b>",
-    "pan.p": "Meals are taken in your cabin or on its terrace — there is no common dining room. We gladly adapt the baskets for allergies, intolerances or vegetarian meals.",
-    "pan.t1tag": "Included",
-    "pan.t1h": "Breakfast",
-    "pan.t1p": "Warm bread, jam, Baba's honey, seasonal fruit, fruit juice, dairy-fresh yoghurt, muesli and a piece of Gruyère. Everything to start the day to birdsong.",
-    "pan.t2tag": "55.– / 2 guests · +10.– child",
-    "pan.t2h": "The terroir basket",
-    "pan.t2p": "Seasonal regional produce: cheeses and cured meats, fresh eggs, crunchy vegetables (a soup in the cooler season), good bread and a dessert — to enjoy in the cabin or on the terrace.",
-    "pan.t3tag": "55.– / 2 guests · +10.– child",
-    "pan.t3h": "The fondue basket",
-    "pan.t3p": "A fondue kit for a typically Swiss evening: cheese from the St-Cierges dairy, bread, sides and dessert. To enjoy on the terrace (not in the cabin).",
-    "boi.eb": "Drinks &amp; snacks",
-    "boi.h2": "Renaud’s <b>cellar</b>",
-    "boi.lead": "Renaud has selected white, rosé and red wines he loves, plus craft beers he will happily introduce you to. Fruit juices, lemonades, and self-service snacks or ice creams for sweet tooths.",
-    "boi.note": "Picnics allowed, but no cooking on site. For safety reasons, barbecuing is forbidden on the grounds.",
-    "boi.list": "<div class=\"pl-row\"><span>Tea &amp; coffee</span><b>1.–</b></div><div class=\"pl-row\"><span>Cordials</span><b>Free</b></div><div class=\"pl-row\"><span>Juices &amp; lemonades</span><b>4.– to 5.–</b></div><div class=\"pl-row\"><span>Craft beers</span><b>6.–</b></div><div class=\"pl-row\"><span>Wines</span><b>16.– to 35.–</b></div><div class=\"pl-row\"><span>Champagne</span><b>23.–</b></div><div class=\"pl-row\"><span>Snacks &amp; ice creams</span><b>2.– to 6.–</b></div>",
-    "tar.eb": "Rates",
-    "tar.h2": "The fair <b>price</b>",
-    "tar.p": "One night for two, breakfast included. Simple and transparent.",
-    "tar.cabnight": "per night for 2 · breakfast included",
-    "tar.cabnote": "Child from age 2: +20.– · From the second night, child supplements are free.",
-    "tar.o1tag": "Last minute",
-    "tar.o1p": "Booked less than 24 h before arrival? We reward your spontaneity: you pay the student rate, i.e. 190.– per night for two. (Does not apply to payment by gift voucher.)",
-    "tar.o2tag": "Student & AVS",
-    "tar.o2p": "On presentation of your student or AVS (pension) card, Monday to Wednesday outside school holidays and public holidays: 190.– per night for two, breakfasts included. Booking by e-mail.",
-    "tar.per": "/ 2 guests",
-    "dom.eb": "05 — The estate",
+    "dom.eb": "03 — The estate",
     "dom.h2": "A river, a pond,<br><b>free-roaming animals</b>",
     "dom.lead": "The estate is discovered on foot: follow the river, pause at the pond, say hello to the animals wandering everywhere.",
     "dom.p": "Waking to birdsong, a walk in the forest, and that rare feeling of living in a world apart for the length of your stay.",
     "dom.animals": "<span>Horses & ponies</span><span>Rabbits</span><span>The bees</span>",
-    "act.eb": "06 — Activities",
-    "act.h2": "Plenty to fill <b>your stay</b>",
-    "act.p": "On the estate and all around, there's always something to discover — for couples and families alike.",
-    "act.new": "New",
-    "act.fh": "e-MTB rental & barbecue",
-    "act.fp": "Explore the region on a marked trail, then round it off with a barbecue kit out in nature. 110.– for two bikes · 50.– the barbecue kit.",
-    "act.fbtn": "Reserve an e-MTB",
-    "act.c1": "<div class=\"dist\">On the estate</div><h4>On site</h4><ul><li>· Nature trail (FOEN)</li><li>· Bee visit (by appt.)</li><li>· Walk up the stream (summer)</li><li>· <a href=\"https://www.minutiae.art\" target=\"_blank\" rel=\"noopener\">Nature tattoo (Marie)</a></li></ul>",
-    "act.c2": "<div class=\"dist\">&lt; 5 min</div><h4>Very close</h4><ul><li>· <a href=\"https://www.brigands.ch\" target=\"_blank\" rel=\"noopener\">Bois des Brigands</a></li><li>· <a href=\"https://www.balad-ane.ch\" target=\"_blank\" rel=\"noopener\">Donkey walks</a></li><li>· <a href=\"http://www.boas.ch/pages/eta_conv_clos_bercher.asp\" target=\"_blank\" rel=\"noopener\">Clos Bercher</a></li><li>· <a href=\"https://www.golfvuissens.ch\" target=\"_blank\" rel=\"noopener\">Vuissens golf</a></li></ul>",
-    "act.c3": "<div class=\"dist\">&lt; 15 min</div><h4>A stone's throw</h4><ul><li>· <a href=\"https://www.bainsyverdon.ch\" target=\"_blank\" rel=\"noopener\">Yverdon thermal baths</a></li><li>· <a href=\"https://www.pronatura-champ-pittet.ch\" target=\"_blank\" rel=\"noopener\">Pro Natura Champ-Pittet</a></li><li>· Yvonand beach</li><li>· Horse riding</li></ul>",
-    "act.c4": "<div class=\"dist\">&lt; 30 min – 1 h</div><h4>For the day</h4><ul><li>· <a href=\"https://www.zoo-servion.ch\" target=\"_blank\" rel=\"noopener\">Servion zoo</a></li><li>· <a href=\"https://www.papiliorama.ch\" target=\"_blank\" rel=\"noopener\">Papiliorama</a></li><li>· <a href=\"https://www.village-lacustre.ch\" target=\"_blank\" rel=\"noopener\">Gletterens lake village</a></li><li>· <a href=\"https://www.ailleurs.ch\" target=\"_blank\" rel=\"noopener\">Maison d'Ailleurs, Estavayer</a></li></ul>",
+    "spa.eb": "04 — The eco-spa",
+    "spa.h2": "An <b>eco-friendly</b> spa",
+    "spa.lead": "Nothing beats a wood-fired bath, a cold plunge into the river, then a turn in the sauna to let go of everything that weighs on you.",
+    "spa.list": "<li><span><b>The \"Bain Marie\"</b> — wood-fired heated bath, available to all cabins until 8pm.</span></li><li><span><b>Cold plunge in the river</b> — the invigorating contrast, out in nature.</span></li><li><span><b>Wood-fired sauna</b> — dry heat to finish gently.</span></li>",
     "av.gl": "Google reviews",
     "av.sub": "★★★★★ · <b>137 reviews</b> · ranked #1 in Ogens · 4.7/5 on Tripadvisor",
     "av.t1": "A wonderful family weekend up in the trees: magnificent setting, an original and soothing concept, and lovely local produce.",
@@ -926,6 +840,15 @@ window.CDM_I18N = {
     "av.t3": "One of the most exceptional stays we have had in Switzerland: comfortable, beautifully decorated cabins right in nature.",
     "av.note": "★ Excerpts from genuine Google reviews (4.9/5 · 137 reviews).",
     "av.cta": "Read all 137 reviews on Google →",
+    "rupt.big": "For one night, the world can wait at the foot of the tree.",
+    "rupt.cta": "Find a date to climb into the trees",
+    "ag.eb": "Overall calendar",
+    "ag.h": "Availability — all our cabins",
+    "av2.eb": "Availability",
+    "resa.h3": "Book your night",
+    "resa.p": "Choose your cabin and dates directly online — you stay in control from start to finish.",
+    "resa.from": "from 280.– a night",
+    "resa.note": "Last-minute bonus: a special price for any booking made less than 24h before check-in (excluding gift-voucher payment).",
     "al.eb": "Waiting list",
     "al.h": "Cabin full on your dates?",
     "al.intro": "Leave us your email and your dates — we'll let you know as soon as a cabin frees up.",
@@ -946,17 +869,34 @@ window.CDM_I18N = {
     "al.donep": "We'll email you as soon as a cabin matching your dates frees up.",
     "ph.al.email": "you@example.com",
     "ph.al.tel": "079 000 00 00",
-    "inf.eb": "Before you come",
-    "inf.h2": "<b>Practical</b> info",
-    "inf.list": "<li><span class=\"k\">Check-in</span><span class=\"v\">From 4:00 pm</span></li><li><span class=\"k\">Check-out</span><span class=\"v\">Before 11:00 am</span></li><li><span class=\"k\">Closed</span><span class=\"v\">Sunday evenings, and from early November to end of March</span></li><li><span class=\"k\">Reservations</span><span class=\"v\">Open on 1 January (spring), 1 April (summer / autumn)</span></li><li><span class=\"k\">On the 1st</span><span class=\"v\">A few cabins are released for the Fridays and Saturdays of the following month</span></li><li><span class=\"k\">Address</span><span class=\"v\">Ogens, canton of Vaud · ~30min from Lausanne, near Yverdon</span></li>",
-    "resa.h3": "Book your night",
-    "resa.p": "Choose your cabin and dates directly online — you stay in control from start to finish.",
-    "resa.from": "from 280.– a night",
-    "resa.note": "Last-minute bonus: a special price for any booking made less than 24h before check-in (excluding gift-voucher payment).",
-    "fin.eb": "07 — The departure… or rather the beginning",
-    "fin.h2": "Ready to <b>dream</b>?",
-    "fin.p": "It's never too late to be who you truly are. We'll be waiting for you, up there in the trees.",
-    "fin.btn": "Book now",
+    "pan.eb": "The baskets",
+    "pan.h2": "To the table, <b>by basket</b>",
+    "pan.p": "Meals are taken in your cabin or on its terrace — there is no common dining room. We gladly adapt the baskets for allergies, intolerances or vegetarian meals.",
+    "pan.t1tag": "Included",
+    "pan.t1h": "Breakfast",
+    "pan.t1p": "Warm bread, jam, Baba's honey, seasonal fruit, fruit juice, dairy-fresh yoghurt, muesli and a piece of Gruyère. Everything to start the day to birdsong.",
+    "pan.t2tag": "55.– / 2 guests · +10.– child",
+    "pan.t2h": "The terroir basket",
+    "pan.t2p": "Seasonal regional produce: cheeses and cured meats, fresh eggs, crunchy vegetables (a soup in the cooler season), good bread and a dessert — to enjoy in the cabin or on the terrace.",
+    "pan.t3tag": "55.– / 2 guests · +10.– child",
+    "pan.t3h": "The fondue basket",
+    "pan.t3p": "A fondue kit for a typically Swiss evening: cheese from the St-Cierges dairy, bread, sides and dessert. To enjoy on the terrace (not in the cabin).",
+    "boi.eb": "Drinks &amp; snacks",
+    "boi.h2": "Renaud’s <b>cellar</b>",
+    "boi.lead": "Renaud has selected white, rosé and red wines he loves, plus craft beers he will happily introduce you to. Fruit juices, lemonades, and self-service snacks or ice creams for sweet tooths.",
+    "boi.note": "Picnics allowed, but no cooking on site. For safety reasons, barbecuing is forbidden on the grounds.",
+    "boi.list": "<div class=\"pl-row\"><span>Tea &amp; coffee</span><b>1.–</b></div><div class=\"pl-row\"><span>Cordials</span><b>Free</b></div><div class=\"pl-row\"><span>Juices &amp; lemonades</span><b>4.– to 5.–</b></div><div class=\"pl-row\"><span>Craft beers</span><b>6.–</b></div><div class=\"pl-row\"><span>Wines</span><b>16.– to 35.–</b></div><div class=\"pl-row\"><span>Champagne</span><b>23.–</b></div><div class=\"pl-row\"><span>Snacks &amp; ice creams</span><b>2.– to 6.–</b></div>",
+    "act.eb": "Activities",
+    "act.h2": "Plenty to fill <b>your stay</b>",
+    "act.p": "On the estate and all around, there's always something to discover — for couples and families alike.",
+    "act.new": "New",
+    "act.fh": "<span class=\"nb\">e-MTB</span> rental & barbecue",
+    "act.fp": "Explore the region on a marked trail, then round it off with a barbecue kit out in nature. 110.– for two bikes · 50.– the barbecue kit.",
+    "act.fbtn": "Reserve an e-MTB",
+    "act.c1": "<div class=\"dist\">On the estate</div><h4>On site</h4><ul><li>· Nature trail (FOEN)</li><li>· Bee visit (by appt.)</li><li>· Walk up the stream (summer)</li><li>· <a href=\"https://www.minutiae.art\" target=\"_blank\" rel=\"noopener\">Nature tattoo (Marie)</a></li></ul>",
+    "act.c2": "<div class=\"dist\">&lt; 5 min</div><h4>Very close</h4><ul><li>· <a href=\"https://www.brigands.ch\" target=\"_blank\" rel=\"noopener\">Bois des Brigands</a></li><li>· <a href=\"https://www.balad-ane.ch\" target=\"_blank\" rel=\"noopener\">Donkey walks</a></li><li>· <a href=\"http://www.boas.ch/pages/eta_conv_clos_bercher.asp\" target=\"_blank\" rel=\"noopener\">Clos Bercher</a></li><li>· <a href=\"https://www.golfvuissens.ch\" target=\"_blank\" rel=\"noopener\">Vuissens golf</a></li></ul>",
+    "act.c3": "<div class=\"dist\">&lt; 15 min</div><h4>A stone's throw</h4><ul><li>· <a href=\"https://www.bainsyverdon.ch\" target=\"_blank\" rel=\"noopener\">Yverdon thermal baths</a></li><li>· <a href=\"https://www.pronatura-champ-pittet.ch\" target=\"_blank\" rel=\"noopener\">Pro Natura Champ-Pittet</a></li><li>· Yvonand beach</li><li>· Horse riding</li></ul>",
+    "act.c4": "<div class=\"dist\">&lt; 30 min – 1 h</div><h4>For the day</h4><ul><li>· <a href=\"https://www.zoo-servion.ch\" target=\"_blank\" rel=\"noopener\">Servion zoo</a></li><li>· <a href=\"https://www.papiliorama.ch\" target=\"_blank\" rel=\"noopener\">Papiliorama</a></li><li>· <a href=\"https://www.village-lacustre.ch\" target=\"_blank\" rel=\"noopener\">Gletterens lake village</a></li><li>· <a href=\"https://www.ailleurs.ch\" target=\"_blank\" rel=\"noopener\">Maison d'Ailleurs, Estavayer</a></li></ul>",
     "gift.eb": "Gift idea",
     "gift.h2": "Give a night <b>in the trees</b>",
     "gift.lead": "A birthday, a big thank-you, a marriage proposal… give a perched escape. The gift voucher is valid for one year, extendable by another year on request.",
@@ -965,19 +905,27 @@ window.CDM_I18N = {
     "gift.c3": "<h3>With little extras</h3><p>Add an apéro, a terroir basket or an evening meal. Birthday or romantic pack on request.</p>",
     "gift.how": "The recipient then picks their cabin and dates online, enters the voucher number and chooses « Pay on site with a gift voucher ». A bespoke wish? Just write to us.",
     "gift.btn": "Give a gift voucher",
-    "ag.btn": "Book a cabin",
-    "ag.eb": "Overall calendar",
-    "av2.eb": "Availability",
-    "ag.h": "Availability — all our cabins",
+    "tar.eb": "Rates",
+    "tar.h2": "The fair <b>price</b>",
+    "tar.p": "One night for two, breakfast included. Simple and transparent.",
+    "tar.cabnight": "per night for 2 · breakfast included",
+    "tar.cabnote": "Child from age 2: +20.– · From the second night, child supplements are free.",
+    "tar.o1tag": "Last minute",
+    "tar.o1p": "Booked less than 24 h before arrival? We reward your spontaneity: you pay the student rate, i.e. 190.– per night for two. (Does not apply to payment by gift voucher.)",
+    "tar.o2tag": "Student & AVS",
+    "tar.o2p": "On presentation of your student or AVS (pension) card, Monday to Wednesday outside school holidays and public holidays: 190.– per night for two, breakfasts included. Booking by e-mail.",
+    "tar.per": "/ 2 guests",
+    "inf.eb": "Before you come",
+    "inf.h2": "<b>Practical</b> info",
+    "inf.list": "<li><span class=\"k\">Check-in</span><span class=\"v\">From 4:00 pm</span></li><li><span class=\"k\">Check-out</span><span class=\"v\">Before 11:00 am</span></li><li><span class=\"k\">Closed</span><span class=\"v\">Sunday evenings, and from early November to end of March</span></li><li><span class=\"k\">Reservations</span><span class=\"v\">Open on 1 January (spring), 1 April (summer / autumn)</span></li><li><span class=\"k\">On the 1st</span><span class=\"v\">A few cabins are released for the Fridays and Saturdays of the following month</span></li><li><span class=\"k\">Address</span><span class=\"v\">Ogens, canton of Vaud · ~30min from Lausanne, near Yverdon</span></li>",
     "meta.title": "Les Cabanes de Marie — Sleep among the trees · Ogens (VD)",
-    "cal.title": "Availability calendar",
-    "av2.btn": "Check availability"
+    "cal.title": "Availability calendar"
   }
 };
 </script>
-<script src="assets/site.js?v=6534a8e1" defer></script>
+<script src="assets/site.js?v=46a2bb9c" defer></script>
 <script src="assets/edith.js?v=97b28790" defer></script>
-<script src="assets/home.js?v=8d163e60" defer></script>
+<script src="assets/home.js?v=c5097694" defer></script>
 <!-- Planyo : aperçu des disponibilités (calendrier en direct) -->
 <script src="https://www.planyo.com/as.js"></script>
 <link rel="stylesheet" href="https://www.planyo.com/li.css">

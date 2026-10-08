@@ -50,7 +50,8 @@ foreach ($f in $all) {
   if ($ext -in '.json') { try { [void]($t | ConvertFrom-Json) } catch { Fail "$name : JSON invalide" } }
   if ($t -match 'data:image/[a-z+.-]+;base64,[A-Za-z0-9+/=]{2000,}') { Fail "$name : image base64 volumineuse integree (interdit)" }
   if ($t -match '(?i)static\.wixstatic\.com') { Fail "$name : reference a Wix (static.wixstatic.com)" }
-  if ($t -match '(?i)fonts\.(googleapis|gstatic)\.com') { Fail "$name : appel a Google Fonts (les polices doivent etre hebergees : assets/fonts/)" }
+  if ($t -match '(?i)fonts\.(googleapis|gstatic)\.com') { Fail "$name : appel a Google Fonts (interdit : Cabinet Grotesk vient de Fontshare via tools/chrome/head.html, la police de secours Hanken Grotesk est dans assets/fonts/)" }
+  if ($ext -eq '.html' -and $name -ne '404.html' -and $t -notmatch 'api\.fontshare\.com/v2/css\?f\[\]=cabinet-grotesk') { Warn "$name : le lien Fontshare (Cabinet Grotesk) est absent : lancer tools/sync-chrome.ps1" }
   if ($t -match '(?i)bainsdeyverdon') { Fail "$name : lien mort bainsdeyverdon.ch (la bonne adresse est bainsyverdon.ch)" }
   foreach ($pat in 'sk-ant-[A-Za-z0-9_-]{10,}', 'AKIA[0-9A-Z]{16}', '-----BEGIN [A-Z ]*PRIVATE KEY-----', 'ghp_[A-Za-z0-9]{20,}', 'xox[bp]-[A-Za-z0-9-]{10,}', 'AIza[0-9A-Za-z_-]{30,}') {
     if ($t -match $pat) { Fail "$name : ressemble a un secret/une cle ($pat)" }
@@ -58,6 +59,12 @@ foreach ($f in $all) {
 }
 
 # ---------------------------------------------------------------- 2. fichiers binaires
+# licence ITF Free Font License : Cabinet Grotesk ne doit pas etre redistribue depuis un depot public
+foreach ($f in $all) {
+  if ($f.Extension.ToLower() -in '.woff2', '.woff', '.ttf', '.otf', '.eot' -and $f.Name -match '(?i)cabinet') {
+    Fail ((& $rel $f.FullName) + " : la police Cabinet Grotesk ne doit PAS etre publiee dans le depot (licence Fontshare/ITF) : elle se charge depuis Fontshare")
+  }
+}
 foreach ($f in $all) {
   $ext = $f.Extension.ToLower()
   if ($ext -notin '.jpg', '.jpeg', '.png', '.webp', '.woff2', '.ico') { continue }

@@ -1,32 +1,90 @@
 /* =====================================================================
    Les Cabanes de Marie — comportements propres à la page d'accueil
-   · barre de progression de lecture
-   · repères latéraux (« parcours ») : met en évidence la partie en cours
+   · la rupture : la phrase apparaît doucement puis s'en va doucement (un seul écran sombre)
+   · « Voir les dates » : un volet qui monte du bas avec le calendrier de LA cabane choisie
    · formulaire « cabane complète ? » (alerte de disponibilité)
+   Sans JavaScript ou avec « mouvement réduit » : tout reste lisible, rien ne bouge.
    ===================================================================== */
 (function () {
   'use strict';
   var D = document;
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- progression + repère actif (au défilement) ---- */
-  var prog = D.getElementById('prog');
-  var rail = [].slice.call(D.querySelectorAll('.rail a'));
-  var map = { story: 'story', cabanes: 'cabanes', camille: 'cabanes', mathis: 'cabanes', alanis: 'cabanes', mila: 'cabanes',
-              disponibilites: 'cabanes', 'alerte-dispo': 'cabanes', spa: 'spa', paniers: 'saveurs', boissons: 'saveurs',
-              domaine: 'domaine', activites: 'activites', avis: 'reserver', 'bons-cadeaux': 'reserver', tarifs: 'reserver', infos: 'reserver' };
-  var secs = Object.keys(map).map(function (id) { return D.getElementById(id); }).filter(Boolean);
-  var ticking = false;
-  function frame() {
-    ticking = false;
-    var h = D.documentElement.scrollHeight - window.innerHeight;
-    if (prog && h > 0) prog.style.width = (window.scrollY / h * 100) + '%';
-    var cur = null, line = window.innerHeight * 0.45;
-    for (var i = 0; i < secs.length; i++) { if (secs[i].getBoundingClientRect().top <= line) cur = map[secs[i].id]; }
-    rail.forEach(function (a) { a.classList.toggle('on', !!cur && a.getAttribute('data-t') === cur); });
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function ramp(p, a, b) { return clamp((p - a) / (b - a), 0, 1); }
+  function ease(t) { return t * t * (3 - 2 * t); }
+
+  /* ---- la rupture : la phrase se révèle, tient, puis s'efface, au rythme du défilement ---- */
+  var run = D.querySelector('.rupt-run'), big = D.getElementById('ruptBig');
+  if (run && big && !calm) {
+    var ticking = false;
+    var frame = function () {
+      ticking = false;
+      var hh = (D.querySelector('.site-header') || {}).offsetHeight || 0;
+      var r = run.getBoundingClientRect();
+      var total = r.height - (window.innerHeight - hh);       // distance pendant laquelle l'écran reste collé
+      var p = total > 0 ? clamp((hh - r.top) / total, 0, 1) : 1;
+      var inn = ease(ramp(p, 0.06, 0.34)), out = ease(ramp(p, 0.66, 0.94));
+      big.style.setProperty('--o', (inn * (1 - out)).toFixed(3));
+      big.style.setProperty('--y', (30 * (1 - inn) - 30 * out).toFixed(1) + 'px');
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    frame();
+  } else if (big) {
+    big.style.setProperty('--o', '1'); big.style.setProperty('--y', '0px');
   }
-  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
-  window.addEventListener('resize', frame);
-  frame();
+
+  /* ---- « Voir les dates » : calendrier d'une seule cabane, dans un volet ---- */
+  var panel = D.getElementById('calPanel'), scrim = D.getElementById('calScrim');
+  if (panel && scrim) {
+    var frameEl = D.getElementById('calp_panel'), title = D.getElementById('calTitle'),
+        wait = D.getElementById('calWait'), book = D.getElementById('calBook'), close = D.getElementById('calX');
+    var opener = null, current = null;
+    var embed = function (res) {
+      var L = (window.CDM ? CDM.lang() : 'fr').toUpperCase();
+      return 'https://www.planyo.com/embed-calendar.php?resource_id=' + res + '&calendar=51020&style=multi-month-responsive&morning_icons=1&custom-language=' + L + '&ifr=calp_panel&lightbox=1&';
+    };
+    var openPanel = function (a) {
+      opener = a; current = a.getAttribute('data-res');
+      title.textContent = a.getAttribute('data-name') || '';
+      book.setAttribute('href', a.getAttribute('href'));
+      if (wait) wait.style.display = '';
+      frameEl.hidden = false;
+      frameEl.style.height = '';
+      frameEl.setAttribute('src', embed(current));
+      panel.classList.add('open'); scrim.classList.add('open'); D.body.classList.add('cal-open');
+      setTimeout(function () { close.focus(); }, 60);
+    };
+    var closePanel = function () {
+      panel.classList.remove('open'); scrim.classList.remove('open'); D.body.classList.remove('cal-open');
+      if (opener) opener.focus();
+    };
+    D.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a.cal-open') : null;
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      openPanel(a);
+    });
+    close.addEventListener('click', closePanel);
+    scrim.addEventListener('click', closePanel);
+    frameEl.addEventListener('load', function () { if (wait) wait.style.display = 'none'; });
+    D.addEventListener('keydown', function (e) {
+      if (!panel.classList.contains('open')) return;
+      if (e.key === 'Escape') { closePanel(); return; }
+      if (e.key !== 'Tab') return;
+      var f = [].slice.call(panel.querySelectorAll('a[href], button')).filter(function (x) { return x.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && D.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && D.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    // le lien « Réserver » du volet suit la langue (le script commun réécrit les liens Planyo) ; le calendrier se recharge dans la bonne langue
+    D.addEventListener('cdm:lang', function () {
+      if (panel.classList.contains('open') && current) frameEl.setAttribute('src', embed(current));
+    });
+  }
 
   /* ---- alerte de disponibilité (liste d'attente) ---- */
   var f = D.getElementById('alForm');
