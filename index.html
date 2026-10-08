@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high">
-<script src="assets/forms.js"></script>
+<script src="assets/forms.js?v=33f082c1"></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Les Cabanes de Marie">
 <meta property="og:locale" content="fr_CH">
@@ -59,7 +59,7 @@
   }
 }
 </script>
-<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/fonts.css?v=7d6eb667">
 <style>
 :root{
   --bone:#F2ECDF; --bone-2:#E7DDC9; --paper:#EFE7D6;
@@ -305,6 +305,8 @@ section{position:relative}
 .resa h3{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:.4em}
 .resa p{color:rgba(242,236,223,.78);font-size:.96rem;margin-bottom:1.4em}
 .resa .note{font-size:.82rem;color:rgba(242,236,223,.55);margin-top:1.5em;line-height:1.5;border-top:1px solid rgba(242,236,223,.16);padding-top:1.2em}
+.resa-cabins .btn{text-align:center;line-height:1.25}
+.resa-cabins .btn small{display:block;margin-top:3px;font-size:.76rem;font-weight:400;opacity:.9}
 
 /* ---- FINAL CTA ---- */
 .final{background:url("assets/img/final-bg.jpeg") center/cover fixed;position:relative;color:#fff;text-align:center}
@@ -332,6 +334,7 @@ footer{background:#161d0d;color:rgba(242,236,223,.65);padding:70px clamp(20px,5v
   .nav-r.open{transform:translateX(0)}
   .mobile-cta{display:flex;align-items:center;justify-content:center;gap:8px;position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);z-index:9500;background:var(--clay);color:#fff;padding:15px 18px;border-radius:40px;font-family:inherit;font-weight:600;font-size:1rem;box-shadow:0 14px 34px -10px rgba(0,0,0,.55)}
   .cc-fab{bottom:calc(env(safe-area-inset-bottom,0px) + 80px) !important}
+  footer{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 92px)}
   .nav-r a,nav.scrolled .nav-r a{color:var(--bone);font-size:1.15rem}
   .burger{display:flex}
   .story .wrap,.feat .wrap,.infos .wrap{grid-template-columns:1fr}
@@ -954,14 +957,14 @@ nav.scrolled .nav-contact{border-color:var(--forest)}
         <span class="tagnew" data-i="act.new">Nouveau</span>
         <h3 data-i="act.fh">Location de e-VTT & grillade</h3>
         <p data-i="act.fp">Partez explorer la région sur un parcours balisé, et prolongez avec un kit grillade en pleine nature. 110.– pour deux vélos · 50.– le kit grillade.</p>
-        <a href="contact.html?sujet=evtt" class="btn btn-fill" data-i="act.fbtn">Réserver un e-VTT</a>
+        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=232473&custom-language=FR" class="btn btn-fill" data-i="act.fbtn">Réserver un e-VTT</a>
       </div>
     </div>
 
     <div class="act-list">
       <div class="act-card reveal" data-i="act.c1"><div class="dist">Sur le domaine</div><h4>À faire sur place</h4><ul><li>· Parcours didactique OFEV</li><li>· Visite des abeilles (sur rdv)</li><li>· Remonter le ruisseau à pied (été)</li><li>· <a href="https://www.minutiae.art" target="_blank" rel="noopener">Tatouage nature (Marie)</a></li></ul></div>
       <div class="act-card reveal d1" data-i="act.c2"><div class="dist">&lt; 5 min</div><h4>Tout près</h4><ul><li>· <a href="https://www.brigands.ch" target="_blank" rel="noopener">Bois des Brigands</a></li><li>· <a href="https://www.balad-ane.ch" target="_blank" rel="noopener">Balades à ânes</a></li><li>· <a href="http://www.boas.ch/pages/eta_conv_clos_bercher.asp" target="_blank" rel="noopener">Clos Bercher</a></li><li>· <a href="https://www.golfvuissens.ch" target="_blank" rel="noopener">Golf de Vuissens</a></li></ul></div>
-      <div class="act-card reveal d2" data-i="act.c3"><div class="dist">&lt; 15 min</div><h4>À deux pas</h4><ul><li>· <a href="https://www.bainsdeyverdon.ch" target="_blank" rel="noopener">Bains thermaux d'Yverdon</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Plage d'Yvonand</li><li>· Balades à cheval</li></ul></div>
+      <div class="act-card reveal d2" data-i="act.c3"><div class="dist">&lt; 15 min</div><h4>À deux pas</h4><ul><li>· <a href="https://www.bainsyverdon.ch" target="_blank" rel="noopener">Bains thermaux d'Yverdon</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Plage d'Yvonand</li><li>· Balades à cheval</li></ul></div>
       <div class="act-card reveal d3" data-i="act.c4"><div class="dist">&lt; 30 min – 1 h</div><h4>Pour la journée</h4><ul><li>· <a href="https://www.zoo-servion.ch" target="_blank" rel="noopener">Zoo de Servion</a></li><li>· <a href="https://www.papiliorama.ch" target="_blank" rel="noopener">Papiliorama</a></li><li>· <a href="https://www.village-lacustre.ch" target="_blank" rel="noopener">Village lacustre de Gletterens</a></li><li>· <a href="https://www.ailleurs.ch" target="_blank" rel="noopener">Maison d'Ailleurs, Estavayer</a></li></ul></div>
     </div>
   </div>
@@ -1019,7 +1022,7 @@ nav.scrolled .nav-contact{border-color:var(--forest)}
         <p class="how" data-i="gift.how">Le bénéficiaire choisit ensuite sa cabane et ses dates en ligne, indique le numéro du bon et sélectionne « Sur place avec un bon cadeau ». Une envie sur mesure ? Écrivez-nous, on s'adapte.</p>
         <a href="bons-cadeaux.html" class="btn btn-fill" data-i="gift.btn">Offrir un bon cadeau</a>
       </div>
-    </div>>
+    </div>
   </div>
 </section>
 
@@ -1072,12 +1075,12 @@ nav.scrolled .nav-contact{border-color:var(--forest)}
     </div>
     <div class="resa reveal d2" id="reserver">
       <h3 data-i="resa.h3">Réservez votre nuit</h3>
-      <p data-i="resa.p">Les réservations 2026 sont ouvertes. Choisissez votre cabane et vos dates directement en ligne — vous gardez la main de bout en bout.</p>
+      <p data-i="resa.p">Choisissez votre cabane et vos dates directement en ligne — vous gardez la main de bout en bout.</p>
       <div class="resa-cabins" style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0;justify-content:center">
-        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=155328&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">La Jia de Camille</a>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=157564&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">La Cabane de Mathis</a>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=157565&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">L'Arche d'Alanis</a>
-        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=157566&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">Le Royaume de Mila</a>
+        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=155328&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">La Jia de Camille<small data-i="resa.from">dès 280.– la nuit</small></a>
+        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=157564&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">La Cabane de Mathis<small data-i="resa.from">dès 280.– la nuit</small></a>
+        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=157565&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">L'Arche d'Alanis<small data-i="resa.from">dès 280.– la nuit</small></a>
+        <a href="https://www.planyo.com/booking.php?mode=reserve&resource_id=157566&custom-language=FR" class="btn btn-fill" style="background:var(--clay)">Le Royaume de Mila<small data-i="resa.from">dès 280.– la nuit</small></a>
       </div>
       <p class="note" data-i="resa.note">💡 Bonus last minute : un prix avantageux pour toute réservation faite moins de 24h avant le check-in (hors paiement par bon cadeau).</p>
     </div>
@@ -1244,31 +1247,7 @@ document.querySelectorAll('a,button,.cabin,.act-card,.avis-card').forEach(el=>{
   x.addEventListener('click',()=>{panel.classList.remove('open');fab.classList.remove('hide')});
   if(cursor){[fab,send,x].forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('big'));el.addEventListener('mouseleave',()=>cursor.classList.remove('big'))})}
 
-  const SYSTEM=`Tu es "Edith", la concierge virtuelle chaleureuse et élégante des Cabanes de Marie, à Ogens (canton de Vaud, Suisse), à environ 30min de Lausanne. Tu portes le nom d'Edith, le petit chien Jack Russell de la famille qui, depuis les débuts des cabanes, accueillait les visiteurs en se promenant sur le domaine — si on te demande ton prénom, tu peux le raconter avec tendresse. Tu réponds en français, tu vouvoies, tu restes courte et accueillante (2 à 4 phrases). Un emoji nature (🐾🌿✨) de temps en temps, avec parcimonie. Tu donnes envie de réserver.
-
-LE LIEU : cabanes dans les arbres sur le domaine de Marie et Renaud de Goumoëns, traversé par une rivière, avec un étang. Concept : "le luxe de la simplicité". 4 hébergements nommés d'après leurs enfants. Très bien noté : 4,9/5 sur Google (137 avis) et 4,7/5 sur Tripadvisor, classé n°1 à Ogens.
-
-LES 4 LOGEMENTS (tarif de base : 280.- pour 2 personnes, petit-déjeuner inclus ; +20.- par enfant supplémentaire) :
-- La Jia de Camille : cabane perchée, ambiance asiatique (souvenirs de Hong Kong). Grand lit 2 adultes + mezzanine 2 enfants. Max 5 personnes + un bébé.
-- La Cabane de Mathis : esprit Robinson, vue sur l'étang. Lit double, place pour un lit bébé. Max 2 personnes. Intime, parfaite pour les couples.
-- L'Arche d'Alanis : perchée à environ 3 m du sol au-dessus des animaux (chevaux et poneys). Télécabine suspendue dans l'arbre, lit hamac à la belle étoile. Grand lit + mezzanine 2 enfants. Max 4 personnes + bébé.
-- Le Royaume de Mila : un lit double motorisé qui sort à la belle étoile au-dessus de la rivière sur commande, plus une cabane perchée, une serre romantique et une terrasse sur l'eau. Déco signée Jorge Cañete. +20.-/enfant en été uniquement.
-
-TARIFS & RÉDUCTIONS : base 280.- pour 2 (petit-déjeuner inclus), +20.-/enfant supplémentaire — offert dès la 2e nuit. Tarif étudiant / AVS : 190.- la nuit pour 2 (petits-déjeuners inclus), valable lundi, mardi et mercredi hors vacances scolaires et jours fériés, sur présentation de la carte, réservation par e-mail uniquement. Last minute : toute réservation à moins de 24h de l'arrivée bénéficie du tarif étudiant (190.- la nuit pour 2), sauf paiement par bon cadeau.
-
-ÉCO SPA : le "Bain Marie" (bain chauffé au feu de bois) est à disposition de toutes les cabanes jusqu'à 20h ; n'y aller que s'il est libre et y rester un temps raisonnable pour que toutes les cabanes puissent en profiter. Bain froid dans la rivière ; sauna au feu de bois.
-
-SAVEURS : petit-déjeuner inclus monté dans un panier (produits locaux). Paniers repas du soir d'artisans de la région sur commande (soupes de saison, charcuteries, fromages, pain frais). Bières artisanales locales. Packs terroir, anniversaire ou romantique sur demande. Paniers adaptables (allergies, intolérances, repas végétariens). Les repas se prennent dans la cabane ou sur sa terrasse (pas de salle commune). Pique-niques autorisés, mais pas de cuisine sur place et grillades interdites sur le domaine (sécurité). L'équipe recommande volontiers des restaurants de la région — invite à demander des suggestions selon les envies.
-
-LE DOMAINE & ANIMAUX : rivière, étang, balades en forêt, animaux en liberté (chevaux et poneys, lapins, abeilles). Les chiens sont les bienvenus (tant qu'ils ne courent pas après les lapins !). Pour un autre animal ou en cas de doute, invite à contacter l'équipe avant la venue.
-
-ACTIVITÉS — Sur le domaine : location de e-VTT (110.- les deux vélos, 50.- le kit grillade), parcours didactique, visite des abeilles sur rendez-vous, remonter le ruisseau à pied en été, tatouage nature par Marie (minutiae.art). À moins de 5 min : baby-poney à Bercher, Tour St-Martin (balade moyenâgeuse), badge d'accès au tennis club de Bercher sur demande, Clos Bercher (buvette, mini-zoo, jeux). À moins de 10 min : escalade Gecko à Sottens, Musée du blé et du pain à Echallens, labyrinthe de maïs à Bottens. À moins de 15 min : balades à cheval/poney (Perraire), swin-golf de Cremin, Explorit (musée de l'innovation), activités chiens polaires / husky-rando (aussi en été), bains thermaux d'Yverdon (dès 3 ans). À moins de 30 min : musée des grenouilles à Estavayer, Urbakid à Orbe, Jumpark à Yverdon, Zoo de Servion, village lacustre de Gletterens, Maison d'Ailleurs. À moins d'1h : Papiliorama. Aussi dans la région : Pro Natura Champ-Pittet, plage d'Yvonand.
-
-INFOS PRATIQUES : check-in dès 16h, check-out avant 11h. Fermé le dimanche soir et de début novembre à fin mars. Réservations : ouverture le 1er janvier (printemps) et le 1er avril (été/automne) ; le 1er de chaque mois, quelques cabanes sont libérées pour les vendredis et samedis du mois suivant. Bonus last minute : réservation à moins de 24h du check-in = tarif étudiant (190.- la nuit pour 2), sauf paiement par bon cadeau. Réservation en ligne via Planyo.
-
-BONS CADEAUX : on peut offrir un séjour aux Cabanes de Marie. Différentes options (une nuit pour deux, escapade romantique, formules avec apéro / panier terroir / repas) et demandes sur mesure par email. Le bon est valable un an, prolongeable d'un an supplémentaire sur simple demande. Pour l'utiliser : réserver en ligne, indiquer le numéro du bon et choisir le paiement "Sur place avec un bon cadeau". La page Bons cadeaux du site permet de commander.
-
-CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adresse Ch. du Petit Bâle 12, 1045 Ogens (Vaud). RÈGLES : ne donne pas de prix exacts au-delà des tarifs ci-dessus, ni de disponibilités en temps réel ; pour cela, invite gentiment à consulter la page de réservation ou à contacter l'équipe. Si tu ne connais pas la réponse à une question, ou si la demande dépasse ce que tu sais, ne l'invente jamais : propose chaleureusement d'appeler l'équipe au +41 79 534 71 15 ou d'écrire à info@lescabanesdemarie.com. Si la question sort du cadre des Cabanes de Marie, recentre poliment. Sois toujours bienveillante. Réponds toujours dans la langue du visiteur : français, allemand (Deutsch) ou anglais (English).`;
+  /* La consigne d'Edith vit UNIQUEMENT côté serveur (api/edith.js) : la page n'envoie que les messages. */
 
   let hist=[];
   function add(role,t){const d=document.createElement('div');d.className='cc-msg '+(role==='user'?'user':'bot');d.innerHTML=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');body.appendChild(d);body.scrollTop=body.scrollHeight}
@@ -1277,7 +1256,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
     add('user',text);hist.push({role:'user',content:text});
     input.value='';send.disabled=true;if(chips)chips.style.display='none';typing(true);
     try{
-      const r=await fetch("/api/edith",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({system:SYSTEM,messages:hist})});
+      const r=await fetch("/api/edith",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:hist})});
       const data=await r.json();
       const reply=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('\n').trim()||"Désolée, je n'ai pas pu répondre. Réessayez dans un instant 🌿";
       hist.push({role:'assistant',content:reply});typing(false);add('bot',reply);
@@ -1293,7 +1272,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
 (function(){
   const I18N = {
     de:{
-      "nav.gift":"Gutschein","story.gift":"Einen Geschenkgutschein verschenken","nav.cab":"Die Hütten","nav.spa":"Spa & Genuss","nav.act":"Aktivitäten","nav.info":"Infos","nav.faq":"Fragen ?","ft.priv":"Datenschutz","nav.contact":"Kontakt","nav.cg":"AGB","nav.book":"Reservieren",
+      "nav.gift":"Gutschein","story.gift":"Einen Geschenkgutschein verschenken","nav.cab":"Die Hütten","nav.spa":"Spa & Genuss","nav.act":"Aktivitäten","nav.info":"Infos","nav.faq":"Fragen?","ft.priv":"Datenschutz","nav.contact":"Kontakt","nav.cg":"AGB","nav.book":"Reservieren",
       "rail.1":"01 · Der Traum","rail.2":"02 · Die Hütten","rail.3":"03 · Das Spa","rail.4":"04 · Der Genuss","rail.5":"05 · Das Anwesen","rail.6":"06 · Aktivitäten","rail.7":"07 · Reservieren",
       "hero.loc":"◈ &nbsp;Ogens · Kanton Waadt · 30 Min. von Lausanne",
       "hero.h1":'<span class="l"><span>Schlafen in</span></span><span class="l"><span>den Bäumen</span></span>',
@@ -1358,7 +1337,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "act.fbtn":"E-Bike reservieren",
       "act.c1":'<div class="dist">Auf dem Anwesen</div><h4>Vor Ort</h4><ul><li>· Lehrpfad (BAFU)</li><li>· Bienenbesuch (nach Vereinb.)</li><li>· Den Bach zu Fuss hinauf (Sommer)</li><li>· <a href="https://www.minutiae.art" target="_blank" rel="noopener">Natur-Tattoo (Marie)</a></li></ul>',
       "act.c2":'<div class="dist">&lt; 5 Min</div><h4>Ganz nah</h4><ul><li>· <a href="https://www.brigands.ch" target="_blank" rel="noopener">Bois des Brigands</a></li><li>· <a href="https://www.balad-ane.ch" target="_blank" rel="noopener">Eselwanderungen</a></li><li>· <a href="http://www.boas.ch/pages/eta_conv_clos_bercher.asp" target="_blank" rel="noopener">Clos Bercher</a></li><li>· <a href="https://www.golfvuissens.ch" target="_blank" rel="noopener">Golf de Vuissens</a></li></ul>',
-      "act.c3":'<div class="dist">&lt; 15 Min</div><h4>Ein Katzensprung</h4><ul><li>· <a href="https://www.bainsdeyverdon.ch" target="_blank" rel="noopener">Thermalbäder Yverdon</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Strand von Yvonand</li><li>· Ausritte zu Pferd</li></ul>',
+      "act.c3":'<div class="dist">&lt; 15 Min</div><h4>Ein Katzensprung</h4><ul><li>· <a href="https://www.bainsyverdon.ch" target="_blank" rel="noopener">Thermalbäder Yverdon</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Strand von Yvonand</li><li>· Ausritte zu Pferd</li></ul>',
       "act.c4":'<div class="dist">&lt; 30 Min – 1 Std</div><h4>Für den Tag</h4><ul><li>· <a href="https://www.zoo-servion.ch" target="_blank" rel="noopener">Zoo de Servion</a></li><li>· <a href="https://www.papiliorama.ch" target="_blank" rel="noopener">Papiliorama</a></li><li>· <a href="https://www.village-lacustre.ch" target="_blank" rel="noopener">Pfahlbaudorf Gletterens</a></li><li>· <a href="https://www.ailleurs.ch" target="_blank" rel="noopener">Maison d\'Ailleurs, Estavayer</a></li></ul>',
       "av.gl":"Google-Bewertungen","av.sub":'★★★★★ · <b style="color:var(--sand)">137 Bewertungen</b> · Nr. 1 in Ogens · 4,7/5 auf Tripadvisor',
       "av.t1":"Ein tolles Familienwochenende in den Bäumen: herrliche Kulisse, ein originelles und beruhigendes Konzept und schön präsentierte regionale Produkte.",
@@ -1388,7 +1367,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "ph.al.tel":"079 000 00 00",
       "inf.eb":"Vor der Anreise","inf.h2":'<span class="it">Praktische</span> Infos',
       "inf.list":'<li><span class="k">Check-in</span><span class="v">Ab 16:00 Uhr</span></li><li><span class="k">Check-out</span><span class="v">Vor 11:00 Uhr</span></li><li><span class="k">Schliessung</span><span class="v">Sonntagabend sowie von Anfang November bis Ende März</span></li><li><span class="k">Reservierungen</span><span class="v">Öffnung am 1. Januar (Frühling), am 1. April (Sommer / Herbst)</span></li><li><span class="k">Am 1. des Monats</span><span class="v">Einige Hütten werden für die Freitage und Samstage des Folgemonats freigegeben</span></li><li><span class="k">Adresse</span><span class="v">Ogens, Kanton Waadt · ca. 30 Min. von Lausanne, nahe Yverdon</span></li>',
-      "resa.h3":"Buchen Sie Ihre Nacht","resa.p":"Die Reservierungen 2026 sind offen. Wählen Sie Hütte und Daten direkt online — Sie behalten alles in der Hand.",
+      "resa.h3":"Buchen Sie Ihre Nacht","resa.p":"Wählen Sie Hütte und Daten direkt online — Sie behalten alles in der Hand.","resa.from":"ab 280.– pro Nacht",
       "resa.btn":"Verfügbarkeiten ansehen","resa.note":"💡 Last-Minute-Bonus: ein Vorzugspreis für Buchungen weniger als 24 Std. vor dem Check-in (ausser bei Zahlung mit Geschenkgutschein).",
       "fin.eb":"07 — Der Abschied… oder eher der Anfang","fin.h2":'Bereit zu <span class="it">träumen</span>?',
       "fin.p":"Es ist nie zu spät, der zu sein, der man wirklich ist. Wir erwarten Sie, dort oben in den Bäumen.","fin.btn":"Jetzt reservieren","gift.eb":"Geschenkidee","gift.h2":'Schenken Sie eine Nacht <span class="it">in den Bäumen</span>',"gift.lead":"Ein Geburtstag, ein grosses Dankeschön, ein Heiratsantrag … schenken Sie eine Auszeit in den Bäumen. Der Gutschein ist ein Jahr gültig und auf Anfrage um ein weiteres Jahr verlängerbar.","gift.c1":'<h4>Eine Nacht im Baum</h4><p>Eine Nacht zu zweit in der Hütte, Frühstück inklusive (ab 280.–). Der Klassiker zum Träumen.</p>',"gift.c2":'<h4>Romantische Auszeit</h4><p>Das Royaume de Mila mit dem Bett, das unter die Sterne gleitet: das perfekte Geschenk für Verliebte.</p>',"gift.c3":'<h4>Mit kleinen Extras</h4><p>Ergänzen Sie einen Apéro, einen Terroir-Korb oder ein Abendessen. Geburtstags- oder Romantik-Paket auf Anfrage.</p>',"gift.how":"Die beschenkte Person wählt danach Hütte und Daten online, gibt die Gutschein-Nummer an und wählt « Vor Ort mit einem Geschenkgutschein ». Ein Wunsch nach Mass? Schreiben Sie uns.","gift.btn":"Einen Gutschein verschenken",
@@ -1466,7 +1445,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "act.fbtn":"Reserve an e-MTB",
       "act.c1":'<div class="dist">On the estate</div><h4>On site</h4><ul><li>· Nature trail (FOEN)</li><li>· Bee visit (by appt.)</li><li>· Walk up the stream (summer)</li><li>· <a href="https://www.minutiae.art" target="_blank" rel="noopener">Nature tattoo (Marie)</a></li></ul>',
       "act.c2":'<div class="dist">&lt; 5 min</div><h4>Very close</h4><ul><li>· <a href="https://www.brigands.ch" target="_blank" rel="noopener">Bois des Brigands</a></li><li>· <a href="https://www.balad-ane.ch" target="_blank" rel="noopener">Donkey walks</a></li><li>· <a href="http://www.boas.ch/pages/eta_conv_clos_bercher.asp" target="_blank" rel="noopener">Clos Bercher</a></li><li>· <a href="https://www.golfvuissens.ch" target="_blank" rel="noopener">Vuissens golf</a></li></ul>',
-      "act.c3":'<div class="dist">&lt; 15 min</div><h4>A stone\'s throw</h4><ul><li>· <a href="https://www.bainsdeyverdon.ch" target="_blank" rel="noopener">Yverdon thermal baths</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Yvonand beach</li><li>· Horse riding</li></ul>',
+      "act.c3":'<div class="dist">&lt; 15 min</div><h4>A stone\'s throw</h4><ul><li>· <a href="https://www.bainsyverdon.ch" target="_blank" rel="noopener">Yverdon thermal baths</a></li><li>· <a href="https://www.pronatura-champ-pittet.ch" target="_blank" rel="noopener">Pro Natura Champ-Pittet</a></li><li>· Yvonand beach</li><li>· Horse riding</li></ul>',
       "act.c4":'<div class="dist">&lt; 30 min – 1 h</div><h4>For the day</h4><ul><li>· <a href="https://www.zoo-servion.ch" target="_blank" rel="noopener">Servion zoo</a></li><li>· <a href="https://www.papiliorama.ch" target="_blank" rel="noopener">Papiliorama</a></li><li>· <a href="https://www.village-lacustre.ch" target="_blank" rel="noopener">Gletterens lake village</a></li><li>· <a href="https://www.ailleurs.ch" target="_blank" rel="noopener">Maison d\'Ailleurs, Estavayer</a></li></ul>',
       "av.gl":"Google reviews","av.sub":'★★★★★ · <b style="color:var(--sand)">137 reviews</b> · ranked #1 in Ogens · 4.7/5 on Tripadvisor',
       "av.t1":"A wonderful family weekend up in the trees: magnificent setting, an original and soothing concept, and lovely local produce.",
@@ -1496,7 +1475,7 @@ CONTACT : téléphone +41 79 534 71 15, email info@lescabanesdemarie.com, adress
       "ph.al.tel":"079 000 00 00",
       "inf.eb":"Before you come","inf.h2":'<span class="it">Practical</span> info',
       "inf.list":'<li><span class="k">Check-in</span><span class="v">From 4:00 pm</span></li><li><span class="k">Check-out</span><span class="v">Before 11:00 am</span></li><li><span class="k">Closed</span><span class="v">Sunday evenings, and from early November to end of March</span></li><li><span class="k">Reservations</span><span class="v">Open on 1 January (spring), 1 April (summer / autumn)</span></li><li><span class="k">On the 1st</span><span class="v">A few cabins are released for the Fridays and Saturdays of the following month</span></li><li><span class="k">Address</span><span class="v">Ogens, canton of Vaud · ~30min from Lausanne, near Yverdon</span></li>',
-      "resa.h3":"Book your night","resa.p":"2026 reservations are open. Choose your cabin and dates directly online — you stay in control from start to finish.",
+      "resa.h3":"Book your night","resa.p":"Choose your cabin and dates directly online — you stay in control from start to finish.","resa.from":"from 280.– a night",
       "resa.btn":"See availability","resa.note":"💡 Last-minute bonus: a special price for any booking made less than 24h before check-in (excluding gift-voucher payment).",
       "fin.eb":"07 — The departure… or rather the beginning","fin.h2":'Ready to <span class="it">dream</span>?',
       "fin.p":"It's never too late to be who you truly are. We'll be waiting for you, up there in the trees.","fin.btn":"Book now","gift.eb":"Gift idea","gift.h2":'Give a night <span class="it">in the trees</span>',"gift.lead":"A birthday, a big thank-you, a marriage proposal… give a perched escape. The gift voucher is valid for one year, extendable by another year on request.","gift.c1":'<h4>A night in the trees</h4><p>A night for two in a cabin, breakfast included (from 280.–). The timeless classic to make someone dream.</p>',"gift.c2":'<h4>Romantic escape</h4><p>The Royaume de Mila and its bed that glides out under the stars: the perfect gift for lovers.</p>',"gift.c3":'<h4>With little extras</h4><p>Add an apéro, a terroir basket or an evening meal. Birthday or romantic pack on request.</p>',"gift.how":"The recipient then picks their cabin and dates online, enters the voucher number and chooses « Pay on site with a gift voucher ». A bespoke wish? Just write to us.","gift.btn":"Give a gift voucher",
