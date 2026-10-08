@@ -138,14 +138,14 @@ foreach ($name in @($texts.Keys | Where-Object { $_ -match '\.html$' })) {
 }
 
 # ---------------------------------------------------------------- 5. traductions FR/DE/EN
-$cabJs = $texts['assets/cabane.js']
+$sharedJs = $texts['assets/site.js']
 foreach ($name in @($texts.Keys | Where-Object { $_ -match '\.html$' -and $_ -ne '404.html' })) {
   $t = $texts[$name]
   $keys = New-Object 'System.Collections.Generic.HashSet[string]'
   foreach ($m in [regex]::Matches($t, '\bdata-i="([^"]+)"')) { [void]$keys.Add($m.Groups[1].Value) }
   if ($keys.Count -eq 0) { continue }
   $js = ([regex]::Matches($t, '(?is)<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>') | ForEach-Object { $_.Groups[1].Value }) -join "`n"
-  if ($t -match 'assets/cabane\.js' -and $cabJs) { $js += "`n" + $cabJs }
+  if ($t -match 'assets/site\.js' -and $sharedJs) { $js += "`n" + $sharedJs }
   $phKeys = New-Object 'System.Collections.Generic.HashSet[string]'
   foreach ($m in [regex]::Matches($t, '\bdata-i-ph="([^"]+)"')) { [void]$phKeys.Add($m.Groups[1].Value) }
   foreach ($k in $keys) {
@@ -171,6 +171,14 @@ if ($texts.ContainsKey('sitemap.xml')) {
 }
 foreach ($must in 'index.html', '404.html', 'vercel.json', 'robots.txt', 'sitemap.xml', 'manifest.json', 'api/edith.js') {
   if (-not (Test-Path -LiteralPath (Join-Path $root $must.Replace('/', '\')))) { Fail "$must : fichier indispensable manquant" }
+}
+# fichiers de assets/ que plus aucune page ne cite (a supprimer ?)
+$blob = ($texts.Values -join "`n")
+foreach ($f in $all) {
+  if ($f.FullName -notmatch '\\assets\\') { continue }
+  if ($f.Extension.ToLower() -in '.html', '.css', '.js') { continue }
+  $bn = $f.Name
+  if (-not $blob.Contains($bn)) { Warn ("assets/" + ($f.FullName.Substring($root.Length + 8).Replace('\', '/')) + " : plus cite nulle part (inutile ?)") }
 }
 $assetsSize = ($all | Where-Object { $_.FullName -match '\\assets\\' } | Measure-Object Length -Sum).Sum
 if ($assetsSize -gt 12MB) { Warn ("assets/ pese " + [int]($assetsSize / 1MB) + " Mo") }

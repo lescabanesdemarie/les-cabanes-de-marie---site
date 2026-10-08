@@ -1,0 +1,279 @@
+/* =====================================================================
+   Les Cabanes de Marie — sections de la page d'accueil (design noir & blanc)
+   Complète assets/site.css (variables, en-tête, boutons, pied de page…).
+   Alternance des fonds : blanc / gris très clair / gris / noir (quelques accents).
+   ===================================================================== */
+
+/* ---------------------------------------------------------------- repères */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--k);z-index:75}
+.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:12px;mix-blend-mode:difference}
+.rail a{display:flex;align-items:center;gap:10px;font:500 .74rem var(--t);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);min-height:20px}
+.rail .num{width:10px;height:10px;border:1px solid #fff;flex:0 0 10px;transition:background .25s}
+.rail a.on{color:#fff}
+.rail a.on .num{background:#fff}
+.rail .lbl{opacity:0;transform:translateX(-6px);transition:.25s}
+.rail a:hover .lbl,.rail a:focus-visible .lbl{opacity:1;transform:none;background:var(--k);color:var(--w);padding:3px 8px;mix-blend-mode:normal}
+@media(max-width:1200px){.rail{display:none}}
+
+/* ---------------------------------------------------------------- haut de page */
+.hero{position:relative;min-height:max(640px,calc(100svh - var(--hh)));display:flex;align-items:flex-end;padding:0 var(--pad) clamp(36px,7vh,80px);overflow:hidden;background:var(--g2);border-bottom:1px solid var(--k)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.hero-in{position:relative;z-index:2;background:var(--w);width:min(980px,100%);padding:clamp(26px,3.4vw,52px);border:1px solid var(--k)}
+.hero .loc{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.hero .loc::before{content:"";width:9px;height:9px;background:var(--k);flex:0 0 9px}
+.hero h1{font-size:clamp(3rem,7vw,6.8rem);margin-bottom:26px}
+.hero h1 span{display:block}
+.hero .sub{font-size:clamp(1rem,1.5vw,1.2rem);max-width:46ch;margin-bottom:30px}
+.hero .cta .btn{padding-left:24px;padding-right:24px}
+.scrollcue{position:absolute;z-index:2;right:var(--pad);bottom:clamp(110px,16vh,150px);background:var(--w);border:1px solid var(--k);padding:18px 11px;writing-mode:vertical-rl;font:500 .72rem var(--t);letter-spacing:.26em;text-transform:uppercase;display:flex;align-items:center;gap:14px}
+.scrollcue::after{content:"";width:1px;height:38px;background:var(--k)}
+@media(max-width:980px){.scrollcue{display:none}.hero{min-height:calc(100svh - var(--hh))}}
+
+/* ---------------------------------------------------------------- bandeau défilant */
+.band{background:var(--k);color:var(--w);overflow:hidden;white-space:nowrap;padding:22px 0}
+.band .track{display:inline-block;animation:scrollx 42s linear infinite}
+.band span{font:300 clamp(1.2rem,2.4vw,1.9rem) var(--t);letter-spacing:.14em;text-transform:uppercase;padding:0 .7em;font-style:normal}
+.band .star{opacity:.5}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------------------------------------------------------------- histoire */
+.story{position:relative;overflow:hidden;background:var(--w)}
+.story .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.story h2{font-size:clamp(2.3rem,5vw,4.2rem);margin:20px 0 0}
+.story p{font-size:1.08rem;max-width:46ch;margin-top:1.2em}
+.sign{margin-top:28px;font:400 1.5rem/1.1 var(--t)}
+.sign small{display:block;margin-top:6px;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--g4)}
+.meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;margin-top:34px;border-top:1px solid var(--k)}
+.meta div{padding:16px 34px 0 0}
+.meta div+div{padding-left:26px;border-left:1px solid var(--g3)}
+.meta b{display:block;font:300 2.8rem/1 var(--t)}
+.meta small{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--g4)}
+.story .btn{margin-top:26px}
+.story-visual{aspect-ratio:5/8;overflow:hidden;background:var(--g2)}
+.story-visual img{width:100%;height:100%;object-fit:cover}
+
+/* ---------------------------------------------------------------- présentation des cabanes */
+.cab-intro{background:var(--g1);text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--k)}
+.cab-intro .in{position:relative;z-index:1}
+.cab-intro .logo{height:70px;width:auto;margin:0 auto 24px}
+.cab-intro h2{font-size:clamp(2.6rem,7vw,6rem);margin:.22em 0 .3em}
+.cab-intro p{max-width:48ch;margin:0 auto;font-size:1.05rem}
+
+/* ---------------------------------------------------------------- une cabane */
+.cabin{position:relative;border-top:1px solid var(--k);background:var(--w);overflow-x:clip}
+.cabin.alt{background:var(--g1)}
+.cabin .stage{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,72px);padding:0 var(--pad);align-items:start;position:relative;z-index:1}
+.cabin.flip .stage{grid-template-columns:1fr 1.05fr}
+.cabin.flip .visual-col{order:2}
+.visual-col{display:flex;flex-direction:column;gap:clamp(16px,3vh,30px);padding:11vh 0}
+.cv{position:relative;height:80vh;max-height:860px;overflow:hidden;background:var(--g2)}
+.cv.wide{height:auto;aspect-ratio:1.03}
+.cv img{width:100%;height:100%;object-fit:cover}
+.cv .tag{position:absolute;top:0;left:0;z-index:2;background:var(--w);color:var(--k);padding:10px 16px;border-right:1px solid var(--k);border-bottom:1px solid var(--k);font:500 .76rem var(--t);letter-spacing:.2em;text-transform:uppercase}
+.cabin .info{position:sticky;top:var(--hh);min-height:calc(100vh - var(--hh));display:flex;flex-direction:column;justify-content:center;padding:5vh 0}
+.idx{font:200 clamp(4rem,8vw,7rem)/.8 var(--t);color:var(--g3)}
+.cabin h3{font-size:clamp(2.3rem,4.6vw,3.9rem);margin:.12em 0 .3em}
+.why{font:300 clamp(1.15rem,2vw,1.5rem)/1.3 var(--t);max-width:32ch;border-left:3px solid var(--k);padding-left:18px}
+.desc{margin:1.6em 0;max-width:44ch}
+.cabin .tags{margin:0 0 1.8em}
+.cabin-foot{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;border-top:1px solid var(--k);padding-top:22px}
+.price{font:300 3.6rem/.9 var(--t)}
+.price small{display:block;font:400 .82rem/1.4 var(--b);max-width:26ch;margin-top:8px}
+@media(max-width:980px){
+  .cabin .stage,.cabin.flip .stage{grid-template-columns:1fr}
+  .cabin .visual-col,.cabin.flip .visual-col{order:1;padding:0 0 8px}
+  .cabin .info{position:static;min-height:0;order:0;padding:48px 0 32px}
+  .cv{height:62vh}
+}
+
+/* ---------------------------------------------------------------- disponibilités (calendriers Planyo) */
+.avail{padding:0 var(--pad) clamp(56px,10vh,120px);position:relative;z-index:1}
+.avail-card{max-width:var(--maxw);margin:0 auto;border:1px solid var(--k);background:var(--w);padding:clamp(22px,3vw,38px)}
+.ac-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.ac-top h2,.ac-top h3,.ac-top h4{font:300 clamp(1.5rem,3vw,1.95rem)/1.1 var(--t);letter-spacing:-.02em;margin-top:6px}
+.planyo-slot{border:1px solid var(--g3);background:var(--w);min-height:120px;overflow:hidden}
+.planyo-slot iframe{display:block;width:100%;border:0}
+/* hauteur de départ proche de celle que Planyo applique ensuite (évite que la page « saute » quand le calendrier se charge) */
+.planyo-slot iframe.calprev_iframe{height:320px}
+#calp_all{height:240px;min-width:680px}
+@media(max-width:760px){#calp_all{height:376px}}
+.avail-global{background:var(--g2);border-top:1px solid var(--k)}
+.avail-global .avail-card{margin:0 auto}
+.avail-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ---------------------------------------------------------------- alerte « cabane complète ? » */
+.alerte{background:var(--w);border-top:1px solid var(--k)}
+.alerte-card{max-width:780px;margin:0 auto;background:var(--w);border:1px solid var(--k);padding:clamp(24px,3.6vw,46px)}
+.alerte-card h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:12px 0 10px}
+.al-intro{margin-bottom:26px;max-width:56ch}
+.al-row{display:flex;gap:16px;flex-wrap:wrap}
+.al-dates .field{flex:1;min-width:160px}
+.al-cabs{display:flex;flex-wrap:wrap;margin:2px 0 0}
+.al-cabs label{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:10px 14px;border:1px solid var(--k);margin:0 -1px -1px 0;font:400 .95rem var(--b);letter-spacing:0;text-transform:none;cursor:pointer;background:var(--w)}
+.al-cabs label:hover{background:var(--g1)}
+.al-form .btn{margin-top:8px}
+.al-fine{font-size:.88rem;color:var(--g4);margin-top:16px}
+.al-fine a{border-bottom:1px solid currentColor;color:var(--ink)}
+.al-done{display:none;text-align:center;padding:24px 0}
+.al-done h2{font-size:2rem}
+@media(max-width:620px){.al-form .btn{width:100%}}
+
+/* ---------------------------------------------------------------- spa, domaine (texte + photos) */
+.feat{position:relative;overflow:hidden}
+.feat .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,84px);align-items:center}
+.feat.flip .txt{order:2}
+.feat h2{font-size:clamp(2.1rem,4.6vw,3.7rem);margin:16px 0 0}
+.feat .lead{font-size:1.1rem;margin:1.1em 0;max-width:44ch}
+.flist{margin-top:1.5em;border-top:1px solid currentColor}
+.flist li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid currentColor}
+.flist li::before{content:"";width:9px;height:9px;background:currentColor;margin-top:.62em;flex:0 0 9px}
+.feat-visual{position:relative;aspect-ratio:5/6;overflow:hidden;background:var(--g2)}
+.feat-visual img{width:100%;height:100%;object-fit:cover}
+.feat-stack{display:flex;flex-direction:column;gap:clamp(16px,3vh,28px)}
+.feat-visual-2{aspect-ratio:4/3}
+.spa{background:var(--g1);border-top:1px solid var(--k)}
+.domaine{background:var(--k);color:var(--w);border-top:1px solid var(--k)}
+.domaine .dp{max-width:44ch;color:var(--g3)}
+.domaine .lead{color:var(--g3)}
+.animals{display:flex;flex-wrap:wrap;margin-top:26px}
+.animals span{padding:10px 16px;border:1px solid var(--w);margin:0 -1px -1px 0;font-size:.95rem}
+
+/* ---------------------------------------------------------------- paniers + boissons */
+.paniers{background:var(--w);border-top:1px solid var(--k)}
+.paniers .head{max-width:62ch;margin:0 auto;text-align:center}
+.paniers h2{font-size:clamp(2.1rem,5vw,3.7rem);margin:16px 0 0}
+.paniers .head p{margin-top:1em;font-size:1.05rem}
+.panier-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,6vh,70px);border:1px solid var(--k);max-width:var(--maxw);margin-left:auto;margin-right:auto}
+.panier-card{padding:30px;display:flex;flex-direction:column;gap:12px;background:var(--w)}
+.panier-card+.panier-card{border-left:1px solid var(--k)}
+.pc-tag{align-self:flex-start;background:var(--k);color:var(--w);padding:7px 13px;font:500 .78rem var(--t);letter-spacing:.14em;text-transform:uppercase}
+.panier-card h3{font:400 1.7rem/1.1 var(--t)}
+.boissons{background:var(--g2);border-top:1px solid var(--k)}
+.boissons .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.boissons h2{font-size:clamp(2.1rem,4.6vw,3.5rem);margin:16px 0 0}
+.boissons .lead{font-size:1.1rem;margin:1.1em 0;max-width:46ch}
+.boissons .pl-note{font-size:.92rem;color:var(--g4);margin-top:14px;max-width:46ch}
+.price-list{background:var(--w);border:1px solid var(--k)}
+.pl-row{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 24px;border-top:1px solid var(--k)}
+.pl-row:first-child{border-top:0}
+.pl-row b{font:400 1.3rem var(--t);white-space:nowrap}
+
+/* ---------------------------------------------------------------- activités */
+.acts{background:var(--g1);border-top:1px solid var(--k)}
+.acts .head{text-align:center;max-width:60ch;margin:0 auto 56px}
+.acts h2{font-size:clamp(2.1rem,5vw,3.8rem);margin:16px 0 0}
+.acts .head p{margin-top:1em;font-size:1.05rem}
+.bird{display:block;width:clamp(64px,8vw,92px);margin:0 auto 18px;color:var(--k)}
+.act-feature{display:grid;grid-template-columns:1fr 1.05fr;border:1px solid var(--k);background:var(--w)}
+.act-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--g2);border-right:1px solid var(--k)}
+.act-photo img{width:100%;height:100%;object-fit:cover}
+.act-feature-body{padding:clamp(26px,4vw,52px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.tagnew{background:var(--k);color:var(--w);padding:7px 13px;font:500 .78rem var(--t);letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+.act-feature h3{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:.5em}
+.act-feature p{max-width:48ch;margin-bottom:22px}
+.act-list{border:1px solid var(--k);border-top:0;background:var(--w)}
+.act-card{display:grid;grid-template-columns:minmax(150px,.4fr) 1fr;border-top:1px solid var(--k);background:var(--w)}
+.act-card .dist{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;padding:26px;border-right:1px solid var(--k);background:var(--g1);font:300 clamp(1.4rem,2.6vw,2.1rem)/1.1 var(--t)}
+.act-card h4{grid-column:2;grid-row:1;padding:26px 26px 6px;font:400 1.55rem/1.1 var(--t)}
+.act-card ul{grid-column:2;grid-row:2;padding:0 26px 26px;columns:2;column-gap:34px}
+.act-card li{padding:3px 0;break-inside:avoid;font-size:.97rem}
+.act-card li a{border-bottom:1px solid var(--g3)}
+.act-card li a:hover{border-color:var(--k)}
+@media(max-width:860px){
+  .act-feature{grid-template-columns:1fr}
+  .act-photo{border-right:0;border-bottom:1px solid var(--k)}
+  .act-card{grid-template-columns:1fr}
+  .act-card .dist{grid-column:1;grid-row:auto;border-right:0;border-bottom:1px solid var(--k);padding:18px 26px}
+  .act-card h4,.act-card ul{grid-column:1;grid-row:auto}
+  .act-card ul{columns:1}
+}
+
+/* ---------------------------------------------------------------- avis (fond noir) */
+.avis{background:var(--k);color:var(--w);text-align:center}
+.avis .score{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.avis .big{font:200 clamp(4.4rem,10vw,7.5rem)/1 var(--t)}
+.avis .v{text-align:left}
+.avis .gl{font:300 1.8rem/1.1 var(--t)}
+.avis .v small{display:block;color:var(--g3);font-size:.9rem;letter-spacing:.06em;margin-top:8px}
+.avis .v small b{color:var(--w);font-weight:600}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--w);text-align:left;max-width:var(--maxw);margin:0 auto}
+.avis-card{padding:30px;border-left:1px solid var(--w)}
+.avis-card:first-child{border-left:0}
+.avis-card p{font:300 1.2rem/1.45 var(--t)}
+.avis-card .who{margin-top:18px;font:500 .8rem var(--t);letter-spacing:.14em;text-transform:uppercase;color:var(--g3)}
+.avis-cta{margin-top:38px}
+.note-tag{font-size:.85rem;color:var(--g3);margin-top:26px}
+
+/* ---------------------------------------------------------------- bons cadeaux */
+.gift{background:var(--g2);border-top:1px solid var(--k)}
+.gift-head{text-align:center;max-width:780px;margin:0 auto 40px}
+.gift-head h2{font-size:clamp(2.2rem,5.4vw,4rem);margin:16px 0 .34em}
+.gift-head .lead{max-width:60ch;margin:0 auto;font-size:1.08rem}
+.gift-box{background:var(--w);border:1px solid var(--k);padding:clamp(24px,4vw,48px);max-width:1120px;margin:0 auto}
+.gift-content{text-align:center}
+.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:0 auto 26px;border:1px solid var(--k);text-align:left}
+.gift-card{padding:22px 24px;border-left:1px solid var(--k)}
+.gift-card:first-child{border-left:0}
+.gift-card h3{font:400 1.4rem/1.1 var(--t);margin-bottom:8px}
+.gift-card p{font-size:.95rem}
+.gift .how{max-width:60ch;margin:0 auto 24px}
+@media(max-width:760px){
+  .gift-grid{grid-template-columns:1fr}
+  .gift-card{border-left:0;border-top:1px solid var(--k)}
+  .gift-card:first-child{border-top:0}
+}
+
+/* ---------------------------------------------------------------- tarifs */
+.tarifs{position:relative;overflow:hidden;background:var(--w);border-top:1px solid var(--k)}
+.tarifs .wrap{position:relative;z-index:1}
+.tarifs .head{text-align:center;max-width:60ch;margin:0 auto}
+.tarifs h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:18px 0 12px}
+.tar-cabins{background:var(--w);border:1px solid var(--k);padding:clamp(26px,4vw,44px);margin-top:clamp(36px,5vh,56px);text-align:center}
+.tc-price{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap}
+.tc-price b{font:300 clamp(3rem,7vw,4.6rem)/1 var(--t)}
+.tc-list{display:flex;flex-wrap:wrap;justify-content:center;margin:22px 0 6px}
+.tc-list span{padding:9px 18px;border:1px solid var(--k);margin:0 -1px -1px 0;font:400 1rem var(--t)}
+.tc-note{font-size:.92rem;margin-top:18px}
+.tar-grid{display:grid;grid-template-columns:1fr 1fr}
+.tar-card{background:var(--w);border:1px solid var(--k);border-top:0;padding:30px;display:flex;flex-direction:column;gap:10px}
+.tar-card+.tar-card{border-left:0}
+.tar-tag{align-self:flex-start;background:var(--k);color:var(--w);padding:7px 13px;font:500 .78rem var(--t);letter-spacing:.16em;text-transform:uppercase}
+.tar-amt{display:flex;align-items:baseline;gap:8px;font:300 3rem/1 var(--t)}
+.tar-amt small{font:400 .88rem var(--b)}
+.tar-card p{font-size:.95rem}
+@media(max-width:760px){.tar-grid{grid-template-columns:1fr}.tar-card+.tar-card{border-left:1px solid var(--k);border-top:0}}
+
+/* ---------------------------------------------------------------- infos pratiques + réservation */
+.infos{background:var(--g1);border-top:1px solid var(--k)}
+.infos .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.infos h2{font-size:clamp(2.1rem,4.6vw,3.5rem);margin:16px 0 .7em}
+.ilist{border-top:1px solid var(--k)}
+.ilist li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--k);align-items:flex-start}
+.ilist .k{flex:0 0 140px;font:500 .82rem var(--t);letter-spacing:.14em;text-transform:uppercase;padding-top:3px}
+.resa{background:var(--k);color:var(--w);padding:clamp(28px,4vw,52px);position:sticky;top:calc(var(--hh) + 24px)}
+.resa h3{font-size:clamp(2rem,3.4vw,2.8rem);margin-bottom:.5em}
+.resa p{color:var(--g3)}
+.resa-cabins{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
+.resa-cabins .btn{flex-direction:column;gap:0;padding:16px 14px}
+.resa-cabins .btn small{margin-top:6px}
+.resa .note{font-size:.92rem;color:var(--g3);margin-top:1.4em;border-top:1px solid #444;padding-top:1.2em}
+
+/* ---------------------------------------------------------------- appel final */
+.final{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;padding:clamp(60px,10vh,120px) var(--pad);overflow:hidden;border-top:1px solid var(--k);background:var(--g2)}
+.final .bg{position:absolute;inset:0}
+.final .bg img{width:100%;height:100%;object-fit:cover}
+.final .panel{position:relative;z-index:1;background:var(--w);border:1px solid var(--k);padding:clamp(30px,5vw,64px);max-width:720px;text-align:center}
+.final h2{font-size:clamp(2.6rem,7vw,5.6rem);margin:16px 0 .3em}
+.final p{max-width:40ch;margin:0 auto 30px}
+
+@media(max-width:980px){
+  .story .wrap,.feat .wrap,.boissons .wrap,.infos .wrap{grid-template-columns:1fr}
+  .feat.flip .txt{order:0}
+  .resa{position:relative;top:0}
+  .panier-grid,.avis-grid{grid-template-columns:1fr}
+  .panier-card+.panier-card{border-left:0;border-top:1px solid var(--k)}
+  .avis-card{border-left:0;border-top:1px solid var(--w)}
+  .avis-card:first-child{border-top:0}
+}
+@media(max-width:520px){.resa-cabins{grid-template-columns:1fr}.meta{grid-template-columns:repeat(3,auto)}.meta div{padding-right:16px}.meta div+div{padding-left:14px}}
