@@ -159,7 +159,8 @@ window.CDM_I18N = {
     "bc.infoh": "Schon einen Geschenkgutschein? So lösen Sie ihn ein",
     "bc.infop1": "Reservieren Sie online, geben Sie die Nummer Ihres Gutscheins im vorgesehenen Feld an und wählen Sie die Zahlungsart „Vor Ort mit einem Geschenkgutschein“.",
     "bc.infop2": "Ihr Gutschein ist ein Jahr gültig, auf einfache Anfrage um ein weiteres Jahr verlängerbar. Gültigkeit gemäss unseren <a href=\"conditions-generales.html\">AGB</a>.",
-    "meta.title": "Geschenkgutschein verschenken — Les Cabanes de Marie"
+    "meta.title": "Geschenkgutschein verschenken — Les Cabanes de Marie",
+    "bc.frame": "Bestellformular für Geschenkgutscheine"
   },
   en: {
     "bc.eb": "Gift idea",
@@ -168,11 +169,26 @@ window.CDM_I18N = {
     "bc.infoh": "Already have a gift voucher? To use it",
     "bc.infop1": "Book online, enter your voucher number in the field provided and choose the payment method \"On site with a gift voucher\".",
     "bc.infop2": "Your voucher is valid for one year, extendable by one further year on simple request. Validity per our <a href=\"conditions-generales.html\">terms & conditions</a>.",
-    "meta.title": "Give a gift voucher — Les Cabanes de Marie"
+    "meta.title": "Give a gift voucher — Les Cabanes de Marie",
+    "bc.frame": "Gift voucher order form"
   }
 };
 </script>
 <script src="assets/site.js?v=6534a8e1" defer></script>
+<script>
+/* le formulaire 123FormBuilder crée son propre cadre : on lui donne un titre (lecteurs d'écran), dans la langue de la page */
+(function () {
+  var box = document.querySelector('.fb-embed');
+  if (!box) return;
+  function title() {
+    var t = (window.CDM && window.CDM.t('bc.frame')) || 'Formulaire de commande de bon cadeau';
+    [].forEach.call(box.querySelectorAll('iframe'), function (f) { f.setAttribute('title', t); });
+  }
+  new MutationObserver(title).observe(box, { childList: true, subtree: true });
+  document.addEventListener('cdm:lang', title);
+  title();
+})();
+</script>
 <script src="assets/edith.js?v=97b28790" defer></script>
 </body>
 </html>
