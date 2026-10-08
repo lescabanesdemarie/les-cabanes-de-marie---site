@@ -8,3 +8,6 @@ DEMARRER-CLAUDE-CODE.md
 
 # Outils de dev locaux
 .claude/
+
+# Scripts de verification (lances a la main avant un push)
+tools/
