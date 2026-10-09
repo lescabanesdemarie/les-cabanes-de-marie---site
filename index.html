@@ -10,8 +10,8 @@
 <meta name="theme-color" content="#EFE8D8">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high" media="(min-width: 761px)">
-<link rel="preload" as="image" href="assets/img/hero-bg-m.webp" type="image/webp" fetchpriority="high" media="(max-width: 760px)">
+<link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high" media="(min-width: 961px)">
+<link rel="preload" as="image" href="assets/img/hero-bg-portrait.webp" type="image/webp" fetchpriority="high" media="(max-width: 960px)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Les Cabanes de Marie">
 <meta property="og:locale" content="fr_CH">
@@ -68,7 +68,7 @@
 <!--/chrome:head-->
 <link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
 <link rel="stylesheet" href="assets/site.css?v=acf0c7d4">
-<link rel="stylesheet" href="assets/home.css?v=5e951415">
+<link rel="stylesheet" href="assets/home.css?v=dd6b11af">
 <script src="assets/forms.js?v=33f082c1" defer></script>
 </head>
 <body class="home">
@@ -123,8 +123,14 @@
 
 <main id="main">
 
-<!-- ENTRÉE : un titre, une photo, du vide -->
+<!-- ENTRÉE : la photo en plein cadre derrière le titre (dégradé sombre en bas pour garder le texte lisible) -->
 <section class="hero" id="top" aria-labelledby="hero-h">
+  <figure class="hero-fig">
+    <picture>
+      <source media="(max-width: 960px)" srcset="assets/img/hero-bg-portrait.webp" type="image/webp">
+      <img class="ph-hero" src="assets/img/hero-bg.jpg" width="2048" height="1362" fetchpriority="high" decoding="async" alt="Une cabane perchée dans les arbres, au toit de chaume">
+    </picture>
+  </figure>
   <div class="hero-txt">
     <div class="lbl" data-i="hero.loc">Ogens · Canton de Vaud · à 30min de Lausanne</div>
     <h1 id="hero-h" data-i="hero.h1"><span>Dormir dans</span> <span><b>les arbres</b></span></h1>
@@ -134,17 +140,10 @@
       <a href="bons-cadeaux.html" class="go" data-i="btn.gift">Offrir un bon cadeau</a>
       <a href="#story" class="go" data-i="hero.cta2">Découvrir le parcours ↓</a>
     </div>
+    <p class="hero-cap" data-i="hero.mq"><span>Le luxe de la simplicité</span><span>Au chant des oiseaux</span><span>Les pieds dans la rivière</span><span>La tête dans les étoiles</span></p>
   </div>
-  <figure class="hero-fig unveil">
-    <picture>
-      <source media="(max-width: 760px)" srcset="assets/img/hero-bg-m.webp" type="image/webp">
-      <img class="ph-hero" src="assets/img/hero-bg.jpg" width="2048" height="1362" fetchpriority="high" decoding="async" alt="Une cabane perchée dans les arbres, au toit de chaume">
-    </picture>
-  </figure>
-  <p class="hero-cap" data-i="hero.mq"><span>Le luxe de la simplicité</span><span>Au chant des oiseaux</span><span>Les pieds dans la rivière</span><span>La tête dans les étoiles</span></p>
   <div class="scrollcue" data-i="hero.scroll" aria-hidden="true">Descendez et laissez-vous porter</div>
 </section>
-
 <!-- 1 · L'HISTOIRE -->
 <section class="story" id="story" aria-labelledby="story-h">
   <img class="deco" src="assets/bg/leaves.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="420" height="640">
