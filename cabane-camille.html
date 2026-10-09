@@ -34,9 +34,9 @@
 <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap"></noscript>
 <!--/chrome:head-->
 <link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
-<link rel="stylesheet" href="assets/site.css?v=acf0c7d4">
+<link rel="stylesheet" href="assets/site.css?v=3821f531">
 </head>
-<body>
+<body class="cabpage">
 <!--chrome:header-->
 <a class="skip" href="#main" data-i="skip">Aller au contenu</a>
 <header class="site-header">
@@ -86,43 +86,24 @@
 <!--/chrome:header-->
 
 <main id="main">
-  <section class="ch-hero">
-    <div class="panel">
-      <div class="lbl" data-i="c.eb">Ambiance asiatique</div>
-      <h1>La Jia de Camille</h1>
-      <p class="why" data-i="c.why">« Parce qu'il est comme l'Asie, plein de couleurs et de souvenirs de voyages. »</p>
-      <div class="cta">
-        <a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" data-book-main data-i="ui.book">Réserver cette cabane</a>
-        <a class="btn o" href="#dispo" data-i="ui.check">Vérifier les disponibilités</a>
+  <article class="cab" id="top">
+    <div class="cab-top"><a class="others" href="index.html#cabanes"><span data-i="cab.others">Et les trois autres.</span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+    <div class="cab-dream">
+      <div class="cab-text">
+        <div class="lbl" data-i="c.eb">Ambiance asiatique</div>
+        <h1>La Jia de Camille</h1>
+        <p class="cab-q" data-i="c.q">« Un peu d'Asie, perchée. »</p>
+        <p class="cab-desc" data-i="c.desc">Une cabane perchée dans l'arbre, avec une petite chambre, à l'ambiance asiatique rapportée de la vie de la famille à Hong Kong et ses environs. Couleurs et souvenirs de voyages pour rêver sans bouger. Une petite cabane pour deux, baptisée Mushu, complète le nid.</p>
+        <p class="cab-why" data-i="c.why">« Parce qu'il est comme l'Asie, plein de couleurs et de souvenirs de voyages. »</p>
+        <div class="tags" data-i="c.tags"><span>Grand lit (2 adultes)</span><span>Mezzanine 2 enfants</span><span>Petite chambre</span><span>Chauffage</span><span>WC écologique</span><span>Draps & linges fournis</span></div>
       </div>
+      <figure class="cab-photo"><img class="ph-camille-1" src="assets/cabanes/camille-1.jpeg" width="720" height="960" fetchpriority="high" decoding="async" alt="La Jia de Camille — la tour perchée et son escalier en colimaçon, un petit bouddha au pied de l'arbre" style="object-position:50% 50%"></figure>
     </div>
-    <div class="bg"><img class="ph-camille-1" src="assets/cabanes/camille-1.jpeg" width="720" height="960" fetchpriority="high" decoding="async" alt="La Jia de Camille"></div>
-  </section>
-
-  <section class="ch-about">
-    <div>
-      <div class="lbl" data-i="ui.aboutEb">La cabane</div>
-      <h2 data-i="ui.aboutH">Bienvenue dans votre cabane</h2>
-      <p class="desc" data-i="c.desc">Une cabane perchée dans l'arbre, avec une petite chambre, à l'ambiance asiatique rapportée de la vie de la famille à Hong Kong et ses environs. Couleurs et souvenirs de voyages pour rêver sans bouger. Une petite cabane pour deux, baptisée Mushu, complète le nid.</p>
-      <div class="tags" data-i="c.tags"><span>Grand lit (2 adultes)</span><span>Mezzanine 2 enfants</span><span>Petite chambre</span><span>Chauffage</span><span>WC écologique</span><span>Draps & linges fournis</span></div>
+    <div class="gal">
+      <figure class="unveil"><img class="ph-camille-2" src="assets/cabanes/camille-2.webp" width="720" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — la chambre aux touches asiatiques : lit rouge, nœud chinois, rideau de bambou"></figure>
+      <figure class="low unveil"><img class="ph-camille-3" src="assets/cabanes/camille-3.jpeg" width="906" height="960" loading="lazy" decoding="async" alt="La Jia de Camille — la terrasse nichée dans l'arbre"></figure>
     </div>
-    <div class="ch-price">
-      <div class="price" data-i="c.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant · max 5 pers. + bébé</small></div>
-      <div class="cta">
-        <a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" data-i="ui.book">Réserver cette cabane</a>
-        <a class="btn o" href="bons-cadeaux.html" data-i="ui.gift">Offrir un bon cadeau</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="ch-gallery">
-    <div class="grid">
-      <figure><img class="ph-camille-2" src="assets/cabanes/camille-2.webp" width="720" height="960" loading="lazy" decoding="async" alt="La Jia de Camille"></figure>
-      <figure><img class="ph-camille-3" src="assets/cabanes/camille-3.jpeg" width="906" height="960" loading="lazy" decoding="async" alt="La Jia de Camille"></figure>
-    </div>
-  </section>
-
-  <section class="ch-included">
+    <section class="ch-included">
     <div class="lbl" data-i="ui.incEb">Inclus</div>
     <h2 data-i="ui.incH">Ce qui vous attend</h2>
     <ul>
@@ -133,16 +114,24 @@
       <li><span class="n" aria-hidden="true">05</span><span data-i="inc.5">À ~30 min de Lausanne, proche d'Yverdon — Ogens (VD).</span></li>
     </ul>
   </section>
+    <div class="strip">
+      <div class="strip-in">
+        <div class="strip-price" data-i="c.price">280.–<small>pour 2, petit-déj inclus · +20.– / enfant · max 5 pers. + bébé</small></div>
+        <a class="go" href="#dispo"><span data-i="strip.dates">Voir les dates</span><svg class="ar sage" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </article>
 
   <section class="ch-avail" id="dispo">
-    <div class="in">
-      <div class="lbl" data-i="ui.availEb">Disponibilités</div>
-      <h2 data-i="ui.availH">Réservez vos dates</h2>
-      <p class="lead" data-i="ui.availLead">Consultez le calendrier en direct, puis réservez en ligne en quelques clics.</p>
-      <div class="calbox">
-        <iframe id="calp_camille" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" src="https://www.planyo.com/embed-calendar.php?resource_id=155328&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_camille&amp;lightbox=1&amp;"></iframe>
-      </div>
-      <div class="cta"><a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" data-i="ui.book">Réserver cette cabane</a></div>
+    <div class="lbl" data-i="ui.availEb">Disponibilités</div>
+    <h2 data-i="ui.availH">Réservez vos dates</h2>
+    <p class="lead" data-i="ui.availLead">Consultez le calendrier en direct, puis réservez en ligne en quelques clics.</p>
+    <div class="calbox">
+      <iframe id="calp_camille" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" src="https://www.planyo.com/embed-calendar.php?resource_id=155328&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_camille&amp;lightbox=1&amp;"></iframe>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=155328&amp;custom-language=FR" data-book-main data-i="ui.book">Réserver cette cabane</a>
+      <a class="btn o" href="bons-cadeaux.html" data-i="ui.gift">Offrir un bon cadeau</a>
     </div>
   </section>
 </main>
@@ -190,6 +179,7 @@
 <script>
 window.CDM_I18N = {
   de: {
+    "c.q": "„Ein Hauch Asien, hoch oben.“",
     "c.eb": "Asiatisches Flair",
     "c.why": "« Weil er wie Asien ist – voller Farben und Reiseerinnerungen. »",
     "c.desc": "Eine Baumhütte mit einer kleinen Kammer und asiatischem Flair, inspiriert vom Familienleben rund um Hongkong. Farben und Reise-Erinnerungen zum Träumen, ohne sich zu bewegen. Eine kleine Hütte für zwei, genannt Mushu, ergänzt das Nest.",
@@ -197,6 +187,7 @@ window.CDM_I18N = {
     "c.price": "280.–<small>für 2, mit Frühstück · +20.– / Kind · max. 5 Pers. + Baby</small>"
   },
   en: {
+    "c.q": "“A touch of Asia, perched high.”",
     "c.eb": "Asian ambiance",
     "c.why": "« Because he is like Asia, full of colour and travel memories. »",
     "c.desc": "A perched cabin with a small bedroom and an Asian feel, brought back from the family's life around Hong Kong. Colour and travel memories to dream without moving. A small cabin for two, named Mushu, completes the nest.",
@@ -205,7 +196,7 @@ window.CDM_I18N = {
   }
 };
 </script>
-<script src="assets/site.js?v=46a2bb9c" defer></script>
+<script src="assets/site.js?v=667d11da" defer></script>
 <script src="assets/edith.js?v=97b28790" defer></script>
 <script src="https://www.planyo.com/as.js"></script>
 <link rel="stylesheet" href="https://www.planyo.com/li.css">

@@ -34,9 +34,9 @@
 <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap"></noscript>
 <!--/chrome:head-->
 <link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
-<link rel="stylesheet" href="assets/site.css?v=acf0c7d4">
+<link rel="stylesheet" href="assets/site.css?v=3821f531">
 </head>
-<body>
+<body class="cabpage">
 <!--chrome:header-->
 <a class="skip" href="#main" data-i="skip">Aller au contenu</a>
 <header class="site-header">
@@ -86,43 +86,24 @@
 <!--/chrome:header-->
 
 <main id="main">
-  <section class="ch-hero">
-    <div class="panel">
-      <div class="lbl" data-i="c.eb">Esprit Robinson</div>
-      <h1>La Cabane de Mathis</h1>
-      <p class="why" data-i="c.why">« Parce qu'il aime écouter les oiseaux et parler aux arbres. »</p>
-      <div class="cta">
-        <a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" data-book-main data-i="ui.book">Réserver cette cabane</a>
-        <a class="btn o" href="#dispo" data-i="ui.check">Vérifier les disponibilités</a>
+  <article class="cab" id="top">
+    <div class="cab-top"><a class="others" href="index.html#cabanes"><span data-i="cab.others">Et les trois autres.</span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+    <div class="cab-dream">
+      <div class="cab-text">
+        <div class="lbl" data-i="c.eb">Esprit Robinson</div>
+        <h1>La Cabane de Mathis</h1>
+        <p class="cab-q" data-i="c.q">« Un nid au creux des branches. »</p>
+        <p class="cab-desc" data-i="c.desc">La véritable cabane de Robinson dont chaque enfant a rêvé, avec ses petits nids douillets et son point de vue sur l'étang du domaine. Intime, perchée, parfaite pour deux.</p>
+        <p class="cab-why" data-i="c.why">« Parce qu'il aime écouter les oiseaux et parler aux arbres. »</p>
+        <div class="tags" data-i="c.tags"><span>Lit double (2 adultes)</span><span>Place pour lit bébé</span><span>Chauffage (entre-saison)</span><span>WC écologique</span><span>Draps & linges fournis</span></div>
       </div>
+      <figure class="cab-photo"><img class="ph-mathis-1" src="assets/cabanes/mathis-1.jpeg" width="720" height="960" fetchpriority="high" decoding="async" alt="La Cabane de Mathis — la terrasse au pied d'un grand arbre couvert de mousse" style="object-position:38% 50%"></figure>
     </div>
-    <div class="bg"><img class="ph-mathis-1" src="assets/cabanes/mathis-1.jpeg" width="720" height="960" fetchpriority="high" decoding="async" alt="La Cabane de Mathis"></div>
-  </section>
-
-  <section class="ch-about">
-    <div>
-      <div class="lbl" data-i="ui.aboutEb">La cabane</div>
-      <h2 data-i="ui.aboutH">Bienvenue dans votre cabane</h2>
-      <p class="desc" data-i="c.desc">La véritable cabane de Robinson dont chaque enfant a rêvé, avec ses petits nids douillets et son point de vue sur l'étang du domaine. Intime, perchée, parfaite pour deux.</p>
-      <div class="tags" data-i="c.tags"><span>Lit double (2 adultes)</span><span>Place pour lit bébé</span><span>Chauffage (entre-saison)</span><span>WC écologique</span><span>Draps & linges fournis</span></div>
+    <figure class="ff unveil"><img class="ph-mathis-3" src="assets/cabanes/mathis-3.jpeg" width="1400" height="932" loading="lazy" decoding="async" alt="La Cabane de Mathis — vue aérienne, perchée dans les feuillages"></figure>
+    <div class="gal">
+      <figure class="unveil"><img class="ph-mathis-2" src="assets/cabanes/mathis-2.jpeg" width="540" height="960" loading="lazy" decoding="async" alt="La Cabane de Mathis — l'intérieur : alcôve, table en bois et banquettes"></figure>
     </div>
-    <div class="ch-price">
-      <div class="price" data-i="c.price">280.–<small>pour 2, petit-déj inclus · max 2 pers.</small></div>
-      <div class="cta">
-        <a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" data-i="ui.book">Réserver cette cabane</a>
-        <a class="btn o" href="bons-cadeaux.html" data-i="ui.gift">Offrir un bon cadeau</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="ch-gallery">
-    <div class="grid">
-      <figure><img class="ph-mathis-2" src="assets/cabanes/mathis-2.jpeg" width="540" height="960" loading="lazy" decoding="async" alt="La Cabane de Mathis"></figure>
-      <figure><img class="ph-mathis-3" src="assets/cabanes/mathis-3.jpeg" width="1400" height="932" loading="lazy" decoding="async" alt="La Cabane de Mathis"></figure>
-    </div>
-  </section>
-
-  <section class="ch-included">
+    <section class="ch-included">
     <div class="lbl" data-i="ui.incEb">Inclus</div>
     <h2 data-i="ui.incH">Ce qui vous attend</h2>
     <ul>
@@ -133,16 +114,24 @@
       <li><span class="n" aria-hidden="true">05</span><span data-i="inc.5">À ~30 min de Lausanne, proche d'Yverdon — Ogens (VD).</span></li>
     </ul>
   </section>
+    <div class="strip">
+      <div class="strip-in">
+        <div class="strip-price" data-i="c.price">280.–<small>pour 2, petit-déj inclus · max 2 pers.</small></div>
+        <a class="go" href="#dispo"><span data-i="strip.dates">Voir les dates</span><svg class="ar sage" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </article>
 
   <section class="ch-avail" id="dispo">
-    <div class="in">
-      <div class="lbl" data-i="ui.availEb">Disponibilités</div>
-      <h2 data-i="ui.availH">Réservez vos dates</h2>
-      <p class="lead" data-i="ui.availLead">Consultez le calendrier en direct, puis réservez en ligne en quelques clics.</p>
-      <div class="calbox">
-        <iframe id="calp_mathis" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" src="https://www.planyo.com/embed-calendar.php?resource_id=157564&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_mathis&amp;lightbox=1&amp;"></iframe>
-      </div>
-      <div class="cta"><a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" data-i="ui.book">Réserver cette cabane</a></div>
+    <div class="lbl" data-i="ui.availEb">Disponibilités</div>
+    <h2 data-i="ui.availH">Réservez vos dates</h2>
+    <p class="lead" data-i="ui.availLead">Consultez le calendrier en direct, puis réservez en ligne en quelques clics.</p>
+    <div class="calbox">
+      <iframe id="calp_mathis" class="calprev_iframe caltype_multi-month-responsive" scrolling="no" frameborder="0" loading="lazy" title="Calendrier de disponibilités" data-i-title="cal.title" src="https://www.planyo.com/embed-calendar.php?resource_id=157564&amp;calendar=51020&amp;style=multi-month-responsive&amp;morning_icons=1&amp;custom-language=FR&amp;ifr=calp_mathis&amp;lightbox=1&amp;"></iframe>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://www.planyo.com/booking.php?mode=reserve&amp;resource_id=157564&amp;custom-language=FR" data-book-main data-i="ui.book">Réserver cette cabane</a>
+      <a class="btn o" href="bons-cadeaux.html" data-i="ui.gift">Offrir un bon cadeau</a>
     </div>
   </section>
 </main>
@@ -190,6 +179,7 @@
 <script>
 window.CDM_I18N = {
   de: {
+    "c.q": "„Ein Nest in der Astgabel.“",
     "c.eb": "Robinson-Geist",
     "c.why": "« Weil er den Vögeln lauscht und mit den Bäumen spricht. »",
     "c.desc": "Die echte Robinson-Hütte, von der jedes Kind träumt, mit kuscheligen Nestern und Blick auf den Teich des Anwesens. Intim, hoch oben, perfekt für zwei.",
@@ -197,6 +187,7 @@ window.CDM_I18N = {
     "c.price": "280.–<small>für 2, mit Frühstück · max. 2 Pers.</small>"
   },
   en: {
+    "c.q": "“A nest in the crook of the branches.”",
     "c.eb": "Robinson spirit",
     "c.why": "« Because he loves listening to the birds and talking to the trees. »",
     "c.desc": "The true Robinson cabin every child dreams of, with cosy little nooks and a view over the estate's pond. Intimate, perched, perfect for two.",
@@ -205,7 +196,7 @@ window.CDM_I18N = {
   }
 };
 </script>
-<script src="assets/site.js?v=46a2bb9c" defer></script>
+<script src="assets/site.js?v=667d11da" defer></script>
 <script src="assets/edith.js?v=97b28790" defer></script>
 <script src="https://www.planyo.com/as.js"></script>
 <link rel="stylesheet" href="https://www.planyo.com/li.css">

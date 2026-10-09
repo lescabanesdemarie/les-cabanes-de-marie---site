@@ -67,54 +67,6 @@
 .som-item:hover .ar,.som-item:focus-visible .ar{transform:translateX(10px)}
 @media(max-width:960px){.som-list .som-item:hover,.som-list .som-item:focus-visible{transform:none}}
 
-/* ---------------------------------------------------------------- une cabane */
-.cab{position:relative;display:flex;flex-direction:column;background:var(--paper)}
-.cab.alt{background:var(--paper-2)}
-.cab-top{padding:clamp(22px,4vh,40px) var(--pr) 0 var(--pl);display:flex;justify-content:flex-start}
-.others{display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:.98rem;color:var(--ink-soft);padding:8px 0;transition:color .5s var(--ease),gap .6s var(--ease)}
-.others .ar{width:1.05em;height:1.05em;color:var(--sage);transform:rotate(-90deg)}
-.others:hover{color:var(--ink);gap:1.1em}
-.cab-dream{margin:0 var(--pr) 0 var(--pl);display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);gap:clamp(32px,4.4vw,80px);min-height:min(calc(100svh - var(--hh) - 150px),900px)}
-.cab.flip .cab-dream{grid-template-columns:minmax(0,1fr) minmax(0,.92fr)}
-.cab.flip .cab-photo{order:-1}
-.cab-text{align-self:center;padding:clamp(34px,6vh,72px) 0}
-.cab-photo{position:relative;margin:0;overflow:hidden;background:var(--paper-2);min-height:380px}
-.cab-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cab h2{font-size:clamp(2.6rem,4.7vw,5rem);line-height:.94;margin:clamp(18px,3vh,28px) 0 clamp(16px,2.6vh,26px)}
-.cab-q{font-weight:800;font-size:clamp(1.3rem,1.95vw,1.9rem);line-height:1.2;letter-spacing:-.02em;color:var(--earth);max-width:22ch}
-.cab-desc{margin-top:clamp(18px,3vh,30px);max-width:44ch;font-size:clamp(1rem,1.15vw,1.1rem)}
-.cab-why{margin-top:18px;max-width:40ch;color:var(--ink-soft);font-size:.96rem;border-left:3px solid var(--sage);padding-left:16px}
-.cab .tags{margin-top:clamp(18px,3vh,28px)}
-.cab .tags span{font-weight:700;font-size:.92rem}
-
-/* la bande pratique : la même, au même endroit, sur les quatre cabanes */
-.strip{order:3;position:relative;z-index:5;background:inherit;border-top:1px solid var(--line)}
-.strip-in{padding:16px var(--pr) 16px var(--pl);display:flex;align-items:center;justify-content:space-between;gap:12px 36px;flex-wrap:wrap}
-.strip-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 18px;min-width:0;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.04em}
-.strip-price small{font-weight:500;font-size:.92rem;letter-spacing:0;color:var(--ink-soft);max-width:62ch}
-.strip .go{white-space:nowrap}
-@media(min-width:961px){.strip{position:sticky;bottom:0}}
-
-/* une photo « plein cadre » : toute la largeur de l'écran (les autres suivent la colonne de gauche) */
-.ff{order:2;margin:0;overflow:hidden;background:var(--paper-2)}
-.ff img{width:100%;height:min(80svh,860px);object-fit:cover}
-.cab .ff{margin-top:clamp(72px,12vh,150px)}
-.cab.alt .ff{background:var(--paper)}
-
-/* la suite de la cabane : les autres photos, une à une, avec beaucoup d'air */
-.gal{order:2;margin:0 var(--pr) 0 var(--pl);padding:clamp(72px,12vh,150px) 0 clamp(96px,16vh,200px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,44px);align-items:start}
-.ff + .gal{padding-top:clamp(40px,8vh,100px)}
-.gal figure{margin:0;overflow:hidden;background:var(--paper-2)}
-.cab.alt .gal figure{background:var(--paper)}
-.gal img{width:100%;height:auto}
-.gal .full{grid-column:1/-1}
-.gal .low{margin-top:clamp(40px,9vw,140px)}
-.cab-dream{order:1}
-.cab-top{order:0}
-
-/* l'assistante Edith se pose au-dessus de la bande pratique, pas dessus */
-@media(min-width:961px){body.home .cc-fab{bottom:92px}}
-
 /* ---------------------------------------------------------------- calendrier d'une cabane : un volet qui monte du bas (jamais quatre calendriers dépliés) */
 .cal-scrim{position:fixed;inset:0;z-index:140;background:rgba(28,21,17,.5);opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility 0s .6s}
 .cal-scrim.open{opacity:1;visibility:visible;transition:opacity .6s var(--ease)}
@@ -313,7 +265,7 @@ body.cal-open{overflow:hidden}
   .hero::after{inset:0 0 auto 0;height:min(120vw,640px);background:linear-gradient(to top,var(--dark) 0%,rgba(28,21,17,.94) 16%,rgba(28,21,17,.74) 36%,rgba(28,21,17,.34) 60%,rgba(28,21,17,.06) 82%,rgba(28,21,17,0) 100%)}
   .hero-txt{padding:min(78vw,420px) var(--pr) calc(env(safe-area-inset-bottom,0px) + 56px) var(--pl)}  .story-grid,.dom-sub,.spa-grid,.boi-grid,.act-feature{grid-template-columns:1fr}
   .som h2 br{display:inline}
-  .story-grid,.cab-dream,.gal{margin-inline:0}
+  .story-grid{margin-inline:0}
   .story-txt{padding-inline:var(--gut)}
   .story-fig{margin-top:8px}
   .som{min-height:0;padding-block:36px 52px}
@@ -325,16 +277,6 @@ body.cal-open{overflow:hidden}
   .story,.dom,.spa{padding-block:clamp(72px,11vh,130px)}
   .low-sec{padding-block:clamp(64px,10vh,110px)}
   .book{padding-top:clamp(64px,10vh,110px)}
-  .cab-dream,.cab.flip .cab-dream{grid-template-columns:1fr;min-height:0;gap:0}
-  .cab-photo,.cab.flip .cab-photo{order:-1;min-height:0;height:min(68svh,560px)}
-  .cab-text,.cab.flip .cab-text{padding:36px var(--gut) 44px}
-  .strip{order:2}
-  .ff{order:3}
-  .ff img{height:auto}
-  .cab .ff{margin-top:56px}
-  .ff + .gal{padding-top:40px}
-  .gal{order:3;padding:56px 0 72px;grid-template-columns:1fr;gap:12px}
-  .gal .low{margin-top:0}
   .dom-pair{grid-template-columns:1fr;padding-inline:0}
   .dom-pair figure{margin-inline:var(--gut)}
   .dom-pair figure+figure{margin-top:20px}

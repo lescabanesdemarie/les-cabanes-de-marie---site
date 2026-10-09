@@ -263,43 +263,88 @@ legend{padding:0}
 .nf .hand{color:var(--ink-soft);margin-bottom:12px}
 .nf .cta{position:relative}
 
-/* ---------------------------------------------------------------- pages cabane (provisoire : refaites au point 8) */
-.ch-hero{position:relative;border-bottom:1px solid var(--line)}
-.ch-hero .bg{margin:0 var(--pr) 0 var(--pl);height:min(78vh,860px);overflow:hidden;background:var(--paper-2)}
-.ch-hero .bg img{width:100%;height:100%;object-fit:cover}
-.ch-hero .panel{margin:0 var(--pr) 0 var(--pl);padding-block:clamp(36px,6vh,72px) clamp(48px,8vh,96px)}
-.ch-hero h1{font-size:clamp(3rem,8vw,8rem);margin:22px 0 22px;line-height:.9}
-.ch-hero .why{font-size:clamp(1.1rem,2vw,1.4rem);color:var(--ink-soft);max-width:36ch;margin-bottom:30px;border-left:4px solid var(--sage);padding-left:18px}
-.ch-about{margin:0 var(--pr) 0 var(--pl);padding-block:clamp(72px,12vh,150px) clamp(56px,9vh,110px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(36px,6vw,96px);align-items:start;border-bottom:1px solid var(--line)}
-.ch-about h2{font-size:clamp(2.2rem,4.6vw,4.2rem);margin:20px 0 22px}
-.ch-about .desc{max-width:52ch}
-.ch-price{border-top:2px solid var(--ink);padding-top:22px}
-.ch-price .price{font-weight:800;font-size:clamp(3.4rem,6vw,5.4rem);line-height:.9;letter-spacing:-.04em}
-.ch-price .price small{display:block;font-weight:500;font-size:.98rem;letter-spacing:0;line-height:1.5;margin-top:14px;max-width:32ch;color:var(--ink-soft)}
-.ch-price .cta{margin-top:26px}
+/* ---------------------------------------------------------------- une cabane : accueil ET pages cabane (même logique partout)
+   Le rêve en grand (photo, nom, citation, description) · la bande pratique (prix, capacité, voir les dates), la même sur
+   toutes les cabanes · la suite en photos. Les photos « plein cadre » (.ff) prennent toute la largeur de l'écran, les autres
+   suivent la colonne de gauche. */
+.cab{position:relative;display:flex;flex-direction:column;background:var(--paper)}
+.cab.alt{background:var(--paper-2)}
+.cab-top{order:0;padding:clamp(22px,4vh,40px) var(--pr) 0 var(--pl);display:flex;justify-content:flex-start}
+.others{display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:.98rem;color:var(--ink-soft);padding:8px 0;transition:color .5s var(--ease),gap .6s var(--ease)}
+.others .ar{width:1.05em;height:1.05em;color:var(--sage);transform:rotate(-90deg)}
+.others:hover{color:var(--ink);gap:1.1em}
+.cab-dream{order:1;margin:0 var(--pr) 0 var(--pl);display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);gap:clamp(32px,4.4vw,80px);min-height:min(calc(100svh - var(--hh) - 150px),900px)}
+.cab.flip .cab-dream{grid-template-columns:minmax(0,1fr) minmax(0,.92fr)}
+.cab.flip .cab-photo{order:-1}
+.cab-text{align-self:center;padding:clamp(34px,6vh,72px) 0}
+.cab-photo{position:relative;margin:0;overflow:hidden;background:var(--paper-2);min-height:380px}
+.cab-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cab h1,.cab h2{font-size:clamp(2.6rem,4.7vw,5rem);line-height:.94;margin:clamp(18px,3vh,28px) 0 clamp(16px,2.6vh,26px)}
+.cab-q{font-weight:800;font-size:clamp(1.3rem,1.95vw,1.9rem);line-height:1.2;letter-spacing:-.02em;color:var(--earth);max-width:22ch}
+.cab-desc{margin-top:clamp(18px,3vh,30px);max-width:44ch;font-size:clamp(1rem,1.15vw,1.1rem)}
+.cab-why{margin-top:18px;max-width:40ch;color:var(--ink-soft);font-size:.96rem;border-left:3px solid var(--sage);padding-left:16px}
 .tags{display:flex;flex-wrap:wrap;gap:6px 22px;margin:28px 0 4px}
 .tags span{font-size:.98rem;font-weight:700;display:inline-flex;align-items:center;gap:.7em}
 .tags span::before{content:"";width:6px;height:6px;background:var(--sage);flex:0 0 6px}
-.ch-gallery{margin:0 var(--pr) 0 var(--pl);padding-block:clamp(48px,8vh,100px);border-bottom:1px solid var(--line)}
-.ch-gallery .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.ch-gallery figure{aspect-ratio:4/5;overflow:hidden;background:var(--paper-2)}
-.ch-gallery img{width:100%;height:100%;object-fit:cover}
-.ch-included{margin:0 var(--pr) 0 var(--pl);padding-block:clamp(56px,9vh,110px);border-bottom:1px solid var(--line)}
+.cab .tags{margin-top:clamp(18px,3vh,28px)}
+.cab .tags span{font-weight:700;font-size:.92rem}
+
+/* la bande pratique : la même, au même endroit, sur les quatre cabanes */
+.strip{order:3;position:relative;z-index:5;background:inherit;border-top:1px solid var(--line)}
+.strip-in{padding:16px var(--pr) 16px var(--pl);display:flex;align-items:center;justify-content:space-between;gap:12px 36px;flex-wrap:wrap}
+.strip-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 18px;min-width:0;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.04em}
+.strip-price small{font-weight:500;font-size:.92rem;letter-spacing:0;color:var(--ink-soft);max-width:62ch}
+.strip .go{white-space:nowrap}
+@media(min-width:961px){.strip{position:sticky;bottom:0}}
+
+/* une photo « plein cadre » : toute la largeur de l'écran */
+.ff{order:2;margin:0;overflow:hidden;background:var(--paper-2)}
+.ff img{width:100%;height:min(80svh,860px);object-fit:cover}
+.cab .ff{margin-top:clamp(72px,12vh,150px)}
+.cab.alt .ff{background:var(--paper)}
+
+/* la suite de la cabane : les autres photos, une à une, avec beaucoup d'air */
+.gal{order:2;margin:0 var(--pr) 0 var(--pl);padding:clamp(72px,12vh,150px) 0 clamp(96px,16vh,200px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,44px);align-items:start}
+.ff + .gal{padding-top:clamp(40px,8vh,100px)}
+.gal figure{margin:0;overflow:hidden;background:var(--paper-2)}
+.cab.alt .gal figure{background:var(--paper)}
+.gal img{width:100%;height:auto}
+.gal .full{grid-column:1/-1}
+.gal .low{margin-top:clamp(40px,9vw,140px)}
+
+/* ce que la cabane comprend (pages cabane) */
+.ch-included{order:2;padding:clamp(24px,5vh,60px) var(--pr) clamp(72px,12vh,140px) var(--pl)}
 .ch-included h2{font-size:clamp(2rem,4vw,3.2rem);margin:18px 0 30px}
-.ch-included ul{border-top:1px solid var(--line)}
+.ch-included ul{border-top:2px solid var(--ink)}
 .ch-included li{display:flex;gap:22px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
 .ch-included .n{flex:0 0 38px;font-weight:800;font-size:.9rem;color:var(--earth)}
-.ch-avail{margin:0 var(--pr) 0 var(--pl);padding-block:clamp(56px,9vh,110px) clamp(72px,12vh,150px)}
+
+/* le calendrier de la cabane (pages cabane) */
+.ch-avail{padding:clamp(72px,12vh,150px) var(--pr) clamp(88px,14vh,170px) var(--pl);background:var(--paper-2)}
+.cab.alt + .ch-avail{background:var(--paper)}
 .ch-avail h2{font-size:clamp(2rem,4vw,3.2rem);margin:18px 0 14px}
 .ch-avail .lead{max-width:56ch;margin-bottom:28px;color:var(--ink-soft)}
-.calbox{background:var(--paper-2);padding:12px}
+.calbox{background:var(--paper)}
+.cab.alt + .ch-avail .calbox{background:var(--paper-2)}
 .calbox iframe{display:block;width:100%;border:0;height:320px}
 .ch-avail .cta{margin-top:30px}
-@media(max-width:960px){
-  .ch-hero .bg{margin-inline:0;height:56vh}
-  .ch-about{grid-template-columns:1fr}
-}
 
+/* Edith se pose au-dessus de la bande pratique, pas dessus */
+@media(min-width:961px){body.home .cc-fab,body.cabpage .cc-fab{bottom:92px}}
+
+@media(max-width:960px){
+  .cab-dream,.cab.flip .cab-dream{margin-inline:0;grid-template-columns:1fr;min-height:0;gap:0}
+  .cab-photo,.cab.flip .cab-photo{order:-1;min-height:0;height:min(68svh,560px)}
+  .cab-text,.cab.flip .cab-text{padding:36px var(--gut) 44px}
+  .strip{order:2}
+  .ff{order:3}
+  .ff img{height:auto}
+  .cab .ff{margin-top:56px}
+  .ff + .gal{padding-top:40px}
+  .gal{order:3;margin-inline:0;padding:56px 0 72px;grid-template-columns:1fr;gap:12px}
+  .gal .low{margin-top:0}
+  .ch-included{order:3}
+}
 /* ---------------------------------------------------------------- Edith (assistante) : un tiroir, pas une carte flottante */
 .cc-fab{position:fixed;right:0;bottom:28px;z-index:100;display:flex;align-items:center;gap:0;background:var(--ink);color:var(--paper);padding:8px;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .6s var(--ease),opacity .9s var(--ease),background .4s,visibility 0s}
 .cc-fab:hover{background:var(--earth)}
