@@ -31,9 +31,13 @@ Après modification : `powershell -ExecutionPolicy Bypass -File tools/sync-chrom
 
 ## La police (licence)
 
-Le site est en **Cabinet Grotesk** (Indian Type Foundry, via Fontshare). Sa licence autorise l'usage
-commercial mais **interdit de la redistribuer depuis un dépôt public** : on ne met donc **aucun fichier**
-Cabinet Grotesk dans le dépôt, la police se charge depuis `api.fontshare.com` (voir `tools/chrome/head.html`).
+Le site est en **Cabinet Grotesk** (Indian Type Foundry, via Fontshare). Licence : https://www.fontshare.com/licenses/itf-ffl
+(version 2.0 du 17 août 2026). L'usage commercial et l'**auto-hébergement sur son propre site sont autorisés** (§01), l'API
+Fontshare est facultative ; mais le §02 **interdit de redistribuer la police via un dépôt ou un serveur public** et le dépôt GitHub
+du site est **public** : on ne met donc **aucun fichier** Cabinet Grotesk dans le dépôt, la police se charge depuis
+`api.fontshare.com` (voir `tools/chrome/head.html`). Pour passer en auto-hébergement : passer d'abord le dépôt en **privé**
+(Réglages du dépôt GitHub, par Marie), puis déposer les .woff2 officiels (sans les modifier ni les « subsetter ») dans `assets/fonts/`,
+ajouter les `@font-face` dans `assets/fonts.css`, retirer `tools/chrome/head.html` et la ligne Fontshare de la page Confidentialité.
 Le temps du chargement, une police de secours aux mesures voisines (Hanken Grotesk, `assets/fonts/`,
 voir `assets/fonts.css`) évite que la page « saute ». La page Confidentialité mentionne Fontshare.
 
@@ -46,6 +50,10 @@ voir `assets/fonts.css`) évite que la page « saute ». La page Confidentialit�
 | un texte du menu / pied de page (DE / EN) | `assets/site.js` (objet `CHROME`) |
 | les couleurs, la police, les boutons | `assets/site.css` (variables `:root` en haut du fichier) |
 | les sections de l'accueil | `assets/home.css` (et `index.html`) |
+| une cabane (accueil ET pages cabane : le rêve, la bande pratique, la galerie) | `assets/site.css`, section « une cabane » |
+| la photo d'accueil en plein cadre et son dégradé sombre | `assets/home.css` (section « entrée ») ; photo portrait pour téléphone : `assets/img/hero-bg-portrait.webp` |
+| le rappel d'avis (avant la rupture) / les avis complets (en bas) | `index.html` (`#avis-rappel`, clés `rev.*` / `#avis`, clés `av.*`) |
+| ce qui s'efface pendant la rupture (barre « Réserver », bouton d'Edith) | `assets/home.js` (classe `hush`) et `assets/site.css` (`body.hush`) |
 | la phrase de la « rupture » et sa flèche | `index.html` (section `#rupture`, clés `rupt.*`) et `assets/home.js` |
 | les 4 citations du sommaire des cabanes | `index.html` (clés `q.mathis`, `q.alanis`, `q.camille`, `q.mila`) |
 | le calendrier d'une cabane (« Voir les dates ») | `assets/home.js` (identifiants Planyo dans `index.html`, attribut `data-res`) |
