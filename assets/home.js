@@ -36,6 +36,21 @@
     big.style.setProperty('--o', '1'); big.style.setProperty('--y', '0px');
   }
 
+  /* ---- la rupture est un silence : tant qu'elle est à l'écran (la grande phrase ET la suite avec la flèche),
+          la barre « Réserver une nuit » (téléphone) et le bouton d'Edith s'effacent en douceur ; ils reviennent après ---- */
+  var rupt = D.getElementById('rupture');
+  if (rupt) {
+    var hushTick = false;
+    var hushFrame = function () {
+      hushTick = false;
+      var r = rupt.getBoundingClientRect(), line = window.innerHeight - 110;   // la zone où flottent ces deux éléments
+      D.body.classList.toggle('hush', r.top <= line && r.bottom >= line);
+    };
+    window.addEventListener('scroll', function () { if (!hushTick) { hushTick = true; requestAnimationFrame(hushFrame); } }, { passive: true });
+    window.addEventListener('resize', hushFrame);
+    hushFrame();
+  }
+
   /* ---- « Voir les dates » : calendrier d'une seule cabane, dans un volet ---- */
   var panel = D.getElementById('calPanel'), scrim = D.getElementById('calScrim');
   if (panel && scrim) {
