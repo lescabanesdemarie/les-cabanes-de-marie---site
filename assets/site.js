@@ -21,7 +21,7 @@
       "nav.faq": "Fragen?", "nav.cg": "AGB", "nav.gift": "Gutschein", "nav.contact": "Kontakt",
       "nav.book": "Reservieren", "nav.home": "Startseite", "nav.menu": "Menü", "nav.close": "Schliessen",
       "bar.book": "Eine Nacht buchen", "bar.cab": "Diese Hütte reservieren", "lang.label": "Sprache",
-      "ft.tag": "Baumhütten in Ogens, im Herzen des Schweizer Mittellands. Der Luxus der Einfachheit, eine Nacht ausserhalb der Zeit.",
+      "ft.tag": "Baumhütten in Ogens, im Herzen des Schweizer Mittellands.",
       "ft.c1": "Die Hütten", "ft.c2": "Der Aufenthalt", "ft.c3": "Reservieren",
       "ft.spa": "Öko-Spa", "ft.sav": "Genuss & Mahlzeiten", "ft.act": "Aktivitäten", "ft.gift": "Geschenkgutscheine",
       "ft.tar": "Preise", "ft.disp": "Verfügbarkeiten", "ft.info": "Praktische Infos", "ft.faq": "FAQ",
@@ -31,13 +31,13 @@
       "ft.made": "Website mit ♥ von unserem Sohn Mathis gemacht",
       "ui.book": "Diese Hütte reservieren", "ui.gift": "Gutschein verschenken",
       "cab.others": "Und die drei anderen.", "strip.dates": "Daten ansehen",
-      "ui.incEb": "Inbegriffen", "ui.incH": "Was Sie erwartet",
+      "ui.incH": "Was Sie erwartet",
       "inc.1": "Lokales Frühstück inklusive, im Korb bis zur Hütte gebracht.",
       "inc.2": "Zugang zum Öko-Spa: Holzfeuer-Bad und Sauna.",
       "inc.3": "Bettwäsche, Handtücher und Heizung inklusive.",
       "inc.4": "Check-in ab 16 Uhr · Check-out vor 11 Uhr.",
       "inc.5": "Ca. 30 Min. von Lausanne, nahe Yverdon — Ogens (VD).",
-      "ui.availEb": "Verfügbarkeiten", "ui.availH": "Reservieren Sie Ihre Daten",
+      "ui.availH": "Reservieren Sie Ihre Daten",
       "ui.availLead": "Sehen Sie den Live-Kalender und reservieren Sie in wenigen Klicks online.",
       "cal.title": "Verfügbarkeitskalender"
     },
@@ -47,7 +47,7 @@
       "nav.faq": "Questions?", "nav.cg": "Terms", "nav.gift": "Gift voucher", "nav.contact": "Contact",
       "nav.book": "Book", "nav.home": "Home", "nav.menu": "Menu", "nav.close": "Close",
       "bar.book": "Book a night", "bar.cab": "Book this cabin", "lang.label": "Language",
-      "ft.tag": "Treehouses in Ogens, in the heart of the Swiss countryside. The luxury of simplicity, a timeless night.",
+      "ft.tag": "Treehouses in Ogens, in the heart of the Swiss countryside.",
       "ft.c1": "The cabins", "ft.c2": "The stay", "ft.c3": "Book",
       "ft.spa": "Eco-spa", "ft.sav": "Dining & meals", "ft.act": "Activities", "ft.gift": "Gift vouchers",
       "ft.tar": "Rates", "ft.disp": "Availability", "ft.info": "Practical info", "ft.faq": "FAQ",
@@ -57,13 +57,13 @@
       "ft.made": "Website made with ♥ by our son, Mathis",
       "ui.book": "Book this cabin", "ui.gift": "Gift a voucher",
       "cab.others": "And the other three.", "strip.dates": "See dates",
-      "ui.incEb": "Included", "ui.incH": "What awaits you",
+      "ui.incH": "What awaits you",
       "inc.1": "Local breakfast included, brought up to the cabin in a basket.",
       "inc.2": "Access to the Eco-Spa: wood-fired bath and sauna.",
       "inc.3": "Linens, towels and heating provided.",
       "inc.4": "Check-in from 4pm · check-out before 11am.",
       "inc.5": "About 30 min from Lausanne, near Yverdon — Ogens (VD).",
-      "ui.availEb": "Availability", "ui.availH": "Book your dates",
+      "ui.availH": "Book your dates",
       "ui.availLead": "Check the live calendar, then book online in a few clicks.",
       "cal.title": "Availability calendar"
     }
@@ -204,6 +204,46 @@
       else if (!e.shiftKey && D.activeElement === last) { e.preventDefault(); first.focus(); }
     });
     window.addEventListener('resize', function () { if (window.innerWidth > 1999 && drawer.classList.contains('open')) closeMenu(false); });
+  }
+
+  /* ---- barre du haut : sur ordinateur, repliée en « logo seul » (hors accueil, et sur l'accueil après l'entrée).
+         Elle revient en remontant, quand la souris approche du haut, ou au clavier ; elle se replie quand on descend.
+         Téléphone / tactile : jamais repliée. Pendant la rupture (#rupture) : tout s'efface (classe bar-off). ---- */
+  var head = D.querySelector('.site-header');
+  if (head) {
+    var B = D.body, hero = D.getElementById('top'), rupt = D.getElementById('rupture');
+    var isHome = B.classList.contains('home');
+    var desk = window.matchMedia ? matchMedia('(min-width:961px) and (hover:hover) and (pointer:fine)') : { matches: false };
+    var lastY = window.scrollY, acc = 0, goingUp = false, peek = false, kbd = false, queued = false;
+    var barApply = function () {
+      queued = false;
+      var h = head.offsetHeight, rr = rupt ? rupt.getBoundingClientRect() : null;
+      var inRupt = !!rr && rr.top <= h / 2 && rr.bottom >= h / 2;
+      var heroOn = isHome && hero && hero.getBoundingClientRect().bottom > h;
+      B.classList.toggle('bar-min', desk.matches && !heroOn && (inRupt || !(kbd || peek || goingUp)));
+      B.classList.toggle('bar-off', inRupt && !kbd);
+    };
+    var barQueue = function () { if (!queued) { queued = true; requestAnimationFrame(barApply); } };
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY, d = y - lastY; lastY = y;
+      if (!d) return;
+      acc = ((d > 0) === (acc > 0)) ? acc + d : d;
+      if (acc > 14) goingUp = false; else if (acc < -14) goingUp = true;
+      barQueue();
+    }, { passive: true });
+    window.addEventListener('mousemove', function (e) {
+      if (!desk.matches) return;
+      if (e.clientY <= 96) { if (!peek) { peek = true; barQueue(); } }
+      else if (peek && e.clientY > 170) { peek = false; barQueue(); }
+    }, { passive: true });
+    head.addEventListener('focusin', function (e) {
+      var vis = true; try { vis = e.target.matches(':focus-visible'); } catch (x) {}
+      if (vis) { kbd = true; barQueue(); }
+    });
+    head.addEventListener('focusout', function (e) { if (!head.contains(e.relatedTarget)) { kbd = false; barQueue(); } });
+    window.addEventListener('resize', barQueue);
+    if (desk.addEventListener) desk.addEventListener('change', barQueue);
+    barApply();
   }
 
   /* ---- apparition au défilement (sans JS ou avec « mouvement réduit » : tout est visible) ---- */

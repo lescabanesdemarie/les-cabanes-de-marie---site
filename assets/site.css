@@ -106,12 +106,31 @@ b,strong{font-weight:800}
 @media(max-width:1999px){.nav .n3{display:none}.burger{display:flex}}
 @media(max-width:1519px){.nav .n2{display:none}}
 @media(max-width:1359px){.nav .n1b{display:none}}
-@media(max-width:960px){
+/* téléphone et tactile : logo + burger, toujours là ; langues et « Réserver » sont dans le menu */
+@media(max-width:960px),(hover:none) and (pointer:coarse){
   .site-header{display:flex;justify-content:space-between}
   .nav,.hr .btn,.hr .langsw{display:none}
+  .burger{display:flex}
   .brand{font-size:1.05rem}
   .brand img{height:30px}
 }
+
+/* barre du haut sur ordinateur : repliée en « logo seul » (hors accueil, et sur l'accueil après l'entrée).
+   Elle revient en remontant, quand la souris approche du haut, ou au clavier (site.js pose / retire .bar-min).
+   Le logo garde un fond crème carré : lisible sur photo comme sur fond clair. */
+.site-header{transition:background-color .25s ease,border-color .25s ease,opacity .25s ease}
+.site-header .nav,.site-header .hr{transition:opacity .25s ease}
+.brand{position:relative;z-index:0}
+.site-header .brand{justify-self:start}
+.brand::before{content:"";position:absolute;z-index:-1;inset:-10px -16px;background:var(--paper);opacity:0;transition:opacity .25s ease}
+@media(min-width:961px) and (hover:hover) and (pointer:fine){
+  html.js body.bar-min .site-header{background:transparent;border-bottom-color:transparent;pointer-events:none}
+  html.js body.bar-min .site-header .brand{pointer-events:auto}
+  html.js body.bar-min .site-header .brand::before{opacity:1}
+  html.js body.bar-min .site-header .nav,html.js body.bar-min .site-header .hr{opacity:0}
+}
+/* pendant la rupture, plus rien en haut (silence), pas même le logo ; revient au clavier */
+body.bar-off .site-header{opacity:0;pointer-events:none}
 
 /* tiroir de navigation : pleine hauteur, bord à bord, s'ouvre depuis la droite */
 .scrim{position:fixed;inset:0;z-index:110;background:rgba(28,21,17,.5);opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s .5s}
@@ -282,12 +301,6 @@ legend{padding:0}
 .cab h1,.cab h2{font-size:clamp(2.6rem,4.7vw,5rem);line-height:.94;margin:clamp(18px,3vh,28px) 0 clamp(16px,2.6vh,26px)}
 .cab-q{font-weight:800;font-size:clamp(1.3rem,1.95vw,1.9rem);line-height:1.2;letter-spacing:-.02em;color:var(--earth);max-width:22ch}
 .cab-desc{margin-top:clamp(18px,3vh,30px);max-width:44ch;font-size:clamp(1rem,1.15vw,1.1rem)}
-.cab-why{margin-top:18px;max-width:40ch;color:var(--ink-soft);font-size:.96rem;border-left:3px solid var(--sage);padding-left:16px}
-.tags{display:flex;flex-wrap:wrap;gap:6px 22px;margin:28px 0 4px}
-.tags span{font-size:.98rem;font-weight:700;display:inline-flex;align-items:center;gap:.7em}
-.tags span::before{content:"";width:6px;height:6px;background:var(--sage);flex:0 0 6px}
-.cab .tags{margin-top:clamp(18px,3vh,28px)}
-.cab .tags span{font-weight:700;font-size:.92rem}
 
 /* la bande pratique : la même, au même endroit, sur les quatre cabanes */
 .strip{order:3;position:relative;z-index:5;background:inherit;border-top:1px solid var(--line)}
@@ -316,8 +329,7 @@ legend{padding:0}
 .ch-included{order:2;padding:clamp(24px,5vh,60px) var(--pr) clamp(72px,12vh,140px) var(--pl)}
 .ch-included h2{font-size:clamp(2rem,4vw,3.2rem);margin:18px 0 30px}
 .ch-included ul{border-top:2px solid var(--ink)}
-.ch-included li{display:flex;gap:22px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
-.ch-included .n{flex:0 0 38px;font-weight:800;font-size:.9rem;color:var(--earth)}
+.ch-included li{padding:18px 0;border-bottom:1px solid var(--line)}
 
 /* le calendrier de la cabane (pages cabane) */
 .ch-avail{padding:clamp(72px,12vh,150px) var(--pr) clamp(88px,14vh,170px) var(--pl);background:var(--paper-2)}

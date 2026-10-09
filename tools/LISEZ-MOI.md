@@ -54,6 +54,7 @@ voir `assets/fonts.css`) évite que la page « saute ». La page Confidentialit�
 | la photo d'accueil en plein cadre et son dégradé sombre | `assets/home.css` (section « entrée ») ; photo portrait pour téléphone : `assets/img/hero-bg-portrait.webp` |
 | le rappel d'avis (avant la rupture) / les avis complets (en bas) | `index.html` (`#avis-rappel`, clés `rev.*` / `#avis`, clés `av.*`) |
 | ce qui s'efface pendant la rupture (barre « Réserver », bouton d'Edith) | `assets/home.js` (classe `hush`) et `assets/site.css` (`body.hush`) |
+| la barre du haut (logo seul, retour au défilement vers le haut / souris / clavier ; tout s'efface pendant la rupture) | `assets/site.js` (bloc « barre du haut ») et `assets/site.css` (`.bar-min`, `.bar-off`) ; les pages hors accueil portent `class="bar-min"` sur `<body>` |
 | la phrase de la « rupture » et sa flèche | `index.html` (section `#rupture`, clés `rupt.*`) et `assets/home.js` |
 | les 4 citations du sommaire des cabanes | `index.html` (clés `q.mathis`, `q.alanis`, `q.camille`, `q.mila`) |
 | le calendrier d'une cabane (« Voir les dates ») | `assets/home.js` (identifiants Planyo dans `index.html`, attribut `data-res`) |

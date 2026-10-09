@@ -19,20 +19,11 @@
    Contraste mesuré sur les pixels derrière chaque ligne : titre >= 4,8:1, petit texte >= 8:1. */
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(28,21,17,.84) 0%,rgba(28,21,17,.62) 30%,rgba(28,21,17,.30) 58%,rgba(28,21,17,.06) 80%,rgba(28,21,17,0) 92%),linear-gradient(to right,rgba(28,21,17,.52) 0%,rgba(28,21,17,.40) 38%,rgba(28,21,17,0) 70%)}
 .hero-txt{position:relative;z-index:2;width:100%;padding:clamp(140px,26vh,300px) var(--pr) clamp(40px,8vh,88px) var(--pl)}
-.hero .lbl::before{background:var(--sage-lt)}
 .hero h1{font-size:clamp(3.2rem,6.8vw,7.6rem);line-height:.92;letter-spacing:-.04em;margin:clamp(18px,3vh,32px) 0 0}
 .hero h1 span{display:block}
 .hero h1 b{color:inherit}
-.hero .sub{margin-top:clamp(20px,3.4vh,36px);max-width:42ch;font-size:clamp(1.08rem,1.4vw,1.25rem);color:rgba(239,232,216,.94)}
 .hero .cta{margin-top:clamp(24px,4vh,40px);gap:16px 36px}
 .hero .go:hover{color:var(--sage-lt)}
-.hero-cap{margin-top:clamp(30px,6vh,52px);display:flex;flex-wrap:wrap;gap:8px 30px;font-weight:700;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,232,216,.86)}
-.hero-cap span{display:inline-flex;align-items:center;gap:.85em}
-.hero-cap span::before{content:"";width:6px;height:6px;background:var(--sage-lt);flex:0 0 6px}
-/* le vide de droite reste « actif » : une invitation discrète à descendre */
-.scrollcue{position:absolute;z-index:2;right:var(--gut);bottom:clamp(40px,8vh,88px);display:flex;align-items:center;gap:16px;writing-mode:vertical-rl;font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,232,216,.92)}
-.scrollcue::after{content:"";width:2px;height:64px;background:var(--sage-lt);transform-origin:top;animation:cue 3.6s var(--ease) infinite}
-@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 /* ---------------------------------------------------------------- 1. l'histoire */
 .story{position:relative;overflow:hidden;padding-block:clamp(110px,19vh,250px) clamp(90px,15vh,200px)}
 .story .deco{right:-8%;top:8%;width:min(30vw,480px);opacity:.1}
@@ -40,13 +31,6 @@
 .story h2{font-size:clamp(2.4rem,4.5vw,4.7rem);margin:24px 0 clamp(26px,4vh,46px)}
 .story p{max-width:40ch}
 .story p+p{margin-top:1.1em}
-.sign{margin-top:clamp(28px,5vh,48px);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;line-height:1.1}
-.sign small{display:block;margin-top:6px;font-weight:700;font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-soft)}
-.meta{display:flex;flex-wrap:wrap;margin-top:clamp(30px,5vh,52px);border-top:1px solid var(--ink)}
-.meta div{padding:20px 36px 0 0}
-.meta div+div{padding-left:32px;border-left:1px solid var(--line)}
-.meta b{display:block;font-weight:800;font-size:clamp(2.2rem,3.4vw,3.2rem);line-height:1;letter-spacing:-.04em}
-.meta small{font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 .story .btn{margin-top:clamp(28px,5vh,46px)}
 .story-fig{overflow:hidden;background:var(--paper-2);margin:0}
 .story-fig img{width:100%;height:auto}
@@ -89,8 +73,6 @@ body.cal-open{overflow:hidden}
 .dom h2{font-size:clamp(2.4rem,4.7vw,4.9rem);margin-top:24px}
 .dom-sub{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4.4vw,80px);align-items:start;margin-top:clamp(28px,5vh,52px)}
 .dom .lead{font-size:clamp(1.12rem,1.5vw,1.3rem);max-width:34ch;font-weight:700;letter-spacing:-.01em;line-height:1.4}
-.dom .dp{max-width:38ch;color:var(--ink-soft)}
-.dom .tags{margin-top:22px}
 .dom .ff{position:relative;z-index:1;margin-top:clamp(52px,10vh,110px)}
 .dom-pair{position:relative;z-index:1;margin-top:clamp(40px,8vh,100px);padding:0 var(--pr) 0 var(--pl);display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
 .dom-pair figure{margin:0;overflow:hidden;background:var(--paper-2)}
@@ -201,7 +183,6 @@ body.cal-open{overflow:hidden}
 .act-feature{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:clamp(40px,7vh,72px)}
 .act-photo{overflow:hidden;background:var(--paper-2)}
 .act-photo img{width:100%;height:auto}
-.tagnew{display:inline-block;font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);margin-bottom:14px}
 .act-feature h3{font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:.5em;line-height:1.02}
 .act-feature p{max-width:46ch;margin-bottom:24px}
 .act-list{margin-top:clamp(40px,7vh,72px);border-top:2px solid var(--ink)}
@@ -258,7 +239,6 @@ body.cal-open{overflow:hidden}
 
 /* ---------------------------------------------------------------- téléphone et tablette (rien ne change : pleine largeur, marges normales) */
 @media(max-width:960px){
-  .scrollcue{display:none}
   /* entrée sur téléphone : la photo reste en plein cadre en haut, puis fond vers le brun foncé là où commence le texte (lisible partout) */
   .hero{display:block;min-height:min(120vw,640px)}
   .hero-fig{inset:0 0 auto 0;height:min(120vw,640px)}
@@ -293,7 +273,6 @@ body.cal-open{overflow:hidden}
   .gift-card:first-child,.tar-card:first-child{border-top:0}
   .cal-panel{max-height:92svh}
 }
-@media(max-width:520px){.meta div{padding-right:16px}.meta div+div{padding-left:16px}}
 
 /* écrans peu hauts (portables, petits téléphones) : le sommaire doit TOUJOURS tenir en un écran, les quatre citations visibles */
 @media(min-width:961px) and (max-height:899px){
@@ -320,5 +299,4 @@ body.cal-open{overflow:hidden}
   .js .rupt-stick{position:static;height:auto;min-height:calc(100svh - var(--hh))}
   .js .rupt-big{opacity:1;transform:none}
   .rupt-go .down{animation:none}
-  .scrollcue::after{animation:none}
 }
