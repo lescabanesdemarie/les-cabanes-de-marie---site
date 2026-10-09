@@ -10,7 +10,7 @@
    ===================================================================== */
 
 /* ---------------------------------------------------------------- entrée : photo en plein cadre derrière le titre */
-.hero{position:relative;overflow:hidden;min-height:calc(100svh - var(--hh));display:flex;align-items:flex-end;background:var(--dark);color:var(--paper)}
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:flex-end;background:var(--dark);color:var(--paper)}
 .hero-fig{position:absolute;inset:0;margin:0}
 .hero-fig picture{display:block;width:100%;height:100%}
 .hero-fig img{width:100%;height:100%;object-fit:cover;object-position:62% 46%;animation:settle 3.6s var(--ease) both}
@@ -69,14 +69,16 @@ body.cal-open{overflow:hidden}
 /* ---------------------------------------------------------------- 3. le domaine : un souffle léger */
 .dom{position:relative;overflow:hidden;padding-block:clamp(120px,22vh,280px)}
 .dom .deco{right:-10%;top:-6%;width:min(70vw,1000px);opacity:.05}
-.dom-head{position:relative;z-index:1;padding:0 var(--pr) 0 var(--pl)}
-.dom h2{font-size:clamp(2.4rem,4.7vw,4.9rem);margin-top:24px}
-.dom-sub{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4.4vw,80px);align-items:start;margin-top:clamp(28px,5vh,52px)}
-.dom .lead{font-size:clamp(1.12rem,1.5vw,1.3rem);max-width:34ch;font-weight:700;letter-spacing:-.01em;line-height:1.4}
+/* le texte à gauche, les deux petites photos à droite (elles remplissent la zone), puis la grande photo en plein cadre */
+.dom-top{position:relative;z-index:1;padding:0 var(--pr) 0 var(--pl);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,88px);align-items:start}
+.dom h2{font-size:clamp(2.4rem,4.7vw,4.9rem)}
+.dom .lead{margin-top:clamp(22px,3.6vh,34px);font-size:clamp(1.12rem,1.5vw,1.3rem);max-width:34ch;font-weight:700;letter-spacing:-.01em;line-height:1.4}
+.dom-animals{margin-top:clamp(22px,3.6vh,34px)}
+.dom-animals li{font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.5;padding:3px 0}
 .dom .ff{position:relative;z-index:1;margin-top:clamp(52px,10vh,110px)}
-.dom-pair{position:relative;z-index:1;margin-top:clamp(40px,8vh,100px);padding:0 var(--pr) 0 var(--pl);display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+.dom-pair{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:clamp(16px,2.4vw,36px);align-items:start}
 .dom-pair figure{margin:0;overflow:hidden;background:var(--paper-2)}
-.dom-pair figure+figure{margin-top:clamp(48px,11vw,170px)}
+.dom-pair figure+figure{margin-top:clamp(36px,7vw,110px)}
 .dom-pair img{width:100%;height:auto}
 
 /* ---------------------------------------------------------------- 4. le bain : un lieu offert à tous (ni prix, ni dates) */
@@ -130,7 +132,8 @@ body.cal-open{overflow:hidden}
 @media(min-width:761px){#calp_all{min-width:680px}}
 @media(max-width:760px){#calp_all{height:376px}}
 .avail-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.resa{margin-top:clamp(64px,11vh,130px);max-width:820px}
+/* « Réservez votre nuit » et la liste d'attente côte à côte, chacune pleine largeur de sa colonne (jamais écrasée) */
+.book-duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start;margin-top:clamp(64px,11vh,130px);padding-bottom:clamp(88px,15vh,190px)}
 .resa h3{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1}
 .resa p{max-width:52ch;margin:14px 0 28px;color:var(--ink-soft)}
 .resa-list{border-top:2px solid var(--ink)}
@@ -140,11 +143,10 @@ body.cal-open{overflow:hidden}
 .resa-list a:hover{padding-left:14px;color:var(--earth)}
 .resa-list a:hover .ar{transform:translateX(8px)}
 .resa .note{margin:22px 0 0;font-size:.92rem;color:var(--ink-soft);max-width:60ch}
-.alerte{margin-top:clamp(72px,12vh,150px);padding-bottom:clamp(88px,15vh,190px);max-width:760px}
-.alerte h2{font-size:clamp(1.8rem,3.2vw,2.8rem);margin:16px 0 10px;max-width:none}
+.alerte h2{font-size:clamp(1.8rem,3.2vw,2.8rem);margin:0 0 10px;max-width:none}
 .al-intro{max-width:56ch;margin-bottom:28px;color:var(--ink-soft)}
 .al-row{display:flex;gap:6px 24px;flex-wrap:wrap}
-.al-dates .field{flex:1;min-width:150px}
+.al-dates .field{flex:1 1 100%;min-width:0}
 .al-cabs{display:flex;flex-wrap:wrap;gap:2px 24px;margin-top:6px}
 .al-cabs label{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin:0;font-weight:500;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);cursor:pointer}
 .al-form .btn{margin-top:10px}
@@ -239,11 +241,12 @@ body.cal-open{overflow:hidden}
 
 /* ---------------------------------------------------------------- téléphone et tablette (rien ne change : pleine largeur, marges normales) */
 @media(max-width:960px){
-  /* entrée sur téléphone : la photo reste en plein cadre en haut, puis fond vers le brun foncé là où commence le texte (lisible partout) */
-  .hero{display:block;min-height:min(120vw,640px)}
-  .hero-fig{inset:0 0 auto 0;height:min(120vw,640px)}
-  .hero::after{inset:0 0 auto 0;height:min(120vw,640px);background:linear-gradient(to top,var(--dark) 0%,rgba(28,21,17,.94) 16%,rgba(28,21,17,.74) 36%,rgba(28,21,17,.34) 60%,rgba(28,21,17,.06) 82%,rgba(28,21,17,0) 100%)}
-  .hero-txt{padding:min(78vw,420px) var(--pr) calc(env(safe-area-inset-bottom,0px) + 56px) var(--pl)}  .story-grid,.dom-sub,.spa-grid,.boi-grid,.act-feature{grid-template-columns:1fr}
+  /* entrée sur téléphone : la photo couvre tout l'écran (100svh, cover, la cabane bien visible), titre et boutons posés dessus avec un dégradé léger */
+  .hero{min-height:100svh}
+  .hero-fig img{object-position:40% 50%}
+  .hero::after{background:linear-gradient(to top,rgba(28,21,17,.84) 0%,rgba(28,21,17,.66) 22%,rgba(28,21,17,.42) 42%,rgba(28,21,17,.16) 60%,rgba(28,21,17,0) 76%)}
+  .hero-txt{padding:calc(var(--hh) + 140px) var(--pr) calc(env(safe-area-inset-bottom,0px) + 88px) var(--pl)}
+  .story-grid,.dom-top,.spa-grid,.boi-grid,.act-feature,.book-duo{grid-template-columns:1fr}
   .som h2 br{display:inline}
   .story-grid{margin-inline:0}
   .story-txt{padding-inline:var(--gut)}
@@ -257,9 +260,10 @@ body.cal-open{overflow:hidden}
   .story,.dom,.spa{padding-block:clamp(72px,11vh,130px)}
   .low-sec{padding-block:clamp(64px,10vh,110px)}
   .book{padding-top:clamp(64px,10vh,110px)}
-  .dom-pair{grid-template-columns:1fr;padding-inline:0}
-  .dom-pair figure{margin-inline:var(--gut)}
-  .dom-pair figure+figure{margin-top:20px}
+  .dom-top{gap:36px}
+  .dom-pair{grid-template-columns:1fr;gap:12px}
+  .dom-pair figure+figure{margin-top:0}
+  .book-duo{gap:56px}
   .spa-fig{margin-bottom:8px}
   .rev{padding-block:clamp(40px,7vh,64px)}
   .rev-in{grid-template-columns:1fr}
@@ -272,6 +276,12 @@ body.cal-open{overflow:hidden}
   .gift-card,.gift-card+.gift-card,.tar-card,.tar-card+.tar-card{padding:22px 0 4px;border-left:0;border-top:1px solid var(--line)}
   .gift-card:first-child,.tar-card:first-child{border-top:0}
   .cal-panel{max-height:92svh}
+}
+
+/* entre téléphone et grand écran : trois colonnes seraient trop étroites, on passe à deux (jamais de bloc de texte sous 20rem) */
+@media(min-width:961px) and (max-width:1180px){
+  .avis-grid,.gift-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gift-card:nth-child(3){padding-left:0;border-left:0}
 }
 
 /* écrans peu hauts (portables, petits téléphones) : le sommaire doit TOUJOURS tenir en un écran, les quatre citations visibles */

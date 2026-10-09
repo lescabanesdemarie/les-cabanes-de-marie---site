@@ -29,13 +29,11 @@
 <meta name="twitter:image" content="https://www.lescabanesdemarie.com/assets/img/share.jpg">
 <script>document.documentElement.classList.add('js')</script>
 <!--chrome:head-->
-<link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="https://cdn.fontshare.com/wf/ZX6AQLSFYVDPN2URWO2MQFGTYYOHIS64/TPYPKOYWFQVNJHLLRXD4KFYX4LUOUW4Z/6QH2ALVTTK7IRVO5MYOQQ3OZNXW5SSS3.woff2" crossorigin>
 <!--/chrome:head-->
-<link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
-<link rel="stylesheet" href="assets/site.css?v=e6aecde6">
+<link rel="stylesheet" href="assets/fonts.css?v=773054ce">
+<link rel="stylesheet" href="assets/site.css?v=1a754f37">
 </head>
 <body class="bar-min">
 <!--chrome:header-->
@@ -104,7 +102,7 @@
       <section>
         <h2 data-i="cf.s2h">Données que nous collectons</h2>
         <p data-i="cf.s2p">Nous ne collectons que les données strictement nécessaires :</p>
-        <ul data-i="cf.s2list"><li><b>Formulaires</b> (contact, alerte de disponibilité, bons cadeaux) : nom, prénom, adresse email, numéro de téléphone, dates et nombre de personnes souhaités, contenu de votre message, ainsi que les informations nécessaires à la commande d'un bon cadeau.</li><li><b>Réservation</b> : les données nécessaires à votre séjour sont traitées via notre prestataire de réservation Planyo.</li><li><b>Assistante Edith</b> : les questions que vous saisissez dans la discussion sont transmises à notre prestataire d'intelligence artificielle (Anthropic) pour générer la réponse. Merci de ne pas y saisir de données personnelles sensibles.</li><li><b>Navigation</b> : données techniques usuelles (adresse IP, type de navigateur) générées par l'hébergeur (Vercel) et les services tiers ci-dessous.</li></ul>
+        <ul data-i="cf.s2list"><li><b>Formulaires</b> (contact, alerte de disponibilité, bons cadeaux) : nom, prénom, adresse email, numéro de téléphone, dates et nombre de personnes souhaités, contenu de votre message, ainsi que les informations nécessaires à la commande d'un bon cadeau. Les formulaires de contact et d'alerte de disponibilité sont traités via le service Web3Forms, qui nous les transmet par e-mail.</li><li><b>Réservation</b> : les données nécessaires à votre séjour sont traitées via notre prestataire de réservation Planyo.</li><li><b>Assistante Edith</b> : les questions que vous saisissez dans la discussion sont transmises à notre prestataire d'intelligence artificielle (Anthropic) pour générer la réponse. Merci de ne pas y saisir de données personnelles sensibles.</li><li><b>Navigation</b> : données techniques usuelles (adresse IP, type de navigateur) générées par l'hébergeur (Vercel) et les services tiers ci-dessous.</li></ul>
       </section>
       <section>
         <h2 data-i="cf.s3h">Finalités du traitement</h2>
@@ -113,7 +111,7 @@
       <section>
         <h2 data-i="cf.s4h">Cookies et services tiers</h2>
         <p data-i="cf.s4p">Notre site fait appel à des services externes qui peuvent déposer des cookies ou collecter des données selon leurs propres politiques :</p>
-        <ul data-i="cf.s4list"><li><b>Vercel</b> — hébergement du site et du service de discussion d'Edith.</li><li><b>Fontshare (Indian Type Foundry)</b> — police de caractères du site (Cabinet Grotesk) : votre navigateur la télécharge depuis les serveurs de Fontshare, qui reçoivent donc votre adresse IP.</li><li><b>Web3Forms</b> — transmission par e-mail, à nous seuls, des formulaires de contact et d'alerte de disponibilité.</li><li><b>123FormBuilder</b> — formulaire de commande des bons cadeaux.</li><li><b>Anthropic</b> — intelligence artificielle qui génère les réponses d'Edith.</li><li><b>Google Maps</b> — affichage de la carte sur la page Contact.</li><li><b>Planyo</b> — calendriers de disponibilité et système de réservation.</li><li><b>Meta (Facebook &amp; Instagram)</b> — liens vers nos pages sociales.</li></ul>
+        <ul data-i="cf.s4list"><li><b>Vercel</b> — hébergement du site et du service de discussion d'Edith.</li><li><b>Fontshare (Indian Type Foundry)</b> — police de caractères du site (Cabinet Grotesk) : votre navigateur la télécharge depuis les serveurs de Fontshare, qui reçoivent donc votre adresse IP.</li><li><b>Web3Forms</b> — transmission par e-mail, à nous seuls, des formulaires de contact et d'alerte de disponibilité.</li><li><b>123FormBuilder</b> — formulaire de commande des bons cadeaux.</li><li><b>Edith (assistante virtuelle) et Anthropic</b> — les messages que vous saisissez dans la discussion sont envoyés, via notre serveur (Vercel), à Anthropic, un service d'intelligence artificielle, qui génère la réponse d'Edith.</li><li><b>Google Maps</b> — affichage de la carte sur la page Contact.</li><li><b>Planyo</b> — calendriers de disponibilité et système de réservation.</li><li><b>Meta (Facebook &amp; Instagram)</b> — liens vers nos pages sociales.</li></ul>
         <p data-i="cf.s4p2">Vous pouvez à tout moment bloquer ou supprimer les cookies via les paramètres de votre navigateur.</p>
         <p data-i="cf.s4p3">Le site lui-même ne dépose aucun cookie de suivi ni de publicité : il mémorise seulement votre choix de langue dans le stockage local de votre navigateur.</p>
       </section>
@@ -189,12 +187,12 @@ window.CDM_I18N = {
     "cf.s1p": "Les Cabanes de Marie — Marie &amp; Renaud de Goumoëns<br>Ch. du Petit Bâle 12, 1045 Ogens (VD), Schweiz<br>Telefon: <a class=\"tel\" href=\"tel:+41795347115\">+41 79 534 71 15</a> · E-Mail: <a class=\"tel\" href=\"mailto:info@lescabanesdemarie.com\">info@lescabanesdemarie.com</a>",
     "cf.s2h": "Welche Daten wir erheben",
     "cf.s2p": "Wir erheben ausschliesslich die unbedingt notwendigen Daten:",
-    "cf.s2list": "<li><b>Formulare</b> (Kontakt, Verfügbarkeits-Alarm, Geschenkgutscheine): Name, Vorname, E-Mail-Adresse, Telefonnummer, gewünschte Daten und Personenzahl, Inhalt Ihrer Nachricht sowie die für die Bestellung eines Geschenkgutscheins nötigen Angaben.</li><li><b>Reservierung</b>: Die für Ihren Aufenthalt erforderlichen Daten werden über unseren Buchungsdienstleister Planyo verarbeitet.</li><li><b>Assistentin Edith</b>: Die Fragen, die Sie im Chat eingeben, werden zur Erzeugung der Antwort an unseren KI-Dienstleister (Anthropic) übermittelt. Bitte geben Sie dort keine sensiblen persönlichen Daten ein.</li><li><b>Navigation</b>: übliche technische Daten (IP-Adresse, Browsertyp), die vom Hosting-Anbieter (Vercel) und den unten genannten Drittdiensten erzeugt werden.</li>",
+    "cf.s2list": "<li><b>Formulare</b> (Kontakt, Verfügbarkeits-Alarm, Geschenkgutscheine): Name, Vorname, E-Mail-Adresse, Telefonnummer, gewünschte Daten und Personenzahl, Inhalt Ihrer Nachricht sowie die für die Bestellung eines Geschenkgutscheins nötigen Angaben. Die Kontakt- und Alarm-Formulare werden über den Dienst Web3Forms verarbeitet, der sie uns per E-Mail übermittelt.</li><li><b>Reservierung</b>: Die für Ihren Aufenthalt erforderlichen Daten werden über unseren Buchungsdienstleister Planyo verarbeitet.</li><li><b>Assistentin Edith</b>: Die Fragen, die Sie im Chat eingeben, werden zur Erzeugung der Antwort an unseren KI-Dienstleister (Anthropic) übermittelt. Bitte geben Sie dort keine sensiblen persönlichen Daten ein.</li><li><b>Navigation</b>: übliche technische Daten (IP-Adresse, Browsertyp), die vom Hosting-Anbieter (Vercel) und den unten genannten Drittdiensten erzeugt werden.</li>",
     "cf.s3h": "Zwecke der Verarbeitung",
     "cf.s3list": "<li>Ihre Anfragen beantworten und Sie zurückkontaktieren.</li><li>Reservierungen, Verfügbarkeits-Alarme und Geschenkgutscheine verwalten.</li><li>Den einwandfreien Betrieb und die Sicherheit der Website gewährleisten.</li>",
     "cf.s4h": "Cookies und Drittdienste",
     "cf.s4p": "Unsere Website nutzt externe Dienste, die gemäss ihren eigenen Richtlinien Cookies setzen oder Daten erheben können:",
-    "cf.s4list": "<li><b>Vercel</b> — Hosting der Website und des Chat-Dienstes von Edith.</li><li><b>Fontshare (Indian Type Foundry)</b> — Schriftart der Website (Cabinet Grotesk): Ihr Browser lädt sie von den Servern von Fontshare, die dadurch Ihre IP-Adresse erhalten.</li><li><b>Web3Forms</b> — E-Mail-Übermittlung der Kontakt- und Alarm-Formulare ausschliesslich an uns.</li><li><b>123FormBuilder</b> — Bestellformular für Geschenkgutscheine.</li><li><b>Anthropic</b> — künstliche Intelligenz, die die Antworten von Edith erzeugt.</li><li><b>Google Maps</b> — Anzeige der Karte auf der Kontaktseite.</li><li><b>Planyo</b> — Verfügbarkeitskalender und Buchungssystem.</li><li><b>Meta (Facebook &amp; Instagram)</b> — Links zu unseren Social-Media-Seiten.</li>",
+    "cf.s4list": "<li><b>Vercel</b> — Hosting der Website und des Chat-Dienstes von Edith.</li><li><b>Fontshare (Indian Type Foundry)</b> — Schriftart der Website (Cabinet Grotesk): Ihr Browser lädt sie von den Servern von Fontshare, die dadurch Ihre IP-Adresse erhalten.</li><li><b>Web3Forms</b> — E-Mail-Übermittlung der Kontakt- und Alarm-Formulare ausschliesslich an uns.</li><li><b>123FormBuilder</b> — Bestellformular für Geschenkgutscheine.</li><li><b>Edith (virtuelle Assistentin) und Anthropic</b> — die Nachrichten, die Sie im Chat eingeben, werden über unseren Server (Vercel) an Anthropic, einen KI-Dienst, gesendet, der die Antwort von Edith erzeugt.</li><li><b>Google Maps</b> — Anzeige der Karte auf der Kontaktseite.</li><li><b>Planyo</b> — Verfügbarkeitskalender und Buchungssystem.</li><li><b>Meta (Facebook &amp; Instagram)</b> — Links zu unseren Social-Media-Seiten.</li>",
     "cf.s4p2": "Sie können Cookies jederzeit über die Einstellungen Ihres Browsers blockieren oder löschen.",
     "cf.s4p3": "Die Website selbst setzt keine Tracking- oder Werbe-Cookies: Sie speichert lediglich Ihre Sprachwahl im lokalen Speicher Ihres Browsers.",
     "cf.s5h": "Weitergabe und Aufbewahrung der Daten",
@@ -217,12 +215,12 @@ window.CDM_I18N = {
     "cf.s1p": "Les Cabanes de Marie — Marie &amp; Renaud de Goumoëns<br>Ch. du Petit Bâle 12, 1045 Ogens (VD), Switzerland<br>Phone: <a class=\"tel\" href=\"tel:+41795347115\">+41 79 534 71 15</a> · Email: <a class=\"tel\" href=\"mailto:info@lescabanesdemarie.com\">info@lescabanesdemarie.com</a>",
     "cf.s2h": "What data we collect",
     "cf.s2p": "We only collect the data that is strictly necessary:",
-    "cf.s2list": "<li><b>Forms</b> (contact, availability alert, gift vouchers): name, first name, email address, phone number, desired dates and number of guests, the content of your message, and the information needed to order a gift voucher.</li><li><b>Booking</b>: the data needed for your stay is processed via our booking provider Planyo.</li><li><b>Edith assistant</b>: the questions you type into the chat are sent to our AI provider (Anthropic) to generate the answer. Please do not enter sensitive personal data there.</li><li><b>Browsing</b>: usual technical data (IP address, browser type) generated by the host (Vercel) and the third-party services below.</li>",
+    "cf.s2list": "<li><b>Forms</b> (contact, availability alert, gift vouchers): name, first name, email address, phone number, desired dates and number of guests, the content of your message, and the information needed to order a gift voucher. The contact and availability-alert forms are processed through the Web3Forms service, which emails them to us.</li><li><b>Booking</b>: the data needed for your stay is processed via our booking provider Planyo.</li><li><b>Edith assistant</b>: the questions you type into the chat are sent to our AI provider (Anthropic) to generate the answer. Please do not enter sensitive personal data there.</li><li><b>Browsing</b>: usual technical data (IP address, browser type) generated by the host (Vercel) and the third-party services below.</li>",
     "cf.s3h": "Purposes of processing",
     "cf.s3list": "<li>Answer your enquiries and get back to you.</li><li>Manage bookings, availability alerts and gift vouchers.</li><li>Ensure the proper operation and security of the website.</li>",
     "cf.s4h": "Cookies and third-party services",
     "cf.s4p": "Our site uses external services that may set cookies or collect data according to their own policies:",
-    "cf.s4list": "<li><b>Vercel</b> — hosting of the website and of Edith's chat service.</li><li><b>Fontshare (Indian Type Foundry)</b> — the website's typeface (Cabinet Grotesk): your browser downloads it from Fontshare's servers, which therefore receive your IP address.</li><li><b>Web3Forms</b> — emails the contact and alert forms to us, and only to us.</li><li><b>123FormBuilder</b> — gift-voucher order form.</li><li><b>Anthropic</b> — the artificial intelligence that generates Edith's answers.</li><li><b>Google Maps</b> — display of the map on the Contact page.</li><li><b>Planyo</b> — availability calendars and booking system.</li><li><b>Meta (Facebook &amp; Instagram)</b> — links to our social pages.</li>",
+    "cf.s4list": "<li><b>Vercel</b> — hosting of the website and of Edith's chat service.</li><li><b>Fontshare (Indian Type Foundry)</b> — the website's typeface (Cabinet Grotesk): your browser downloads it from Fontshare's servers, which therefore receive your IP address.</li><li><b>Web3Forms</b> — emails the contact and alert forms to us, and only to us.</li><li><b>123FormBuilder</b> — gift-voucher order form.</li><li><b>Edith (virtual assistant) and Anthropic</b> — the messages you type in the chat are sent, through our server (Vercel), to Anthropic, an artificial-intelligence service, which generates Edith's answer.</li><li><b>Google Maps</b> — display of the map on the Contact page.</li><li><b>Planyo</b> — availability calendars and booking system.</li><li><b>Meta (Facebook &amp; Instagram)</b> — links to our social pages.</li>",
     "cf.s4p2": "You can block or delete cookies at any time via your browser settings.",
     "cf.s4p3": "The site itself sets no tracking or advertising cookies: it only remembers your language choice in your browser's local storage.",
     "cf.s5h": "Sharing and retention of data",
@@ -239,7 +237,7 @@ window.CDM_I18N = {
   }
 };
 </script>
-<script src="assets/site.js?v=8bc96405" defer></script>
+<script src="assets/site.js?v=6e8e9ecf" defer></script>
 <script src="assets/edith.js?v=97b28790" defer></script>
 </body>
 </html>

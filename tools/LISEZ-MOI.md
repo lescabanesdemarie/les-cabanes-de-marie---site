@@ -24,7 +24,7 @@ Le menu, le tiroir mobile, le pied de page, la barre « Réserver » et le charg
 
 - `tools/chrome/header.html` — en-tête et menu
 - `tools/chrome/footer.html` — pied de page (dont l'ordre des cabanes : Mathis, Alanis, Camille, Mila)
-- `tools/chrome/head.html` — chargement de la police **Cabinet Grotesk depuis Fontshare** (voir plus bas)
+- `tools/chrome/head.html` — connexion anticipée à Fontshare (la police elle-même est déclarée dans `assets/fonts.css`, voir plus bas)
 
 Après modification : `powershell -ExecutionPolicy Bypass -File tools/sync-chrome.ps1`
 (recopie les blocs dans toutes les pages ; `-Check` vérifie seulement).
@@ -35,9 +35,10 @@ Le site est en **Cabinet Grotesk** (Indian Type Foundry, via Fontshare). Licence
 (version 2.0 du 17 août 2026). L'usage commercial et l'**auto-hébergement sur son propre site sont autorisés** (§01), l'API
 Fontshare est facultative ; mais le §02 **interdit de redistribuer la police via un dépôt ou un serveur public** et le dépôt GitHub
 du site est **public** : on ne met donc **aucun fichier** Cabinet Grotesk dans le dépôt, la police se charge depuis
-`api.fontshare.com` (voir `tools/chrome/head.html`). Pour passer en auto-hébergement : passer d'abord le dépôt en **privé**
-(Réglages du dépôt GitHub, par Marie), puis déposer les .woff2 officiels (sans les modifier ni les « subsetter ») dans `assets/fonts/`,
-ajouter les `@font-face` dans `assets/fonts.css`, retirer `tools/chrome/head.html` et la ligne Fontshare de la page Confidentialité.
+les serveurs de Fontshare (3 adresses `cdn.fontshare.com` déclarées dans **`assets/fonts.css`, le seul endroit à modifier**). Pour passer en
+auto-hébergement : passer d'abord le dépôt en **privé** (Réglages du dépôt GitHub, par Marie), puis déposer les .woff2 officiels (sans les
+modifier ni les « subsetter ») dans `assets/fonts/` et remplacer les 3 adresses dans `assets/fonts.css` (mode d'emploi en tête de ce fichier) ;
+retirer ensuite les lignes « fontshare » de `tools/chrome/head.html` et Fontshare de la page Confidentialité.
 Le temps du chargement, une police de secours aux mesures voisines (Hanken Grotesk, `assets/fonts/`,
 voir `assets/fonts.css`) évite que la page « saute ». La page Confidentialité mentionne Fontshare.
 

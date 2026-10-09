@@ -1,11 +1,28 @@
-/* Polices du site.
-   - Cabinet Grotesk (Indian Type Foundry) : police principale, chargée depuis le service officiel Fontshare
-     (api.fontshare.com), voir le <link> dans l'en-tête de chaque page. La licence autorise ce mode de chargement ;
-     elle interdit en revanche de déposer les fichiers de la police dans un dépôt public : ne pas les copier ici.
-   - Hanken Grotesk (auto-hébergée, licence libre) : police de SECOURS pendant le chargement ou si Fontshare est
-     injoignable. « Cabinet Grotesk Fallback » = Hanken Grotesk redimensionnée pour avoir la même largeur et la même
-     hauteur de ligne que Cabinet Grotesk : le texte reste lisible et ne saute pas quand la vraie police arrive. */
-@font-face {font-family: 'Hanken Grotesk';
+/* Polices du site — UN SEUL ENDROIT : ce fichier.
+
+   Cabinet Grotesk (Indian Type Foundry) : police principale. Pour l'instant elle est chargée depuis les serveurs de
+   Fontshare (les 3 adresses cdn.fontshare.com ci-dessous, les mêmes que celles de leur service officiel). La page
+   Confidentialité le mentionne (Fontshare reçoit l'adresse IP du visiteur au chargement).
+
+   POUR PASSER À L'AUTO-HÉBERGEMENT (sans toucher à autre chose que ce fichier) :
+     1. se procurer les fichiers officiels .woff2 de Cabinet Grotesk (graisses 500, 700 et 800) et confirmer la licence
+        (ITF Free Font License, https://www.fontshare.com/licenses/itf-ffl) : l'auto-hébergement sur son propre site est
+        permis, mais PAS la diffusion des fichiers dans un dépôt public — passer d'abord le dépôt GitHub en privé ;
+     2. déposer les fichiers dans assets/fonts/ (cabinet-grotesk-500.woff2, -700, -800) ;
+     3. ci-dessous, remplacer chacune des trois adresses https://cdn.fontshare.com/... par fonts/cabinet-grotesk-500.woff2,
+        -700 et -800 (dans la ligne src de chaque @font-face) ;
+     4. (facultatif) retirer les lignes « fontshare » de tools/chrome/head.html, relancer tools/build.ps1, et enlever Fontshare
+        de la liste des services tiers de la page Confidentialité.
+   Si les adresses cdn.fontshare.com cessaient de répondre, le site reste lisible : la police de secours ci-dessous (Hanken
+   Grotesk, auto-hébergée, calée sur les mêmes mesures) prend le relais. Adresses relevées le 2026-10-09 dans
+   https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap */
+@font-face {font-family: 'Cabinet Grotesk'; font-style: normal; font-weight: 500; font-display: swap; src: url(https://cdn.fontshare.com/wf/CKQBK2QBTCDREE7L3MXZ3PPW7LDNJCWU/OTOY7FQFSFOJVZKJWKO2EHUJLOGBDN4Q/4CO2ETY7NITKLUDKMYJ75RHJSPHOJ7XT.woff2) format('woff2');}
+@font-face {font-family: 'Cabinet Grotesk'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://cdn.fontshare.com/wf/XMXWOHABYLQDJ42L65EFRYNVRY37HQCB/B2O4O6V3JMFM2WDCYQI3A47L5U4THDUL/WN5274VQ3AUBDFP74GB4EC4XYJ3EKVNE.woff2) format('woff2');}
+@font-face {font-family: 'Cabinet Grotesk'; font-style: normal; font-weight: 800; font-display: swap; src: url(https://cdn.fontshare.com/wf/ZX6AQLSFYVDPN2URWO2MQFGTYYOHIS64/TPYPKOYWFQVNJHLLRXD4KFYX4LUOUW4Z/6QH2ALVTTK7IRVO5MYOQQ3OZNXW5SSS3.woff2) format('woff2');}
+
+/* Hanken Grotesk (auto-hébergée, licence libre) : police de SECOURS pendant le chargement ou si Fontshare est injoignable.
+   « Cabinet Grotesk Fallback » = Hanken Grotesk redimensionnée pour avoir la même largeur et la même hauteur de ligne que
+   Cabinet Grotesk : le texte reste lisible et ne saute pas quand la vraie police arrive. */@font-face {font-family: 'Hanken Grotesk';
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;

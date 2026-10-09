@@ -28,13 +28,11 @@
 <meta name="twitter:image" content="https://www.lescabanesdemarie.com/assets/cabanes/alanis-2.jpeg">
 <script>document.documentElement.classList.add('js')</script>
 <!--chrome:head-->
-<link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&amp;display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="https://cdn.fontshare.com/wf/ZX6AQLSFYVDPN2URWO2MQFGTYYOHIS64/TPYPKOYWFQVNJHLLRXD4KFYX4LUOUW4Z/6QH2ALVTTK7IRVO5MYOQQ3OZNXW5SSS3.woff2" crossorigin>
 <!--/chrome:head-->
-<link rel="stylesheet" href="assets/fonts.css?v=21f1caa2">
-<link rel="stylesheet" href="assets/site.css?v=e6aecde6">
+<link rel="stylesheet" href="assets/fonts.css?v=773054ce">
+<link rel="stylesheet" href="assets/site.css?v=1a754f37">
 </head>
 <body class="cabpage bar-min">
 <!--chrome:header-->
@@ -92,7 +90,9 @@
       <div class="cab-text">
         <h1>L'Arche d'Alanis</h1>
         <p class="cab-q" data-i="c.q">« Dormir au-dessus des animaux. »</p>
-        <p class="cab-desc" data-i="c.desc">Perchée à environ 3 mètres du sol — pour laisser les animaux passer dessous —, au-dessus des chevaux, avec leur passage à toute heure. Sa propre télécabine suspendue dans l'arbre, et un lit hamac pour dormir à la belle étoile.</p>
+        <p class="cab-desc" data-i="c.desc">Perchée à environ 3 mètres du sol — pour laisser les animaux passer dessous —, au-dessus des chevaux, avec leur passage à toute heure.</p>
+        <h3 class="cab-opts-h" data-i="cab.in">Dans cette cabane</h3>
+        <ul class="cab-opts" data-i="c.opts"><li>Grand lit (2 adultes)</li><li>Mezzanine pour 2 enfants</li><li>Télécabine suspendue</li><li>Lit hamac extérieur</li><li>Chauffage</li><li>WC écologique</li><li>Draps &amp; linges fournis</li></ul>
       </div>
       <figure class="cab-photo"><img class="ph-alanis-1" src="assets/img/alanis-1.webp" width="1198" height="1800" fetchpriority="high" decoding="async" alt="L'Arche d'Alanis — la télécabine suspendue dans l'arbre, au bout de sa passerelle" style="object-position:46% 50%"></figure>
     </div>
@@ -105,9 +105,7 @@
     <ul>
       <li><span data-i="inc.1">Petit-déjeuner local inclus, monté dans un panier jusqu'à la cabane.</span></li>
       <li><span data-i="inc.2">Accès à l'Éco-Spa : bain au feu de bois et sauna.</span></li>
-      <li><span data-i="inc.3">Draps, linges et chauffage fournis.</span></li>
       <li><span data-i="inc.4">Check-in dès 16h · check-out avant 11h.</span></li>
-      <li><span data-i="inc.5">À ~30 min de Lausanne, proche d'Yverdon — Ogens (VD).</span></li>
     </ul>
   </section>
     <div class="strip">
@@ -175,17 +173,19 @@
 window.CDM_I18N = {
   de: {
     "c.q": "„Schlafen über den Tieren.“",
-    "c.desc": "Rund 3 Meter über dem Boden — damit die Tiere darunter durchlaufen können —, über den Pferden, die man zu jeder Tageszeit beobachten kann. Eine eigene im Baum hängende Gondel und eine Hängematte zum Schlafen unter dem Sternenhimmel.",
+    "c.desc": "Rund 3 Meter über dem Boden — damit die Tiere darunter durchlaufen können —, über den Pferden, die man zu jeder Tageszeit beobachten kann.",
+    "c.opts": "<li>Grosses Bett (2 Erw.)</li><li>Empore für 2 Kinder</li><li>Hängende Gondel</li><li>Hängematte draussen</li><li>Heizung</li><li>Öko-WC</li><li>Bettwäsche &amp; Handtücher</li>",
     "c.price": "280.–<small>für 2, mit Frühstück · +20.– / Kind · max. 4 Pers. + Baby</small>"
   },
   en: {
     "c.q": "“Sleeping above the animals.”",
-    "c.desc": "Perched about 3 metres up — to let the animals pass underneath — above the horses, which you can watch at any hour. Its own cable car suspended in the tree, and a hammock bed to sleep under the stars.",
+    "c.desc": "Perched about 3 metres up — to let the animals pass underneath — above the horses, which you can watch at any hour.",
+    "c.opts": "<li>King bed (2 adults)</li><li>Mezzanine for 2 kids</li><li>Suspended cable car</li><li>Outdoor hammock bed</li><li>Heating</li><li>Eco toilet</li><li>Linens &amp; towels</li>",
     "c.price": "280.–<small>for 2, breakfast included · +20.– / child · max 4 guests + baby</small>"
   }
 };
 </script>
-<script src="assets/site.js?v=8bc96405" defer></script>
+<script src="assets/site.js?v=6e8e9ecf" defer></script>
 <script src="assets/edith.js?v=97b28790" defer></script>
 <script src="https://www.planyo.com/as.js"></script>
 <link rel="stylesheet" href="https://www.planyo.com/li.css">

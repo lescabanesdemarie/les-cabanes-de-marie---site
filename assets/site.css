@@ -24,13 +24,15 @@
   --hh:72px;
   --gut:clamp(20px,4.2vw,72px);
   --hl:min(35vw,620px);                /* colonne de gauche de l'en-tête (le menu ne bouge pas) */
-  --void:min(35vw,620px);              /* le grand vide : à DROITE (écrans larges) */
   --pl:var(--gut);                     /* marge gauche du contenu */
-  --pr:var(--void);                    /* marge droite du contenu = le vide (une gouttière sur téléphone) */
+  /* le contenu vit dans un conteneur calé à gauche, large d'au plus --wrap (1160 px, ou 65 % de l'écran sur très grand écran) :
+     le reste de l'écran est le vide, à droite, et ne dépasse jamais ~35 %. Aucun bloc ne reçoit de « marge-vide » à lui. */
+  --wrap:max(1160px,calc(65vw - var(--pl)));
+  --pr:max(var(--gut),calc(100vw - var(--pl) - var(--wrap)));   /* ce qui reste à droite du conteneur (une gouttière sur téléphone) */
   --ease:cubic-bezier(.22,.61,.36,1);
   --slow:1.5s;
 }
-@media(max-width:960px){:root{--void:0px;--pr:var(--gut);--hh:64px}}
+@media(max-width:960px){:root{--pr:var(--gut);--hh:64px}}
 
 /* ---------------------------------------------------------------- base */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
@@ -86,7 +88,8 @@ b,strong{font-weight:800}
 .dark .ar.sage,.deep .ar.sage,.warm .ar.sage{color:var(--sage-lt)}
 
 /* ---------------------------------------------------------------- en-tête (identique sur toutes les pages, inchangé) */
-.site-header{position:sticky;top:0;z-index:70;height:var(--hh);display:grid;grid-template-columns:calc(var(--hl) - var(--gut)) minmax(0,1fr) auto;align-items:center;padding-inline:var(--gut);background:var(--paper);border-bottom:1px solid var(--line)}
+/* la barre recouvre le haut de la page (marge négative) : quand elle se replie en « logo seul », il n'y a plus de bandeau, la première section monte jusqu'en haut */
+.site-header{position:sticky;top:0;z-index:70;height:var(--hh);margin-bottom:calc(var(--hh) * -1);display:grid;grid-template-columns:calc(var(--hl) - var(--gut)) minmax(0,1fr) auto;align-items:center;padding-inline:var(--gut);background:var(--paper);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.12rem;letter-spacing:-.02em;white-space:nowrap}
 .brand img{height:34px;width:auto}
 .nav{display:flex;gap:clamp(18px,2vw,34px)}
@@ -117,16 +120,17 @@ b,strong{font-weight:800}
 
 /* barre du haut sur ordinateur : repliée en « logo seul » (hors accueil, et sur l'accueil après l'entrée).
    Elle revient en remontant, quand la souris approche du haut, ou au clavier (site.js pose / retire .bar-min).
-   Le logo garde un fond crème carré : lisible sur photo comme sur fond clair. */
+   Plus de fond ni de bandeau : seul le logo reste. Pour rester lisible sur une photo comme sur du crème, il porte un halo de la
+   couleur du papier (invisible sur le crème) ; sur un fond sombre (.dark / .deep / .warm), site.js pose .bar-ondark et le logo passe en clair. */
 .site-header{transition:background-color .25s ease,border-color .25s ease,opacity .25s ease}
 .site-header .nav,.site-header .hr{transition:opacity .25s ease}
-.brand{position:relative;z-index:0}
-.site-header .brand{justify-self:start}
-.brand::before{content:"";position:absolute;z-index:-1;inset:-10px -16px;background:var(--paper);opacity:0;transition:opacity .25s ease}
+.site-header .brand{justify-self:start;transition:color .25s ease,text-shadow .25s ease}
 @media(min-width:961px) and (hover:hover) and (pointer:fine){
   html.js body.bar-min .site-header{background:transparent;border-bottom-color:transparent;pointer-events:none}
-  html.js body.bar-min .site-header .brand{pointer-events:auto}
-  html.js body.bar-min .site-header .brand::before{opacity:1}
+  html.js body.bar-min .site-header .brand{pointer-events:auto;text-shadow:0 0 2px var(--paper),0 0 6px var(--paper),0 0 12px var(--paper),0 0 20px var(--paper)}
+  html.js body.bar-min .site-header .brand img{filter:drop-shadow(0 0 2px var(--paper)) drop-shadow(0 0 6px var(--paper)) drop-shadow(0 0 12px var(--paper))}
+  html.js body.bar-min.bar-ondark .site-header .brand{color:var(--paper);text-shadow:none}
+  html.js body.bar-min.bar-ondark .site-header .brand img{filter:brightness(0) invert(1)}
   html.js body.bar-min .site-header .nav,html.js body.bar-min .site-header .hr{opacity:0}
 }
 /* pendant la rupture, plus rien en haut (silence), pas même le logo ; revient au clavier */
@@ -158,10 +162,10 @@ body.hush .bookbar,body.hush .cc-fab{opacity:0;visibility:hidden;pointer-events:
 
 /* ---------------------------------------------------------------- pied de page */
 .site-footer{background:var(--paper-2);border-top:1px solid var(--line);padding-block:clamp(72px,11vw,140px) 36px}
-.ft-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:40px;margin:0 var(--pr) 0 var(--pl);padding-bottom:56px;border-bottom:1px solid var(--line)}
+.ft-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:40px;margin:0 var(--pr) 0 var(--pl);padding-bottom:56px;border-bottom:1px solid var(--line)}
 .ft-brand img{height:46px;width:auto;margin-bottom:18px}
 .ft-brand h2{font-size:1.75rem;margin-bottom:12px}
-.ft-brand p{max-width:30ch;font-size:.98rem;color:var(--ink-soft)}
+.ft-brand p{max-width:36ch;font-size:.98rem;color:var(--ink-soft)}
 .ft-col h3{font-weight:700;font-size:.8rem;letter-spacing:.17em;text-transform:uppercase;margin-bottom:18px}
 .ft-col a{display:inline-block;padding:6px 0;font-size:1rem;text-decoration:underline 2px transparent;text-underline-offset:.35em;transition:text-decoration-color .4s}
 .ft-col a:hover{text-decoration-color:var(--sage)}
@@ -214,7 +218,7 @@ legend{padding:0}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* ---------------------------------------------------------------- pages intérieures */
-.page-head{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding-block:clamp(72px,13vh,170px) clamp(56px,9vh,110px)}
+.page-head{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding-block:calc(var(--hh) + clamp(72px,13vh,170px)) clamp(56px,9vh,110px)}
 .page-head .in{position:relative;z-index:1;margin:0 var(--pr) 0 var(--pl)}
 .page-head h1{font-size:clamp(2.8rem,8vw,8rem);margin:22px 0 24px;line-height:.9}
 .page-head p{max-width:50ch;color:var(--ink-soft)}
@@ -275,7 +279,7 @@ legend{padding:0}
 .fb-embed iframe{width:100%;border:0;background:transparent;min-height:1100px}
 
 /* page 404 */
-.nf{min-height:calc(100svh - var(--hh));display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:60px var(--pr) 90px var(--pl)}
+.nf{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:calc(var(--hh) + 60px) var(--pr) 90px var(--pl)}
 .nf .num{font-weight:800;font-size:clamp(7rem,26vw,20rem);line-height:.8;letter-spacing:-.06em;color:var(--earth);position:relative}
 .nf h1{font-size:clamp(2.2rem,5.6vw,4.6rem);margin:.4em 0 .4em;position:relative}
 .nf p{max-width:46ch;margin:0 0 34px;position:relative}
@@ -289,6 +293,7 @@ legend{padding:0}
 .cab{position:relative;display:flex;flex-direction:column;background:var(--paper)}
 .cab.alt{background:var(--paper-2)}
 .cab-top{order:0;padding:clamp(22px,4vh,40px) var(--pr) 0 var(--pl);display:flex;justify-content:flex-start}
+body.cabpage .cab-top{padding-top:calc(var(--hh) + clamp(22px,4vh,40px))}
 .others{display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:.98rem;color:var(--ink-soft);padding:8px 0;transition:color .5s var(--ease),gap .6s var(--ease)}
 .others .ar{width:1.05em;height:1.05em;color:var(--sage);transform:rotate(-90deg)}
 .others:hover{color:var(--ink);gap:1.1em}
@@ -299,8 +304,12 @@ legend{padding:0}
 .cab-photo{position:relative;margin:0;overflow:hidden;background:var(--paper-2);min-height:380px}
 .cab-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cab h1,.cab h2{font-size:clamp(2.6rem,4.7vw,5rem);line-height:.94;margin:clamp(18px,3vh,28px) 0 clamp(16px,2.6vh,26px)}
-.cab-q{font-weight:800;font-size:clamp(1.3rem,1.95vw,1.9rem);line-height:1.2;letter-spacing:-.02em;color:var(--earth);max-width:22ch}
+.cab-q{font-weight:800;font-size:clamp(1.3rem,1.95vw,1.9rem);line-height:1.2;letter-spacing:-.02em;color:var(--earth);max-width:min(26ch,100%)}
 .cab-desc{margin-top:clamp(18px,3vh,30px);max-width:44ch;font-size:clamp(1rem,1.15vw,1.1rem)}
+/* « Dans cette cabane » : un titre en clair, puis une ligne par option, en texte normal (même taille que la description), sans tags ni puces */
+.cab-opts-h{margin-top:clamp(26px,4.4vh,42px);font-size:clamp(1.15rem,1.4vw,1.3rem);line-height:1.15;letter-spacing:-.015em}
+.cab-opts{margin-top:10px;max-width:44ch}
+.cab-opts li{font-size:clamp(1rem,1.15vw,1.1rem);line-height:1.5;padding:2px 0}
 
 /* la bande pratique : la même, au même endroit, sur les quatre cabanes */
 .strip{order:3;position:relative;z-index:5;background:inherit;border-top:1px solid var(--line)}
@@ -313,20 +322,18 @@ legend{padding:0}
 /* une photo « plein cadre » : toute la largeur de l'écran */
 .ff{order:2;margin:0;overflow:hidden;background:var(--paper-2)}
 .ff img{width:100%;height:min(80svh,860px);object-fit:cover}
-.cab .ff{margin-top:clamp(72px,12vh,150px)}
+.cab .ff{margin-top:clamp(48px,8vh,96px)}
 .cab.alt .ff{background:var(--paper)}
 
 /* la suite de la cabane : les autres photos, une à une, avec beaucoup d'air */
-.gal{order:2;margin:0 var(--pr) 0 var(--pl);padding:clamp(72px,12vh,150px) 0 clamp(96px,16vh,200px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,44px);align-items:start}
-.ff + .gal{padding-top:clamp(40px,8vh,100px)}
-.gal figure{margin:0;overflow:hidden;background:var(--paper-2)}
+.gal{order:2;margin:0 var(--pr) 0 var(--pl);padding:clamp(48px,8vh,96px) 0 clamp(40px,7vh,80px);column-count:2;column-gap:clamp(20px,3vw,44px)}
+.ff + .gal{padding-top:clamp(32px,6vh,72px)}
+.gal figure{margin:0 0 clamp(20px,3vw,44px);overflow:hidden;background:var(--paper-2);break-inside:avoid}
 .cab.alt .gal figure{background:var(--paper)}
 .gal img{width:100%;height:auto}
-.gal .full{grid-column:1/-1}
-.gal .low{margin-top:clamp(40px,9vw,140px)}
 
 /* ce que la cabane comprend (pages cabane) */
-.ch-included{order:2;padding:clamp(24px,5vh,60px) var(--pr) clamp(72px,12vh,140px) var(--pl)}
+.ch-included{order:2;padding:clamp(24px,4vh,48px) var(--pr) clamp(56px,9vh,96px) var(--pl)}
 .ch-included h2{font-size:clamp(2rem,4vw,3.2rem);margin:18px 0 30px}
 .ch-included ul{border-top:2px solid var(--ink)}
 .ch-included li{padding:18px 0;border-bottom:1px solid var(--line)}
@@ -349,13 +356,13 @@ legend{padding:0}
   .cab-photo,.cab.flip .cab-photo{order:-1;min-height:0;height:min(68svh,560px)}
   .cab-text,.cab.flip .cab-text{padding:36px var(--gut) 44px}
   .strip{order:2}
-  .ff{order:3}
+  .ch-included{order:3;padding-block:40px 12px}
+  .ff{order:4}
   .ff img{height:auto}
-  .cab .ff{margin-top:56px}
-  .ff + .gal{padding-top:40px}
-  .gal{order:3;margin-inline:0;padding:56px 0 72px;grid-template-columns:1fr;gap:12px}
-  .gal .low{margin-top:0}
-  .ch-included{order:3}
+  .cab .ff{margin-top:48px}
+  .ff + .gal{padding-top:32px}
+  .gal{order:4;margin-inline:0;padding:40px 0 36px;column-count:1}
+  .gal figure{margin-bottom:12px}
 }
 /* ---------------------------------------------------------------- Edith (assistante) : un tiroir, pas une carte flottante */
 .cc-fab{position:fixed;right:0;bottom:28px;z-index:100;display:flex;align-items:center;gap:0;background:var(--ink);color:var(--paper);padding:8px;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .6s var(--ease),opacity .9s var(--ease),background .4s,visibility 0s}

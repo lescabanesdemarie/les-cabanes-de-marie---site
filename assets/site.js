@@ -30,13 +30,11 @@
       "ft.rights": "© 2026 Les Cabanes de Marie — Ogens (VD), Schweiz",
       "ft.made": "Website mit ♥ von unserem Sohn Mathis gemacht",
       "ui.book": "Diese Hütte reservieren", "ui.gift": "Gutschein verschenken",
-      "cab.others": "Und die drei anderen.", "strip.dates": "Daten ansehen",
+      "cab.others": "Und die drei anderen.", "cab.in": "In dieser Hütte", "strip.dates": "Daten ansehen",
       "ui.incH": "Was Sie erwartet",
       "inc.1": "Lokales Frühstück inklusive, im Korb bis zur Hütte gebracht.",
       "inc.2": "Zugang zum Öko-Spa: Holzfeuer-Bad und Sauna.",
-      "inc.3": "Bettwäsche, Handtücher und Heizung inklusive.",
       "inc.4": "Check-in ab 16 Uhr · Check-out vor 11 Uhr.",
-      "inc.5": "Ca. 30 Min. von Lausanne, nahe Yverdon — Ogens (VD).",
       "ui.availH": "Reservieren Sie Ihre Daten",
       "ui.availLead": "Sehen Sie den Live-Kalender und reservieren Sie in wenigen Klicks online.",
       "cal.title": "Verfügbarkeitskalender"
@@ -56,13 +54,11 @@
       "ft.rights": "© 2026 Les Cabanes de Marie — Ogens (VD), Switzerland",
       "ft.made": "Website made with ♥ by our son, Mathis",
       "ui.book": "Book this cabin", "ui.gift": "Gift a voucher",
-      "cab.others": "And the other three.", "strip.dates": "See dates",
+      "cab.others": "And the other three.", "cab.in": "In this cabin", "strip.dates": "See dates",
       "ui.incH": "What awaits you",
       "inc.1": "Local breakfast included, brought up to the cabin in a basket.",
       "inc.2": "Access to the Eco-Spa: wood-fired bath and sauna.",
-      "inc.3": "Linens, towels and heating provided.",
       "inc.4": "Check-in from 4pm · check-out before 11am.",
-      "inc.5": "About 30 min from Lausanne, near Yverdon — Ogens (VD).",
       "ui.availH": "Book your dates",
       "ui.availLead": "Check the live calendar, then book online in a few clicks.",
       "cal.title": "Availability calendar"
@@ -211,7 +207,7 @@
          Téléphone / tactile : jamais repliée. Pendant la rupture (#rupture) : tout s'efface (classe bar-off). ---- */
   var head = D.querySelector('.site-header');
   if (head) {
-    var B = D.body, hero = D.getElementById('top'), rupt = D.getElementById('rupture');
+    var B = D.body, hero = D.getElementById('top'), rupt = D.getElementById('rupture'), brand = head.querySelector('.brand');
     var isHome = B.classList.contains('home');
     var desk = window.matchMedia ? matchMedia('(min-width:961px) and (hover:hover) and (pointer:fine)') : { matches: false };
     var lastY = window.scrollY, acc = 0, goingUp = false, peek = false, kbd = false, queued = false;
@@ -220,8 +216,20 @@
       var h = head.offsetHeight, rr = rupt ? rupt.getBoundingClientRect() : null;
       var inRupt = !!rr && rr.top <= h / 2 && rr.bottom >= h / 2;
       var heroOn = isHome && hero && hero.getBoundingClientRect().bottom > h;
-      B.classList.toggle('bar-min', desk.matches && !heroOn && (inRupt || !(kbd || peek || goingUp)));
+      var min = desk.matches && !heroOn && (inRupt || !(kbd || peek || goingUp));
+      B.classList.toggle('bar-min', min);
       B.classList.toggle('bar-off', inRupt && !kbd);
+      // logo seul : clair sur un fond sombre (sommaire, bain…), foncé avec un halo partout ailleurs (photo, crème)
+      var dark = false;
+      if (min && !inRupt && D.elementsFromPoint) {
+        var r = brand.getBoundingClientRect(), under = D.elementsFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        for (var i = 0; i < under.length; i++) {
+          if (head.contains(under[i])) continue;
+          dark = !!(under[i].closest && under[i].closest('.dark, .deep, .warm'));
+          break;
+        }
+      }
+      B.classList.toggle('bar-ondark', dark);
     };
     var barQueue = function () { if (!queued) { queued = true; requestAnimationFrame(barApply); } };
     window.addEventListener('scroll', function () {
@@ -256,5 +264,18 @@
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     reveals.forEach(function (el) { io.observe(el); });
+    // filet de sécurité : si l'observateur ne signale rien (visionneuse intégrée, onglet en arrière-plan…), on révèle ce qui est à l'écran
+    var sweep = function () {
+      var vh = window.innerHeight || 800;
+      reveals.forEach(function (el) {
+        if (el.classList.contains('seen')) return;
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < vh * 0.96) { el.classList.add('seen'); io.unobserve(el); }
+      });
+    };
+    var sweeping = false;
+    window.addEventListener('scroll', function () { if (!sweeping) { sweeping = true; requestAnimationFrame(function () { sweeping = false; sweep(); }); } }, { passive: true });
+    window.addEventListener('resize', sweep);
+    window.addEventListener('load', function () { setTimeout(sweep, 600); });
   }
 })();
