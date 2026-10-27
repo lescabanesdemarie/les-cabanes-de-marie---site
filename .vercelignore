@@ -11,3 +11,6 @@ DEMARRER-CLAUDE-CODE.md
 
 # Scripts de verification (lances a la main avant un push)
 tools/
+
+# Sources des pages (le site publie est fabrique par tools/build.ps1)
+src/

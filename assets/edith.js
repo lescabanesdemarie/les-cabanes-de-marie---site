@@ -3,7 +3,7 @@
    Inclure : <script src="assets/edith.js" defer></script>
    Le widget n'envoie que les messages à /api/edith : la consigne d'Edith vit côté serveur
    (api/edith.js). L'aspect est dans assets/site.css (classes .cc-*).
-   Langue lue dans localStorage 'cdm_lang' et mise à jour quand on change de langue.
+   Langue : celle de la page (attribut lang de <html>, écrit par tools/build.ps1).
    ===================================================================== */
 (function () {
   'use strict';
@@ -33,7 +33,7 @@
           empty: "Sorry, I couldn't reply. Please try again in a moment.",
           busy: "I'm getting a lot of questions right now. Please try again in a few minutes, or call us on +41 79 534 71 15." }
   };
-  function lang() { try { var l = localStorage.getItem('cdm_lang'); return T[l] ? l : 'fr'; } catch (e) { return 'fr'; } }
+  function lang() { var l = (document.documentElement.getAttribute('lang') || 'fr').slice(0, 2); return T[l] ? l : 'fr'; }
 
   var t = T[lang()];
   var fab = document.createElement('button');

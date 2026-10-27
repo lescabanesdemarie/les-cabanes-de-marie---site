@@ -1,0 +1,131 @@
+{
+  "base": "https://www.lescabanesdemarie.com",
+  "name": "Les Cabanes de Marie",
+  "phone": "+41 79 534 71 15",
+  "email": "info@lescabanesdemarie.com",
+  "street": "Ch. du Petit Bâle 12",
+  "postalCode": "1045",
+  "locality": "Ogens",
+  "region": "VD",
+  "country": "CH",
+  "lat": 46.711086,
+  "lon": 6.726036,
+  "priceRange": "CHF 280+",
+  "sameAs": [
+    "https://www.facebook.com/lescabanesdemarie/",
+    "https://www.instagram.com/lescabanesdemarie/"
+  ],
+  "seasonOpenMonth": 4,
+  "seasonCloseMonth": 10,
+  "checkin": "16:00",
+  "checkout": "11:00",
+  "images": [
+    "assets/img/share.jpg",
+    "assets/cabanes/mathis-1.jpeg",
+    "assets/cabanes/alanis-2.jpeg",
+    "assets/cabanes/camille-1.jpeg",
+    "assets/cabanes/mila-1.jpeg"
+  ],
+  "locales": { "fr": "fr_CH", "de": "de_CH", "en": "en_GB" },
+  "pages": {
+    "index": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Cabane dans les arbres à Ogens (VD) · Les Cabanes de Marie",
+              "desc": "Dormez dans les arbres à Ogens (VD) : quatre cabanes perchées, éco-spa au feu de bois, petit-déjeuner local. Réservez votre nuit insolite." },
+      "de": { "title": "Baumhaus in Ogens (Waadt) · Les Cabanes de Marie",
+              "desc": "Übernachten im Baumhaus in der Schweiz: vier Baumhütten in Ogens (Waadt), Öko-Spa am Holzfeuer, lokales Frühstück. Buchen Sie Ihre besondere Nacht." },
+      "en": { "title": "Treehouse stay in Ogens, Switzerland · Les Cabanes de Marie",
+              "desc": "Treehouse stay in Switzerland: four cabins in the trees in Ogens (canton of Vaud), wood-fired eco-spa, local breakfast. Book a night like no other." }
+    },
+    "cabane-mathis": {
+      "og": "assets/cabanes/mathis-1.jpeg", "ogw": 720, "ogh": 960,
+      "fr": { "title": "La Cabane de Mathis · Cabane dans les arbres à Ogens (VD)",
+              "desc": "Nid de Robinson perché pour deux, avec vue sur l'étang, à Ogens (VD). Dès 280.– la nuit, petit-déjeuner local et accès à l'éco-spa inclus." },
+      "de": { "title": "La Cabane de Mathis · Baumhaus in Ogens (Waadt)",
+              "desc": "Ein Robinson-Nest für zwei, hoch in den Bäumen, mit Blick auf den Teich, in Ogens (Waadt). Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+      "en": { "title": "La Cabane de Mathis · Treehouse in Ogens (Vaud)",
+              "desc": "A Robinson-style nest for two, perched in the trees with a view of the pond, in Ogens (Vaud). From CHF 280 a night, breakfast and eco-spa included." }
+    },
+    "cabane-alanis": {
+      "og": "assets/cabanes/alanis-2.jpeg", "ogw": 720, "ogh": 960,
+      "fr": { "title": "L'Arche d'Alanis · Cabane dans les arbres à Ogens (VD)",
+              "desc": "Dormez à 3 mètres du sol, au-dessus des chevaux, dans une cabane perchée à Ogens (VD). Dès 280.– la nuit, petit-déjeuner et éco-spa inclus." },
+      "de": { "title": "L'Arche d'Alanis · Baumhaus in Ogens (Waadt)",
+              "desc": "Schlafen in 3 Metern Höhe, über den Pferden, in einem Baumhaus in Ogens (Waadt). Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+      "en": { "title": "L'Arche d'Alanis · Treehouse in Ogens (Vaud)",
+              "desc": "Sleep 3 metres up, above the horses, in a treehouse in Ogens (Vaud). From CHF 280 a night, breakfast and eco-spa included." }
+    },
+    "cabane-camille": {
+      "og": "assets/cabanes/camille-1.jpeg", "ogw": 720, "ogh": 960,
+      "fr": { "title": "La Jia de Camille · Cabane dans les arbres à Ogens (VD)",
+              "desc": "Une cabane perchée à l'ambiance asiatique à Ogens (VD), jusqu'à 5 personnes plus bébé. Dès 280.– la nuit, petit-déjeuner et éco-spa inclus." },
+      "de": { "title": "La Jia de Camille · Baumhaus in Ogens (Waadt)",
+              "desc": "Ein Baumhaus mit asiatischem Flair in Ogens (Waadt), für bis zu 5 Personen plus Baby. Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+      "en": { "title": "La Jia de Camille · Treehouse in Ogens (Vaud)",
+              "desc": "A treehouse with an Asian feel in Ogens (Vaud), for up to 5 guests plus a baby. From CHF 280 a night, breakfast and eco-spa included." }
+    },
+    "cabane-mila": {
+      "og": "assets/cabanes/mila-1.jpeg", "ogw": 1080, "ogh": 1620,
+      "fr": { "title": "Le Royaume de Mila · Cabane dans les arbres à Ogens (VD)",
+              "desc": "Dormez à la belle étoile au-dessus de la rivière, dans une cabane perchée à Ogens (VD). Dès 280.– la nuit, petit-déjeuner et éco-spa inclus." },
+      "de": { "title": "Le Royaume de Mila · Baumhaus in Ogens (Waadt)",
+              "desc": "Unter dem Sternenhimmel über dem Fluss schlafen, in einem Baumhaus in Ogens (Waadt). Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+      "en": { "title": "Le Royaume de Mila · Treehouse in Ogens (Vaud)",
+              "desc": "Sleep under the stars above the river in a treehouse in Ogens (Vaud). From CHF 280 a night, breakfast and eco-spa included." }
+    },
+    "faq": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Questions fréquentes · Les Cabanes de Marie, Ogens (VD)",
+              "desc": "Ouverture, prix, horaires, spa, repas, enfants, animaux, réservation : les réponses à vos questions sur une nuit en cabane dans les arbres à Ogens." },
+      "de": { "title": "Häufige Fragen · Les Cabanes de Marie, Ogens (Waadt)",
+              "desc": "Öffnung, Preis, Zeiten, Spa, Mahlzeiten, Kinder, Tiere, Reservierung: Antworten zu Ihrer Nacht im Baumhaus in Ogens (Waadt)." },
+      "en": { "title": "FAQ · Les Cabanes de Marie, Ogens (Vaud)",
+              "desc": "Opening dates, price, check-in, spa, meals, children, pets, booking: answers about your night in a treehouse in Ogens (Vaud)." }
+    },
+    "contact": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Contact et accès · Les Cabanes de Marie, Ogens (VD)",
+              "desc": "Une question avant votre nuit dans les arbres ? Téléphone, e-mail, adresse et plan d'accès des Cabanes de Marie, à Ogens (VD)." },
+      "de": { "title": "Kontakt und Anfahrt · Les Cabanes de Marie, Ogens (Waadt)",
+              "desc": "Eine Frage vor Ihrer Nacht in den Bäumen? Telefon, E-Mail, Adresse und Anfahrt von Les Cabanes de Marie in Ogens (Waadt)." },
+      "en": { "title": "Contact and directions · Les Cabanes de Marie, Ogens",
+              "desc": "A question before your night in the trees? Phone, email, address and directions for Les Cabanes de Marie in Ogens (Vaud)." }
+    },
+    "bons-cadeaux": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Bon cadeau : offrir une nuit en cabane dans les arbres",
+              "desc": "Offrez une nuit insolite dans les arbres à Ogens (VD) : bon cadeau valable un an, prolongeable, petit-déjeuner inclus. Commande en ligne." },
+      "de": { "title": "Geschenkgutschein: eine Nacht im Baumhaus verschenken",
+              "desc": "Verschenken Sie eine besondere Nacht im Baumhaus in Ogens (Waadt): Gutschein ein Jahr gültig, verlängerbar, inklusive Frühstück. Online bestellen." },
+      "en": { "title": "Gift voucher: give a night in a treehouse",
+              "desc": "Give a night like no other in a treehouse in Ogens (Vaud): a voucher valid for a year, extendable, breakfast included. Order online." }
+    },
+    "conditions-generales": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Conditions générales · Les Cabanes de Marie, Ogens (VD)",
+              "desc": "Conditions générales des Cabanes de Marie à Ogens (VD) : paiement, droit de rétractation, modification ou annulation, bons cadeaux." },
+      "de": { "title": "AGB · Les Cabanes de Marie, Ogens (Waadt)",
+              "desc": "Allgemeine Geschäftsbedingungen von Les Cabanes de Marie in Ogens (Waadt): Zahlung, Widerrufsrecht, Änderung oder Stornierung, Geschenkgutscheine." },
+      "en": { "title": "Terms and conditions · Les Cabanes de Marie, Ogens",
+              "desc": "Terms and conditions of Les Cabanes de Marie in Ogens (Vaud): payment, right of withdrawal, changes and cancellation, gift vouchers." }
+    },
+    "confidentialite": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Confidentialité et mentions légales · Les Cabanes de Marie",
+              "desc": "Comment Les Cabanes de Marie (Ogens, VD) traitent vos données : formulaires, réservation, services tiers, cookies et vos droits selon la nLPD." },
+      "de": { "title": "Datenschutz und rechtliche Hinweise · Les Cabanes de Marie",
+              "desc": "Wie Les Cabanes de Marie (Ogens, VD) Ihre Daten verarbeiten: Formulare, Reservierung, Drittdienste, Cookies und Ihre Rechte nach dem nDSG." },
+      "en": { "title": "Privacy and legal notice · Les Cabanes de Marie",
+              "desc": "How Les Cabanes de Marie (Ogens, VD) handle your data: forms, booking, third-party services, cookies and your rights under the Swiss FADP." }
+    },
+    "404": {
+      "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
+      "fr": { "title": "Page introuvable · Les Cabanes de Marie",
+              "desc": "Cette page s'est perdue dans les bois. Retournez à l'accueil des Cabanes de Marie, cabanes dans les arbres à Ogens (VD)." },
+      "de": { "title": "Seite nicht gefunden · Les Cabanes de Marie",
+              "desc": "Diese Seite hat sich im Wald verirrt. Zurück zur Startseite von Les Cabanes de Marie, Baumhütten in Ogens (Waadt)." },
+      "en": { "title": "Page not found · Les Cabanes de Marie",
+              "desc": "This page got lost in the woods. Back to the home page of Les Cabanes de Marie, treehouses in Ogens (Vaud)." }
+    }
+  }
+}

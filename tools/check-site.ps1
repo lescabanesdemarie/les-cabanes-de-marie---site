@@ -21,7 +21,7 @@ function Warn([string]$m) { [void]$warns.Add($m) }
 
 # motifs d'accents corrompus, construits par code pour que ce fichier reste 100 % ASCII
 $mojibake = [string][char]0xC3 + '[\u0080-\u00BF]|' + [char]0xE2 + [char]0x20AC
-$skipDirs = '\\(\.git|\.claude|_reference|tools|node_modules)\\'
+$skipDirs = '\\(\.git|\.claude|_reference|tools|src|node_modules)\\'
 $all = Get-ChildItem -Path $root -Recurse -File -Force | Where-Object { ($_.FullName + '\') -notmatch $skipDirs -and $_.FullName -notmatch '\\\.git\\' }
 $rel = { param($p) $p.Substring($root.Length + 1).Replace('\', '/') }
 
@@ -86,16 +86,19 @@ foreach ($f in $all) {
 function Test-Local([string]$fromName, [string]$ref, [string]$kind) {
   $r = $ref.Trim()
   if ($r -eq '' -or $r -match '^(https?:|//|mailto:|tel:|javascript:|data:|sms:)') {
-    if ($r -match '^https?://(www\.)?lescabanesdemarie\.com/(.*)$') { $r = $Matches[2] } else { return }
+    if ($r -match '^https?://(www\.)?lescabanesdemarie\.com/(.*)$') { $r = '/' + $Matches[2] } else { return }
   }
   if ($r.StartsWith('#')) { return }
   $hash = ''
   if ($r.Contains('#')) { $hash = $r.Substring($r.IndexOf('#') + 1); $r = $r.Substring(0, $r.IndexOf('#')) }
   if ($r.Contains('?')) { $r = $r.Substring(0, $r.IndexOf('?')) }
-  if ($r -eq '') { return }
+  if ($r -eq '' -or $r.EndsWith('/')) { $r = $r + 'index.html' }
   $dir = Split-Path $fromName -Parent
   $target = if ($r.StartsWith('/')) { $r.TrimStart('/') } elseif ($dir) { "$dir/$r" } else { $r }
-  if ($target -eq '') { $target = 'index.html' }
+  # normalise ./ et ../ (pages de /de/ et /en/)
+  $full = [IO.Path]::GetFullPath((Join-Path $root ($target.Replace('/', '\'))))
+  if (-not $full.StartsWith($root)) { Fail "$fromName : $kind hors du site -> $ref"; return }
+  $target = $full.Substring($root.Length + 1).Replace('\', '/')
   $path = Join-Path $root ($target.Replace('/', '\'))
   if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { Fail "$fromName : $kind introuvable -> $ref"; return }
   if ($hash -and $target -match '\.html$') {
@@ -128,14 +131,14 @@ function Get-Stamp([string]$assetRel) {
   if ($p -match '\.(css|js)$') { $bytes = [Text.Encoding]::UTF8.GetBytes(([Text.Encoding]::UTF8.GetString($bytes)).Replace("`r`n", "`n")) }
   return (($sha.ComputeHash($bytes) | ForEach-Object { $_.ToString('x2') }) -join '').Substring(0, 8)
 }
-$stampRx = '(?i)\b(href|src)=(["''])(assets/[^"''?#]+\.(?:css|js))(?:\?v=[0-9a-f]+)?\2'
+$stampRx = '(?i)\b(href|src)=(["''])((?:\.\./)?)(assets/[^"''?#]+\.(?:css|js))(?:\?v=[0-9a-f]+)?\2'
 foreach ($name in @($texts.Keys | Where-Object { $_ -match '\.html$' })) {
   $t = $texts[$name]
   $new = [regex]::Replace($t, $stampRx, {
       param($m)
-      $s = Get-Stamp $m.Groups[3].Value
+      $s = Get-Stamp $m.Groups[4].Value
       if ($null -eq $s) { return $m.Value }
-      return $m.Groups[1].Value + '=' + $m.Groups[2].Value + $m.Groups[3].Value + '?v=' + $s + $m.Groups[2].Value
+      return $m.Groups[1].Value + '=' + $m.Groups[2].Value + $m.Groups[3].Value + $m.Groups[4].Value + '?v=' + $s + $m.Groups[2].Value
     })
   if ($new -ne $t) {
     if ($Stamp) { [IO.File]::WriteAllText((Join-Path $root $name.Replace('/', '\')), $new, (New-Object System.Text.UTF8Encoding($false))); $texts[$name] = $new; Write-Host "  stamp : $name mis a jour" }
@@ -175,7 +178,8 @@ if ($texts.ContainsKey('api/edith.js')) {
 if ($texts.ContainsKey('sitemap.xml')) {
   foreach ($m in [regex]::Matches($texts['sitemap.xml'], '<loc>([^<]+)</loc>')) { Test-Local 'sitemap.xml' $m.Groups[1].Value 'URL du sitemap' }
 }
-foreach ($must in 'index.html', '404.html', 'vercel.json', 'robots.txt', 'sitemap.xml', 'manifest.json', 'api/edith.js') {
+if (($texts.Keys | Where-Object { $_ -eq '.vercelignore' }) -or $true) { $vi = Join-Path $root '.vercelignore'; if (-not (Test-Path $vi) -or ([IO.File]::ReadAllText($vi) -notmatch '(?m)^src/')) { Fail '.vercelignore : src/ (sources du build) doit etre exclu du deploiement' } }
+foreach ($must in 'index.html', 'de/index.html', 'en/index.html', '404.html', 'vercel.json', 'robots.txt', 'sitemap.xml', 'manifest.json', 'api/edith.js') {
   if (-not (Test-Path -LiteralPath (Join-Path $root $must.Replace('/', '\')))) { Fail "$must : fichier indispensable manquant" }
 }
 # fichiers de assets/ que plus aucune page ne cite (a supprimer ?)

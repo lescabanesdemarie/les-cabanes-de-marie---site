@@ -1,39 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.lescabanesdemarie.com/</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/cabane-mathis.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-mathis.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/cabane-mathis.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-mathis.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/cabane-mathis.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-mathis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-mathis.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/cabane-alanis.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-alanis.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/cabane-alanis.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-alanis.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/cabane-alanis.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-alanis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-alanis.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/cabane-camille.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-camille.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/cabane-camille.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-camille.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/cabane-camille.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-camille.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-camille.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/cabane-mila.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-mila.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/cabane-mila.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-mila.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/cabane-mila.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/cabane-mila.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/cabane-mila.html"/>
   </url>
   <url>
     <loc>https://www.lescabanesdemarie.com/faq.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/faq.html"/>
   </url>
   <url>
-    <loc>https://www.lescabanesdemarie.com/bons-cadeaux.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.lescabanesdemarie.com/de/faq.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/faq.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/faq.html"/>
   </url>
   <url>
     <loc>https://www.lescabanesdemarie.com/contact.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/contact.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/contact.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/contact.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/contact.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/contact.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/bons-cadeaux.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/bons-cadeaux.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/bons-cadeaux.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/bons-cadeaux.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/bons-cadeaux.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/bons-cadeaux.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/bons-cadeaux.html"/>
   </url>
   <url>
     <loc>https://www.lescabanesdemarie.com/conditions-generales.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/conditions-generales.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/conditions-generales.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/conditions-generales.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/conditions-generales.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/conditions-generales.html"/>
   </url>
   <url>
     <loc>https://www.lescabanesdemarie.com/confidentialite.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/confidentialite.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/de/confidentialite.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/confidentialite.html"/>
+  </url>
+  <url>
+    <loc>https://www.lescabanesdemarie.com/en/confidentialite.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescabanesdemarie.com/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lescabanesdemarie.com/de/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescabanesdemarie.com/en/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescabanesdemarie.com/confidentialite.html"/>
   </url>
 </urlset>
