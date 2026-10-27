@@ -65,9 +65,10 @@ partout, `robots.txt` autorise tout et annonce `sitemap.xml`.
 
 ## Redirections (anciennes adresses)
 
-`vercel.json`, rubrique `redirects` (301). On y trouve déjà `/index.html → /` (et `/de/index.html`, `/en/index.html`).
-Pour chaque ancienne adresse du site Wix à rediriger, ajouter une ligne
-`{ "source": "/ancienne-adresse", "destination": "/nouvelle-adresse.html", "statusCode": 301 }`.
+À faire quand la liste exacte des anciennes adresses sera connue : ajouter dans `vercel.json` une rubrique `redirects`,
+avec une ligne par ancienne adresse : `{ "source": "/ancienne-adresse", "destination": "/nouvelle-adresse.html", "permanent": true }`.
+En attendant, les noms de fichiers restent ceux d'aujourd'hui. (Des redirections de `/index.html` ont fait échouer le déploiement
+Vercel le 27/10 : retirées, la balise canonical suffit.)
 
 ## Photos
 
