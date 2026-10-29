@@ -17,7 +17,7 @@
 <link rel="preload" as="font" type="font/woff2" href="https://cdn.fontshare.com/wf/ZX6AQLSFYVDPN2URWO2MQFGTYYOHIS64/TPYPKOYWFQVNJHLLRXD4KFYX4LUOUW4Z/6QH2ALVTTK7IRVO5MYOQQ3OZNXW5SSS3.woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/fonts.css?v=773054ce">
-<link rel="stylesheet" href="assets/site.css?v=26d156e0">
+<link rel="stylesheet" href="assets/site.css?v=65399061">
 </head>
 <body class="bar-min">
 
@@ -69,16 +69,20 @@
 
 
 <main id="main" class="nf">
-  <img class="deco" src="assets/bg/contour.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:50%;top:50%;transform:translate(-50%,-50%);width:min(1100px,120%);opacity:.07">
   <div class="num" aria-hidden="true">404</div>
-  <h1>Cette page s'est perdue <b>dans les bois</b></h1>
-  <p class="hand">« Même Edith ne la retrouve pas… »</p>
-  <p>La page que vous cherchez n'existe pas ou a été déplacée. Mais les cabanes, elles, sont toujours bien là.</p>
+  <h1 data-nf="nf.h1">Cette page s'est perdue <b>dans les bois</b></h1>
+  <p class="hand" data-nf="nf.hand">« Même Edith ne la retrouve pas… »</p>
+  <p data-nf="nf.p">La page que vous cherchez n'existe pas ou a été déplacée. Mais les cabanes, elles, sont toujours bien là.</p>
   <div class="cta">
-    <a class="btn" href="./#reserver">Réserver une nuit</a>
-    <a class="btn o" href="./">Retour à l'accueil</a>
-    <a class="btn o" href="contact.html">Nous contacter</a>
+    <a class="btn" href="./#reserver" data-nf="nf.b1" data-nf-href>Réserver une nuit</a>
+    <a class="btn o" href="./" data-nf="nf.b2" data-nf-href>Retour à l'accueil</a>
+    <a class="btn o" href="contact.html" data-nf="nf.b3" data-nf-href>Nous contacter</a>
   </div>
+  <p class="nf-cabs"><span data-nf="nav.cab">Les cabanes</span> :
+    <a href="cabane-mathis.html" data-nf-href>La Cabane de Mathis</a> ·
+    <a href="cabane-alanis.html" data-nf-href>L'Arche d'Alanis</a> ·
+    <a href="cabane-camille.html" data-nf-href>La Jia de Camille</a> ·
+    <a href="cabane-mila.html" data-nf-href>Le Royaume de Mila</a></p>
 </main>
 
 
@@ -121,7 +125,8 @@
 </footer>
 
 
-<script src="assets/site.js?v=af88fd3f" defer></script>
+<script src="assets/site.js?v=d59f80f4" defer></script>
 <script src="assets/edith.js?v=9fbba345" defer></script>
+<script>(function(){var m=location.pathname.match(/^\/(de|en)\//),T={"de":{"nf.b2":"Zur Startseite","nf.b1":"Eine Nacht buchen","nf.b3":"Kontakt aufnehmen","nf.p":"Die gesuchte Seite existiert nicht oder wurde verschoben. Aber die Hütten sind noch genau da.","title":"Seite nicht gefunden — Les Cabanes de Marie","nf.hand":"« Nicht einmal Edith findet sie wieder … »","nav.cab":"Die Hütten","nf.h1":"Diese Seite hat sich \u003cb\u003eim Wald verirrt\u003c/b\u003e"},"en":{"nf.b2":"Back to home","nf.b1":"Book a night","nf.b3":"Contact us","nf.p":"The page you\u0027re looking for doesn\u0027t exist or has moved. But the cabins are still right here.","title":"Page not found — Les Cabanes de Marie","nf.hand":"“Even Edith can\u0027t find it…”","nav.cab":"The cabins","nf.h1":"This page got lost \u003cb\u003ein the woods\u003c/b\u003e"}};if(!m)return;var l=m[1],d=T[l];document.documentElement.lang=l;document.title=d.title;[].forEach.call(document.querySelectorAll('[data-nf]'),function(e){var v=d[e.getAttribute('data-nf')];if(v)e.innerHTML=v;});[].forEach.call(document.querySelectorAll('[data-nf-href]'),function(a){var h=a.getAttribute('href');a.setAttribute('href',l+'/'+(h.indexOf('./')===0?h.slice(2):h));});})();</script>
 </body>
 </html>

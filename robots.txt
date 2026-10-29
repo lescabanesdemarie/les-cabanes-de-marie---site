@@ -1,3 +1,4 @@
-# Apercu : le site n'est pas encore indexable (variable INDEXABLE dans tools/build.ps1).
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.lescabanesdemarie.com/sitemap.xml

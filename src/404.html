@@ -63,16 +63,20 @@
 <!--/chrome:header-->
 
 <main id="main" class="nf">
-  <img class="deco" src="assets/bg/contour.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:50%;top:50%;transform:translate(-50%,-50%);width:min(1100px,120%);opacity:.07">
   <div class="num" aria-hidden="true">404</div>
-  <h1 data-i="nf.h1">Cette page s'est perdue <b>dans les bois</b></h1>
-  <p class="hand" data-i="nf.hand">« Même Edith ne la retrouve pas… »</p>
-  <p data-i="nf.p">La page que vous cherchez n'existe pas ou a été déplacée. Mais les cabanes, elles, sont toujours bien là.</p>
+  <h1 data-i="nf.h1" data-nf="nf.h1">Cette page s'est perdue <b>dans les bois</b></h1>
+  <p class="hand" data-i="nf.hand" data-nf="nf.hand">« Même Edith ne la retrouve pas… »</p>
+  <p data-i="nf.p" data-nf="nf.p">La page que vous cherchez n'existe pas ou a été déplacée. Mais les cabanes, elles, sont toujours bien là.</p>
   <div class="cta">
-    <a class="btn" href="index.html#reserver" data-i="nf.b1">Réserver une nuit</a>
-    <a class="btn o" href="index.html" data-i="nf.b2">Retour à l'accueil</a>
-    <a class="btn o" href="contact.html" data-i="nf.b3">Nous contacter</a>
+    <a class="btn" href="index.html#reserver" data-i="nf.b1" data-nf="nf.b1" data-nf-href>Réserver une nuit</a>
+    <a class="btn o" href="index.html" data-i="nf.b2" data-nf="nf.b2" data-nf-href>Retour à l'accueil</a>
+    <a class="btn o" href="contact.html" data-i="nf.b3" data-nf="nf.b3" data-nf-href>Nous contacter</a>
   </div>
+  <p class="nf-cabs"><span data-i="nav.cab" data-nf="nav.cab">Les cabanes</span> :
+    <a href="cabane-mathis.html" data-nf-href>La Cabane de Mathis</a> ·
+    <a href="cabane-alanis.html" data-nf-href>L'Arche d'Alanis</a> ·
+    <a href="cabane-camille.html" data-nf-href>La Jia de Camille</a> ·
+    <a href="cabane-mila.html" data-nf-href>Le Royaume de Mila</a></p>
 </main>
 
 <!--chrome:footer-->

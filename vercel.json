@@ -1,5 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/:path*", "has": [{ "type": "host", "value": "lescabanesdemarie.com" }], "destination": "https://www.lescabanesdemarie.com/:path*", "statusCode": 301 },
+    { "source": "/index.html", "destination": "/", "statusCode": 301 },
+    { "source": "/de/index.html", "destination": "/de/", "statusCode": 301 },
+    { "source": "/en/index.html", "destination": "/en/", "statusCode": 301 }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -20,6 +26,13 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "missing": [{ "type": "host", "value": "www.lescabanesdemarie.com" }],
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
   ]

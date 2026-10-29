@@ -21,7 +21,7 @@ param([switch]$Preview, [string]$Out = '')
 #             sitemap.xml existe mais n'est pas annonce.
 #    $true  = lancement : plus aucun noindex, robots.txt autorise tout et annonce sitemap.xml.
 #  (la page 404 reste toujours en noindex)
-$INDEXABLE = $false
+$INDEXABLE = $true
 # =====================================================================================================================
 
 $ErrorActionPreference = 'Stop'
@@ -132,7 +132,7 @@ function Html-Text([string]$s) { [System.Net.WebUtility]::HtmlDecode(([regex]::R
 
 # ---------------------------------------------------------------------------------------------------- empreintes (?v=) des css / js
 $stamp = @{}
-foreach ($f in Get-ChildItem (Join-Path $root 'assets') -File | Where-Object { $_.Extension -in '.css', '.js' }) {
+foreach ($f in Get-ChildItem (Join-Path $root 'assets') -File | Where-Object { $_.Extension -in '.css', '.js', '.svg' }) {
   $sha = [System.Security.Cryptography.SHA1]::Create()
   $h = [BitConverter]::ToString($sha.ComputeHash([IO.File]::ReadAllBytes($f.FullName))).Replace('-', '').Substring(0, 8).ToLower()
   $stamp[$f.Name] = $h
@@ -181,6 +181,20 @@ foreach ($p in $pages) {
     }
     $t = Apply-Dict $t $dict $lang $name
     $t = Apply-Attrs $t $dict $lang $name
+    # page 404 : Vercel n'en sert qu'une (a la racine) ; sous /de/ ou /en/ elle se met dans la langue de l'adresse
+    # (textes [data-nf] et liens [data-nf-href] vers les pages de cette langue)
+    if ($p -eq '404') {
+      $nf = @{}
+      foreach ($l in 'de', 'en') {
+        $nf[$l] = @{ 'title' = $dicts['404'][$l]['meta.title']; 'nav.cab' = $chrome[$l]['nav.cab'] }
+        foreach ($k in $dicts['404'][$l].Keys) { if ($k -like 'nf.*') { $nf[$l][$k] = $dicts['404'][$l][$k] } }
+      }
+      $nfJs = "<script>(function(){var m=location.pathname.match(/^\/(de|en)\//),T=" + $ser.Serialize($nf) + ";if(!m)return;var l=m[1],d=T[l];" +
+        "document.documentElement.lang=l;document.title=d.title;" +
+        "[].forEach.call(document.querySelectorAll('[data-nf]'),function(e){var v=d[e.getAttribute('data-nf')];if(v)e.innerHTML=v;});" +
+        "[].forEach.call(document.querySelectorAll('[data-nf-href]'),function(a){var h=a.getAttribute('href');a.setAttribute('href',l+'/'+(h.indexOf('./')===0?h.slice(2):h));});})();</script>"
+      $t = $t.Replace('</body>', $nfJs + "`n</body>")
+    }
     $t = [regex]::Replace($t, '(?s)<script>\s*window\.CDM_I18N\s*=.*?</script>\s*', '')
     $t = [regex]::Replace($t, '(?s)<!--(?!\[|/?build:).*?-->', '')             # plus de commentaires dans le HTML publie
     $t = $t.Replace('<html lang="fr">', '<html lang="' + $lang + '">')
@@ -209,9 +223,9 @@ foreach ($p in $pages) {
     if (-not $Preview) { $t = [regex]::Replace($t, 'href="index\.html(#[^"]*)?"', 'href="./$1"') }
     if ($p -eq '404' -and $Preview) { $t = $t.Replace('<base href="/">', '') }
 
-    # empreintes des css / js
-    $t = [regex]::Replace($t, '((?:href|src)="(?:\.\./)?assets/([A-Za-z0-9._-]+\.(?:css|js)))"', [System.Text.RegularExpressions.MatchEvaluator] {
-      param($m) $f = $m.Groups[2].Value; if ($stamp.ContainsKey($f)) { return $m.Groups[1].Value + '?v=' + $stamp[$f] + '"' } else { return $m.Value } })
+    # empreintes des css / js / svg (flora.svg#chene : l'ancre reste apres ?v=)
+    $t = [regex]::Replace($t, '((?:href|src)="(?:\.\./)?assets/([A-Za-z0-9._-]+\.(?:css|js|svg)))(#[^"]*)?"', [System.Text.RegularExpressions.MatchEvaluator] {
+      param($m) $f = $m.Groups[2].Value; if ($stamp.ContainsKey($f)) { return $m.Groups[1].Value + '?v=' + $stamp[$f] + $m.Groups[3].Value + '"' } else { return $m.Value } })
 
     # textes lus par du JavaScript de page
     $ui = @{}
@@ -337,6 +351,11 @@ foreach ($p in $pages) {
 [void]$sm.AppendLine('</urlset>')
 [IO.File]::WriteAllText((Join-Path $Out 'sitemap.xml'), $sm.ToString(), $utf8)
 
+# Web3Forms : sans cle, les formulaires passent par l'e-mail (mailto) ; ce n'est pas une erreur, juste un avertissement visible.
+# Pour l'activer : coller la cle a la place de PLACEHOLDER dans assets/forms.js (une seule ligne), puis relancer build.ps1.
+if ([IO.File]::ReadAllText((Join-Path $root 'assets\forms.js'), $utf8) -match 'CDM_FORM_KEY\s*=\s*"PLACEHOLDER"') {
+  Write-Host 'AVERTISSEMENT : cle Web3Forms absente : les formulaires utilisent le repli mailto' -ForegroundColor Yellow
+}
 Write-Host ('build : {0} pages ecrites dans {1} ({2}) ; INDEXABLE = {3}' -f $count, $Out, $(if ($Preview) { 'apercu' } else { 'site' }), $INDEXABLE)
 if ($problems.Count -gt 0) {
   Write-Host ('{0} PROBLEME(S) :' -f $problems.Count) -ForegroundColor Red

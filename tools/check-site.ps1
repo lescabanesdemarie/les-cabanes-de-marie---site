@@ -114,7 +114,7 @@ foreach ($name in @($texts.Keys)) {
     foreach ($m in [regex]::Matches($t, '(?i)\bsrcset=["'']([^"'']+)["'']')) { foreach ($part in $m.Groups[1].Value.Split(',')) { Test-Local $name ($part.Trim().Split(' ')[0]) 'srcset' } }
   }
   if ($name -match '\.(html|css)$') {
-    foreach ($m in [regex]::Matches($t, '(?i)url\(\s*["'']?([^)"'']+)["'']?\s*\)')) { Test-Local $name $m.Groups[1].Value 'url() CSS' }
+    foreach ($m in [regex]::Matches($t, '(?i)url\(\s*["'']?([^)"'']+)["'']?\s*\)')) { if ($m.Groups[1].Value -notmatch '^(#|%23)') { Test-Local $name $m.Groups[1].Value 'url() CSS' } }
   }
   if ($name -match '\.(js|html)$') {
     foreach ($m in [regex]::Matches($t, '(?<![\w/.-])(assets/[A-Za-z0-9_./-]+\.(?:jpe?g|png|webp|svg|woff2|css|js|json))')) { Test-Local 'index.html' $m.Groups[1].Value 'fichier cite dans le code' }

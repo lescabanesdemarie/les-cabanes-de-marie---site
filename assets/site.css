@@ -63,13 +63,12 @@ b,strong{font-weight:800}
 /* mise en page : le contenu part de la gauche avec une marge normale ; le grand vide reste à droite */
 .rc{padding-left:var(--pl);padding-right:var(--pr)}
 .pad{padding-block:clamp(88px,15vh,200px)}
-.deco{position:absolute;pointer-events:none;z-index:0;max-width:none}
 .dark{background:var(--dark);color:var(--paper)}
 .deep{background:var(--earth-deep);color:var(--paper)}
 .warm{background:var(--earth);color:var(--paper)}
 
 /* ---------------------------------------------------------------- boutons et liens */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.8em;min-height:56px;padding:16px 32px;background:var(--earth);color:var(--paper);border:2px solid var(--earth);font-weight:700;font-size:.86rem;line-height:1.1;letter-spacing:.14em;text-transform:uppercase;text-align:center;transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.8em;min-height:56px;padding:14px 30px;background:var(--earth);color:var(--paper);border:4px solid var(--earth);border-image:var(--wood) 8 / 4px round;font-weight:700;font-size:.86rem;line-height:1.1;letter-spacing:.14em;text-transform:uppercase;text-align:center;transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease)}
 .btn:hover{background:var(--ink);border-color:var(--ink)}
 .btn.o{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn.o:hover{background:var(--ink);color:var(--paper)}
@@ -77,10 +76,10 @@ b,strong{font-weight:800}
 .btn.inv:hover{background:transparent;color:var(--paper)}
 .btn.line-inv{background:transparent;color:var(--paper);border-color:var(--paper)}
 .btn.line-inv:hover{background:var(--paper);color:var(--ink)}
-.btn.sm{min-height:46px;padding:11px 22px}
+.btn.sm{min-height:46px;padding:9px 20px}
 .btn small{display:block;margin-top:5px;font-weight:500;font-size:.8rem;letter-spacing:.02em;text-transform:none}
 .cta{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center}
-.go{display:inline-flex;align-items:center;gap:.7em;font-weight:800;border-bottom:2px solid currentColor;padding-bottom:.18em;transition:gap .5s var(--ease),color .4s}
+.go{display:inline-flex;align-items:center;min-height:44px;gap:.7em;font-weight:800;border-bottom:2px solid currentColor;padding-bottom:.18em;transition:gap .5s var(--ease),color .4s}
 .go:hover{gap:1.1em;color:var(--earth)}
 .dark .go:hover,.deep .go:hover,.warm .go:hover{color:var(--sage-lt)}
 .ar{width:1.15em;height:1.15em;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:square}
@@ -120,17 +119,14 @@ b,strong{font-weight:800}
 
 /* barre du haut sur ordinateur : repliée en « logo seul » (hors accueil, et sur l'accueil après l'entrée).
    Elle revient en remontant, quand la souris approche du haut, ou au clavier (site.js pose / retire .bar-min).
-   Plus de fond ni de bandeau : seul le logo reste. Pour rester lisible sur une photo comme sur du crème, il porte un halo de la
-   couleur du papier (invisible sur le crème) ; sur un fond sombre (.dark / .deep / .warm), site.js pose .bar-ondark et le logo passe en clair. */
+   Plus de bandeau : seul le logo reste, sur un petit fond couleur papier (92 %, léger flou, angles droits) pour que rien de ce qui défile
+   dessous (le prix du bandeau, une photo) ne se mêle au logo. */
 .site-header{transition:background-color .25s ease,border-color .25s ease,opacity .25s ease}
 .site-header .nav,.site-header .hr{transition:opacity .25s ease}
-.site-header .brand{justify-self:start;transition:color .25s ease,text-shadow .25s ease}
+.site-header .brand{justify-self:start;min-height:44px;transition:color .25s ease,text-shadow .25s ease}
 @media(min-width:961px) and (hover:hover) and (pointer:fine){
   html.js body.bar-min .site-header{background:transparent;border-bottom-color:transparent;pointer-events:none}
-  html.js body.bar-min .site-header .brand{pointer-events:auto;text-shadow:0 0 2px var(--paper),0 0 6px var(--paper),0 0 12px var(--paper),0 0 20px var(--paper)}
-  html.js body.bar-min .site-header .brand img{filter:drop-shadow(0 0 2px var(--paper)) drop-shadow(0 0 6px var(--paper)) drop-shadow(0 0 12px var(--paper))}
-  html.js body.bar-min.bar-ondark .site-header .brand{color:var(--paper);text-shadow:none}
-  html.js body.bar-min.bar-ondark .site-header .brand img{filter:brightness(0) invert(1)}
+  html.js body.bar-min .site-header .brand{pointer-events:auto;margin:-10px;padding:10px;background:var(--paper)}
   html.js body.bar-min .site-header .nav,html.js body.bar-min .site-header .hr{opacity:0}
 }
 /* pendant la rupture, plus rien en haut (silence), pas même le logo ; revient au clavier */
@@ -294,7 +290,7 @@ legend{padding:0}
 .cab.alt{background:var(--paper-2)}
 .cab-top{order:0;padding:clamp(22px,4vh,40px) var(--pr) 0 var(--pl);display:flex;justify-content:flex-start}
 body.cabpage .cab-top{padding-top:calc(var(--hh) + clamp(22px,4vh,40px))}
-.others{display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:.98rem;color:var(--ink-soft);padding:8px 0;transition:color .5s var(--ease),gap .6s var(--ease)}
+.others{display:inline-flex;align-items:center;min-height:44px;gap:.7em;font-weight:700;font-size:.98rem;color:var(--ink-soft);padding:8px 0;transition:color .5s var(--ease),gap .6s var(--ease)}
 .others .ar{width:1.05em;height:1.05em;color:var(--sage);transform:rotate(-90deg)}
 .others:hover{color:var(--ink);gap:1.1em}
 .cab-dream{order:1;margin:0 var(--pr) 0 var(--pl);display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);gap:clamp(32px,4.4vw,80px);min-height:min(calc(100svh - var(--hh) - 150px),900px)}
@@ -313,6 +309,7 @@ body.cabpage .cab-top{padding-top:calc(var(--hh) + clamp(22px,4vh,40px))}
 
 /* la bande pratique : la même, au même endroit, sur les quatre cabanes */
 .strip{order:3;position:relative;z-index:5;background:inherit;border-top:1px solid var(--line)}
+.strip.strip-under{visibility:hidden} /* il touche la barre du haut : masqué (site.js) */
 .strip-in{padding:16px var(--pr) 16px var(--pl);display:flex;align-items:center;justify-content:space-between;gap:12px 36px;flex-wrap:wrap}
 .strip-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 18px;min-width:0;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.04em}
 .strip-price small{font-weight:500;font-size:.92rem;letter-spacing:0;color:var(--ink-soft);max-width:62ch}
@@ -433,3 +430,88 @@ body.cabpage .cab-top{padding-top:calc(var(--hh) + clamp(22px,4vh,40px))}
   *,*::before,*::after{animation:none !important;transition:none !important}
   .js .reveal,.js .unveil,.js .unveil img{opacity:1;transform:none}
 }
+
+/* ---------- boutons : bordure "planche de bois" (border-image, 4 px ; le centre garde son aplat) ----------
+   Les veines sont un petit SVG en ligne (6 variantes, ~10 Ko en tout) ; au survol / focus, la veine fonce d'environ 10 %.
+   Genere par un script : pour changer les couleurs, demander une nouvelle generation plutot que d'editer a la main. */
+:root{
+  --wood:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cdefs%3E%3CclipPath id='m'%3E%3Cpath d='M0 0H160L152 8H8Z'/%3E%3C/clipPath%3E%3Cg id='s' clip-path='url(%23m)'%3E%3Crect width='160' height='8' fill='%23694330'/%3E%3Cpath d='M0 1.4L4 1.5L8 1.7L12 1.9L16 2L20 2.1L24 2.2L28 2.2L32 2.1L36 2L40 1.9L44 1.7L48 1.5L52 1.4L56 1.3L60 1.2L64 1.2L68 1.3L72 1.4L76 1.5L80 1.7L84 1.9L88 2L92 2.1L96 2.2L100 2.2L104 2.1L108 2L112 1.9L116 1.7L120 1.5L124 1.4L128 1.3L132 1.2L136 1.2L140 1.3L144 1.4L148 1.5L152 1.7L156 1.9L160 2' stroke='%233F2819' stroke-width='1.2'/%3E%3Cpath d='M0 4.5L4 4.5L8 4.6L12 4.6L16 4.6L20 4.6L24 4.5L28 4.5L32 4.4L36 4.3L40 4.2L44 4.1L48 4L52 3.8L56 3.7L60 3.6L64 3.5L68 3.4L72 3.3L76 3.3L80 3.2L84 3.2L88 3.2L92 3.2L96 3.3L100 3.3L104 3.4L108 3.5L112 3.6L116 3.7L120 3.8L124 4L128 4.1L132 4.2L136 4.3L140 4.4L144 4.5L148 4.5L152 4.6L156 4.6L160 4.6' stroke='%239C6C4A' stroke-width='1.5'/%3E%3Cpath d='M0 6.6L4 6.6L8 6.6L12 6.4L16 6.2L20 6L24 5.8L28 5.8L32 5.8L36 6L40 6.2L44 6.4L48 6.6L52 6.6L56 6.6L60 6.4L64 6.2L68 6L72 5.8L76 5.8L80 5.8L84 6L88 6.2L92 6.4L96 6.6L100 6.6L104 6.6L108 6.4L112 6.2L116 6L120 5.8L124 5.8L128 5.8L132 6L136 6.2L140 6.4L144 6.6L148 6.6L152 6.6L156 6.4L160 6.2' stroke='%233F2819' stroke-width='1.2'/%3E%3Cellipse cx='62' cy='4' rx='5' ry='1.5' stroke='%233F2819' stroke-width='.8'/%3E%3Cpath d='M104 2.6h14M30 5.4h9' stroke='%239C6C4A' stroke-width='.7'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' transform='rotate(90 80 80)'/%3E%3Cuse href='%23s' transform='rotate(180 80 80)'/%3E%3Cuse href='%23s' transform='rotate(270 80 80)'/%3E%3Cpath d='M0 0L8 8M160 0L152 8M160 160L152 152M0 160L8 152' stroke='%233F2819' stroke-width='.8'/%3E%3C/svg%3E");
+  --wood-h:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cdefs%3E%3CclipPath id='m'%3E%3Cpath d='M0 0H160L152 8H8Z'/%3E%3C/clipPath%3E%3Cg id='s' clip-path='url(%23m)'%3E%3Crect width='160' height='8' fill='%23694330'/%3E%3Cpath d='M0 1.4L4 1.5L8 1.7L12 1.9L16 2L20 2.1L24 2.2L28 2.2L32 2.1L36 2L40 1.9L44 1.7L48 1.5L52 1.4L56 1.3L60 1.2L64 1.2L68 1.3L72 1.4L76 1.5L80 1.7L84 1.9L88 2L92 2.1L96 2.2L100 2.2L104 2.1L108 2L112 1.9L116 1.7L120 1.5L124 1.4L128 1.3L132 1.2L136 1.2L140 1.3L144 1.4L148 1.5L152 1.7L156 1.9L160 2' stroke='%23392417' stroke-width='1.2'/%3E%3Cpath d='M0 4.5L4 4.5L8 4.6L12 4.6L16 4.6L20 4.6L24 4.5L28 4.5L32 4.4L36 4.3L40 4.2L44 4.1L48 4L52 3.8L56 3.7L60 3.6L64 3.5L68 3.4L72 3.3L76 3.3L80 3.2L84 3.2L88 3.2L92 3.2L96 3.3L100 3.3L104 3.4L108 3.5L112 3.6L116 3.7L120 3.8L124 4L128 4.1L132 4.2L136 4.3L140 4.4L144 4.5L148 4.5L152 4.6L156 4.6L160 4.6' stroke='%238c6143' stroke-width='1.5'/%3E%3Cpath d='M0 6.6L4 6.6L8 6.6L12 6.4L16 6.2L20 6L24 5.8L28 5.8L32 5.8L36 6L40 6.2L44 6.4L48 6.6L52 6.6L56 6.6L60 6.4L64 6.2L68 6L72 5.8L76 5.8L80 5.8L84 6L88 6.2L92 6.4L96 6.6L100 6.6L104 6.6L108 6.4L112 6.2L116 6L120 5.8L124 5.8L128 5.8L132 6L136 6.2L140 6.4L144 6.6L148 6.6L152 6.6L156 6.4L160 6.2' stroke='%23392417' stroke-width='1.2'/%3E%3Cellipse cx='62' cy='4' rx='5' ry='1.5' stroke='%23392417' stroke-width='.8'/%3E%3Cpath d='M104 2.6h14M30 5.4h9' stroke='%238c6143' stroke-width='.7'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' transform='rotate(90 80 80)'/%3E%3Cuse href='%23s' transform='rotate(180 80 80)'/%3E%3Cuse href='%23s' transform='rotate(270 80 80)'/%3E%3Cpath d='M0 0L8 8M160 0L152 8M160 160L152 152M0 160L8 152' stroke='%23392417' stroke-width='.8'/%3E%3C/svg%3E");
+  --wood-dk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cdefs%3E%3CclipPath id='m'%3E%3Cpath d='M0 0H160L152 8H8Z'/%3E%3C/clipPath%3E%3Cg id='s' clip-path='url(%23m)'%3E%3Crect width='160' height='8' fill='%235E3C28'/%3E%3Cpath d='M0 1.4L4 1.5L8 1.7L12 1.9L16 2L20 2.1L24 2.2L28 2.2L32 2.1L36 2L40 1.9L44 1.7L48 1.5L52 1.4L56 1.3L60 1.2L64 1.2L68 1.3L72 1.4L76 1.5L80 1.7L84 1.9L88 2L92 2.1L96 2.2L100 2.2L104 2.1L108 2L112 1.9L116 1.7L120 1.5L124 1.4L128 1.3L132 1.2L136 1.2L140 1.3L144 1.4L148 1.5L152 1.7L156 1.9L160 2' stroke='%232C1D14' stroke-width='1.2'/%3E%3Cpath d='M0 4.5L4 4.5L8 4.6L12 4.6L16 4.6L20 4.6L24 4.5L28 4.5L32 4.4L36 4.3L40 4.2L44 4.1L48 4L52 3.8L56 3.7L60 3.6L64 3.5L68 3.4L72 3.3L76 3.3L80 3.2L84 3.2L88 3.2L92 3.2L96 3.3L100 3.3L104 3.4L108 3.5L112 3.6L116 3.7L120 3.8L124 4L128 4.1L132 4.2L136 4.3L140 4.4L144 4.5L148 4.5L152 4.6L156 4.6L160 4.6' stroke='%238A5D40' stroke-width='1.5'/%3E%3Cpath d='M0 6.6L4 6.6L8 6.6L12 6.4L16 6.2L20 6L24 5.8L28 5.8L32 5.8L36 6L40 6.2L44 6.4L48 6.6L52 6.6L56 6.6L60 6.4L64 6.2L68 6L72 5.8L76 5.8L80 5.8L84 6L88 6.2L92 6.4L96 6.6L100 6.6L104 6.6L108 6.4L112 6.2L116 6L120 5.8L124 5.8L128 5.8L132 6L136 6.2L140 6.4L144 6.6L148 6.6L152 6.6L156 6.4L160 6.2' stroke='%232C1D14' stroke-width='1.2'/%3E%3Cellipse cx='62' cy='4' rx='5' ry='1.5' stroke='%232C1D14' stroke-width='.8'/%3E%3Cpath d='M104 2.6h14M30 5.4h9' stroke='%238A5D40' stroke-width='.7'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' transform='rotate(90 80 80)'/%3E%3Cuse href='%23s' transform='rotate(180 80 80)'/%3E%3Cuse href='%23s' transform='rotate(270 80 80)'/%3E%3Cpath d='M0 0L8 8M160 0L152 8M160 160L152 152M0 160L8 152' stroke='%232C1D14' stroke-width='.8'/%3E%3C/svg%3E");
+  --wood-dk-h:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cdefs%3E%3CclipPath id='m'%3E%3Cpath d='M0 0H160L152 8H8Z'/%3E%3C/clipPath%3E%3Cg id='s' clip-path='url(%23m)'%3E%3Crect width='160' height='8' fill='%235E3C28'/%3E%3Cpath d='M0 1.4L4 1.5L8 1.7L12 1.9L16 2L20 2.1L24 2.2L28 2.2L32 2.1L36 2L40 1.9L44 1.7L48 1.5L52 1.4L56 1.3L60 1.2L64 1.2L68 1.3L72 1.4L76 1.5L80 1.7L84 1.9L88 2L92 2.1L96 2.2L100 2.2L104 2.1L108 2L112 1.9L116 1.7L120 1.5L124 1.4L128 1.3L132 1.2L136 1.2L140 1.3L144 1.4L148 1.5L152 1.7L156 1.9L160 2' stroke='%23281a12' stroke-width='1.2'/%3E%3Cpath d='M0 4.5L4 4.5L8 4.6L12 4.6L16 4.6L20 4.6L24 4.5L28 4.5L32 4.4L36 4.3L40 4.2L44 4.1L48 4L52 3.8L56 3.7L60 3.6L64 3.5L68 3.4L72 3.3L76 3.3L80 3.2L84 3.2L88 3.2L92 3.2L96 3.3L100 3.3L104 3.4L108 3.5L112 3.6L116 3.7L120 3.8L124 4L128 4.1L132 4.2L136 4.3L140 4.4L144 4.5L148 4.5L152 4.6L156 4.6L160 4.6' stroke='%237c543a' stroke-width='1.5'/%3E%3Cpath d='M0 6.6L4 6.6L8 6.6L12 6.4L16 6.2L20 6L24 5.8L28 5.8L32 5.8L36 6L40 6.2L44 6.4L48 6.6L52 6.6L56 6.6L60 6.4L64 6.2L68 6L72 5.8L76 5.8L80 5.8L84 6L88 6.2L92 6.4L96 6.6L100 6.6L104 6.6L108 6.4L112 6.2L116 6L120 5.8L124 5.8L128 5.8L132 6L136 6.2L140 6.4L144 6.6L148 6.6L152 6.6L156 6.4L160 6.2' stroke='%23281a12' stroke-width='1.2'/%3E%3Cellipse cx='62' cy='4' rx='5' ry='1.5' stroke='%23281a12' stroke-width='.8'/%3E%3Cpath d='M104 2.6h14M30 5.4h9' stroke='%237c543a' stroke-width='.7'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' transform='rotate(90 80 80)'/%3E%3Cuse href='%23s' transform='rotate(180 80 80)'/%3E%3Cuse href='%23s' transform='rotate(270 80 80)'/%3E%3Cpath d='M0 0L8 8M160 0L152 8M160 160L152 152M0 160L8 152' stroke='%23281a12' stroke-width='.8'/%3E%3C/svg%3E");
+  --wood-lt:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cdefs%3E%3CclipPath id='m'%3E%3Cpath d='M0 0H160L152 8H8Z'/%3E%3C/clipPath%3E%3Cg id='s' clip-path='url(%23m)'%3E%3Crect width='160' height='8' fill='%23DCCFB6'/%3E%3Cpath d='M0 1.4L4 1.5L8 1.7L12 1.9L16 2L20 2.1L24 2.2L28 2.2L32 2.1L36 2L40 1.9L44 1.7L48 1.5L52 1.4L56 1.3L60 1.2L64 1.2L68 1.3L72 1.4L76 1.5L80 1.7L84 1.9L88 2L92 2.1L96 2.2L100 2.2L104 2.1L108 2L112 1.9L116 1.7L120 1.5L124 1.4L128 1.3L132 1.2L136 1.2L140 1.3L144 1.4L148 1.5L152 1.7L156 1.9L160 2' stroke='%239C8462' stroke-width='1.2'/%3E%3Cpath d='M0 4.5L4 4.5L8 4.6L12 4.6L16 4.6L20 4.6L24 4.5L28 4.5L32 4.4L36 4.3L40 4.2L44 4.1L48 4L52 3.8L56 3.7L60 3.6L64 3.5L68 3.4L72 3.3L76 3.3L80 3.2L84 3.2L88 3.2L92 3.2L96 3.3L100 3.3L104 3.4L108 3.5L112 3.6L116 3.7L120 3.8L124 4L128 4.1L132 4.2L136 4.3L140 4.4L144 4.5L148 4.5L152 4.6L156 4.6L160 4.6' stroke='%23F6EFE0' stroke-width='1.5'/%3E%3Cpath d='M0 6.6L4 6.6L8 6.6L12 6.4L16 6.2L20 6L24 5.8L28 5.8L32 5.8L36 6L40 6.2L44 6.4L48 6.6L52 6.6L56 6.6L60 6.4L64 6.2L68 6L72 5.8L76 5.8L80 5.8L84 6L88 6.2L92 6.4L96 6.6L100 6.6L104 6.6L108 6.4L112 6.2L116 6L120 5.8L124 5.8L128 5.8L132 6L136 6.2L140 6.4L144 6.6L148 6.6L152 6.6L156 6.4L160 6.2' stroke='%239C8462' stroke-width='1.2'/%3E%3Cellipse cx='62' cy='4' rx='5' ry='1.5' stroke='%239C8462' stroke-width='.8'/%3E%3Cpath d='M104 2.6h14M30 5.4h9' stroke='%23F6EFE0' stroke-width='.7'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' transform='rotate(90 80 80)'/%3E%3Cuse href='%23s' transform='rotate(180 80 80)'/%3E%3Cuse href='%23s' transform='rotate(270 80 80)'/%3E%3Cpath d='M0 0L8 8M160 0L152 8M160 160L152 152M0 160L8 152' stroke='%239C8462' stroke-width='.8'/%3E%3C/svg%3E");
+  --wood-lt-h:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cdefs%3E%3CclipPath id='m'%3E%3Cpath d='M0 0H160L152 8H8Z'/%3E%3C/clipPath%3E%3Cg id='s' clip-path='url(%23m)'%3E%3Crect width='160' height='8' fill='%23DCCFB6'/%3E%3Cpath d='M0 1.4L4 1.5L8 1.7L12 1.9L16 2L20 2.1L24 2.2L28 2.2L32 2.1L36 2L40 1.9L44 1.7L48 1.5L52 1.4L56 1.3L60 1.2L64 1.2L68 1.3L72 1.4L76 1.5L80 1.7L84 1.9L88 2L92 2.1L96 2.2L100 2.2L104 2.1L108 2L112 1.9L116 1.7L120 1.5L124 1.4L128 1.3L132 1.2L136 1.2L140 1.3L144 1.4L148 1.5L152 1.7L156 1.9L160 2' stroke='%238c7758' stroke-width='1.2'/%3E%3Cpath d='M0 4.5L4 4.5L8 4.6L12 4.6L16 4.6L20 4.6L24 4.5L28 4.5L32 4.4L36 4.3L40 4.2L44 4.1L48 4L52 3.8L56 3.7L60 3.6L64 3.5L68 3.4L72 3.3L76 3.3L80 3.2L84 3.2L88 3.2L92 3.2L96 3.3L100 3.3L104 3.4L108 3.5L112 3.6L116 3.7L120 3.8L124 4L128 4.1L132 4.2L136 4.3L140 4.4L144 4.5L148 4.5L152 4.6L156 4.6L160 4.6' stroke='%23ddd7ca' stroke-width='1.5'/%3E%3Cpath d='M0 6.6L4 6.6L8 6.6L12 6.4L16 6.2L20 6L24 5.8L28 5.8L32 5.8L36 6L40 6.2L44 6.4L48 6.6L52 6.6L56 6.6L60 6.4L64 6.2L68 6L72 5.8L76 5.8L80 5.8L84 6L88 6.2L92 6.4L96 6.6L100 6.6L104 6.6L108 6.4L112 6.2L116 6L120 5.8L124 5.8L128 5.8L132 6L136 6.2L140 6.4L144 6.6L148 6.6L152 6.6L156 6.4L160 6.2' stroke='%238c7758' stroke-width='1.2'/%3E%3Cellipse cx='62' cy='4' rx='5' ry='1.5' stroke='%238c7758' stroke-width='.8'/%3E%3Cpath d='M104 2.6h14M30 5.4h9' stroke='%23ddd7ca' stroke-width='.7'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' transform='rotate(90 80 80)'/%3E%3Cuse href='%23s' transform='rotate(180 80 80)'/%3E%3Cuse href='%23s' transform='rotate(270 80 80)'/%3E%3Cpath d='M0 0L8 8M160 0L152 8M160 160L152 152M0 160L8 152' stroke='%238c7758' stroke-width='.8'/%3E%3C/svg%3E");
+}
+.btn:hover,.btn:focus-visible{border-image-source:var(--wood-h)}
+.btn.o{border-image-source:var(--wood-dk)}
+.btn.o:hover,.btn.o:focus-visible{border-image-source:var(--wood-dk-h)}
+.btn.inv,.btn.line-inv{border-image-source:var(--wood-lt)}
+.btn.inv:hover,.btn.inv:focus-visible,.btn.line-inv:hover,.btn.line-inv:focus-visible{border-image-source:var(--wood-lt-h)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 3px var(--paper)}
+.dark .btn:focus-visible,.deep .btn:focus-visible,.warm .btn:focus-visible{outline-color:var(--paper);box-shadow:0 0 0 3px var(--ink)}
+@media(max-width:960px){
+  .bookbar{border:0;border-top:4px solid var(--earth-deep);border-image:var(--wood) 8 / 4px 0 0 round}
+  .bookbar:hover,.bookbar:focus-visible{border-image-source:var(--wood-h)}
+}
+
+/* ---------- branches animees (d'apres les maquettes Chene / Sapin / Erable / Rosier) : rails de branches ----------
+   Pages cabane, cabanes de l'accueil, sommaire. Dessins en SVG dans les pages, couleurs = variables ci-dessous (maquettes desaturees ~25 %).
+   site.js pose chaque branche dans le vide (40 px de tout texte, photo ou bouton) puis la fait arriver (.in) ; hors ecran : pause (.off). */
+.br-rail,.br-defs{--b-wood:#72543E;--b-shadow:#3B2B21;--b-leaf:#5D7342;--b-leaf2:#7A9055;--b-leaf3:#465932;--b-leafVein:#3E4E2D;--b-birdRed:#C36A41;--b-birdBack:#836B56;--b-birdWing:#654F3E;--b-birdBelly:#ECE5DB;--b-fir1:#355746;--b-fir2:#4A735B;--b-firBack:#243C2E;--b-sqBody:#AD653D;--b-sqTail:#C17B4D;--b-sqBelly:#EBE0CD;--b-sqDark:#80482E;--b-maple1:#AB4942;--b-maple2:#C56649;--b-mapleBack:#7E3331;--b-mapleVein:#612724;--b-dragonBody:#3D7C67;--b-dragonDark:#285446;--b-dragonGold:#C7A154;--b-dragonBelly:#EADEBE;--b-roseStem:#4D643A;--b-roseLeaf:#43643C;--b-roseLeaf2:#5D814E;--b-roseLeafVein:#2D4529;--b-rose1:#C6596A;--b-rose2:#E08996;--b-roseDark:#96394B;--b-beeYellow:#DAB648;--b-beeTrail:#867A6C}
+.br .f-beeYellow,.br-defs .f-beeYellow{fill:var(--b-beeYellow)}.br .f-birdBack,.br-defs .f-birdBack{fill:var(--b-birdBack)}.br .f-birdBelly,.br-defs .f-birdBelly{fill:var(--b-birdBelly)}.br .f-birdRed,.br-defs .f-birdRed{fill:var(--b-birdRed)}.br .f-birdWing,.br-defs .f-birdWing{fill:var(--b-birdWing)}.br .f-dragonBelly,.br-defs .f-dragonBelly{fill:var(--b-dragonBelly)}.br .f-dragonBody,.br-defs .f-dragonBody{fill:var(--b-dragonBody)}.br .f-dragonDark,.br-defs .f-dragonDark{fill:var(--b-dragonDark)}.br .f-dragonGold,.br-defs .f-dragonGold{fill:var(--b-dragonGold)}.br .f-leaf,.br-defs .f-leaf{fill:var(--b-leaf)}.br .f-leaf2,.br-defs .f-leaf2{fill:var(--b-leaf2)}.br .f-leaf3,.br-defs .f-leaf3{fill:var(--b-leaf3)}.br .f-maple1,.br-defs .f-maple1{fill:var(--b-maple1)}.br .f-maple2,.br-defs .f-maple2{fill:var(--b-maple2)}.br .f-mapleBack,.br-defs .f-mapleBack{fill:var(--b-mapleBack)}.br .f-roseLeaf,.br-defs .f-roseLeaf{fill:var(--b-roseLeaf)}.br .f-roseLeaf2,.br-defs .f-roseLeaf2{fill:var(--b-roseLeaf2)}.br .f-roseStem,.br-defs .f-roseStem{fill:var(--b-roseStem)}.br .f-shadow,.br-defs .f-shadow{fill:var(--b-shadow)}.br .f-sqBelly,.br-defs .f-sqBelly{fill:var(--b-sqBelly)}.br .f-sqBody,.br-defs .f-sqBody{fill:var(--b-sqBody)}.br .f-sqDark,.br-defs .f-sqDark{fill:var(--b-sqDark)}.br .f-sqTail,.br-defs .f-sqTail{fill:var(--b-sqTail)}.br .s-beeTrail,.br-defs .s-beeTrail{stroke:var(--b-beeTrail)}.br .s-dragonBelly,.br-defs .s-dragonBelly{stroke:var(--b-dragonBelly)}.br .s-dragonBody,.br-defs .s-dragonBody{stroke:var(--b-dragonBody)}.br .s-dragonDark,.br-defs .s-dragonDark{stroke:var(--b-dragonDark)}.br .s-dragonGold,.br-defs .s-dragonGold{stroke:var(--b-dragonGold)}.br .s-fir1,.br-defs .s-fir1{stroke:var(--b-fir1)}.br .s-fir2,.br-defs .s-fir2{stroke:var(--b-fir2)}.br .s-firBack,.br-defs .s-firBack{stroke:var(--b-firBack)}.br .s-roseStem,.br-defs .s-roseStem{stroke:var(--b-roseStem)}.br .s-shadow,.br-defs .s-shadow{stroke:var(--b-shadow)}.br .s-wood,.br-defs .s-wood{stroke:var(--b-wood)}
+.som .br-sa{--b-wood:#9F8B7C;--b-shadow:#7A6F68;--b-fir1:#768D81;--b-fir2:#84A08F;--b-firBack:#6A7A71}
+.br-rail{position:absolute;inset:0;z-index:0;pointer-events:none}
+.br{position:absolute;display:none}
+.br > svg{display:block;width:100%;height:100%;overflow:hidden}
+.br.mir > svg{transform:scaleX(-1)}
+html.js .br:not(.in) *,.br.off *{animation-play-state:paused!important}
+/* sans JS : la premiere branche de chaque rail, posee en haut a droite (pas sur le sommaire) */
+html:not(.js) .br-rail > .br:first-child{display:block;right:0;top:calc(var(--hh) + 8px);width:clamp(110px,calc(var(--pr) - 40px),320px)}
+html:not(.js) .br > svg{height:auto}
+html:not(.js) .br-rail[data-rows]{display:none}
+.cab{position:relative}
+.cab-dream > *,.ch-avail > *{position:relative;z-index:1}
+.ch-avail{position:relative}
+/* accueil, grand ecran : une bande libre au-dessus du titre de chaque cabane, pour une branche d'au moins 220 px */
+@media(min-width:1400px){.home .cab-top{min-height:calc(var(--hh) + 200px);align-items:flex-start}}
+/* ecran moyen et telephone : bandes libres (au-dessus du titre, et avant les dates) ou les branches se posent */
+@media(max-width:1399.98px){
+  .cab-top{min-height:calc(var(--hh) + 240px);align-items:flex-start}
+  .ch-avail{padding-top:200px}
+}
+@media(max-width:960px){
+  .cab-top{min-height:calc(var(--hh) + 168px)}
+  .ch-avail{padding-top:230px}
+}
+/* sommaire : une colonne libre a droite de chaque citation, des lignes assez hautes pour une branche de 220 px et plus */
+.som-list li{padding-right:max(0px,calc(340px - var(--pr)))}
+.som .som-list{border-top:0}
+@media(min-width:961px){.som-item{min-height:clamp(150px,12vw,250px)}}
+.som-list li:first-child .som-item{border-top:1px solid var(--line-lt)}
+@media(max-width:960px){.som-list li{padding-right:40vw}}
+@media(prefers-reduced-motion:reduce){.br *{animation:none!important}}
+@keyframes br-windL { 0% { transform: translateX(-380px) rotate(-12deg); opacity: 0 } 15% { opacity: 1 } 60% { transform: translateX(8px) rotate(5deg) } 78% { transform: translateX(-2px) rotate(-2.5deg) } 92% { transform: translateX(0) rotate(1deg) } 100% { transform: translateX(0) rotate(0deg); opacity: 1 } }
+@keyframes br-windR { 0% { transform: translateX(380px) rotate(12deg); opacity: 0 } 15% { opacity: 1 } 60% { transform: translateX(-8px) rotate(-5deg) } 78% { transform: translateX(2px) rotate(2.5deg) } 92% { transform: translateX(0) rotate(-1deg) } 100% { transform: translateX(0) rotate(0deg); opacity: 1 } }
+@keyframes br-sway { from { transform: rotate(0deg) } to { transform: rotate(1.4deg) } }
+@keyframes br-flap { from { transform: rotate(0deg) } to { transform: rotate(-45deg) scaleY(0.55) } }
+@keyframes br-hover { from { transform: translate(0px, 0px) } to { transform: translate(3px, -4px) } }
+@keyframes br-fadein { from { opacity: 0 } to { opacity: 1 } }
+@keyframes ch-k0 { 0% { transform: translate(-230px, -210px); opacity: 0 } 8% { opacity: 1 } 35% { transform: translate(-150px, -91px) } 65% { transform: translate(-69px, -57px) } 90% { transform: translate(0px, -6px) } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ch-k1 { 0% { transform: translate(-230px, -210px); opacity: 0 } 8% { opacity: 1 } 35% { transform: translate(-150px, -91px) } 65% { transform: translate(-69px, -57px) } 90% { transform: translate(0px, -6px) } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ch-k2 { 0% { transform: translate(230px, -210px); opacity: 0 } 8% { opacity: 1 } 35% { transform: translate(150px, -91px) } 65% { transform: translate(69px, -57px) } 90% { transform: translate(0px, -6px) } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes sa-k0 { 0% { transform: translate(-73px, 21px); opacity: 1 } 17% { transform: translate(-61px, 18px); opacity: 1 } 33% { transform: translate(-48px, 15px); opacity: 1 } 50% { transform: translate(-36px, 11px); opacity: 1 } 67% { transform: translate(-24px, 8px); opacity: 1 } 83% { transform: translate(-12px, 4px); opacity: 1 } 100% { transform: translate(0px, -0px); opacity: 1 } }
+@keyframes sa-k1 { 0% { transform: translate(-70px, 35px); opacity: 1 } 17% { transform: translate(-58px, 29px); opacity: 1 } 33% { transform: translate(-46px, 24px); opacity: 1 } 50% { transform: translate(-34px, 18px); opacity: 1 } 67% { transform: translate(-23px, 12px); opacity: 1 } 83% { transform: translate(-11px, 6px); opacity: 1 } 100% { transform: translate(0px, -0px); opacity: 1 } }
+@keyframes sa-k2 { 0% { transform: translate(73px, 29px); opacity: 1 } 17% { transform: translate(61px, 25px); opacity: 1 } 33% { transform: translate(48px, 20px); opacity: 1 } 50% { transform: translate(36px, 16px); opacity: 1 } 67% { transform: translate(24px, 11px); opacity: 1 } 83% { transform: translate(12px, 5px); opacity: 1 } 100% { transform: translate(-0px, -0px); opacity: 1 } }
+@keyframes er-k0 { 0% { transform: translate(-380px, -70px); opacity: 0 } 10% { opacity: 1 } 30% { transform: translate(-266px, -35px) } 55% { transform: translate(-152px, -51px) } 80% { transform: translate(-38px, 12px) } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes er-k1 { 0% { transform: translate(-380px, -70px); opacity: 0 } 10% { opacity: 1 } 30% { transform: translate(-266px, -35px) } 55% { transform: translate(-152px, -51px) } 80% { transform: translate(-38px, 12px) } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes er-k2 { 0% { transform: translate(380px, -70px); opacity: 0 } 10% { opacity: 1 } 30% { transform: translate(266px, -35px) } 55% { transform: translate(152px, -51px) } 80% { transform: translate(38px, 12px) } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k0 { 0% { transform: translate(33px, 25px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k1 { 0% { transform: translate(19px, -39px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k2 { 0% { transform: translate(37px, 1px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k3 { 0% { transform: translate(-33px, -21px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k4 { 0% { transform: translate(5px, 34px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k5 { 0% { transform: translate(35px, -25px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k6 { 0% { transform: translate(38px, -27px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k7 { 0% { transform: translate(15px, 34px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@keyframes ro-k8 { 0% { transform: translate(31px, 27px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translate(0px, 0px); opacity: 1 } }
+@media(max-width:959.98px){@keyframes br-sway{from{transform:rotate(0deg)}to{transform:rotate(.7deg)}}}
