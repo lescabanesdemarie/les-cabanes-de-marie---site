@@ -23,6 +23,14 @@ param([switch]$Preview, [string]$Out = '')
 #  (la page 404 reste toujours en noindex)
 $INDEXABLE = $true
 # =====================================================================================================================
+#  BANDEAU D'INFORMATION en haut de toutes les pages (fermeture de la saison).
+#    $BANNER_ON = $false : plus de bandeau (une seule ligne a changer, puis relancer build.ps1).
+#    Le texte francais est ci-dessous ; l'allemand et l'anglais sont dans src/i18n/chrome.json (cle "banner").
+#    Le navigateur le masque aussi tout seul a partir de $BANNER_UNTIL (date de reouverture).
+$BANNER_ON = $true
+$BANNER_TEXT = 'Ferm' + [char]0xE9 + ' jusqu''au 25 mars 2027 ' + [char]0xB7 + ' R' + [char]0xE9 + 'servations ouvertes d' + [char]0xE8 + 's le 1er janvier 2027'
+$BANNER_UNTIL = '2027-03-25'
+# =====================================================================================================================
 
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Web.Extensions
@@ -147,6 +155,9 @@ foreach ($p in $pages) {
     $part = $parts[$n]
     if ($rx.IsMatch($t)) { $t = $rx.Replace($t, [System.Text.RegularExpressions.MatchEvaluator] { param($m) $part }) }
   }
+  # bandeau d'information (dans la barre du haut)
+  $bannerHtml = if ($BANNER_ON) { '<p class="closing" data-i="banner" data-until="' + $BANNER_UNTIL + '">' + $BANNER_TEXT + '</p>' } else { '' }
+  $t = $t.Replace('<!--build:banner-->', $bannerHtml)
   $pd = @{ de = @{}; en = @{} }
   $m = [regex]::Match($t, 'window\.CDM_I18N\s*=\s*\{')
   if ($m.Success) {
@@ -241,7 +252,7 @@ foreach ($p in $pages) {
     [void]$meta.AppendLine('<title>' + (Esc-Attr $mm['title']) + '</title>')
     [void]$meta.AppendLine('<meta name="description" content="' + (Esc-Attr $mm['desc']) + '">')
     if ($p -eq '404') { [void]$meta.AppendLine('<meta name="robots" content="noindex">') }
-    elseif (-not $INDEXABLE) { [void]$meta.AppendLine('<meta name="robots" content="noindex, nofollow">') }
+    elseif (-not $INDEXABLE -or $Preview) { [void]$meta.AppendLine('<meta name="robots" content="noindex, nofollow">') }   # un apercu n'est jamais indexable
     else { [void]$meta.AppendLine('<meta name="robots" content="index, follow, max-image-preview:large">') }
     if ($p -ne '404') {
       [void]$meta.AppendLine('<link rel="canonical" href="' + (Abs-Url $p $lang) + '">')
@@ -287,7 +298,7 @@ foreach ($p in $pages) {
         address = [ordered]@{ '@type' = 'PostalAddress'; streetAddress = $site['street']; postalCode = $site['postalCode']; addressLocality = $site['locality']; addressRegion = $site['region']; addressCountry = $site['country'] }
         geo = [ordered]@{ '@type' = 'GeoCoordinates'; latitude = $site['lat']; longitude = $site['lon'] }
         checkinTime = $site['checkin']; checkoutTime = $site['checkout']
-        openingHoursSpecification = @([ordered]@{ '@type' = 'OpeningHoursSpecification'; validFrom = ('{0}-{1:00}-01' -f $y, $site['seasonOpenMonth']); validThrough = ('{0}-{1:00}-{2}' -f $y, $site['seasonCloseMonth'], [DateTime]::DaysInMonth($y, $site['seasonCloseMonth'])) })
+        openingHoursSpecification = @([ordered]@{ '@type' = 'OpeningHoursSpecification'; validFrom = ('{0}-{1:00}-{2:00}' -f $y, $site['seasonOpenMonth'], $site['seasonOpenDay']); validThrough = ('{0}-{1:00}-{2}' -f $y, $site['seasonCloseMonth'], [DateTime]::DaysInMonth($y, $site['seasonCloseMonth'])) })
         sameAs = @($site['sameAs'])
       }
       [void]$meta.AppendLine('<script type="application/ld+json">' + (ConvertTo-Json -InputObject $ld -Depth 6 -Compress) + '</script>')
@@ -331,7 +342,7 @@ foreach ($l in $langs) {
 
 # ---------------------------------------------------------------------------------------------------- robots.txt, sitemap.xml
 $today = (Get-Date).ToString('yyyy-MM-dd')
-if ($INDEXABLE) { $robots = "User-agent: *`nAllow: /`n`nSitemap: " + $site['base'] + "/sitemap.xml`n" }
+if ($INDEXABLE -and -not $Preview) { $robots = "User-agent: *`nAllow: /`n`nSitemap: " + $site['base'] + "/sitemap.xml`n" }
 else { $robots = "# Apercu : le site n'est pas encore indexable (variable INDEXABLE dans tools/build.ps1).`nUser-agent: *`nDisallow: /`n" }
 [IO.File]::WriteAllText((Join-Path $Out 'robots.txt'), $robots, $utf8)
 $sm = New-Object System.Text.StringBuilder

@@ -12,6 +12,14 @@
 
   function all(sel, ctx) { return Array.prototype.slice.call((ctx || D).querySelectorAll(sel)); }
 
+  /* ---- bandeau d'information (barre du haut) : il se retire tout seul à partir de sa date de fin
+         (data-until = AAAA-MM-JJ, minuit heure du visiteur) ; la hauteur de la barre suit (CSS :has) ---- */
+  var closing = D.querySelector('.closing');
+  if (closing) {
+    var until = (closing.getAttribute('data-until') || '').split('-');
+    if (until.length === 3 && Date.now() >= new Date(+until[0], +until[1] - 1, +until[2]).getTime()) closing.parentNode.removeChild(closing);
+  }
+
   /* ---- langue de la page (pour les scripts : Planyo, formulaires, Edith) ---- */
   var lang = (root.getAttribute('lang') || 'fr').slice(0, 2);
   window.__lang = lang;

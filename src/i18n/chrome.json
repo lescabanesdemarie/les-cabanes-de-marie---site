@@ -1,6 +1,7 @@
 {
   "de": {
     "skip": "Zum Inhalt springen",
+    "banner": "Geschlossen bis 25. März 2027 · Buchungen ab 1. Januar 2027 möglich",
     "nav.cab": "Die Hütten",
     "nav.spa": "Spa & Genuss",
     "nav.act": "Aktivitäten",
@@ -31,7 +32,7 @@
     "ft.contact": "Kontakt",
     "ft.cg": "AGB",
     "ft.priv": "Datenschutz",
-    "ft.hours": "Geöffnet von April bis Ende Oktober · Ankunft ab 16 Uhr · Abreise 11 Uhr",
+    "ft.hours": "Geöffnet von Ende März bis Ende Oktober · Ankunft ab 16 Uhr · Abreise 11 Uhr",
     "ft.rights": "© 2026 Les Cabanes de Marie — Ogens (VD), Schweiz",
     "ft.made": "Website mit ♥ von unserem Sohn Mathis gemacht",
     "ui.book": "Diese Hütte reservieren",
@@ -50,6 +51,7 @@
   },
   "en": {
     "skip": "Skip to content",
+    "banner": "Closed until 25 March 2027 · Bookings open from 1 January 2027",
     "nav.cab": "The cabins",
     "nav.spa": "Spa & dining",
     "nav.act": "Activities",
@@ -80,7 +82,7 @@
     "ft.contact": "Contact",
     "ft.cg": "Terms & conditions",
     "ft.priv": "Privacy",
-    "ft.hours": "Open April to end of October · Check-in from 4 pm · Check-out 11 am",
+    "ft.hours": "Open from late March to the end of October · Check-in from 4 pm · Check-out 11 am",
     "ft.rights": "© 2026 Les Cabanes de Marie — Ogens (VD), Switzerland",
     "ft.made": "Website made with ♥ by our son, Mathis",
     "ui.book": "Book this cabin",

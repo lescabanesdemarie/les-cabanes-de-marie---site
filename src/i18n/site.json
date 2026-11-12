@@ -10,12 +10,13 @@
   "country": "CH",
   "lat": 46.711086,
   "lon": 6.726036,
-  "priceRange": "CHF 280+",
+  "priceRange": "CHF 290+",
   "sameAs": [
     "https://www.facebook.com/lescabanesdemarie/",
     "https://www.instagram.com/lescabanesdemarie/"
   ],
-  "seasonOpenMonth": 4,
+  "seasonOpenMonth": 3,
+  "seasonOpenDay": 25,
   "seasonCloseMonth": 10,
   "checkin": "16:00",
   "checkout": "11:00",
@@ -31,47 +32,47 @@
     "index": {
       "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,
       "fr": { "title": "Cabane dans les arbres à Ogens (VD) · Les Cabanes de Marie",
-              "desc": "Dormez dans les arbres à Ogens (VD) : quatre cabanes perchées, éco-spa au feu de bois, petit-déjeuner local. Réservez votre nuit insolite." },
+              "desc": "Quatre cabanes perchées à Ogens (VD), éco-spa au feu de bois. Fermé jusqu'au 25 mars 2027, réservations ouvertes dès le 1er janvier 2027." },
       "de": { "title": "Baumhaus in Ogens (Waadt) · Les Cabanes de Marie",
-              "desc": "Übernachten im Baumhaus in der Schweiz: vier Baumhütten in Ogens (Waadt), Öko-Spa am Holzfeuer, lokales Frühstück. Buchen Sie Ihre besondere Nacht." },
+              "desc": "Vier Baumhütten in Ogens (Waadt), Öko-Spa am Holzfeuer. Geschlossen bis 25. März 2027, Buchungen ab 1. Januar 2027 möglich." },
       "en": { "title": "Treehouse stay in Ogens, Switzerland · Les Cabanes de Marie",
-              "desc": "Treehouse stay in Switzerland: four cabins in the trees in Ogens (canton of Vaud), wood-fired eco-spa, local breakfast. Book a night like no other." }
+              "desc": "Four treehouse cabins in Ogens (Vaud), Switzerland, with a wood-fired eco-spa. Closed until 25 March 2027, bookings open from 1 January 2027." }
     },
     "cabane-mathis": {
       "og": "assets/cabanes/mathis-1.jpeg", "ogw": 720, "ogh": 960,
       "fr": { "title": "La Cabane de Mathis · Cabane dans les arbres à Ogens (VD)",
-              "desc": "Nid de Robinson perché pour deux, avec vue sur l'étang, à Ogens (VD). Dès 280.– la nuit, petit-déjeuner local et accès à l'éco-spa inclus." },
+              "desc": "Nid de Robinson perché pour deux, avec vue sur l'étang, à Ogens (VD). Dès 290.– la nuit, petit-déjeuner local et accès à l'éco-spa inclus." },
       "de": { "title": "La Cabane de Mathis · Baumhaus in Ogens (Waadt)",
-              "desc": "Ein Robinson-Nest für zwei, hoch in den Bäumen, mit Blick auf den Teich, in Ogens (Waadt). Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+              "desc": "Ein Robinson-Nest für zwei, hoch in den Bäumen, mit Blick auf den Teich, in Ogens (Waadt). Ab 290.– pro Nacht, Frühstück und Öko-Spa inklusive." },
       "en": { "title": "La Cabane de Mathis · Treehouse in Ogens (Vaud)",
-              "desc": "A Robinson-style nest for two, perched in the trees with a view of the pond, in Ogens (Vaud). From CHF 280 a night, breakfast and eco-spa included." }
+              "desc": "A Robinson-style nest for two, perched in the trees with a view of the pond, in Ogens (Vaud). From CHF 290 a night, breakfast and eco-spa included." }
     },
     "cabane-alanis": {
       "og": "assets/cabanes/alanis-2.jpeg", "ogw": 720, "ogh": 960,
       "fr": { "title": "L'Arche d'Alanis · Cabane dans les arbres à Ogens (VD)",
-              "desc": "Dormez à 3 mètres du sol, au-dessus des chevaux, dans une cabane perchée à Ogens (VD). Dès 280.– la nuit, petit-déjeuner et éco-spa inclus." },
+              "desc": "Dormez à 3 mètres du sol, au-dessus des chevaux, dans une cabane perchée à Ogens (VD). Dès 290.– la nuit, petit-déjeuner et éco-spa inclus." },
       "de": { "title": "L'Arche d'Alanis · Baumhaus in Ogens (Waadt)",
-              "desc": "Schlafen in 3 Metern Höhe, über den Pferden, in einem Baumhaus in Ogens (Waadt). Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+              "desc": "Schlafen in 3 Metern Höhe, über den Pferden, in einem Baumhaus in Ogens (Waadt). Ab 290.– pro Nacht, Frühstück und Öko-Spa inklusive." },
       "en": { "title": "L'Arche d'Alanis · Treehouse in Ogens (Vaud)",
-              "desc": "Sleep 3 metres up, above the horses, in a treehouse in Ogens (Vaud). From CHF 280 a night, breakfast and eco-spa included." }
+              "desc": "Sleep 3 metres up, above the horses, in a treehouse in Ogens (Vaud). From CHF 290 a night, breakfast and eco-spa included." }
     },
     "cabane-camille": {
       "og": "assets/cabanes/camille-1.jpeg", "ogw": 720, "ogh": 960,
       "fr": { "title": "La Jia de Camille · Cabane dans les arbres à Ogens (VD)",
-              "desc": "Une cabane perchée à l'ambiance asiatique à Ogens (VD), jusqu'à 5 personnes plus bébé. Dès 280.– la nuit, petit-déjeuner et éco-spa inclus." },
+              "desc": "Une cabane perchée à l'ambiance asiatique à Ogens (VD), jusqu'à 5 personnes plus bébé. Dès 290.– la nuit, petit-déjeuner et éco-spa inclus." },
       "de": { "title": "La Jia de Camille · Baumhaus in Ogens (Waadt)",
-              "desc": "Ein Baumhaus mit asiatischem Flair in Ogens (Waadt), für bis zu 5 Personen plus Baby. Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+              "desc": "Ein Baumhaus mit asiatischem Flair in Ogens (Waadt), für bis zu 5 Personen plus Baby. Ab 290.– pro Nacht, Frühstück und Öko-Spa inklusive." },
       "en": { "title": "La Jia de Camille · Treehouse in Ogens (Vaud)",
-              "desc": "A treehouse with an Asian feel in Ogens (Vaud), for up to 5 guests plus a baby. From CHF 280 a night, breakfast and eco-spa included." }
+              "desc": "A treehouse with an Asian feel in Ogens (Vaud), for up to 5 guests plus a baby. From CHF 290 a night, breakfast and eco-spa included." }
     },
     "cabane-mila": {
       "og": "assets/cabanes/mila-1.jpeg", "ogw": 1080, "ogh": 1620,
       "fr": { "title": "Le Royaume de Mila · Cabane dans les arbres à Ogens (VD)",
-              "desc": "Dormez à la belle étoile au-dessus de la rivière, dans une cabane perchée à Ogens (VD). Dès 280.– la nuit, petit-déjeuner et éco-spa inclus." },
+              "desc": "Dormez à la belle étoile au-dessus de la rivière, dans une cabane perchée à Ogens (VD). Dès 290.– la nuit, petit-déjeuner et éco-spa inclus." },
       "de": { "title": "Le Royaume de Mila · Baumhaus in Ogens (Waadt)",
-              "desc": "Unter dem Sternenhimmel über dem Fluss schlafen, in einem Baumhaus in Ogens (Waadt). Ab 280.– pro Nacht, Frühstück und Öko-Spa inklusive." },
+              "desc": "Unter dem Sternenhimmel über dem Fluss schlafen, in einem Baumhaus in Ogens (Waadt). Ab 290.– pro Nacht, Frühstück und Öko-Spa inklusive." },
       "en": { "title": "Le Royaume de Mila · Treehouse in Ogens (Vaud)",
-              "desc": "Sleep under the stars above the river in a treehouse in Ogens (Vaud). From CHF 280 a night, breakfast and eco-spa included." }
+              "desc": "Sleep under the stars above the river in a treehouse in Ogens (Vaud). From CHF 290 a night, breakfast and eco-spa included." }
     },
     "faq": {
       "og": "assets/img/share.jpg", "ogw": 1200, "ogh": 630,

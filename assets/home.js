@@ -105,14 +105,39 @@
   var f = D.getElementById('alForm');
   if (!f) return;
   var done = D.getElementById('alDone'), err = D.getElementById('alErr');
+  var telIn = D.getElementById('alTel'), telErr = D.getElementById('alTelErr');
   var L = {
-    fr: { bad: 'Merci de vérifier votre e-mail, votre téléphone et vos dates.', order: "Le départ doit être après l'arrivée." },
-    de: { bad: 'Bitte überprüfen Sie E-Mail, Telefon und Daten.', order: 'Die Abreise muss nach der Anreise liegen.' },
-    en: { bad: 'Please check your email, phone and dates.', order: 'Departure must be after arrival.' }
+    fr: { bad: 'Merci de vérifier votre e-mail, votre téléphone et vos dates.', order: "Le départ doit être après l'arrivée.",
+          telReq: 'Merci d’indiquer votre numéro de téléphone (obligatoire).',
+          telBad: 'Ce numéro ne semble pas valable : indiquez 7 à 15 chiffres, par exemple 079 123 45 67 ou +49 170 1234567.',
+          mail: { hi: 'Bonjour,', ask: 'Merci de me prévenir si une cabane se libère :', cab: 'Cabane(s)', arr: 'Arrivée', dep: 'Départ', n: 'Nombre de personnes', em: 'E-mail', tel: 'Téléphone', bye: 'Merci !' } },
+    de: { bad: 'Bitte überprüfen Sie E-Mail, Telefon und Daten.', order: 'Die Abreise muss nach der Anreise liegen.',
+          telReq: 'Bitte geben Sie Ihre Telefonnummer an (Pflichtfeld).',
+          telBad: 'Diese Nummer scheint ungültig: Bitte 7 bis 15 Ziffern angeben, z. B. 079 123 45 67 oder +49 170 1234567.',
+          mail: { hi: 'Guten Tag', ask: 'Bitte benachrichtigen Sie mich, wenn eine Hütte frei wird:', cab: 'Hütte(n)', arr: 'Anreise', dep: 'Abreise', n: 'Anzahl Personen', em: 'E-Mail', tel: 'Telefon', bye: 'Vielen Dank!' } },
+    en: { bad: 'Please check your email, phone and dates.', order: 'Departure must be after arrival.',
+          telReq: 'Please enter your phone number (required).',
+          telBad: 'This number does not look valid: please enter 7 to 15 digits, e.g. 079 123 45 67 or +49 170 1234567.',
+          mail: { hi: 'Hello,', ask: 'Please let me know if a cabin frees up:', cab: 'Cabin(s)', arr: 'Arrival', dep: 'Departure', n: 'Number of guests', em: 'Email', tel: 'Phone', bye: 'Thank you!' } }
   };
   function m(k) { var l = window.__lang || 'fr'; return (L[l] || L.fr)[k]; }
   function fail(msg) { err.textContent = msg; err.classList.add('show'); }
   function clear() { err.textContent = ''; err.classList.remove('show'); }
+  // téléphone suisse ou étranger : « + » ou « 00 » permis au début ; espaces, points, tirets, barres et parenthèses tolérés ;
+  // 7 à 15 chiffres (sans le « 00 » international). Validation souple : on ne refuse pas un numéro valable.
+  function telOk(v) {
+    v = v.trim();
+    if (!/^(\+|00)?[\d\s().\-\/]+$/.test(v)) return false;
+    var d = v.replace(/\D/g, ''); if (/^00/.test(v)) d = d.slice(2);
+    return d.length >= 7 && d.length <= 15;
+  }
+  // message lié au champ (aria-describedby / aria-invalid) ; ce que la personne a saisi n'est jamais effacé
+  function telMsg(msg) {
+    if (!telIn || !telErr) return;
+    telErr.textContent = msg || ''; telErr.hidden = !msg;
+    telIn.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  }
+  if (telIn) telIn.addEventListener('input', function () { if (telIn.getAttribute('aria-invalid') === 'true' && telOk(telIn.value)) telMsg(''); });
   function finish() { f.style.display = 'none'; done.style.display = 'block'; }
 
   f.addEventListener('submit', async function (e) {
@@ -123,7 +148,10 @@
     var email = f.email.value.trim(), tel = (f.tel && f.tel.value) ? f.tel.value.trim() : '',
         start = f.start.value, end = f.end.value, guests = (f.guests && f.guests.value) ? f.guests.value : '';
     var cabs = [].slice.call(f.querySelectorAll('input[name=cabin]:checked')).map(function (c) { return c.value; });
-    if (!email || !/.+@.+\..+/.test(email) || !tel || !start || !end) { fail(m('bad')); return; }
+    var telProblem = !tel ? m('telReq') : (!telOk(tel) ? m('telBad') : '');
+    telMsg(telProblem);
+    if (telProblem && (email && /.+@.+\..+/.test(email) && start && end)) { telIn.focus(); return; }
+    if (!email || !/.+@.+\..+/.test(email) || telProblem || !start || !end) { fail(m('bad')); if (telProblem) telIn.focus(); return; }
     if (end <= start) { fail(m('order')); return; }
     if (!cabs.length) cabs = ["N'importe laquelle"];
     var btn = f.querySelector('button[type=submit]');
@@ -138,8 +166,9 @@
       }, 'Alerte disponibilité — ' + cabs.join(', '));
     } catch (x) { ok = false; }
     if (!ok) {
+      var t = m('mail'), sep = (window.__lang === 'fr' || !window.__lang) ? ' : ' : ': ';
       var subj = encodeURIComponent('Alerte disponibilité — ' + cabs.join(', '));
-      var body = encodeURIComponent('Bonjour,\n\nMerci de me prévenir si une cabane se libère :\n\nCabane(s) : ' + cabs.join(', ') + '\nArrivée : ' + start + '\nDépart : ' + end + '\nNombre de personnes : ' + guests + '\nE-mail : ' + email + '\nTéléphone : ' + tel + '\n\nMerci !');
+      var body = encodeURIComponent(t.hi + '\n\n' + t.ask + '\n\n' + t.cab + sep + cabs.join(', ') + '\n' + t.arr + sep + start + '\n' + t.dep + sep + end + '\n' + t.n + sep + guests + '\n' + t.em + sep + email + '\n' + t.tel + sep + tel + '\n\n' + t.bye);
       window.location.href = 'mailto:info@lescabanesdemarie.com?subject=' + subj + '&body=' + body;
     }
     if (btn) btn.disabled = false;

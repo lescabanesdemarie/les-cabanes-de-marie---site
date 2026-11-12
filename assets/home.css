@@ -152,6 +152,11 @@ body.cal-open{overflow:hidden}
 .al-done{display:none;padding:24px 0}
 .al-done h2{font-size:2rem}
 @media(max-width:620px){.al-form .btn{width:100%}}
+/* le formulaire d'alerte prend toute la largeur disponible, quel que soit le navigateur : une piste de grille « 1fr » peut
+   grandir avec son contenu (minimum = contenu), « minmax(0,1fr) » non ; les champs (dont les dates sur Safari) ne debordent pas */
+.alerte,.al-form{width:100%;min-width:0}
+.al-form input:not([type=checkbox]){min-width:0;max-width:100%;display:block}
+.alerte h2,.al-intro,.al-fine{overflow-wrap:break-word;hyphens:manual}
 
 /* ---------------------------------------------------------------- le reste, en bas : reprend le contenu d'avant, sans boîtes */
 .low-sec{padding-block:clamp(88px,14vh,180px)}
@@ -243,7 +248,7 @@ body.cal-open{overflow:hidden}
   .hero-fig img{object-position:40% 50%}
   .hero::after{background:linear-gradient(to top,rgba(28,21,17,.84) 0%,rgba(28,21,17,.66) 22%,rgba(28,21,17,.42) 42%,rgba(28,21,17,.16) 60%,rgba(28,21,17,0) 76%)}
   .hero-txt{padding:calc(var(--hh) + 140px) var(--pr) calc(env(safe-area-inset-bottom,0px) + 88px) var(--pl)}
-  .story-grid,.dom-top,.spa-grid,.boi-grid,.act-feature,.book-duo{grid-template-columns:1fr}
+  .story-grid,.dom-top,.spa-grid,.boi-grid,.act-feature,.book-duo{grid-template-columns:minmax(0,1fr)}
   .som h2 br{display:inline}
   .story-grid{margin-inline:0}
   .story-txt{padding-inline:var(--gut)}
