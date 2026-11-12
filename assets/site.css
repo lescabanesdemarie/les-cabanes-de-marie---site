@@ -436,7 +436,7 @@ body.cabpage .cab-top{padding-top:calc(var(--hh) + clamp(22px,4vh,40px))}
 .ph-mila-2{filter:brightness(1.13) saturate(.93) contrast(1.04)}
 .ph-mila-3{filter:brightness(.90) saturate(.76) contrast(1.04)}
 .ph-mila-4{filter:brightness(.93) saturate(1.12) contrast(1.04)}
-.ph-mila-5{filter:brightness(1.30) saturate(1.10) contrast(1.04)}
+.ph-mila-5{filter:brightness(.99) saturate(.73) contrast(1.04)}
 
 /* ---------------------------------------------------------------- mouvement réduit */
 @media(prefers-reduced-motion:reduce){
