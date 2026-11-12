@@ -2,6 +2,9 @@
   "de": {
     "skip": "Zum Inhalt springen",
     "banner": "Geschlossen bis 25. März 2027 · Buchungen ab 1. Januar 2027 möglich",
+    "pop.h": "Winterpause",
+    "pop.p": "Les Cabanes de Marie sind bis zum 25. März 2027 geschlossen. Buchungen für die Saison 2027 sind ab dem 1. Januar 2027 möglich.",
+    "pop.btn": "Zur Website",
     "nav.cab": "Die Hütten",
     "nav.spa": "Spa & Genuss",
     "nav.act": "Aktivitäten",
@@ -52,6 +55,9 @@
   "en": {
     "skip": "Skip to content",
     "banner": "Closed until 25 March 2027 · Bookings open from 1 January 2027",
+    "pop.h": "Closed for winter",
+    "pop.p": "Les Cabanes de Marie are closed until 25 March 2027. Bookings for the 2027 season open on 1 January 2027.",
+    "pop.btn": "Continue to the site",
     "nav.cab": "The cabins",
     "nav.spa": "Spa & dining",
     "nav.act": "Activities",

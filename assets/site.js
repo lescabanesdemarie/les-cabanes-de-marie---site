@@ -20,6 +20,52 @@
     if (until.length === 3 && Date.now() >= new Date(+until[0], +until[1] - 1, +until[2]).getTime()) closing.parentNode.removeChild(closing);
   }
 
+  /* ---- pop-up de fermeture (hiver) : <dialog id="wpop"> écrit par le build (POPUP_ON).
+         S'ouvre au chargement ; se ferme par le bouton, la croix, Échap ou un clic sur le fond ;
+         une fois fermée, ne revient pas pendant 7 jours (localStorage ; sans stockage : une fois par page).
+         Disparaît à partir de data-until (même date que le bandeau). ---- */
+  (function () {
+    var dlg = D.getElementById('wpop');
+    if (!dlg) return;
+    var KEY = 'cdm-wpop-closed', WEEK = 7 * 24 * 3600 * 1000, u = (dlg.getAttribute('data-until') || '').split('-');
+    function drop() { dlg.parentNode.removeChild(dlg); }
+    if (u.length === 3 && Date.now() >= new Date(+u[0], +u[1] - 1, +u[2]).getTime()) return drop();
+    try { var t = +localStorage.getItem(KEY); if (t && Date.now() - t < WEEK) return drop(); } catch (e) {}
+    if (typeof dlg.showModal !== 'function') return drop();   // très vieux navigateur : le bandeau suffit
+    var back = D.activeElement, go = dlg.querySelector('.wpop-go');
+    function done() {
+      if (!dlg.open) return;
+      dlg.close();
+    }
+    dlg.addEventListener('close', function () {
+      try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+      root.classList.remove('wpop-lock'); root.style.removeProperty('--sbw');
+      if (back && back !== D.body && back.focus) { try { back.focus({ preventScroll: true }); } catch (e) {} }
+      // arrivée sur une ancre (#reserver, #alerte-dispo…) : on s'y rend une fois la pop-up fermée
+      var h = location.hash && location.hash.length > 1 ? D.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+      if (h && h.scrollIntoView) h.scrollIntoView();
+      drop();
+    });
+    dlg.addEventListener('cancel', function (e) { e.preventDefault(); done(); });   // Échap
+    dlg.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('[data-wpop-close]')) return done();
+      if (e.target === dlg) done();   // la carte remplit le <dialog> : un clic qui le touche lui-même est sur le fond
+    });
+    // focus piégé dans la pop-up (Tab / Maj+Tab tournent entre ses boutons)
+    dlg.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var f = all('button, a[href]', dlg), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && D.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && D.activeElement === last) { e.preventDefault(); first.focus(); }
+      else if (f.indexOf(D.activeElement) < 0) { e.preventDefault(); (e.shiftKey ? last : first).focus(); }
+    });
+    var sbw = window.innerWidth - root.clientWidth;
+    if (sbw > 0) root.style.setProperty('--sbw', sbw + 'px');
+    root.classList.add('wpop-lock');
+    dlg.showModal();
+    if (go) go.focus();
+  })();
+
   /* ---- langue de la page (pour les scripts : Planyo, formulaires, Edith) ---- */
   var lang = (root.getAttribute('lang') || 'fr').slice(0, 2);
   window.__lang = lang;

@@ -30,6 +30,15 @@ $INDEXABLE = $true
 $BANNER_ON = $true
 $BANNER_TEXT = 'Ferm' + [char]0xE9 + ' jusqu''au 25 mars 2027 ' + [char]0xB7 + ' R' + [char]0xE9 + 'servations ouvertes d' + [char]0xE8 + 's le 1er janvier 2027'
 $BANNER_UNTIL = '2027-03-25'
+#  POP-UP DE FERMETURE (hiver) : s'ouvre a la premiere page visitee, a refermer pour utiliser le site ; une fois fermee,
+#    elle ne revient pas pendant 7 jours sur ce navigateur. Sans JavaScript : pas de pop-up (le bandeau suffit).
+#    $POPUP_ON = $false : plus de pop-up (une seule ligne a changer, puis relancer build.ps1).
+#    Textes francais ci-dessous ; l'allemand et l'anglais sont dans src/i18n/chrome.json (cles "pop.*").
+#    Elle disparait aussi toute seule a partir de $BANNER_UNTIL (meme date que le bandeau).
+$POPUP_ON = $true
+$POPUP_TITLE = 'Ferm' + [char]0xE9 + ' pour l''hiver'
+$POPUP_TEXT = 'Les Cabanes de Marie sont ferm' + [char]0xE9 + 'es jusqu''au 25 mars 2027. Les r' + [char]0xE9 + 'servations pour la saison 2027 ouvrent le 1er janvier 2027.'
+$POPUP_BTN = 'D' + [char]0xE9 + 'couvrir le site'
 # =====================================================================================================================
 
 $ErrorActionPreference = 'Stop'
@@ -158,6 +167,18 @@ foreach ($p in $pages) {
   # bandeau d'information (dans la barre du haut)
   $bannerHtml = if ($BANNER_ON) { '<p class="closing" data-i="banner" data-until="' + $BANNER_UNTIL + '">' + $BANNER_TEXT + '</p>' } else { '' }
   $t = $t.Replace('<!--build:banner-->', $bannerHtml)
+  # pop-up de fermeture (juste apres la barre du haut ; c'est assets/site.js qui l'ouvre)
+  $popupHtml = ''
+  if ($POPUP_ON) {
+    $popupHtml = '<dialog class="wpop" id="wpop" aria-modal="true" aria-labelledby="wpop-h" aria-describedby="wpop-p" data-until="' + $BANNER_UNTIL + '"><div class="wpop-in">' +
+      '<button type="button" class="wpop-x" aria-label="Fermer" data-i-aria="nav.close" data-wpop-close><span aria-hidden="true">&times;</span></button>' +
+      '<img class="wpop-logo" src="assets/img/logo-dark.png" alt="" width="34" height="32">' +
+      '<h2 id="wpop-h" data-i="pop.h">' + $POPUP_TITLE + '</h2>' +
+      '<p id="wpop-p" data-i="pop.p">' + $POPUP_TEXT + '</p>' +
+      '<button type="button" class="btn wpop-go" data-wpop-close data-i="pop.btn">' + $POPUP_BTN + '</button>' +
+      '</div></dialog>'
+  }
+  $t = $t.Replace('<!--build:popup-->', $popupHtml)
   $pd = @{ de = @{}; en = @{} }
   $m = [regex]::Match($t, 'window\.CDM_I18N\s*=\s*\{')
   if ($m.Success) {
